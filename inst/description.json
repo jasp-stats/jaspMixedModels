@@ -1,23 +1,50 @@
 {
-	"moduleDescription"  :
+	"moduleDescription" :
 	{
-		"title"          : "Mixed Models",
-		"name"           : "MixedModels",
-		"icon"			 : "analysis-descriptives.svg",
-		"description"    : "This module offers the Linear Mixed Models analysis.",
-		"version"        : 1,
-		"author"         : "JASP Team",
-		"maintainer"     : "JASP Team <info@jasp-stats.org>",
-		"website"        : "jasp-stats.org",
-		"license"        : "GPL (>= 2)",
-		"dynamic"        : false
+		"title" :		"Mixed Models",
+		"description":	"LME",
+		"version":		"0.1",
+		"requiresData":	false,
+		"author":		"JASP Team",
+		"maintainer":	"JASP Team <info@jasp-stats.org>",
+		"website":		"www.jasp-stats.org",
+		"license":		"GPL (>= 2)"
 	},
+
 
 	"menu":
 	[
 		{
+			"title": 	"Classical",
+			"icon":		"analysis-classical-crosstabs.svg"
+		},
+		{
+			"menu":		"Linear Mixed Models",
 			"title":	"Linear Mixed Models",
-			"function":	"LinearMixedModels"
+			"qml":		"MixedModelsLMM.qml",
+			"function":	"MixedModelsLMM"
+		},
+		{
+			"menu":		"Generalized Linear Mixed Models",
+			"title":	"Generalized Linear Mixed Models",
+			"qml":		"MixedModelsGLMM.qml",
+			"function":	"MixedModelsGLMM"
+		},
+		{
+			"title": 	"Bayesian",
+			"icon":		"analysis-bayesian-crosstabs.svg"
+		},
+		{
+			"menu":		"Linear Mixed Models",
+			"title":	"Bayesian Linear Mixed Models",
+			"qml":		"MixedModelsBLMM.qml",
+			"function":	"MixedModelsBLMM"
+		},
+		{
+			"menu":		"Genralized Linear Mixed Models",
+			"title":	"Bayesian Generalized Linear Mixed Models",
+			"qml":		"MixedModelsBGLMM.qml",
+			"function":	"MixedModelsBGLMM"
 		}
 	]
 }

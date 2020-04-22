@@ -1,1 +1,4 @@
-export(LinearMixedModels)
+export(MixedModelsLMM)
+export(MixedModelsGLMM)
+export(MixedModelsBLMM)
+export(MixedModelsBGLMM)
