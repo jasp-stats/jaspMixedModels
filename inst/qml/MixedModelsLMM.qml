@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2013-2018 University of Amsterdam
+// Copyright (C) 2013-2020 University of Amsterdam
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -72,19 +72,21 @@ Form {
 
 			AssignedVariablesList
 			{
-				name: "fixedEffects"
-				title: qsTr("Fixed effects")
+				id			: fixedEffects
+				name		: "fixedEffects"
+				title		: qsTr("Fixed effects")
 				listViewType: JASP.Interaction
 			}
 		}
 
 		ComponentsList
 		{
-			title: 		qsTr("Random effects")
-			name:   	"randomEffects"
-			source: 	"randomVariables"
-			cellHeight: 160 * preferencesModel.uiScale
-			height: 	count * cellHeight + 10
+			id:					randomEffetcs
+			title:				qsTr("Random effects")
+			name:				"randomEffects"
+			source:				"randomVariables"
+			cellHeight:			fixedEffects.count * 30 + 40 * preferencesModel.uiScale
+			preferredHeight: 	count * cellHeight + 25 * preferencesModel.uiScale
 
 			rowComponents:
 			[
@@ -92,23 +94,25 @@ Form {
 				{
 					Group
 					{
-						width: 200
-						Label { text:"Random slopes by "+ rowValue }
+						RowLayout
+						{
+							Layout.preferredWidth: randomEffetcs.width
+							Label { text: qsTr("Random slopes by %1").arg(rowValue); Layout.preferredWidth: parent.width / 2 }
+							CheckBox { label: qsTr("Correlations"); name: "correlations"; Layout.preferredWidth: parent.width / 2 }
+						}
 						ComponentsList
 						{
 							name:   "randomComponents"
 							source: "fixedEffects"
-							cellHeight: 30
-							height: count * cellHeight + 10
+							cellHeight: 30 * preferencesModel.uiScale
+							preferredHeight: count * cellHeight + 10 * preferencesModel.uiScale
+							preferredWidth: randomEffetcs.width - 8 * preferencesModel.uiScale
 
 							rowComponents:
 							[
 								Component { CheckBox { name: "randomSlopes"; label: rowValue; checked: true } }
 							]
-						}
-						
-						
-						
+						}						
 					}
 				}
 				//Component{
@@ -471,6 +475,7 @@ Form {
 
 		DoubleField
 		{ // TODO: grayed out unless continous variable is selected
+			id:	marginalMeansSD
 			name: "marginalMeansSD"
 			label: "SD factor covariates"
 			defaultValue: 1
@@ -544,60 +549,13 @@ Form {
 			]
 		}
 
-		InputListView
+		MarginalMeansContrastsTableView
 		{
 			Layout.columnSpan: 2
 			visible: marginalMeansContrast.checked
- 			name                  : "Contrasts"
- 			title                 : qsTr("Rows")
- 			optionKey             : "group"
- 			defaultValues         : ["1", "2"]
- 			placeHolder           : qsTr("New row")
- 			rowComponentsLabels   : [qsTr("Contrasts	       	")]
-
- 			rowComponents:
- 			[
-       		    Component
-        		{
-        		    DoubleField
-    		        {
-    		            name: "col1"
-						negativeValues: true
-   		            }
-   		        },
-   		        Component
-   		        {
-    	            DoubleField
-    		        {
-    		            name: "col2"
-						negativeValues: true
-		            }
-		        },
-		        Component
-		        {
-		            DoubleField
-		            {
-		                name: "col3"
-						negativeValues: true
-              	    }
-           		},
-				Component
-		        {
-		            DoubleField
-		            {
-		                name: "col4"
-						negativeValues: true
-              	    }
-           		},
-				Component
-		        {
-		            DoubleField
-		            {
-		                name: "col5"
-						negativeValues: true
-              	    }
-           		}
-    		]
+			name: "Contrasts"
+			source:	"marginalMeans"
+			scaleFactor: marginalMeansSD.value
 		}
 	}
 
