@@ -81,11 +81,12 @@ Form {
 
 		ComponentsList
 		{
-			title: 		qsTr("Random effects")
-			name:   	"randomEffects"
-			source: 	"randomVariables"
-			cellHeight: 160 * preferencesModel.uiScale
-			height: 	count * cellHeight + 10
+			id:					randomEffetcs
+			title:				qsTr("Random effects")
+			name:				"randomEffects"
+			source:				"randomVariables"
+			cellHeight:			fixedEffects.count * 30 + 40 * preferencesModel.uiScale
+			preferredHeight: 	count * cellHeight + 25 * preferencesModel.uiScale
 
 			rowComponents:
 			[
@@ -93,28 +94,27 @@ Form {
 				{
 					Group
 					{
-						width: 200
-						Label { text:"Random slopes by "+ rowValue }
+						RowLayout
+						{
+							Layout.preferredWidth: randomEffetcs.width
+							Label { text: qsTr("Random slopes by %1").arg(rowValue); Layout.preferredWidth: parent.width / 2 }
+							CheckBox { label: qsTr("Correlations"); name: "correlations"; checked: true; Layout.preferredWidth: parent.width / 2 }
+						}
 						ComponentsList
 						{
 							name:   "randomComponents"
 							source: "fixedEffects"
-							cellHeight: 30
-							height: count * cellHeight + 10
+							cellHeight: 30 * preferencesModel.uiScale
+							preferredHeight: count * cellHeight + 10 * preferencesModel.uiScale
+							preferredWidth: randomEffetcs.width - 8 * preferencesModel.uiScale
 
 							rowComponents:
 							[
 								Component { CheckBox { name: "randomSlopes"; label: rowValue; checked: true } }
 							]
-						}
-						
-						
-						
+						}						
 					}
 				}
-				//Component{
-				//	CheckBox { name: "correlation"; label: qsTr("Correlation") }
-				//}
 			]
 		}
 		
@@ -170,6 +170,14 @@ Form {
 		Group
 		{
 
+			RadioButtonGroup
+			{
+				name: "show"
+				title: qsTr("Show")
+				RadioButton { value: "deviation";	label: qsTr("Deviations from mean"); checked: true}
+				RadioButton { value: "mmeans";		label: qsTr("Marginal means") }
+			}
+
 			Group
 			{
 				CheckBox
@@ -199,7 +207,7 @@ Form {
 
 	Section
 	{
-		title: qsTr("Sampling diagnostics")
+		title: qsTr("MCMC diagnostics")
 		expanded: false
 
 		VariablesForm
@@ -529,66 +537,19 @@ Form {
 
 
 		CheckBox
-		{// TODO: add the widget
+		{
 			name: "marginalMeansContrast"
 			id: marginalMeansContrast
 			label: qsTr("Specify contrasts")
 		}
 
-		InputListView
+		MarginalMeansContrastsTableView
 		{
 			Layout.columnSpan: 2
 			visible: marginalMeansContrast.checked
- 			name                  : "Contrasts"
- 			title                 : qsTr("Rows")
- 			optionKey             : "group"
- 			defaultValues         : ["1", "2"]
- 			placeHolder           : qsTr("New row")
- 			rowComponentsLabels   : [qsTr("Contrasts	       	")]
-
- 			rowComponents:
- 			[
-       		    Component
-        		{
-        		    DoubleField
-    		        {
-    		            name: "col1"
-						negativeValues: true
-   		            }
-   		        },
-   		        Component
-   		        {
-    	            DoubleField
-    		        {
-    		            name: "col2"
-						negativeValues: true
-		            }
-		        },
-		        Component
-		        {
-		            DoubleField
-		            {
-		                name: "col3"
-						negativeValues: true
-              	    }
-           		},
-				Component
-		        {
-		            DoubleField
-		            {
-		                name: "col4"
-						negativeValues: true
-              	    }
-           		},
-				Component
-		        {
-		            DoubleField
-		            {
-		                name: "col5"
-						negativeValues: true
-              	    }
-           		}
-    		]
+			name: "Contrasts"
+			source:	"marginalMeans"
+			scaleFactor: marginalMeansSD.value
 		}
 	}
 
@@ -649,67 +610,20 @@ Form {
 
 
 		CheckBox
-		{// TODO: add the widget
+		{
 			name: "trendsContrast"
 			id: trendsContrast
 			label: qsTr("Specify contrasts")
 		}
 
 
-		InputListView
+		MarginalMeansContrastsTableView
 		{
 			Layout.columnSpan: 2
 			visible: trendsContrast.checked
- 			name                  : "trendsContrasts"
- 			title                 : qsTr("Rows")
- 			optionKey             : "group"
- 			defaultValues         : ["1", "2"]
- 			placeHolder           : qsTr("New row")
- 			rowComponentsLabels   : [qsTr("Contrasts	       	")]
-
- 			rowComponents:
- 			[
-       		    Component
-        		{
-        		    DoubleField
-    		        {
-    		            name: "col1"
-						negativeValues: true
-   		            }
-   		        },
-   		        Component
-   		        {
-    	            DoubleField
-    		        {
-    		            name: "col2"
-						negativeValues: true
-		            }
-		        },
-		        Component
-		        {
-		            DoubleField
-		            {
-		                name: "col3"
-						negativeValues: true
-              	    }
-           		},
-				Component
-		        {
-		            DoubleField
-		            {
-		                name: "col4"
-						negativeValues: true
-              	    }
-           		},
-				Component
-		        {
-		            DoubleField
-		            {
-		                name: "col5"
-						negativeValues: true
-              	    }
-           		}
-    		]
+			name: "trendsContrasts"
+			source:	"trendsVariables"
+			scaleFactor: trendsSD.value
 		}
 	}
 

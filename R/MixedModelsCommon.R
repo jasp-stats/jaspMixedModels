@@ -15,14 +15,25 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+# TODO with Bruno:
+# - Model: add the interaction to fixed-efects model terms automatically
+# - Model: adjust the height that even 4-way interactions are visible (scaling can also hide some random slopes)
+# - Plots: background data show - automatically filled with 'random effect grouping factors'
+# - Plots: missaligned double inputs - they fixed themselfs ones the GUI is scaled
+# - Estimated marginal means: show only non-interaction terms
+# - Estimated marginal means: SD factor covariate is enabled only when a continous variable is selected
+# - Estimated marginal means: setting a value in the widget to 0 doesn't refresh it
+# - Estimated trends: continous variables variable box is filled with only continuous variables
+# - (B)GLMM Family/link: changing the link value in case of family change
+
 
 # additional libraries: ggpol, ggbeeswarm, beeswarm, vipor
-# bayesplot, bayesplot, rstanarm, shinystan, dygraphs, threejs, crosstalk, crosstalk, shinythemes, stanova (github)
+# bayesplot, bayesplot, rstanarm, shinystan, dygraphs, threejs, crosstalk, crosstalk, shinythemes, stanova (github),
+# extraDistr, DPQ, runjags  (for RoBMA)
 # TODO:
-# add note to plots regarding aggregation - not possible according to Tim
-# add ESS warnings for Stan and rework the messages
-# add possibility to display marginal effects instead of the deviation for Stan
-# different priors for Stan?
+# - add ESS warnings for Stan and rework the messages
+# - expose priors specification to users in Bxxx?
+# - solve starting values problems for GLMM
 
 # remove when merged to JASP
 .VovkSellkeMPR <- function(p){
@@ -143,8 +154,7 @@
     re_terms <- .mmSimplifyTerms(temp_vars)
     re_terms <- paste0(re_terms, collapse = "+")
     
-    new_re <- paste0("(", ifelse(re_terms == "", 1, re_terms)  , "|", .v(temp_re$value), ")")
-    
+    new_re <- paste0("(", ifelse(re_terms == "", 1, re_terms), ifelse(temp_re$correlation, "|", "||"), .v(temp_re$value), ")")
     
     random_effects <- c(random_effects, new_re)
     removed_me[[temp_re$value]] <- .unv(me_to_remove)
@@ -195,7 +205,7 @@
   model_formula <- .mmModelFormula(options, dataset)
   
   if(type == "LMM"){
-    model <- afex::mixed(
+    model <- tryCatch(afex::mixed(
       formula         = as.formula(model_formula$model_formula),
       data            = dataset, 
       type            = options$type,
@@ -203,7 +213,7 @@
       test_intercept  = options$test_intercept,
       args_test       = list(nsim = options$bootstrap_samples),
       check_contrasts = TRUE
-    ) 
+    ), error = function(e)return(e))
   }else if(type == "GLMM"){
     # needs to be avaluated in the global environment
     glmm_family <<- options$family
@@ -212,7 +222,7 @@
     # I wish there was a better way to do this
     if(options$dependentVariableAggregation != "" & options$family == "binomial"){
       glmm_weight <<- dataset[,.v(options$dependentVariableAggregation)]
-      model <- afex::mixed(
+      model <- tryCatch(afex::mixed(
         formula         = as.formula(model_formula$model_formula),
         data            = dataset, 
         type            = options$type,
@@ -222,9 +232,9 @@
         check_contrasts = TRUE,
         family          = eval(call(glmm_family,glmm_link)),
         weights         = glmm_weight
-      )       
+      ), error = function(e)return(e))
     }else{
-      model <- afex::mixed(
+      model <- tryCatch(afex::mixed(
         formula         = as.formula(model_formula$model_formula),
         data            = dataset, 
         type            = options$type,
@@ -232,10 +242,10 @@
         test_intercept  = options$test_intercept,
         args_test       = list(nsim = options$bootstrap_samples),
         check_contrasts = TRUE,
+        #start           = start,
         family          = eval(call(glmm_family,glmm_link))
-      ) 
+      ), error = function(e)return(e))
     }
-
   }
 
   
@@ -262,6 +272,24 @@
     dependencies <- .mmDependenciesGLMM
   }
   ANOVAsummary$dependOn(c(dependencies, "pvalVS"))
+  
+  
+  # some error managment for GLMMS - and oh boy, they can fail really easily
+  if(type %in% c("LMM", "GLMM")){
+    if(any(attr(model, "class") %in% c("std::runtime_error", "C++Error", "error"))){
+      if(model$message == "(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate"){
+        ANOVAsummary$setError("The optimizer failed to find solution. Probabably due to quasi-separation in the data. Try removing some of the predictiors.")
+      }else if(model$message == "cannot find valid starting values: please specify some"){
+        ANOVAsummary$setError("Invalid starting values.")
+      }else{
+        ANOVAsummary$setError(model$message)
+      }
+    }
+    
+    jaspResults[["ANOVAsummary"]] <- ANOVAsummary
+    return()
+  }
+  
   
   ANOVAsummary$addColumnInfo(name = "effect",   title = "Effect", type = "string")
   
@@ -351,10 +379,8 @@
   ANOVAsummary$addFootnote(.mmMessageTermTest(options$method))
   
   
-  
-  
   jaspResults[["ANOVAsummary"]] <- ANOVAsummary
-  
+  return()
 }
 .mmSummaryRE     <- function(jaspResults, options, type = "LMM"){
   
@@ -737,7 +763,7 @@
   
   # deal with continuous predictors
   at <- NULL
-  for(var in options$marginalMeans){
+  for(var in unlist(options$marginalMeans)){
     if(typeof(dataset[,.v(var)]) == "double"){
       at[[.v(var)]] <- c(mean(dataset[,.v(var)], na.rm = TRUE) + c(-1,0,1)*options$marginalMeansSD*sd(dataset[,.v(var)], na.rm = TRUE))
     }
@@ -752,22 +778,23 @@
   }
   emm <- emmeans::emmeans(
     object  = model,
-    specs   = .v(options$marginalMeans),
+    specs   = .v(unlist(options$marginalMeans)),
     at      = at,
     options = list(
       level = options$marginalMeansCIwidth
     ),
     type    = if(type %in% c("GLMM", "BGLMM"))if(options$marginalMeansResponse)"response"
   )
+  
   emm_table  <- as.data.frame(emm)
   if(type %in% c("LMM", "GLMM")){
     if(options$marginalMeansCompare){
       emm_test <- as.data.frame(emmeans::test(emm, null = options$marginalMeansCompareTo))
     }    
   }
-
   
   EMMsummary <- createJaspTable(title = "Estimated Marginal Means")
+  EMMresults <- createJaspState()
   
   EMMsummary$position <- 6
   if(type == "LMM"){
@@ -780,17 +807,17 @@
     dependencies <- c(.mmDependenciesGLMM, "marginalMeansResponse")
   }
   if(type %in% c("LMM","GLMM")){
-    dependencies_add <- c("marginalMeans", "marginalMeansDf", "marginalMeansSD", "marginalMeansCompare", "marginalMeansCompareTo", "marginalMeansContrast", "marginalMeansCIwidth", "pvalVS", "marginalMeansOverride")
+    dependencies_add <- c("marginalMeans", "marginalMeansDf", "marginalMeansSD", "marginalMeansCompare", "marginalMeansCompareTo", "marginalMeansCIwidth", "pvalVS", "marginalMeansOverride", "marginalMeansContrast")
   }else{
-    dependencies_add <- c("marginalMeans", "marginalMeansSD", "marginalMeansContrast", "marginalMeansCIwidth")
+    dependencies_add <- c("marginalMeans", "marginalMeansSD", "marginalMeansCIwidth", "marginalMeansContrast")
   }
   EMMsummary$dependOn(c(dependencies, dependencies_add))
-  
+  EMMresults$dependOn(c(dependencies, dependencies_add))
   
   if(options$marginalMeansContrast){
     EMMsummary$addColumnInfo(name = "number", title = "Row", type = "integer")
   }
-  for(v in options$marginalMeans){
+  for(v in unlist(options$marginalMeans)){
     if(typeof(dataset[,.v(v)]) == "double"){
       EMMsummary$addColumnInfo(name = .v(v), title = .unv(v), type = "number") 
     }else{
@@ -833,7 +860,7 @@
       temp_row$number <- i
     }
     
-    for(v in options$marginalMeans){
+    for(v in unlist(options$marginalMeans)){
       if(typeof(dataset[,.v(v)]) == "double"){
         temp_row[.v(v)] <- emm_table[i,.v(v)]
       }else{
@@ -865,7 +892,7 @@
     EMMsummary$addRows(temp_row)
   }
   
-  
+
   if(length(emm@misc$avgd.over) != 0){
     EMMsummary$addFootnote(.mmMessageAveragedOver(.unv(emm@misc$avgd.over)))
   }
@@ -880,9 +907,14 @@
   }
   
   jaspResults[["EMMsummary"]] <- EMMsummary
+  jaspResults[["EMMresults"]] <- EMMresults
   
-  # add contrasts
-  if(options$marginalMeansContrast).mmContrasts(emm, emm_table, options, jaspResults, type = type, what = "Means")
+  
+  object <- list(
+    emm         = emm,
+    emm_table   = emm_table
+  )
+  EMMresults$object <- object
   
   return()
 }
@@ -892,7 +924,7 @@
 
   # deal with continuous predictors
   at <- NULL
-  for(var in options$trends){
+  for(var in unlist(options$trendsVariables)){
     if(typeof(dataset[,.v(var)]) == "double"){
       at[[.v(var)]] <- c(mean(dataset[,.v(var)], na.rm = TRUE) + c(-1,0,1)*options$trendsSD*sd(dataset[,.v(var)], na.rm = TRUE))
     }
@@ -913,12 +945,12 @@
   trends_dataset <<- dataset
   trends_model   <<- model
   trends_response<<- options$trendsResponse
-  
+
   emm <- emmeans::emtrends(
     object  = trends_model,
     data    = trends_dataset,
-    specs   = .v(options$trendsVariables),
-    var     = .v(options$trendsTrend),
+    specs   = .v(unlist(options$trendsVariables)),
+    var     = .v(unlist(options$trendsTrend)),
     at      = trends_at,
     options = list(
       level = trends_CI
@@ -932,8 +964,8 @@
     }    
   }
   
-  
   trendsSummary <- createJaspTable(title = "Estimated Trends")
+  EMTresults <- createJaspState()
   
   trendsSummary$position <- 8
   if(type == "LMM"){
@@ -946,12 +978,12 @@
     dependencies <- c(.mmDependenciesGLMM, "trendsResponse")
   }
   if(type %in% c("LMM","GLMM")){
-    dependencies_add <- c("trendsVariables", "trendsTrend", "trendsDf", "trendsSD", "trendsCompare", "trendsCompareTo", "trendsContrast", "trendsCIwidth", "pvalVS", "trendsOverride")
+    dependencies_add <- c("trendsVariables", "trendsTrend", "trendsDf", "trendsSD", "trendsCompare", "trendsCompareTo", "trendsCIwidth", "pvalVS", "trendsOverride", "trendsContrast")
   }else{
-    dependencies_add <- c("trendsVariables", "trendsTrend", "trendsSD", "trendsContrast", "trendsCIwidth")
+    dependencies_add <- c("trendsVariables", "trendsTrend", "trendsSD", "trendsCIwidth", "trendsContrast")
   }
   trendsSummary$dependOn(c(dependencies, dependencies_add))
-  
+  EMTresults$dependOn(c(dependencies, dependencies_add))
   
   if(options$trendsContrast){
     trendsSummary$addColumnInfo(name = "number", title = "Row", type = "integer")
@@ -965,7 +997,7 @@
       trendsSummary$addColumnInfo(name = v, title = .unv(v), type = "string")      
     }
   }
-  trendsSummary$addColumnInfo(name = "slope", title = paste0(options$trendsTrend," (slope)"), type = "number")
+  trendsSummary$addColumnInfo(name = "slope", title = paste0(unlist(options$trendsTrend)," (slope)"), type = "number")
   if(type %in% c("LMM", "GLMM")){
     trendsSummary$addColumnInfo(name = "se",       title = "SE",       type = "number")
     trendsSummary$addColumnInfo(name = "df",       title = "df",       type = "number")
@@ -1044,15 +1076,28 @@
   }
   
   jaspResults[["trendsSummary"]] <- trendsSummary
+  jaspResults[["EMTresults"]]    <- EMTresults
   
-  # add contrasts
-  if(options$trendsContrast).mmContrasts(emm, emm_table, options, jaspResults, type = type, what = "Trends")
   
+  object <- list(
+    emm         = emm,
+    emm_table   = emm_table
+  )
+  EMTresults$object <- object
+
   return()
 }
-.mmContrasts     <- function(emm, emm_table, options, jaspResults, type = "LMM", what = "Means"){
+.mmContrasts     <- function(jaspResults, options, type = "LMM", what = "Means"){
   
+  if(what == "Means"){
+    emm       <- jaspResults[["EMMresults"]]$object$emm
+    emm_table <- jaspResults[["EMMresults"]]$object$emm_table    
+  }else if(what == "Trends"){
+    emm       <- jaspResults[["EMTresults"]]$object$emm
+    emm_table <- jaspResults[["EMTresults"]]$object$emm_table
+  }
   
+
   EMMCsummary <- createJaspTable(title = "Contrasts")
   
   EMMCsummary$position <- ifelse(what == "Means", 7, 9)
@@ -1073,9 +1118,9 @@
     }    
   }else if(what == "Trends"){
     if(type %in% c("LMM", "GLMM")){
-      dependencies_add <- c("trendsVariables", "trendsTrend", "trendsDf", "trendsSD", "trendsCompare", "trendsCompareTo", "trendsContrast", "trendsCIwidth", "pvalVS", "trendsOverride","trendsAdjustment")
+      dependencies_add <- c("trendsVariables", "trendsTrend", "trendsDf", "trendsSD", "trendsCompare", "trendsCompareTo", "trendsContrasts", "trendsCIwidth", "pvalVS", "trendsOverride","trendsAdjustment")
     }else{
-      dependencies_add <- c("trendsVariables", "trendsTrend", "trendsSD", "trendsContrast", "trendsCIwidth", "Contrasts", "trendsContrast")    
+      dependencies_add <- c("trendsVariables", "trendsTrend", "trendsSD", "trendsContrasts", "trendsCIwidth", "Contrasts", "trendsContrast")    
     } 
   }
   
@@ -1100,21 +1145,18 @@
     }
     
   }
-  
-  # TODO: rework based on the new widged
-  if(length(selectedContrasts) != nrow(emm_table)){
-    EMMCsummary$setError(paste0("The number of rows must be equal to ", nrow(emm_table)))
-    jaspResults[["EMMCsummary"]] <- EMMCsummary
+
+  contrs <- list()
+  i      <- 0
+  for(cont in selectedContrasts[sapply(selectedContrasts,function(x)x$isContrast)]){
+    if(all(cont$values == 0))next
+    i <- i + 1
+    contrs[[cont$name]] <- unname(sapply(cont$values, function(x)eval(parse(text = x))))
+  }
+  if(length(contrs) == 0){
+    jaspResults[[paste0("contrasts_",what)]] <- EMMCsummary
     return()
   }
-  
-  contrs <- list(
-    c1 = sapply(selectedContrasts, function(x)x$col1),
-    c2 = sapply(selectedContrasts, function(x)x$col2),
-    c3 = sapply(selectedContrasts, function(x)x$col3),
-    c4 = sapply(selectedContrasts, function(x)x$col4),
-    c5 = sapply(selectedContrasts, function(x)x$col5)
-  )
   
   
   # take care of the scale
@@ -1145,12 +1187,12 @@
   
   if(length(emm_contrast) == 2){
     EMMCsummary$setError(emm_contrast$message)
-    jaspResults[["EMMCsummary"]] <- EMMCsummary
+    jaspResults[[paste0("contrasts_",what)]] <- EMMCsummary
     return()
   }
   
   if(type %in% c("LMM", "GLMM")){
-    EMMCsummary$addColumnInfo(name = "contrast", title = "Contrast",   type = "integer")    
+    EMMCsummary$addColumnInfo(name = "contrast", title = "",           type = "integer")    
     EMMCsummary$addColumnInfo(name = "estimate", title = "Estimate",   type = "number")
     EMMCsummary$addColumnInfo(name = "se",       title = "SE",         type = "number")
     EMMCsummary$addColumnInfo(name = "df",       title = "df",         type = "number")
@@ -1175,7 +1217,7 @@
     
     if(type %in% c("LMM", "GLMM")){
       temp_row <- list(
-        contrast = i,
+        contrast =  names(contrs)[i],
         estimate =  emm_contrast[i, "estimate"],
         se       =  emm_contrast[i, "SE"],
         df       =  emm_contrast[i, "df"],
@@ -1195,8 +1237,8 @@
       temp_row <- list(
         contrast = i,
         estimate = emm_contrast[i, "estimate"],
-        lowerCI  = emm_contrast[i, ncol(emm_table) - 1],
-        upperCI  = emm_contrast[i, ncol(emm_table)]
+        lowerCI  = emm_contrast[i, ncol(emm_table) - 2],
+        upperCI  = emm_contrast[i, ncol(emm_table) - 1]
       )
     }
     
@@ -1214,7 +1256,7 @@
     
   }
   
-  jaspResults[["EMMCsummary"]] <- EMMCsummary
+  jaspResults[[paste0("contrasts_",what)]] <- EMMCsummary
   
   
 }
@@ -1290,7 +1332,7 @@
       )
       
     }else{
-      
+
       model <- stanova::stanova_glmer(
         formula           = as.formula(model_formula$model_formula),
         check_contrasts   = "contr.bayes",
@@ -1497,7 +1539,7 @@
 .mmSummaryStanova<- function(jaspResults, dataset, options, type = "BLMM"){
   
   model <- jaspResults[["mmModel"]]$object$model
-  model_summary <- summary(model, probs = c(.50-options$summaryCI/2,.50,.50+options$summaryCI/2))
+  model_summary <- summary(model, probs = c(.50-options$summaryCI/2,.50,.50+options$summaryCI/2), diff_intercept = options$show == "deviation")
   
   STANOVAsummary <- createJaspContainer(title = "")
   
@@ -1518,12 +1560,20 @@
       table_name <- var_name
     }else{
       var_name   <- paste(.unv(unlist(strsplit(names(model_summary)[i], ":"))),collapse = "*")
-      table_name <- paste0(var_name, " (difference from intercept)")
+      if(options$show == "deviation"){
+        table_name <- paste0(var_name, " (difference from intercept)")        
+      }else if(options$show == "mmeans"){
+        if(nrow(temp_summary) == 1){
+          table_name <- paste0(var_name, " (trend)")
+        }else{
+          table_name <- paste0(var_name, " (marginal means)")  
+        }
+      }
     }
     
     temp_table <- createJaspTable(title = table_name)
     
-    if(var_name != "Intercept"){
+    if(var_name != "Intercept" & nrow(temp_summary) > 1){
       temp_table$addColumnInfo(name = "level",    title = "Level",     type = "string") 
     }
     temp_table$addColumnInfo(name = "estimate", title = "Estimate",  type = "number")
@@ -1548,10 +1598,10 @@
         ess_tail   = temp_summary$ess_tail[j]
       )
       
-      if(var_name != "Intercept"){
-        var_name <- paste(.unv(unlist(strsplit(as.character(temp_summary$tested[j]), ","))),collapse = ":")
+      if(var_name != "Intercept" & nrow(temp_summary) > 1){
+        var_name <- paste(.unv(unlist(strsplit(as.character(temp_summary$Variable[j]), ","))),collapse = ":")
         var_name <- gsub(" ", "", var_name, fixed = TRUE)
-        var_name <- .mmVariableNames(var_name, options$fixedVariables)
+        var_name <- gsub(.unv(names(model_summary)[i]), "", var_name, fixed = TRUE)
         temp_row$level <- var_name
       }
       
@@ -1579,13 +1629,13 @@
     removed_me <- jaspResults[["mmModel"]]$object$removed_me
     removed_te <- jaspResults[["mmModel"]]$object$removed_te
     if(length(removed_me) > 0){
-      for(i in 1:length(removed_me)){
-        temp_table$addFootnote(.mmMessageOmmitedTerms1(removed_me[[i]], names(removed_me)[i]), symbol = "Warning:")
+      for(j in 1:length(removed_me)){
+        temp_table$addFootnote(.mmMessageOmmitedTerms1(removed_me[[j]], names(removed_me)[j]), symbol = "Warning:")
       }
     }
     if(length(removed_te) > 0){
-      for(i in 1:length(removed_te)){
-        temp_table$addFootnote(.mmMessageOmmitedTerms2(removed_te[[i]], names(removed_te)[i]), symbol = "Warning:" )
+      for(j in 1:length(removed_te)){
+        temp_table$addFootnote(.mmMessageOmmitedTerms2(removed_te[[j]], names(removed_te)[j]), symbol = "Warning:" )
       }
     }
     if(nrow(dataset) - length(model$y) != 0){
@@ -1702,13 +1752,14 @@
       )
     }
   }
-  var_name <- gsub(":", ") * ", var_name)
+  var_name <- gsub(":", ") * ", var_name, fixed = TRUE)
   var_name <- paste0(var_name,")")
+  var_name <- gsub(" ()", "", var_name, fixed = TRUE)
   return(var_name)
 }
 .mmGetPlotSamples <- function(model, pars, options){
   
-  matrix_diff <- stanova::stanova_samples(model, return = "array")
+  matrix_diff <- stanova::stanova_samples(model, return = "array", diff_intercept = options$show == "deviation")
   
   if(length(pars) == 1){
     

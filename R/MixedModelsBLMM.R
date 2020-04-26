@@ -45,10 +45,12 @@ MixedModelsBLMM   <- function(jaspResults, dataset, options, state = NULL){
   
   # marginal means
   if(length(options$marginalMeans) > 0).mmMarginalMeans(jaspResults, dataset, options, "BLMM")
+  if(options$marginalMeansContrast & !is.null(jaspResults[["EMMresults"]])).mmContrasts(jaspResults, options, "BLMM")
   
 
   # trends
   if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0).mmTrends(jaspResults, dataset, options, "BLMM")
+  if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0 & !is.null(jaspResults[["EMTresults"]])).mmContrasts(jaspResults, options, "BLMM", what = "Trends")
   
   return()
 }
