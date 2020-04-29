@@ -85,7 +85,7 @@ Form {
 			title:				qsTr("Random effects")
 			name:				"randomEffects"
 			source:				"randomVariables"
-			cellHeight:			fixedEffects.count * 30 + 40 * preferencesModel.uiScale
+			cellHeight:			fixedEffects.count * 30 * preferencesModel.uiScale + 40 * preferencesModel.uiScale
 			preferredHeight: 	count * cellHeight + 25 * preferencesModel.uiScale
 
 			rowComponents:
@@ -98,7 +98,7 @@ Form {
 						{
 							Layout.preferredWidth: randomEffetcs.width
 							Label { text: qsTr("Random slopes by %1").arg(rowValue); Layout.preferredWidth: parent.width / 2 }
-							CheckBox { label: qsTr("Correlations"); name: "correlations"; Layout.preferredWidth: parent.width / 2 }
+							CheckBox { label: qsTr("Correlations"); name: "correlations"; checked: true; Layout.preferredWidth: parent.width / 2 }
 						}
 						ComponentsList
 						{
@@ -115,9 +115,6 @@ Form {
 						}						
 					}
 				}
-				//Component{
-				//	CheckBox { name: "correlation"; label: qsTr("Correlation") }
-				//}
 			]
 		}
 		
@@ -304,6 +301,7 @@ Form {
 
 		Group
 		{
+			columns: 1
 			DropDown
 			{
 				name:	"plotsGeom"
@@ -312,17 +310,17 @@ Form {
 				values:
 				[
 					{ label: "Jitter",				value: "geom_jitter"},
-   		 			{ label: "Beeswarm",			value: "geom_beeswarm"},
-	    			{ label: "Violin",				value: "geom_violin"},
+					{ label: "Beeswarm",			value: "geom_beeswarm"},
+					{ label: "Violin",				value: "geom_violin"},
 					{ label: "Boxplot",				value: "geom_boxplot"},
 					{ label: "Boxjitter",			value: "geom_boxjitter"},
 					{ label: "Count",				value: "geom_count"}
-  				]
+				]
 			}
 
-			Group
-			{
-				columns: 1
+//			Group
+//			{
+
 				DoubleField
 				{
 					name: "plotAlpha"
@@ -368,7 +366,7 @@ Form {
 					defaultValue: 0.3
 					min: 0
 				}
-			}
+			//}
 		}
 		Group
 		{
@@ -457,7 +455,7 @@ Form {
 			{
 				name: "availableModelComponentsMeans"
 				title: qsTr("Model variables")
-				source: "fixedVariables"
+				source: "fixedEffects"
 			}
 
 			AssignedVariablesList
@@ -526,7 +524,7 @@ Form {
 		
 
 		CheckBox
-		{// TODO: add the widget
+		{
 			name: "marginalMeansContrast"
 			id: marginalMeansContrast
 			label: qsTr("Specify contrasts")
@@ -571,7 +569,7 @@ Form {
 			{
 				name: "availableModelComponentsTrends1"
 				title: qsTr("Continous variables")
-				source: "fixedVariables"
+				source: "fixedEffects"
 			}
 
 			AssignedVariablesList
@@ -590,7 +588,7 @@ Form {
 			{
 				name: "availableModelComponentsTrends2"
 				title: qsTr("Model variables")
-				source: "fixedVariables"
+				source: "fixedEffects"
 			}
 
 			AssignedVariablesList
@@ -608,6 +606,7 @@ Form {
 
 		DoubleField
 		{ // TODO: grayed out unless continous variable is selected
+			id:	trendsSD
 			name: "trendsSD"
 			label: "SD factor covariates"
 			defaultValue: 1
@@ -658,7 +657,7 @@ Form {
 		
 
 		CheckBox
-		{// TODO: add the widget
+		{
 			name: "trendsContrast"
 			id: trendsContrast
 			label: qsTr("Specify contrasts")
@@ -681,60 +680,13 @@ Form {
 			]
 		}
 
-		InputListView
+		MarginalMeansContrastsTableView
 		{
 			Layout.columnSpan: 2
 			visible: trendsContrast.checked
- 			name                  : "trendsContrasts"
- 			title                 : qsTr("Rows")
- 			optionKey             : "group"
- 			defaultValues         : ["1", "2"]
- 			placeHolder           : qsTr("New row")
- 			rowComponentsLabels   : [qsTr("Contrasts	       	")]
-
- 			rowComponents:
- 			[
-       		    Component
-        		{
-        		    DoubleField
-    		        {
-    		            name: "col1"
-						negativeValues: true
-   		            }
-   		        },
-   		        Component
-   		        {
-    	            DoubleField
-    		        {
-    		            name: "col2"
-						negativeValues: true
-		            }
-		        },
-		        Component
-		        {
-		            DoubleField
-		            {
-		                name: "col3"
-						negativeValues: true
-              	    }
-           		},
-				Component
-		        {
-		            DoubleField
-		            {
-		                name: "col4"
-						negativeValues: true
-              	    }
-           		},
-				Component
-		        {
-		            DoubleField
-		            {
-		                name: "col5"
-						negativeValues: true
-              	    }
-           		}
-    		]
+			name: "trendsContrasts"
+			source:	"trendsVariables"
+			scaleFactor: trendsSD.value
 		}
 	}
 
