@@ -85,7 +85,7 @@ Form {
 			title:				qsTr("Random effects")
 			name:				"randomEffects"
 			source:				"randomVariables"
-			cellHeight:			fixedEffects.count * 30 + 40 * preferencesModel.uiScale
+			cellHeight:			fixedEffects.count * 30 * preferencesModel.uiScale + 40 * preferencesModel.uiScale
 			preferredHeight: 	count * cellHeight + 25 * preferencesModel.uiScale
 
 			rowComponents:
@@ -301,6 +301,7 @@ Form {
 
 		Group
 		{
+			columns: 1
 			DropDown
 			{
 				name:	"plotsGeom"
@@ -309,17 +310,17 @@ Form {
 				values:
 				[
 					{ label: "Jitter",				value: "geom_jitter"},
-   		 			{ label: "Beeswarm",			value: "geom_beeswarm"},
-	    			{ label: "Violin",				value: "geom_violin"},
+					{ label: "Beeswarm",			value: "geom_beeswarm"},
+					{ label: "Violin",				value: "geom_violin"},
 					{ label: "Boxplot",				value: "geom_boxplot"},
 					{ label: "Boxjitter",			value: "geom_boxjitter"},
 					{ label: "Count",				value: "geom_count"}
-  				]
+				]
 			}
 
-			Group
-			{
-				columns: 1
+//			Group
+//			{
+
 				DoubleField
 				{
 					name: "plotAlpha"
@@ -365,7 +366,7 @@ Form {
 					defaultValue: 0.3
 					min: 0
 				}
-			}
+			//}
 		}
 		Group
 		{
