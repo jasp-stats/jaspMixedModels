@@ -65,16 +65,38 @@ Form {
 			values:
 			[
 				{ label: "Binomial",				value: "binomial"},
-				{ label: "Binomial (aggregated)",	value: "binomial"},
+				{ label: "Binomial (aggregated!!)",	value: "binomial"},
 				{ label: "Gaussian",				value: "gaussian"},
 				{ label: "Gamma",					value: "Gamma"},
 				{ label: "Inverse Gaussian",		value: "inverse.gaussian"},
 				{ label: "Poisson",					value: "poisson"}
 			]
+
+			property var familyMap: {
+				"binomial" : ["logit", "probit", "cauchit", "cloglog", "log"],
+				"gaussian" : ["identity", "log", "inverse"],
+				"Gamma" : ["identity", "log", "inverse"],
+				"inverse.gaussian" : ["identity", "log", "inverse"],
+				"poisson" : ["identity", "log", "sqrt"]
+			}
+
+			onCurrentValueChanged:
+			{
+				if (!familyMap[currentValue].includes(link.value))
+				{
+					for (var i = 0; i < link.buttons.length; i++)
+						if (familyMap[currentValue].includes(link.buttons[i].parent.value))
+						{
+							link.buttons[i].parent.click()
+							break;
+						}
+				}
+			}
 		}
 
 		RadioButtonGroup
 		{
+			id:		link
 			name:	"link"
 			title:	qsTr("Link")
 			radioButtonsOnSameRow: true
@@ -83,104 +105,50 @@ Form {
 			{
 				label: qsTr("Logit")
 				value: "logit"
-				visible: 
-					family.currentText == "Binomial" |
-					family.currentText == "Binomial (aggregated)"
-				enabled: 
-					family.currentText == "Binomial" |
-					family.currentText == "Binomial (aggregated)"
+				visible: family.familyMap[family.currentValue].includes(value)
 			}
 			RadioButton
 			{
 				label: qsTr("Probit")
 				value: "probit"
-				visible: 
-					family.currentText == "Binomial" |
-					family.currentText == "Binomial (aggregated)"
-				enabled: 
-					family.currentText == "Binomial" |
-					family.currentText == "Binomial (aggregated)"
+				visible: family.familyMap[family.currentValue].includes(value)
 			}
 			RadioButton
 			{
 				label: qsTr("Cauchit")
 				value: "cauchit"
-				visible: 
-					family.currentText == "Binomial" |
-					family.currentText == "Binomial (aggregated)"
-				enabled: 
-					family.currentText == "Binomial" |
-					family.currentText == "Binomial (aggregated)"
+				visible: family.familyMap[family.currentValue].includes(value)
 			}
 			RadioButton
 			{
 				label: qsTr("Complementary LogLog")
 				value: "cloglog"
-				visible: 
-					family.currentText == "Binomial" |
-					family.currentText == "Binomial (aggregated)"
-				enabled: 
-					family.currentText == "Binomial" |
-					family.currentText == "Binomial (aggregated)"
+				visible: family.familyMap[family.currentValue].includes(value)
 			}
 			RadioButton
 			{
 				label: qsTr("Identity")
 				value: "identity"
-				visible:
-					family.currentText == "Gaussian" |
-					family.currentText == "Poisson"  |
-					family.currentText == "Gamma"    |
-					family.currentText == "Inverse Gaussian"
-				enabled:
-					family.currentText == "Gaussian" |
-					family.currentText == "Poisson"  |
-					family.currentText == "Gamma"    |
-					family.currentText == "Inverse Gaussian"
+				visible: family.familyMap[family.currentValue].includes(value)
 
 			}
 			RadioButton
 			{
 				label: qsTr("Log")
 				value: "log"
-				visible: 
-					family.currentText == "Binomial" |
-					family.currentText == "Binomial (aggregated)" |
-					family.currentText == "Gaussian" |
-					family.currentText == "Poisson"  |
-					family.currentText == "Gamma"    |
-					family.currentText == "Inverse Gaussian"
-				enabled: 
-					family.currentText == "Binomial" |
-					family.currentText == "Binomial (aggregated)" |
-					family.currentText == "Gaussian" |
-					family.currentText == "Poisson"  |
-					family.currentText == "Gamma"    |
-					family.currentText == "Inverse Gaussian"
-
+				visible: family.familyMap[family.currentValue].includes(value)
 			}
 			RadioButton
 			{
 				label: qsTr("Sqrt")
 				value: "sqrt"
-				visible: 
-					family.currentText == "Poisson"
-				enabled: 
-					family.currentText == "Poisson"
-
+				visible: family.familyMap[family.currentValue].includes(value)
 			}
 			RadioButton
 			{
 				label: qsTr("Inverse")
 				value: "inverse"
-				visible: 
-					family.currentText == "Gaussian" |
-					family.currentText == "Gamma"    |
-					family.currentText == "Inverse Gaussian"
-				enabled: 
-					family.currentText == "Gaussian" |
-					family.currentText == "Gamma"    |
-					family.currentText == "Inverse Gaussian"
+				visible: family.familyMap[family.currentValue].includes(value)
 			}
 		}
 	}
