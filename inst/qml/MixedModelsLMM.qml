@@ -40,6 +40,7 @@ Form {
 			name:				"fixedVariables"
 			title:				qsTr("Fixed effects variables")
 			suggestedColumns:	["ordinal", "nominal","scale"]
+			itemType:			"fixedFactors"
 		}
 		AssignedVariablesList
 		{
@@ -49,16 +50,28 @@ Form {
 		}
 	}
 
-	// for testing
-	CheckBox{
-		name: "run"
-		label: "Run"
+	Button
+	{
+		id: runAnalysis
+		name: "runAnalysis"
+		label: "Run Analysis"
+		enabled: false
+		Connections
+		{
+			target: form
+			onValueChanged: runAnalysis.enabled = true
+		}
+		onClicked:
+		{
+			form.refreshAnalysis()
+			enabled = false;
+		}
 	}
 
 	Section
 	{
 		title: qsTr("Model")
-		expanded: false
+		runOnChange: false
 
 		VariablesForm
 		{
@@ -87,35 +100,27 @@ Form {
 			source:				"randomVariables"
 			cellHeight:			fixedEffects.count * 30 * preferencesModel.uiScale + 40 * preferencesModel.uiScale
 			preferredHeight: 	count * cellHeight + 25 * preferencesModel.uiScale
+			visible:			count > 0
 
-			rowComponents:
-			[
-				Component
+			rowComponent: Group
+			{
+				RowLayout
 				{
-					Group
-					{
-						RowLayout
-						{
-							Layout.preferredWidth: randomEffetcs.width
-							Label { text: qsTr("Random slopes by %1").arg(rowValue); Layout.preferredWidth: parent.width / 2 }
-							CheckBox { label: qsTr("Correlations"); name: "correlations"; checked: true; Layout.preferredWidth: parent.width / 2 }
-						}
-						ComponentsList
-						{
-							name:   "randomComponents"
-							source: "fixedEffects"
-							cellHeight: 30 * preferencesModel.uiScale
-							preferredHeight: count * cellHeight + 10 * preferencesModel.uiScale
-							preferredWidth: randomEffetcs.width - 8 * preferencesModel.uiScale
-
-							rowComponents:
-							[
-								Component { CheckBox { name: "randomSlopes"; label: rowValue; checked: true } }
-							]
-						}						
-					}
+					Layout.preferredWidth: randomEffetcs.width
+					Label { text: qsTr("Random slopes by %1").arg(rowValue); Layout.preferredWidth: parent.width / 2 }
+					CheckBox { label: qsTr("Correlations"); name: "correlations"; checked: true; Layout.preferredWidth: parent.width / 2 }
 				}
-			]
+				ComponentsList
+				{
+					name:   "randomComponents"
+					source: "fixedEffects"
+					cellHeight: 30 * preferencesModel.uiScale
+					preferredHeight: count * cellHeight + 10 * preferencesModel.uiScale
+					preferredWidth: randomEffetcs.width - 8 * preferencesModel.uiScale
+
+					rowComponent: CheckBox { name: "randomSlopes"; label: rowValue; checked: true }
+				}
+			}
 		}
 		
 
@@ -243,6 +248,7 @@ Form {
 			{
 				name: "plotsAgregatedOver"
 				title: qsTr("Background data show")
+				addAvailableVariablesToAssigned: true
 			}
 		}
 
@@ -318,55 +324,51 @@ Form {
 				]
 			}
 
-//			Group
-//			{
+			DoubleField
+			{
+				name: "plotAlpha"
+				label: qsTr("Transparency")
+				defaultValue: .7
+				min: 0
+				max: 1
+				inclusive: JASP.None
+			}
 
-				DoubleField
-				{
-					name: "plotAlpha"
-					label: qsTr("Transparency")
-					defaultValue: .7
-					min: 0
-					max: 1
-					inclusive: JASP.None
-				}
+			DoubleField
+			{
+				visible: plotsGeom.currentText == "Jitter" | plotsGeom.currentText == "Boxjitter"
+				name: "plotJitterWidth"
+				label: qsTr("Jitter width")
+				defaultValue: 0
+				min: 0
+			}
 
-				DoubleField
-				{
-					visible: plotsGeom.currentText == "Jitter" | plotsGeom.currentText == "Boxjitter"
-					name: "plotJitterWidth"
-					label: qsTr("Jitter width")
-					defaultValue: 0
-					min: 0
-				}
+			DoubleField
+			{
+				visible: plotsGeom.currentText == "Jitter" | plotsGeom.currentText == "Boxjitter"
+				name: "plotJitterHeight"
+				label: qsTr("Jitter height")
+				defaultValue: 0
+				min: 0
+			}
 
-				DoubleField
-				{
-					visible: plotsGeom.currentText == "Jitter" | plotsGeom.currentText == "Boxjitter"
-					name: "plotJitterHeight"
-					label: qsTr("Jitter height")
-					defaultValue: 0
-					min: 0
-				}
+			DoubleField
+			{
+				visible: plotsGeom.currentText == "Violin" | plotsGeom.currentText == "Boxplot" | plotsGeom.currentText == "Boxjitter"
+				name: "plotGeomWidth"
+				label: qsTr("Geom width")
+				defaultValue: 1
+				min: 0
+			}
 
-				DoubleField
-				{
-					visible: plotsGeom.currentText == "Violin" | plotsGeom.currentText == "Boxplot" | plotsGeom.currentText == "Boxjitter"
-					name: "plotGeomWidth"
-					label: qsTr("Geom width")
-					defaultValue: 1
-					min: 0
-				}
-
-				DoubleField
-				{
-					visible: plotsTrace.lenght != 0 // TODO: make this work
-					name: "plotDodge"
-					label: qsTr("Dodge")
-					defaultValue: 0.3
-					min: 0
-				}
-			//}
+			DoubleField
+			{
+				visible: plotsTrace.lenght != 0 // TODO: make this work
+				name: "plotDodge"
+				label: qsTr("Dodge")
+				defaultValue: 0.3
+				min: 0
+			}
 		}
 		Group
 		{
@@ -455,11 +457,12 @@ Form {
 			{
 				name: "availableModelComponentsMeans"
 				title: qsTr("Model variables")
-				source: "fixedEffects"
+				source: [{ name: "fixedEffects", use: "noInteraction" }]
 			}
 
 			AssignedVariablesList
 			{
+				id: marginalMeans
 				name: "marginalMeans"
 				title: qsTr("Selected variables")
 			}
@@ -478,6 +481,7 @@ Form {
 			label: "SD factor covariates"
 			defaultValue: 1
 			min: 0
+			enabled: marginalMeans.columnsTypes.includes("scale")
 		}
 
 		Group
@@ -569,7 +573,7 @@ Form {
 			{
 				name: "availableModelComponentsTrends1"
 				title: qsTr("Continous variables")
-				source: "fixedEffects"
+				source: [ { name: "fixedEffects", use: "type=nominal|scale"} ]
 			}
 
 			AssignedVariablesList
@@ -593,6 +597,7 @@ Form {
 
 			AssignedVariablesList
 			{
+				id: trendsVariables
 				name: "trendsVariables"
 				title: qsTr("Selected variables")
 			}
@@ -611,6 +616,7 @@ Form {
 			label: "SD factor covariates"
 			defaultValue: 1
 			min: 0
+			enabled: trendsVariables.columnsTypes.includes("scale")
 		}
 
 		Group
