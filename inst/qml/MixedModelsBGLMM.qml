@@ -368,14 +368,14 @@ Form {
 			{
 				singleVariable:	true
 				name:			"samplingVariable1"
-				title:			qsTr("Selected variable")
+				title:			qsTr("Selected term")
 			}
 
 			AssignedVariablesList
 			{
 				singleVariable:	true
 				name:			"samplingVariable2"
-				title:			qsTr("Selected variable")
+				title:			qsTr("Selected term")
 				enabled:		samplingPlot.currentText == "Scatterplot"
 			}
 		}
@@ -415,20 +415,20 @@ Form {
 			AssignedVariablesList
 			{
 				name:	"plotsX"
-				title:	qsTr("Horizontal Axis")
+				title:	qsTr("Horizontal axis")
 			}
 
 			AssignedVariablesList
 			{
 				name:	"plotsTrace"
 				id:		plotsTrace
-				title:	qsTr("Separate Lines")
+				title:	qsTr("Separate lines")
 			}
 
 			AssignedVariablesList
 			{
 				name:	"plotsPanel"
-				title:	qsTr("Separate Plots")
+				title:	qsTr("Separate plots")
 			}
 		}
 
@@ -864,7 +864,7 @@ Form {
 			{
 				name:	"trendsCompare"
 				id:		trendsCompare
-				label:	qsTr("Compare marginal means to:")
+				label:	qsTr("Compare trends to:")
 			}
 
 			IntegerField
