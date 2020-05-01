@@ -1,10 +1,10 @@
 Package: MixedModels
 Type: Package
 Title: Mixed Models Module for JASP
-Version: 0.1
-Date: 2020-04-30
+Version: 0.666
+Date: 2020-05-01
 Author: JASP Team
 Website: www.jasp-stats.org
 Maintainer: JASP Team <info@jasp-stats.org>
-Description: LME
+Description: This module offers the standard Frequentist and Bayesian Mixed Models analyses.
 License: GPL (>= 2)

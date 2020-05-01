@@ -16,16 +16,7 @@
 #
 
 # TODO with Bruno:
-# - Model: add the interaction to fixed-efects model terms automatically
-# - Model: adjust the height that even 4-way interactions are visible (scaling can also hide some random slopes)
-# - Plots: background data show - automatically filled with 'random effect grouping factors'
-# - Plots: missaligned double inputs - they fixed themselfs ones the GUI is scaled
-# - Estimated marginal means: show only non-interaction terms
-# - Estimated marginal means: SD factor covariate is enabled only when a continous variable is selected
-# - Estimated marginal means: setting a value in the widget to 0 doesn't refresh it
-# - Estimated trends: continous variables variable box is filled with only continuous variables
-# - (B)GLMM Family/link: changing the link value in case of family change
-
+# - Estimated marginal means - contrasts widged - changing the the resolution removes the widget
 
 # additional libraries: ggpol, ggbeeswarm, beeswarm, vipor
 # bayesplot, bayesplot, rstanarm, shinystan, dygraphs, threejs, crosstalk, crosstalk, shinythemes, stanova (github),
@@ -33,7 +24,6 @@
 # TODO:
 # - add ESS warnings for Stan and rework the messages
 # - expose priors specification to users in Bxxx?
-# - solve starting values problems for GLMM
 
 # remove when merged to JASP
 .VovkSellkeMPR <- function(p){
@@ -74,15 +64,15 @@
 }
 .mmReady         <- function(options, type = "LMM"){
   if(type == "LMM"){
-    if(length(options$dependentVariable) == 0 | 
-       length(options$randomVariables)   == 0 | 
-       length(options$fixedEffects)      == 0){
+    if(options$dependentVariable       == "" | 
+       length(options$randomVariables) == 0  | 
+       length(options$fixedEffects)    == 0){
       return(FALSE)
     }
   }else if(type == "GLMM"){
-    if(length(options$dependentVariable) == 0 | 
-       length(options$randomVariables)   == 0 | 
-       length(options$fixedEffects)      == 0
+    if(options$dependentVariable       == "" | 
+       length(options$randomVariables) == 0  | 
+       length(options$fixedEffects)    == 0
        ){
       return(FALSE)
     }
@@ -220,7 +210,7 @@
     glmm_link   <<- options$link
     
     # I wish there was a better way to do this
-    if(options$dependentVariableAggregation != "" & options$family == "binomial"){
+    if(options$family == "binomial_agg"){
       glmm_weight <<- dataset[,.v(options$dependentVariableAggregation)]
       model <- tryCatch(afex::mixed(
         formula         = as.formula(model_formula$model_formula),
@@ -230,7 +220,7 @@
         test_intercept  = options$test_intercept,
         args_test       = list(nsim = options$bootstrap_samples),
         check_contrasts = TRUE,
-        family          = eval(call(glmm_family,glmm_link)),
+        family          = eval(call("binomial",glmm_link)),
         weights         = glmm_weight
       ), error = function(e)return(e))
     }else{
@@ -284,10 +274,11 @@
       }else{
         ANOVAsummary$setError(model$message)
       }
+      
+      jaspResults[["ANOVAsummary"]] <- ANOVAsummary
+      return()
     }
     
-    jaspResults[["ANOVAsummary"]] <- ANOVAsummary
-    return()
   }
   
   
@@ -320,7 +311,7 @@
     if(rownames(model$anova_table)[i] == "(Intercept)"){
       effect_name <- "Intercept"
     }else{
-      effect_name <- paste(.unv(unlist(strsplit(rownames(model$anova_table)[i], ":"))),collapse = ":")
+      effect_name <- paste(.unv(unlist(strsplit(rownames(model$anova_table)[i], ":"))), collapse = " * ")
     }
     
     temp_row <- list(
@@ -350,11 +341,27 @@
   }
   
   # add warning messages
-  if(lme4::isSingular(model$full_model)){
-    ANOVAsummary$addFootnote(.mmMessageSingularFit, symbol = "Warning:")
-  }else if(!is.null(model$full_model@optinfo$conv$lme4$messages)){
-    ANOVAsummary$addFootnote(.mmMessageNumericalProblems, symbol = "Warning:")
+  # deal with type II multiple models stuff
+  if(length(model$full_model) > 1){
+    if(lme4::isSingular(model$full_model[[length(model$full_model)]])){
+      ANOVAsummary$addFootnote(.mmMessageSingularFit, symbol = "Warning:")
+    }else if(!is.null(model$full_model[[length(model$full_model)]]@optinfo$conv$lme4$messages)){
+      ANOVAsummary$addFootnote(.mmMessageNumericalProblems, symbol = "Warning:")
+    }
+    if(nrow(dataset) - nrow(model$full_model[[length(model$full_model)]]@frame) != 0){
+      ANOVAsummary$addFootnote(.mmMessageMissingRows(nrow(dataset) - nrow(model$full_model[[length(model$full_model)]]@frame)))
+    }
+  }else{
+    if(lme4::isSingular(model$full_model)){
+      ANOVAsummary$addFootnote(.mmMessageSingularFit, symbol = "Warning:")
+    }else if(!is.null(model$full_model@optinfo$conv$lme4$messages)){
+      ANOVAsummary$addFootnote(.mmMessageNumericalProblems, symbol = "Warning:")
+    }
+    if(nrow(dataset) - nrow(model$full_model@frame) != 0){
+      ANOVAsummary$addFootnote(.mmMessageMissingRows(nrow(dataset) - nrow(model$full_model@frame)))
+    }
   }
+
   
   removed_me <- jaspResults[["mmModel"]]$object$removed_me
   removed_te <- jaspResults[["mmModel"]]$object$removed_te
@@ -369,9 +376,6 @@
     }
   }
   
-  if(nrow(dataset) - nrow(model$full_model@frame) != 0){
-    ANOVAsummary$addFootnote(.mmMessageMissingRows(nrow(dataset) - nrow(model$full_model@frame)))
-  }
   ANOVAsummary$addFootnote(.mmMessageANOVAtype(ifelse(options$type == 3, "III", "II")))
   if(type == "GLMM"){
     ANOVAsummary$addFootnote(.mmMessageGLMMtype(options$family, options$link))    
@@ -397,7 +401,12 @@
   }
   REsummary$dependOn(c(dependencies,"showRE"))
   
-  VarCorr <- lme4::VarCorr(model$full_model)
+  # deal with SS type II stuff
+  if(length(model$full_model) > 1){
+    VarCorr <- lme4::VarCorr(model$full_model[[length(model$full_model)]])
+  }else{
+    VarCorr <- lme4::VarCorr(model$full_model)
+  }
   # go over each random effect grouping factor
   for(gi in 1:length(VarCorr)){
     temp_VarCorr <- VarCorr[[gi]]
@@ -482,10 +491,17 @@
   REres$addColumnInfo(name = "std",      title = "Std. Deviation", type = "number")
   REres$addColumnInfo(name = "var",      title = "Variance",       type = "number")
   
-  temp_row <- list(
-    std      = sigma(model$full_model),
-    var      = sqrt(sigma(model$full_model))
-  )
+  if(length(model$full_model) > 1){
+    temp_row <- list(
+      std      = sigma(model$full_model[[length(model$full_model)]]),
+      var      = sqrt(sigma(model$full_model[[length(model$full_model)]]))
+    )
+  }else{
+    temp_row <- list(
+      std      = sigma(model$full_model),
+      var      = sqrt(sigma(model$full_model))
+    )
+  }
   
   REres$addRows(temp_row)
   REsummary[[paste0("RES",gi)]] <- REres
@@ -568,11 +584,11 @@
   
   # automatic size specification will somewhat work unless there is more than 2 variables in panel
   height <- 350
-  width  <- 450 * prod(sapply(options$plotsX, function(x)length(unique(dataset[,.v(x)]))/2))
+  width  <- 450 * prod(sapply(unlist(options$plotsX), function(x)length(unique(dataset[,.v(x)]))/2))
   if(length(options$plotsPanel) > 0){
-    width  <- width * length(unique(dataset[,.v(options$plotsPanel[1])]))
+    width  <- width * length(unique(dataset[,.v(unlist(options$plotsPanel)[1])]))
   }else if(length(options$plotsPanel) > 1){
-    height <- height * length(unique(dataset[,.v(options$plotsPanel[2])]))
+    height <- height * length(unique(dataset[,.v(unlist(options$plotsPanel)[2])]))
   }
   if(options$plotLegendPosition %in% c("bottom", "top")){
     height <- height + 50 
@@ -587,6 +603,10 @@
     dependencies <- .mmDependenciesLMM
   }else if(type == "GLMM"){
     dependencies <- .mmDependenciesGLMM
+  }else  if(type == "BLMM"){
+    dependencies <- .mmDependenciesBLMM
+  }else if(type == "BGLMM"){
+    dependencies <- .mmDependenciesBGLMM
   }
   plots$dependOn(c(dependencies,"plotsX","plotsTrace","plotsPanel", "plotsAgregatedOver",
                    "plotsGeom","plotsTrace","plotsPanel","plotsTheme","plotsCIwidth","plotsCImethod",
@@ -648,11 +668,11 @@
   p <- afex::afex_plot(
     model, 
     dv          = .v(options$dependentVariable),
-    x           = .v(options$plotsX),
-    data_geom   = getFromNamespace(options$plotsGeom, geom_package),
-    trace       = if(length(options$plotsTrace) != 0).v(options$plotsTrace),
-    panel       = if(length(options$plotsPanel) != 0).v(options$plotsPanel),
+    x           = .v(unlist(options$plotsX)),
+    trace       = if(length(options$plotsTrace) != 0).v(unlist(options$plotsTrace)),
+    panel       = if(length(options$plotsPanel) != 0).v(unlist(options$plotsPanel)),
     id          = .v(options$plotsAgregatedOver),
+    data_geom   = getFromNamespace(options$plotsGeom, geom_package),
     mapping     = mapping,
     error       = options$plotsCImethod,
     error_level = options$plotsCIwidth,
@@ -666,7 +686,7 @@
   )
   
   # fix names of the variables
-  p <- p + ggplot2::labs(x = options$plotsX, y = options$dependentVariable)
+  p <- p + ggplot2::labs(x = unlist(options$plotsX), y = options$dependentVariable)
   
   
   # add theme
@@ -703,11 +723,11 @@
     
     plot_data <- afex::afex_plot(
       model, 
-      x           = .v(options$plotsX),
-      data_geom   = getFromNamespace(options$plotsGeom, geom_package),
-      trace       = if(length(options$plotsTrace) != 0).v(options$plotsTrace),
-      panel       = if(length(options$plotsPanel) != 0).v(options$plotsPanel),
+      x           = .v(unlist(options$plotsX)),
+      trace       = if(length(options$plotsTrace) != 0).v(unlist(options$plotsTrace)),
+      panel       = if(length(options$plotsPanel) != 0).v(unlist(options$plotsPanel)),
       id          = .v(options$plotsAgregatedOver),
+      data_geom   = getFromNamespace(options$plotsGeom, geom_package),
       error       = options$plotsCImethod,
       error_level = options$plotsCIwidth,
       return      = "data"
@@ -1192,7 +1212,7 @@
   }
   
   if(type %in% c("LMM", "GLMM")){
-    EMMCsummary$addColumnInfo(name = "contrast", title = "",           type = "integer")    
+    EMMCsummary$addColumnInfo(name = "contrast", title = "",           type = "string")
     EMMCsummary$addColumnInfo(name = "estimate", title = "Estimate",   type = "number")
     EMMCsummary$addColumnInfo(name = "se",       title = "SE",         type = "number")
     EMMCsummary$addColumnInfo(name = "df",       title = "df",         type = "number")
@@ -1203,7 +1223,7 @@
       EMMCsummary$addFootnote(.mmMessageVovkSellke, symbol = "\u002A")
     } 
   }else if(type %in% c("BLMM", "BGLMM")){
-    EMMCsummary$addColumnInfo(name = "contrast", title = "Contrast",   type = "integer")    
+    EMMCsummary$addColumnInfo(name = "contrast", title = "",           type = "string")
     EMMCsummary$addColumnInfo(name = "estimate", title = "Estimate",   type = "number")
     EMMCsummary$addColumnInfo(name = "lowerCI",  title = gettext("Lower"), type = "number",
                               overtitle = gettextf("%s%% HPD", 100 * options$marginalMeansCIwidth))
@@ -1235,7 +1255,7 @@
       
     }else if(type %in% c("BLMM", "BGLMM")){
       temp_row <- list(
-        contrast = i,
+        contrast = names(contrs)[i],
         estimate = emm_contrast[i, "estimate"],
         lowerCI  = emm_contrast[i, ncol(emm_table) - 2],
         upperCI  = emm_contrast[i, ncol(emm_table) - 1]
@@ -1243,7 +1263,7 @@
     }
     
     
-    if(type == c("GLMM","BGLMM")){
+    if(type %in% c("GLMM","BGLMM")){
       if(!selectedResponse){
         EMMCsummary$addFootnote(.mmMessageNotResponse)
       }else{
@@ -1315,7 +1335,7 @@
     glmm_link   <<- options$link
     
     # I wish there was a better way to do this
-    if(options$dependentVariableAggregation != "" & options$family == "binomial"){
+    if(options$family == "binomial_agg"){
       glmm_weight <<- dataset[,.v(options$dependentVariableAggregation)]
       
       model <- stanova::stanova_lmer(
@@ -1328,7 +1348,7 @@
         adapt_delta       = options$adapt_delta,
         control           = list(max_treedepth = options$max_treedepth),
         weights           = glmm_weight,
-        family            = eval(call(glmm_family,glmm_link))
+        family            = eval(call("binomial",glmm_link))
       )
       
     }else{
@@ -1905,11 +1925,11 @@ rstanPlotAcor  <- function(plot_data, lags = 30){
 }
 
 
-.mmDependenciesLMM   <- c("dependentVariable", "fixedEffects", "randomEffects",
+.mmDependenciesLMM   <- c("dependentVariable", "fixedEffects", "randomEffects", "randomVariables",
                           "method", "bootstrap_samples", "test_intercept", "type")
 .mmDependenciesGLMM  <- c(.mmDependenciesLMM,
                           "dependentVariableAggregation", "family", "link")
-.mmDependenciesBLMM  <- c("dependentVariable", "fixedEffects", "randomEffects",
+.mmDependenciesBLMM  <- c("dependentVariable", "fixedEffects", "randomEffects", "randomVariables",
                           "warmup", "iteration", "adapt_delta", "treedepth", "chains",
                           "seed", "setSeed")
 .mmDependenciesBGLMM <- c(.mmDependenciesBLMM,

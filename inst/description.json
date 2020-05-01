@@ -2,8 +2,9 @@
 	"moduleDescription" :
 	{
 		"title" :		"Mixed Models",
-		"description":	"LME",
-		"version":		"0.1",
+		"description":	"This module offers the standard Frequentist and Bayesian Mixed Models analyses.",
+		"icon":			"MixedModels_classical.svg",
+		"version":		"0.666",
 		"requiresData":	false,
 		"author":		"JASP Team",
 		"maintainer":	"JASP Team <info@jasp-stats.org>",
@@ -16,7 +17,7 @@
 	[
 		{
 			"title": 	"Classical",
-			"icon":		"analysis-classical-crosstabs.svg"
+			"icon":		"MixedModels_classical.svg"
 		},
 		{
 			"menu":		"Linear Mixed Models",
@@ -32,7 +33,7 @@
 		},
 		{
 			"title": 	"Bayesian",
-			"icon":		"analysis-bayesian-crosstabs.svg"
+			"icon":		"MixedModels_bayesian.svg"
 		},
 		{
 			"menu":		"Linear Mixed Models",
@@ -41,7 +42,7 @@
 			"function":	"MixedModelsBLMM"
 		},
 		{
-			"menu":		"Genralized Linear Mixed Models",
+			"menu":		"Generalized Linear Mixed Models",
 			"title":	"Bayesian Generalized Linear Mixed Models",
 			"qml":		"MixedModelsBGLMM.qml",
 			"function":	"MixedModelsBGLMM"

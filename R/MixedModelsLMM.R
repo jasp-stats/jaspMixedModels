@@ -17,9 +17,7 @@
 
 MixedModelsLMM   <- function(jaspResults, dataset, options, state = NULL){
   
-  if(!options$run)return()
   if(!.mmReady(options))return()
-  
   
   # load dataset
   dataset <- .mmReadData(dataset, options)
