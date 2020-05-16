@@ -16,36 +16,39 @@
 #
 
 MixedModelsLMM   <- function(jaspResults, dataset, options, state = NULL){
-  
-  if(!.mmReady(options))return()
-  
+  #saveOptions(options)
+
   # load dataset
-  dataset <- .mmReadData(dataset, options)
-  .mmCheckData(dataset)
+  if(.mmReady(options))dataset <- .mmReadData(dataset, options)
+  if(.mmReady(options)).mmCheckData(dataset)
   
   # fit the model
-  if(is.null(jaspResults[["mmModel"]])).mmFitModel(jaspResults, dataset, options)
-  
+  if(.mmReady(options)).mmFitModel(jaspResults, dataset, options)
+
   
   # create summary tables
   .mmSummaryAnova(jaspResults, dataset, options)
-  if(options$showFE).mmSummaryFE(jaspResults, options)
-  if(options$showRE).mmSummaryRE(jaspResults, options)
   
+  if(!is.null(jaspResults[["mmModel"]])){
+    if(options$showFE).mmSummaryFE(jaspResults, options)
+    if(options$showRE).mmSummaryRE(jaspResults, options)
+    
+    
+    # create plots
+    if(length(options$plotsX) > 0 & is.null(jaspResults[["plots"]])).mmPlot(jaspResults, dataset, options)
+    
+    
+    # marginal means
+    if(length(options$marginalMeans) > 0).mmMarginalMeans(jaspResults, dataset, options)
+    if(options$marginalMeansContrast & !is.null(jaspResults[["EMMresults"]])).mmContrasts(jaspResults, options)
+    
+    
+    # trends
+    if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0).mmTrends(jaspResults, dataset, options)
+    if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0 & !is.null(jaspResults[["EMTresults"]])).mmContrasts(jaspResults, options, what = "Trends")
+    
+  }
   
-  # create plots
-  if(length(options$plotsX)).mmPlot(jaspResults, dataset, options)
-  
-  
-  # marginal means
-  if(length(options$marginalMeans) > 0).mmMarginalMeans(jaspResults, dataset, options)
-  if(options$marginalMeansContrast & !is.null(jaspResults[["EMMresults"]])).mmContrasts(jaspResults, options)
-  
-  
-  # trends
-  if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0).mmTrends(jaspResults, dataset, options)
-  if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0 & !is.null(jaspResults[["EMTresults"]])).mmContrasts(jaspResults, options, what = "Trends")
-  
-  
+
   return()
 }

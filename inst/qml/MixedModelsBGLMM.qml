@@ -184,10 +184,12 @@ Form {
 
 	Button
 	{
-		id:			runAnalysis
-		name:		"runAnalysis"
-		label:		"Run Analysis"
-		enabled:	false
+		Layout.columnSpan:	2
+		Layout.alignment:	Qt.AlignRight
+		id:					runAnalysis
+		name:				"runAnalysis"
+		label:				"Run Analysis"
+		enabled:			false
 		Connections
 		{
 			target:			form
@@ -273,7 +275,7 @@ Form {
 				name:			"warmup"
 				id:				warmup
 				label:			qsTr("Warmup")
-				defaultValue:	250
+				defaultValue:	2000
 				min:			1
 			}
 
@@ -281,7 +283,7 @@ Form {
 			{
 				name:			"iteration"
 				label:			qsTr("Iterations")
-				defaultValue:	500
+				defaultValue:	4000
 				min:			warmup.value
 			}
 
@@ -289,7 +291,7 @@ Form {
 			{
 				name:			"chains"
 				label:			qsTr("Chains")
-				defaultValue:	2
+				defaultValue:	3
 				min:			1
 			}
 
@@ -409,7 +411,7 @@ Form {
 			{
 				name:	"availableModelComponentsPlot"
 				title:	qsTr("Model factors")
-				source:	[ { name: "fixedEffects", use: "type=ordinal|nominal"} ]
+				source:	[ { name: "fixedEffects", use: "type=ordinal|nominal|nominalText"} ]
 			}
 
 			AssignedVariablesList
@@ -522,7 +524,7 @@ Form {
 				values:
 				[
 					{ label: "Jitter",				value: "geom_jitter"},
-					{ label: "Beeswarm",			value: "geom_beeswarm"},
+				//	{ label: "Beeswarm",			value: "geom_beeswarm"}, # enable once the package loading is changed
 					{ label: "Violin",				value: "geom_violin"},
 					{ label: "Boxplot",				value: "geom_boxplot"},
 					{ label: "Boxjitter",			value: "geom_boxjitter"},
@@ -691,48 +693,6 @@ Form {
 			min:			0
 			enabled:		marginalMeans.columnsTypes.includes("scale")
 		}
-
-		Group
-		{
-			DropDown
-			{
-				name:	"marginalMeansDf"
-				id:		marginalMeansDf
-				label:	qsTr("Estimate df")
-				values:
-				[
-					{ label: "Asymptotic",				value: "asymptotic"},
-					{ label: "Satterthwaite",			value: "satterthwaite"},
-					{ label: "Kenward-Roger",			value: "kenward-roger"}
-				]
-			}
-
-			CheckBox
-			{
-				enabled:	marginalMeansDf.currentText == "Satterthwaite" | marginalMeansDf.currentText == "Kenward-Roger"
-				name:		"marginalMeansOverride"
-				label:		qsTr("Force df estimation")
-			}
-
-		}
-
-		Group
-		{
-			columns: 2
-
-			CheckBox
-			{
-				name:	"marginalMeansCompare"
-				id:		marginalMeansCompare
-				label:	qsTr("Compare marginal means to:")
-			}
-
-			IntegerField
-			{
-				enabled:	marginalMeansCompare.checked
-				name:		"marginalMeansCompareTo"
-			}
-		}
 		
 		CheckBox
 		{
@@ -746,22 +706,6 @@ Form {
 			name:	"marginalMeansContrast"
 			id:		marginalMeansContrast
 			label:	qsTr("Specify contrasts")
-		}
-
-		DropDown
-		{
-			name:	"marginalMeansAdjustment"
-			label:	qsTr("P-value adjustment")
-			values:
-			[
-				{ label: "Holm",				value: "holm"},
-				{ label: "Multivariate-t",		value: "mvt"},
-				{ label: "Scheffe",				value: "scheffe"},
-				{ label: "Tukey",				value: "tukey"},
-				{ label: "None",				value: "none"},
-				{ label: "Bonferroni",			value: "bonferroni"},
-				{ label: "Hommel",				value: "hommel"}
-			]
 		}
 
 		MarginalMeansContrastsTableView
@@ -833,47 +777,6 @@ Form {
 			enabled:		trendsVariables.columnsTypes.includes("scale")
 		}
 
-		Group
-		{
-			DropDown
-			{
-				name:	"trendsDf"
-				id:		trendsDf
-				label:	qsTr("Estimate df")
-				values:
-				[
-					{ label: "Asymptotic",				value: "asymptotic"},
-					{ label: "Satterthwaite",			value: "satterthwaite"},
-					{ label: "Kenward-Roger",			value: "kenward-roger"}
-				]
-			}
-
-			CheckBox
-			{
-				enabled:	trendsDf.currentText == "Satterthwaite" | trendsDf.currentText == "Kenward-Roger"
-				name:		"trendsOverride"
-				label:		qsTr("Force df estimation")
-			}
-		}
-
-		Group
-		{
-			columns: 2
-
-			CheckBox
-			{
-				name:	"trendsCompare"
-				id:		trendsCompare
-				label:	qsTr("Compare trends to:")
-			}
-
-			IntegerField
-			{
-				enabled:	trendsCompare.checked
-				name:		"trendsCompareTo"
-			}
-		}
-
 		CheckBox
 		{
 			name: "trendsResponse"
@@ -886,22 +789,6 @@ Form {
 			name:	"trendsContrast"
 			id:		trendsContrast
 			label:	qsTr("Specify contrasts")
-		}
-
-		DropDown
-		{
-			name:	"trendsAdjustment"
-			label:	qsTr("P-value adjustment")
-			values:
-			[
-				{ label: "Holm",				value: "holm"},
-				{ label: "Multivariate-t",		value: "mvt"},
-				{ label: "Scheffe",				value: "scheffe"},
-				{ label: "Tukey",				value: "tukey"},
-				{ label: "None",				value: "none"},
-				{ label: "Bonferroni",			value: "bonferroni"},
-				{ label: "Hommel",				value: "hommel"}
-			]
 		}
 
 		MarginalMeansContrastsTableView

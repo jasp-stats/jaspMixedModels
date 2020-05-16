@@ -62,10 +62,12 @@ Form {
 
 	Button
 	{
-		id:			runAnalysis
-		name:		"runAnalysis"
-		label:		"Run Analysis"
-		enabled:	false
+		Layout.columnSpan:	2
+		Layout.alignment:	Qt.AlignRight
+		id:					runAnalysis
+		name:				"runAnalysis"
+		label:				"Run Analysis"
+		enabled:			false
 		Connections
 		{
 			target:			form
@@ -73,7 +75,7 @@ Form {
 		}
 		onClicked:
 		{
-			form.refreshAnalysis()
+			form.runAnalysis()
 			enabled = false;
 		}
 	}
@@ -183,7 +185,7 @@ Form {
 				enabled:		method.currentText == "parametric bootstrap"
 				name:			"bootstrap_samples"
 				label:			qsTr("No. samples")
-				defaultValue:	10
+				defaultValue:	500
 				fieldWidth:		60
 			}
 		}
@@ -226,7 +228,7 @@ Form {
 			{
 				name:	"availableModelComponentsPlot"
 				title:	qsTr("Model factors")
-				source:	[ { name: "fixedEffects", use: "type=ordinal|nominal"} ]
+				source:	[ { name: "fixedEffects", use: "type=ordinal|nominal|nominalText"} ]
 			}
 
 			AssignedVariablesList
@@ -339,7 +341,7 @@ Form {
 				values:
 				[
 					{ label: "Jitter",				value: "geom_jitter"},
-					{ label: "Beeswarm",			value: "geom_beeswarm"},
+				//	{ label: "Beeswarm",			value: "geom_beeswarm"}, # enable once the package loading is changed
 					{ label: "Violin",				value: "geom_violin"},
 					{ label: "Boxplot",				value: "geom_boxplot"},
 					{ label: "Boxjitter",			value: "geom_boxjitter"},

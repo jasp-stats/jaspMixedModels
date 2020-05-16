@@ -15,41 +15,40 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# TODO: summary needs at least 2 chains!
-
 MixedModelsBLMM   <- function(jaspResults, dataset, options, state = NULL){
-  
-  if(!.mmReady(options))return()
+  #saveOptions(options)
   
   # load dataset
-  dataset <- .mmReadData(dataset, options)
-  .mmCheckData(dataset)
+  if(.mmReady(options))dataset <- .mmReadData(dataset, options)
+  if(.mmReady(options)).mmCheckData(dataset)
   
   # fit the model
-  if(is.null(jaspResults[["mmModel"]])).mmFitModelB(jaspResults, dataset, options)
+  if(is.null(jaspResults[["mmModel"]]) & .mmReady(options)).mmFitModelB(jaspResults, dataset, options)
   
   
   # create summary tables
   .mmSummaryStanova(jaspResults, dataset, options)
-  if(options$showFE).mmSummaryFEB(jaspResults, options)
-  if(options$showRE).mmSummaryREB(jaspResults, options)
   
-  # sampling diagnostics
-  if(length(options$samplingVariable1) != 0).mmDiagnostics(jaspResults, options, dataset)
-  
-  # create plots
-  if(length(options$plotsX)).mmPlot(jaspResults, dataset, options)
-  
-  
-  # marginal means
-  if(length(options$marginalMeans) > 0).mmMarginalMeans(jaspResults, dataset, options, "BLMM")
-  if(options$marginalMeansContrast & !is.null(jaspResults[["EMMresults"]])).mmContrasts(jaspResults, options, "BLMM")
-  
-  
-  # trends
-  if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0).mmTrends(jaspResults, dataset, options, "BLMM")
-  if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0 & !is.null(jaspResults[["EMTresults"]])).mmContrasts(jaspResults, options, "BLMM", what = "Trends")
-  
+  if(!is.null(jaspResults[["mmModel"]])){
+    if(options$showFE).mmSummaryFEB(jaspResults, options)
+    if(options$showRE).mmSummaryREB(jaspResults, options)
+    
+    # sampling diagnostics
+    if(length(options$samplingVariable1) != 0).mmDiagnostics(jaspResults, options, dataset)
+    
+    # create plots
+    if(length(options$plotsX)).mmPlot(jaspResults, dataset, options)
+    
+    
+    # marginal means
+    if(length(options$marginalMeans) > 0).mmMarginalMeans(jaspResults, dataset, options, "BLMM")
+    if(options$marginalMeansContrast & !is.null(jaspResults[["EMMresults"]])).mmContrasts(jaspResults, options, "BLMM")
+    
+    
+    # trends
+    if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0).mmTrends(jaspResults, dataset, options, "BLMM")
+    if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0 & !is.null(jaspResults[["EMTresults"]])).mmContrasts(jaspResults, options, "BLMM", what = "Trends")
+  }
   
   return()
 }
