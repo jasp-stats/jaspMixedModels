@@ -16,11 +16,11 @@
 #
 
 MixedModelsBGLMM   <- function(jaspResults, dataset, options, state = NULL){
-  #saveOptions(options)
-  
+  saveOptions(options)
+
   # load dataset
   if(.mmReady(options, "GLMM"))dataset <- .mmReadData(dataset, options)
-  if(.mmReady(options, "GLMM")).mmCheckData(dataset)
+  if(.mmReady(options, "GLMM")).mmCheckData(dataset, options, "GLMM")
 
   # fit the model
   if(.mmReady(options, "GLMM")).mmFitModelB(jaspResults, dataset, options, "BGLMM")
@@ -42,12 +42,12 @@ MixedModelsBGLMM   <- function(jaspResults, dataset, options, state = NULL){
     
     # marginal means
     if(length(options$marginalMeans) > 0).mmMarginalMeans(jaspResults, dataset, options, "BGLMM")
-    if(options$marginalMeansContrast & !is.null(jaspResults[["EMMresults"]])).mmContrasts(jaspResults, options, "BGLMM")
+    if(length(options$marginalMeans) > 0 & options$marginalMeansContrast & !is.null(jaspResults[["EMMresults"]])).mmContrasts(jaspResults, options, "BGLMM")
     
     
     # trends
     if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0).mmTrends(jaspResults, dataset, options, "BGLMM")
-    if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0 & !is.null(jaspResults[["EMTresults"]])).mmContrasts(jaspResults, options, "BGLMM", what = "Trends")
+    if(options$trendsContrast & length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0 & !is.null(jaspResults[["EMTresults"]])).mmContrasts(jaspResults, options, "BGLMM", what = "Trends")
     
   }
   

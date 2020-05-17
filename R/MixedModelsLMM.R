@@ -16,11 +16,11 @@
 #
 
 MixedModelsLMM   <- function(jaspResults, dataset, options, state = NULL){
-  #saveOptions(options)
+  saveOptions(options)
 
   # load dataset
   if(.mmReady(options))dataset <- .mmReadData(dataset, options)
-  if(.mmReady(options)).mmCheckData(dataset)
+  if(.mmReady(options)).mmCheckData(dataset, options)
   
   # fit the model
   if(.mmReady(options)).mmFitModel(jaspResults, dataset, options)
@@ -40,12 +40,12 @@ MixedModelsLMM   <- function(jaspResults, dataset, options, state = NULL){
     
     # marginal means
     if(length(options$marginalMeans) > 0).mmMarginalMeans(jaspResults, dataset, options)
-    if(options$marginalMeansContrast & !is.null(jaspResults[["EMMresults"]])).mmContrasts(jaspResults, options)
+    if(length(options$marginalMeans) > 0 & options$marginalMeansContrast & !is.null(jaspResults[["EMMresults"]])).mmContrasts(jaspResults, options)
     
     
     # trends
     if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0).mmTrends(jaspResults, dataset, options)
-    if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0 & !is.null(jaspResults[["EMTresults"]])).mmContrasts(jaspResults, options, what = "Trends")
+    if(options$trendsContrast & length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0 & !is.null(jaspResults[["EMTresults"]])).mmContrasts(jaspResults, options, what = "Trends")
     
   }
   

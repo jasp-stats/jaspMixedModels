@@ -813,13 +813,6 @@ Form {
 
 		CheckBox
 		{
-			name: "trendsResponse"
-			label: qsTr("Response scale")
-			checked: true
-		}
-
-		CheckBox
-		{
 			name:	"trendsContrast"
 			id:		trendsContrast
 			label:	qsTr("Specify contrasts")

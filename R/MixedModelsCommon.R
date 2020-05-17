@@ -66,8 +66,19 @@ RDEBUG <- function(message){
     }
   }
 }
-.mmCheckData     <- function(dataset){
+.mmCheckData     <- function(dataset, options, type = "LMM"){
   .hasErrors(dataset, type = c('variance', 'infinity'), exitAnalysisIfErrors = TRUE)
+  if(type == "GLMM"){
+    family_text <- .mmMessageGLMMtype(options$family, options$link)
+    family_text <- substr(family_text, 1, nchar(family_text) - 1)
+    if(options$family %in% c("Gamma", "inverse.gaussian", "neg_binomial_2", "poisson")){
+      if(any(dataset[,.v(options$dependentVariable)] < 0))stop(paste0(family_text, " requres that the dependent variable is > 0."))
+    }else if(options$family %in% c("binomial")){
+      if(any(!dataset[,.v(options$dependentVariable)] %in% c(0,1)))stop(paste0(family_text, " requres that the outcomes are only 0 and 1."))
+    }else if(options$family %in% c("betar")){
+      if(any(dataset[,.v(options$dependentVariable)] < 0))stop(paste0(family_text, " requres that the outcomes is higher than 0 and lower than 1."))
+    }
+  }
 }
 .mmReady         <- function(options, type = "LMM"){
   if(type == "LMM"){
@@ -82,10 +93,6 @@ RDEBUG <- function(message){
        length(options$fixedEffects)    == 0
        ){
       return(FALSE)
-    }
-    is_defined <- tryCatch(eval(call(options$family,options$link)),error = function(e)NULL)
-    if(is.null(is_defined)){
-      return(NULL)
     }
   }
   return(TRUE)
@@ -288,6 +295,7 @@ RDEBUG <- function(message){
       }
       
       jaspResults[["ANOVAsummary"]] <- ANOVAsummary
+      jaspResults[["mmModel"]]      <- NULL
       return()
     }
     
@@ -557,7 +565,7 @@ RDEBUG <- function(message){
     FEsummary$addColumnInfo(name = "df",       title = "df",       type = "number") 
   }
   FEsummary$addColumnInfo(name = "stat",     title = "t",        type = "number")
-  if(ncol(FE_coef) > 4){
+  if(ncol(FE_coef) >= 4){
     FEsummary$addColumnInfo(name = "pval",     title = "p",        type = "pvalue") 
   }
   
@@ -592,7 +600,7 @@ RDEBUG <- function(message){
         se       = FE_coef[i,2],
         stat     = FE_coef[i,3]
       )
-      if(ncol(FE_coef) == 4){
+      if(ncol(FE_coef) >= 4){
         temp_row$pval <- FE_coef[i,4]
       }
     }    
@@ -834,7 +842,7 @@ RDEBUG <- function(message){
     options = list(
       level  = options$marginalMeansCIwidth
     ),
-    lmer.df = if(type %in% c("GLMM", "BGLMM")) options$marginalMeansDf,
+    lmer.df = if(type %in% c("LMM", "GLMM")) options$marginalMeansDf,
     type    = if(type %in% c("GLMM", "BGLMM")) if(options$marginalMeansResponse)"response"
   )
   
@@ -987,7 +995,6 @@ RDEBUG <- function(message){
   # compute the results
   if(type %in% c("LMM", "GLMM")){
     emmeans::emm_options(
-      mmr.df         = options$trendsDf,
       pbkrtest.limit = if(options$trendsOverride)Inf,
       mmrTest.limit  = if(options$trendsOverride)Inf) 
   }
@@ -998,7 +1005,7 @@ RDEBUG <- function(message){
   trends_type    <<- type
   trends_dataset <<- dataset
   trends_model   <<- model
-  trends_response<<- options$trendsResponse
+  trends_df      <<- options$trendsDf
 
   emm <- emmeans::emtrends(
     object  = trends_model,
@@ -1009,7 +1016,7 @@ RDEBUG <- function(message){
     options = list(
       level = trends_CI
     ),
-    type    = if(trends_type %in% c("GLMM","BGLMM"))if(trends_response)"response"
+    lmer.df = if(trends_type %in% c("LMM", "GLMM")) trends_df
   )
   emm_table  <- as.data.frame(emm)
   if(type %in% c("LMM", "GLMM")){
@@ -1025,11 +1032,11 @@ RDEBUG <- function(message){
   if(type == "LMM"){
     dependencies <- .mmDependenciesLMM
   }else if(type == "GLMM"){
-    dependencies <- c(.mmDependenciesGLMM, "trendsResponse")
+    dependencies <- c(.mmDependenciesGLMM)
   }else if(type =="BLMM"){
     dependencies <- .mmDependenciesBLMM    
-  }else if(type == "GLMM"){
-    dependencies <- c(.mmDependenciesGLMM, "trendsResponse")
+  }else if(type == "BGLMM"){
+    dependencies <- c(.mmDependenciesBGLMM)
   }
   if(type %in% c("LMM","GLMM")){
     dependencies_add <- c("trendsVariables", "trendsTrend", "trendsDf", "trendsSD", "trendsCompare", "trendsCompareTo", "trendsCIwidth", "pvalVS", "trendsOverride", "trendsContrast")
@@ -1126,7 +1133,7 @@ RDEBUG <- function(message){
     } 
   }
   if(type == "GLMM"){
-    trendsSummary$addFootnote(ifelse(options$trendsResponse,.mmMessageResponse,.mmMessageNotResponse))
+    trendsSummary$addFootnote(.mmMessageNotResponse)
   }
   
   jaspResults[["trendsSummary"]] <- trendsSummary
@@ -1160,23 +1167,23 @@ RDEBUG <- function(message){
   if(type == "LMM"){
     dependencies <- .mmDependenciesLMM
   }else if(type == "GLMM"){
-    dependencies <- c(.mmDependenciesGLMM, ifelse(what == "Means", "marginalMeansResponse", "trendsResponse"))
+    dependencies <- c(.mmDependenciesGLMM, if(what == "Means")"marginalMeansResponse")
   }else if(type == "BLMM"){
     dependencies <- .mmDependenciesBLMM
   }else if(type == "BGLMM"){
-    dependencies <- c(.mmDependenciesBGLMM, ifelse(what == "Means", "marginalMeansResponse", "trendsResponse"))    
+    dependencies <- c(.mmDependenciesBGLMM, if(what == "Means")"marginalMeansResponse")    
   }
   if(what == "Means"){
     if(type %in% c("LMM", "GLMM")){
-      dependencies_add <- c("marginalMeans", "marginalMeansDf", "marginalMeansSD", "marginalMeansCompare", "marginalMeansCompareTo", "marginalMeansContrast", "marginalMeansCIwidth", "pvalVS", "marginalMeansOverride", "Contrasts","marginalMeansContrast","marginalMeansAdjustment")
+      dependencies_add <- c("marginalMeans", "marginalMeansDf", "marginalMeansSD", "marginalMeansCompare", "marginalMeansCompareTo", "marginalMeansContrast", "marginalMeansCIwidth", "pvalVS", "marginalMeansOverride", "Contrasts", "marginalMeansAdjustment")
     }else{
-      dependencies_add <- c("marginalMeans", "marginalMeansSD", "marginalMeansContrast", "marginalMeansCIwidth", "Contrasts", "marginalMeansContrast")    
+      dependencies_add <- c("marginalMeans", "marginalMeansSD", "marginalMeansContrast", "marginalMeansCIwidth", "Contrasts")    
     }    
   }else if(what == "Trends"){
     if(type %in% c("LMM", "GLMM")){
-      dependencies_add <- c("trendsVariables", "trendsTrend", "trendsDf", "trendsSD", "trendsCompare", "trendsCompareTo", "trendsContrasts", "trendsCIwidth", "pvalVS", "trendsOverride","trendsAdjustment")
+      dependencies_add <- c("trendsVariables", "trendsTrend", "trendsDf", "trendsSD", "trendsCompare", "trendsCompareTo", "trendsContrast", "trendsContrasts", "trendsCIwidth", "pvalVS", "trendsOverride","trendsAdjustment")
     }else{
-      dependencies_add <- c("trendsVariables", "trendsTrend", "trendsSD", "trendsContrasts", "trendsCIwidth", "Contrasts", "trendsContrast")    
+      dependencies_add <- c("trendsVariables", "trendsTrend", "trendsSD", "trendsCIwidth", "trendsContrast", "trendsContrasts")    
     } 
   }
   
@@ -1195,11 +1202,6 @@ RDEBUG <- function(message){
   }else if(what == "Trends"){
     selectedContrasts  <- options$trendsContrasts   
     selectedAdjustment <- options$trendsAdjustment
-    
-    if(type %in% c("GLMM","BGLMM")){
-      selectedResponse   <- options$trendsMeansResponse 
-    }
-    
   }
 
   contrs <- list()
@@ -1210,17 +1212,18 @@ RDEBUG <- function(message){
     contrs[[cont$name]] <- unname(sapply(cont$values, function(x)eval(parse(text = x))))
   }
   if(length(contrs) == 0){
+    EMMCsummary$setExpectedSize(1)
     jaspResults[[paste0("contrasts_",what)]] <- EMMCsummary
     return()
   }
   
   
   # take care of the scale
-  if(type %in% c("LMM","BLMM")){
+  if(type %in% c("LMM","BLMM") | what == "Means"){
     emm_contrast <- tryCatch(as.data.frame(
       emmeans::contrast(
         emm, contrs,
-        adjust = if(type == "LMM")selectedAdjustment
+        adjust = if(type %in% c("LMM","GLMM"))selectedAdjustment
       )
     ), error = function(e)e)
   }else if(type %in% c("GLMM","BGLMM")){
@@ -1262,9 +1265,9 @@ RDEBUG <- function(message){
     EMMCsummary$addColumnInfo(name = "contrast", title = "",           type = "string")
     EMMCsummary$addColumnInfo(name = "estimate", title = "Estimate",   type = "number")
     EMMCsummary$addColumnInfo(name = "lowerCI",  title = gettext("Lower"), type = "number",
-                              overtitle = gettextf("%s%% HPD", 100 * options$marginalMeansCIwidth))
+                              overtitle = gettextf("%s%% HPD", 100 * if(what == "Means") options$marginalMeansCIwidth else options$trendsCIwidth))
     EMMCsummary$addColumnInfo(name = "upperCI",  title = gettext("Upper"), type = "number",
-                              overtitle = gettextf("%s%% HPD", 100 * options$marginalMeansCIwidth))
+                              overtitle = gettextf("%s%% HPD", 100 * if(what == "Means") options$marginalMeansCIwidth else options$trendsCIwidth))
   }
   
   
@@ -1292,14 +1295,14 @@ RDEBUG <- function(message){
     }else if(type %in% c("BLMM", "BGLMM")){
       temp_row <- list(
         contrast = names(contrs)[i],
-        estimate = emm_contrast[i, "estimate"],
-        lowerCI  = emm_contrast[i, ncol(emm_table) - 2],
-        upperCI  = emm_contrast[i, ncol(emm_table) - 1]
+        estimate = emm_contrast[i, ncol(emm_table) - 2],
+        lowerCI  = emm_contrast[i, ncol(emm_table) - 1],
+        upperCI  = emm_contrast[i, ncol(emm_table) - 0]
       )
     }
     
     
-    if(type %in% c("GLMM","BGLMM")){
+    if(type %in% c("GLMM","BGLMM") & what == "Means"){
       if(!selectedResponse){
         EMMCsummary$addFootnote(.mmMessageNotResponse)
       }else{
@@ -1368,9 +1371,16 @@ RDEBUG <- function(message){
     )
   
   }else if(type == "BGLMM"){
-    # needs to be avaluated in the global environment
-    glmm_family <<- options$family
-    glmm_link   <<- options$link
+    # needs to be evaluated in the global environment
+    glmm_link      <<- options$link
+    if(options$family == "neg_binomial_2"){
+      glmm_family <<- rstanarm::neg_binomial_2(link = glmm_link)
+    }else if(options$family == "betar"){
+      glmm_family <<- mgcv::betar(link = glmm_link)
+    }else{
+      temp_family <<- options$family
+      glmm_family <<- eval(call(temp_family,glmm_link))
+    }
     
     # I wish there was a better way to do this
     if(options$family == "binomial_agg"){
@@ -1400,7 +1410,7 @@ RDEBUG <- function(message){
         warmup            = options$warmup,
         adapt_delta       = options$adapt_delta,
         control           = list(max_treedepth = options$max_treedepth),
-        family            = eval(call(glmm_family,glmm_link))
+        family            = glmm_family
       )
       
     }
@@ -1430,7 +1440,7 @@ RDEBUG <- function(message){
   
   if(type == "BLMM"){
     dependencies <- .mmDependenciesBLMM
-  }else if(type == "GLMM"){
+  }else if(type == "BGLMM"){
     dependencies <- .mmDependenciesBGLMM
   }
   REsummary$dependOn(c(dependencies,"showRE", "summaryCI"))
@@ -1619,7 +1629,7 @@ RDEBUG <- function(message){
   }else if(type == "BGLMM"){
     dependencies <- .mmDependenciesBGLMM
   }
-  STANOVAsummary$dependOn(c(dependencies, "summaryCI"))
+  STANOVAsummary$dependOn(c(dependencies, "summaryCI", "show"))
   
   # go over each random effect grouping factor
   for(i in 1:length(model_summary)){
@@ -2023,6 +2033,15 @@ rstanPlotAcor  <- function(plot_data, lags = 30){
   paste0(value, ifelse(value == 1, " observation was", " observations were"), " removed due to missing values.")
 }
 .mmMessageGLMMtype      <- function(family, link){
+  family <- car::recode(family,"
+  'binomial'         = 'binomial';
+  'binomial_agg'     = 'binomial';
+  'gaussian'         = 'gaussian';
+  'Gamma'            = 'gamma';
+  'inverse.gaussian' = 'inverse gaussian';
+  'poisson'          = 'poisson';
+  'neg_binomial_2'   = 'negative binomial';
+  'betar'            = 'beta'")
   paste0("Generalized linear mixed model with ", family, " family and ",link," link function.")
 }
 .mmMessageTermTest      <- function(method){

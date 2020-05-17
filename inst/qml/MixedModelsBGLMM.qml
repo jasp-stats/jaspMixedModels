@@ -87,8 +87,8 @@ Form {
 				{ label: "Gamma",					value: "Gamma"},
 				{ label: "Inverse Gaussian",		value: "inverse.gaussian"},
 				{ label: "Poisson",					value: "poisson"},
-				{ label: "Negative Binomial",		value: "rstanarm::neg_binomial_2"},
-				{ label: "Beta",					value: "mgcv::betar"}
+				{ label: "Negative Binomial",		value: "neg_binomial_2"},
+				{ label: "Beta",					value: "betar"}
 			]
 
 			property var familyMap: {
@@ -97,8 +97,8 @@ Form {
 				"Gamma":					["identity", "log", "inverse"],
 				"inverse.gaussian":			["identity", "log", "inverse"],
 				"poisson":					["identity", "log", "sqrt"],
-				"rstanarm::neg_binomial_2":	["identity", "log", "sqrt"],
-				"mgcv::betar":				["logit", "probit", "cauchit", "cloglog", "log"]
+				"neg_binomial_2":			["identity", "log", "sqrt"],
+				"betar":					["logit", "probit", "cauchit", "cloglog", "log"]
 			}
 
 			onCurrentValueChanged:
@@ -775,13 +775,6 @@ Form {
 			defaultValue:	1
 			min:			0
 			enabled:		trendsVariables.columnsTypes.includes("scale")
-		}
-
-		CheckBox
-		{
-			name: "trendsResponse"
-			label: qsTr("Response scale")
-			checked: true
 		}
 
 		CheckBox
