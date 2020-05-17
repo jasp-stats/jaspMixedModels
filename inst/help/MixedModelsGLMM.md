@@ -1,11 +1,11 @@
 Generalized Linear Mixed Models
 ===
 
-Generalized Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a dependent variable in cases where the observations are nested (i.e., repeated measures, children within schools). The are generalization of Linear Mixed Models and allow to model response variables that are not continous using a different likelihoods and link functions
+Generalized Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered given one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). They are generalization of Linear Mixed Models and allow to model response variables that are not continous using a different likelihoods and link functions.
 
 ### Assumptions
 - Linearity and additivity: The response variable is linearly related to all predictors and the effects of the predictors are additive on the linear scale.
-- Independence of errors: The errors are uncorrelated with each other after taking nesting inside of random effects grouping factors into account.
+- Independence of errors: The errors are uncorrelated with each other after taking the model (i.e., fixed effects and random effects structure) into account.
 - Homoscedasticity: The error variance of each predictor is constant across all values of that predictor.
 - Normality of errors: The errors are normally distributed with mean zero.
 
@@ -14,8 +14,9 @@ Generalized Linear Mixed Models allow you to model a linear relationship between
 #### Assignment Box
   - Dependent variable: Dependent (response) variable.
   - Number of trials: Number of trials, only applicable if `Binomial (aggregated)` family is selected.
-  - Fixed effects variables: Variables used as the fixed effects predictors (the model terms can be specified under `Model` section).
-  - Random effects grouping factors: Variables specifying the nesting.
+  - Fixed effects variables: Variables used as the fixed effects predictors (the model terms can be specified under `Model` section). These are usually the variables of primary scientific interest.
+  - Random effects grouping factors: Categorical variable(s) specifying clusters of observations (i.e., several observations per level of a random effects grouping factor). These are typically variables, such as participant or item, one wants to generalize over. Factors with very few levels (i.e., less then five or six levels) should not be used as random effects grouping factors and the number of levels of the random effects grouping factors determines the power of the test of the fixed effects (Westfall, Kenny, & Judd, 2014). The random effect structure (i.e., random intercepts, random slopes, and correlations among random effects parameters) can be specified under `Model` - `Random effects`. The default random effects structure is the automatically determined "maximal random effects structure justified by the design" (Barr, Levy, Scheepers, & Tily, 2013).
+
 
 #### Family
   - Distribution function which likelihood will be used for the dependent variable.
@@ -39,18 +40,18 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 - Components and model terms: 
     - Model components: All the fixed effects variables that can be included in the model. 
     - Fixed effects: The independent variables in the model. By default, all the main effects of the specified independent variables and their interactions are included in the model. To include interactions, click multiple variables (e.g., by holding the ctrl/cmd button on your keyboard while clicking) and drag those into the `Fixed effects` box.
-    - Random effects: The random effects organized by random effects grouping factors. By default, all of the random effects corresponding to the fixed effects are included and JASP internally checks and removes non-estimable random effects. Unticking the boxes on the left of the variable names removes the random effect from corresponding random effects grouping factor.
-     - Correlations: Whether the correlations between the random effects within each random effect grouping factor should be estimated. 
+    - Random effects: The random effects organized by random effects grouping factors. By default, all of the random effects corresponding to the fixed effects are included and JASP internally checks and removes non-estimable random effects. That is, the default corresponds to the "maximal random effects structure justified by the design" (Barr, Levy, Scheepers, & Tily, 2013). Unticking the boxes on the left of the variable names removes the random effect from corresponding random effects grouping factor.
+     - Correlations: Whether the correlations between the random effects parameters within each random effects grouping factor should be estimated. 
 
 
 ### Options
 - Sum of Squares: There are different types of the sum of squares. The choice of the type is important when there are multiple factors and when the data are unbalanced. In an unbalanced design, the different levels of the independent variable do not contain an equal number of observations (e.g., one group contains more observations than another group). In this scenario, the sum of squares type can influence the results. 
   - Type II: Hierarchical/partially sequential sum of squares. It is the reduction of error when each factor is added to the model that includes all the other factors, except the factors where the added factor is a part of, such as interactions containing that factor. Langsrud (2003) advises to apply this type for an ANOVA with unbalanced data.
-  - Type III: Partial sum of squares. It is the reduction of error when each factor is added to the model that includes all the other factors, including interactions with this factor. This type is often selected, because it takes interactions into account (Langsrud, 2003). This type is selected by default.
-- Test model terms: Methods for obtaining p-values for the ANOVA summary. Note that `Kenward-Roger` approximation for degrees of freedom can be very RAM and time consuming with larger datasets.
+  - Type III: Partial sum of squares. It is the reduction of error when each factor is added to the model that includes all the other factors, including interactions with this factor. This type is often selected, because it takes interactions into account (Langsrud, 2003). This type is selected by default and recommended for designs in which the imbalance is not a consequence of imbalance in the population, but random.
+- Test model terms: Methods for obtaining p-values for the ANOVA summary.
   - No. samples: Number of samples for the parametric bootstrap.
 - Repeatability: Gives the option to set a seed for your analysis. Setting a seed will exclude random processes influencing an analysis. Affects only parametric bootstrap and jitter in plots.
-- Test intercept: Whether the model intercept should be tested. Available only if the `likelihood ratio test` or `parametric bootstrap` is selected in the `Model terms test`.
+- Test intercept: Whether the model intercept should be tested.
 - Fixed effects estimates: Shows the estimated fixed effect coefficients.
 - Variance/correlation estimates: Shows the estimated residual variances and variances/correlations of random effects coefficients.
 - Vovk-Selke maximum p-ratio: The bound 1/(-e p log(p)) is derived from the shape of the p-value distribution. Under the null hypothesis (H<sub>0</sub>) it is uniform (0,1), and under the alternative (H<sub>1</sub>) it is decreasing in p, e.g., a beta (α, 1) distribution, where 0 < α < 1. The Vovk-Sellke MPR is obtained by choosing the shape α of the distribution under H1 such that the obtained p-value is maximally diagnostic. The value is then the ratio of the densities at point p under H<sub>0</sub> and H<sub>1</sub>. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H<sub>0</sub>. More information can be found in this <a href="https://jasp-stats.org/2017/06/12/mysterious-vs-mpr/">blogpost</a>. 
@@ -59,10 +60,10 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 ### Plots
 - Model factors: Categorical or ordinal fixed effects variables that can be used for visualization.
   - Horizontal axis: Variables that will be plotted on the horizontal axis.
-  - Separate lines: Variables that will be plotted "inside" the plot as different traces.
+  - Separate lines: Variables that will be plotted "inside" the plot as different traces/lines.
   - Separate plots: Variables which levels will be split across different plots.
-- Random effect grouping factors: Random effect grouping factors that can be used for data aggregation.
-  - Background data show: The level of aggregation for the response variable. I.e., if participants are selected, the individual data points are their averages across the combinations of levels of fixed effect factors selected in the `Horizontal axis`, `Separate lines`, and `Separate plots`.
+- Random effect grouping factors: Random effect grouping factors that can be used for data aggregation of data shown in the background.
+  - Background data show: The level of aggregation for the response variable. I.e., if participants are selected, the individual data points in the background are their averages across the combinations of levels of fixed effect factors selected in the `Horizontal axis`, `Separate lines`, and `Separate plots`.
  - Confidence interval method: Type of standard error on which the error bars will be based. Default is "model", which plots model-based standard errors.
  - Confidence interval: The width of the confidence interval.
  - Background geom: Geom that will be used to display the aggregated response variable.
@@ -109,7 +110,7 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 
 
 ### Estimated trends/conditional slopes
-- Continous variables: Continuous fixed effects variables that can be used for estimating the conditional slopes.
+- Continuous variables: Continuous fixed effects variables that can be used for estimating the conditional slopes.
 - Trend variable: Variables for which the estimated conditional slopes will be computed.
 - Model variables: Fixed effects variables over which the conditional slopes can be computed.
 - Selected variables: Variables over which the the conditional slopes will be computed.
@@ -136,13 +137,16 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 
 ### References
 ---
-- Singmann, H., & Kellen, D. (2017). An introduction to mixed models for experimental psychology. *New methods in neuroscience and cognitive psychology*.
+- Barr, D. J., Levy, R., Scheepers, C., & Tily, H. J. (2013). Random effects structure for confirmatory hypothesis testing: Keep it maximal. *Journal of Memory and Language*, 68(3), 255–278. https://doi.org/10.1016/j.jml.2012.11.001
+- Singmann, H., & Kellen, D. (2019). An Introduction to Mixed Models for Experimental Psychology. In D. H. Spieler & E. Schumacher (Eds.), *New Methods in Cognitive Psychology* (pp. 4–31). Psychology Press. http://singmann.org/download/publications/singmann_kellen-introduction-mixed-models.pdf
+- Westfall, J., Kenny, D. A., & Judd, C. M. (2014). Statistical power and optimal design in experiments in which samples of participants respond to samples of stimuli. *Journal of Experimental Psychology: General*, 143(5), 2020–2045. https://doi.org/10.1037/xge0000014
 
 
 ### R Packages
 ---
 - afex
-- lmer
+- glmer
+- lme4
 - emmeans
 - ggplot2
 - stats

@@ -1,12 +1,12 @@
 Bayesian Linear Mixed Models
 ===
 
-Bayesian Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are nested (i.e., repeated measures, children within schools).
+Bayesian Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered given one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). An introduction to this model class and the concepts introduced below is provided in <a href="http://singmann.org/download/publications/singmann_kellen-introduction-mixed-models.pdf">Singmann and Kellen (2019)</a>.
 
 ### Assumptions
 - Continuous response variable.
 - Linearity and additivity: The response variable is linearly related to all predictors and the effects of the predictors are additive.
-- Independence of errors: The errors are uncorrelated with each other after taking nesting inside of random effects grouping factors into account.
+- Independence of errors: The errors are uncorrelated with each other after taking the model (i.e., fixed effects and random effects structure) into account.
 - Homoscedasticity: The error variance of each predictor is constant across all values of that predictor.
 - Normality of errors: The errors are normally distributed with mean zero.
 
@@ -14,32 +14,33 @@ Bayesian Linear Mixed Models allow you to model a linear relationship between on
 
 #### Assignment Box
   - Dependent variable: Dependent (response) variable.
-  - Fixed effects variables: Variables used as the fixed effects predictors (the model terms can be specified under `Model` section).
-  - Random effects grouping factors: Variables specifying the nesting.
+  - Fixed effects variables: Variables used as the fixed effects predictors (the model terms can be specified under `Model` section). These are usually the variables of primary scientific interest.
+  - Random effects grouping factors: Categorical variable(s) specifying clusters of observations (i.e., several observations per level of a random effects grouping factor). These are typically variables, such as participant or item, one wants to generalize over. Factors with very few levels (i.e., less then five or six levels) should not be used as random effects grouping factors and the number of levels of the random effects grouping factors determines the power of the test of the fixed effects (Westfall, Kenny, & Judd, 2014). The random effect structure (i.e., random intercepts, random slopes, and correlations among random effects parameters) can be specified under `Model` - `Random effects`. The default random effects structure is the automatically determined "maximal random effects structure justified by the design" (Barr, Levy, Scheepers, & Tily, 2013).
+
 
 #### Run Analysis 
 Press the button to run the analysis. Model relevant changes in the settings will not be applied until the button is pressed.
 
 
 ### Output
-  - Estimated grand mean and estimated deviations from the grand mean for all levels of each fixed effects model term. It can be changed to estimated marginal means in the `Options` section.
-    - Level: Levels of the fixed effects model term.
-    - Estimate: This column contains the independent variables or their interaction.
-    - SE: Standart error of the estimate.
-    - 95% CI: 95% credible interval.
-      - Lower: Lower bound of the credible interval.
-      - Upper: Upper bound of the credible interval.
-    - R-hat: Convergence diagnostic comparing within and between chains estimates of model parameters. Values larger than 1.01 indicates possible convergence problems.
-    - ESS (bulk): Estimated sample size in the middle of the distribution. Small values render the parameter estimates unprecise. 
-    - ESS (tail): Estimated sample size in the tails of the distribution. Small values render the bounds of credible intervals unprecise. 
+- Estimated grand mean and estimated deviations from the grand mean for all levels of each fixed effects model term. It can be changed to estimated marginal means in the `Options` section.
+  - Level: Levels of the fixed effects model term.
+  - Estimate: This column contains the independent variables or their interaction.
+  - SE: Standart error of the estimate.
+  - 95% CI: 95% credible interval.
+    - Lower: Lower bound of the credible interval.
+    - Upper: Upper bound of the credible interval.
+  - R-hat: Convergence diagnostic comparing within and between chains estimates of model parameters. Values larger than 1.01 indicates possible convergence problems.
+  - ESS (bulk): Estimated sample size in the middle of the distribution. Small values render the parameter estimates unprecise. 
+  - ESS (tail): Estimated sample size in the tails of the distribution. Small values render the bounds of credible intervals unprecise. 
 
 
 ### Model
 - Components and model terms: 
     - Model components: All the fixed effects variables that can be included in the model. 
     - Fixed effects: The independent variables in the model. By default, all the main effects of the specified independent variables and their interactions are included in the model. To include interactions, click multiple variables (e.g., by holding the ctrl/cmd button on your keyboard while clicking) and drag those into the `Fixed effects` box.
-    - Random effects: The random effects organized by random effects grouping factors. By default, all of the random effects corresponding to the fixed effects are included and JASP internally checks and removes non-estimable random effects. Unticking the boxes on the left of the variable names removes the random effect from corresponding random effects grouping factor.
-     - Correlations: Whether the correlations between the random effects within each random effect grouping factor should be estimated. 
+    - Random effects: The random effects organized by random effects grouping factors. By default, all of the random effects corresponding to the fixed effects are included and JASP internally checks and removes non-estimable random effects. That is, the default corresponds to the "maximal random effects structure justified by the design" (Barr, Levy, Scheepers, & Tily, 2013). Unticking the boxes on the left of the variable names removes the random effect from corresponding random effects grouping factor.
+     - Correlations: Whether the correlations between the random effects parameters within each random effects grouping factor should be estimated. 
 
 
 ### Options
@@ -72,10 +73,10 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 ### Plots
 - Model factors: Categorical or ordinal fixed effects variables that can be used for visualization.
   - Horizontal axis: Variables that will be plotted on the horizontal axis.
-  - Separate lines: Variables that will be plotted "inside" the plot as different traces.
+  - Separate lines: Variables that will be plotted "inside" the plot as different traces/lines.
   - Separate plots: Variables which levels will be split across different plots.
-- Random effect grouping factors: Random effect grouping factors that can be used for data aggregation.
-  - Background data show: The level of aggregation for the response variable. I.e., if participants are selected, the individual data points are their averages across the combinations of levels of fixed effect factors selected in the `Horizontal axis`, `Separate lines`, and `Separate plots`.
+- Random effect grouping factors: Random effect grouping factors that can be used for data aggregation of data shown in the background.
+  - Background data show: The level of aggregation for the response variable. I.e., if participants are selected, the individual data points in the background are their averages across the combinations of levels of fixed effect factors selected in the `Horizontal axis`, `Separate lines`, and `Separate plots`.
  - Confidence interval method: Type of standard error on which the error bars will be based. Default is "model", which plots model-based standard errors.
  - Confidence interval: The width of the confidence interval.
  - Background geom: Geom that will be used to display the aggregated response variable.
@@ -101,19 +102,8 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 - Model variables: Fixed effects variables that can be used for computing estimated marginal means.
 - Selected variables: Variables for which the estimated marginal means will be computed.
 - Confidence interval: Width of the confidence interval.
-- Estimate df: Method of estimating degrees of freedom. Note that `Kenward-Roger` approximation for degrees of freedom can be very RAM and time consuming with larger datasets.
-  - Force df estimation: JASP automatically uses `Asymptotic` degrees of freedom in cases with a large dataset. This can be disabled by ticking this checkbox.
 - SD factor covariates: What should be the "levels" of continuous variables (expressed in standard deviations) for which are the estimated marginal means computed.
-- Compare marginal means to: Value to which will be the estimated marginal means compared.
 - Specify contrasts: Creates a table for specifying contrasts based on the estimated marginal means.
-- P-value adjustment: To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:
-  - Holm: This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method.
-  - Multivariate-t: TODO: add some text?
-  - Scheffe: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.
-  - Tukey: Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.
-  - None: No adjustment is conducted.
-  - Bonferroni: This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well. 
-  - Hommel: TODO: add some text?
 - Contrasts: A table created by checking `Specify contrasts` checkbox. 
   - The first column contains indices of rows corresponding to the estimated marginal means output table. 
   - Columns with variable names contain the combinations of variables level for each estimated marginal mean.
@@ -121,24 +111,13 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 
 
 ### Estimated trends/conditional slopes
-- Continous variables: Continuous fixed effects variables that can be used for estimating the conditional slopes.
+- Continuous variables: Continuous fixed effects variables that can be used for estimating the conditional slopes.
 - Trend variable: Variables for which the estimated conditional slopes will be computed.
 - Model variables: Fixed effects variables over which the conditional slopes can be computed.
 - Selected variables: Variables over which the the conditional slopes will be computed.
 - Confidence interval: Width of the confidence interval.
-- Estimate df: Method of estimating degrees of freedom. Note that `Kenward-Roger` approximation for degrees of freedom can be very RAM and time consuming with larger datasets.
-  - Force df estimation: JASP automatically uses `Asymptotic` degrees of freedom in cases with a large dataset. This can be disabled by ticking this checkbox.
 - SD factor covariates: What should be the "levels" of continuous variables (expressed in standard deviations) over which the conditional slopes are computed.
-- Compare trends to: Value to which will be the estimated conditional slopes compared.
 - Specify contrasts: Creates a table for specifying contrasts based on the estimated conditional slopes.
-- P-value adjustment: To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:
-  - Holm: This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method.
-  - Multivariate-t: TODO: add some text?
-  - Scheffe: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.
-  - Tukey: Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.
-  - None: No adjustment is conducted.
-  - Bonferroni: This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well. 
-  - Hommel: TODO: add some text?
 - Contrasts: A table created by checking `Specify contrasts` checkbox. 
   - The first column contains indices of rows corresponding to the estimated conditional slopes output table. 
   - Columns with variable names contain the combinations of variables level for each estimated conditional slope.
@@ -147,14 +126,16 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 
 ### References
 ---
-- Singmann, H., & Kellen, D. (2017). An introduction to mixed models for experimental psychology. *New methods in neuroscience and cognitive psychology*.
-- https://mc-stan.org/misc/warnings.html
+- Barr, D. J., Levy, R., Scheepers, C., & Tily, H. J. (2013). Random effects structure for confirmatory hypothesis testing: Keep it maximal. *Journal of Memory and Language*, 68(3), 255–278. https://doi.org/10.1016/j.jml.2012.11.001
+- Singmann, H., & Kellen, D. (2019). An Introduction to Mixed Models for Experimental Psychology. In D. H. Spieler & E. Schumacher (Eds.), *New Methods in Cognitive Psychology* (pp. 4–31). Psychology Press. http://singmann.org/download/publications/singmann_kellen-introduction-mixed-models.pdf
+- Westfall, J., Kenny, D. A., & Judd, C. M. (2014). Statistical power and optimal design in experiments in which samples of participants respond to samples of stimuli. *Journal of Experimental Psychology: General*, 143(5), 2020–2045. https://doi.org/10.1037/xge0000014
 
 
 ### R Packages
 ---
 - stanova
 - rstan
+- rstanarm
 - emmeans
 - ggplot2
 - stats

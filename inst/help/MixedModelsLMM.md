@@ -1,7 +1,7 @@
 Linear Mixed Models
 ===
 
-Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered given one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). An introduction to this model class and the concepts introduced below is provided in [Singmann and Kellen (2019)](http://singmann.org/download/publications/singmann_kellen-introduction-mixed-models.pdf).
+Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered given one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). An introduction to this model class and the concepts introduced below is provided in <a href="http://singmann.org/download/publications/singmann_kellen-introduction-mixed-models.pdf">Singmann and Kellen (2019)</a>.
 
 ### Assumptions
 - Continuous response variable.
@@ -56,7 +56,7 @@ Press the button to run the analysis. Model relevant changes in the settings wil
   - Separate lines: Variables that will be plotted "inside" the plot as different traces/lines.
   - Separate plots: Variables which levels will be split across different plots.
 - Random effect grouping factors: Random effect grouping factors that can be used for data aggregation of data shown in the background.
-  - Background data show: The level of aggregation for the response variable. I.e., if participants are selected, the individual data points in the backgrdound are their averages across the combinations of levels of fixed effect factors selected in the `Horizontal axis`, `Separate lines`, and `Separate plots`.
+  - Background data show: The level of aggregation for the response variable. I.e., if participants are selected, the individual data points in the background are their averages across the combinations of levels of fixed effect factors selected in the `Horizontal axis`, `Separate lines`, and `Separate plots`.
  - Confidence interval method: Type of standard error on which the error bars will be based. Default is "model", which plots model-based standard errors.
  - Confidence interval: The width of the confidence interval.
  - Background geom: Geom that will be used to display the aggregated response variable.
@@ -136,7 +136,7 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 ### R Packages
 ---
 - afex
-- lmer
+- lme4
 - emmeans
 - ggplot2
 - stats
