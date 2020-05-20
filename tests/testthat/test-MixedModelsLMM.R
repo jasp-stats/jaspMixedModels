@@ -1,5 +1,3 @@
-setPkgOption("module.dir", "D:/Projects/jasp/JASP-MixedModels") # TODO: probably somewhere else 
-
 context("Linear Mixed Models")
 
 #### ANOVA tables for each model test (+ different predictor types) ####
@@ -686,8 +684,3 @@ test_that("Random Effects: Variance Estimates table results match (type II, RE w
                         ))
   })
 }
-
-
-
-options <- readRDS(file = "D:/Projects/jasp/jasp-R-debug/options.RDS")
-results <- jasptools::run("MixedModelsLMM", "debug.csv", options, makeTests = T)
