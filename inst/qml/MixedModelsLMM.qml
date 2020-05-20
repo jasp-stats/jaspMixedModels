@@ -111,8 +111,8 @@ Form {
 			title:				qsTr("Random effects")
 			name:				"randomEffects"
 			source:				"randomVariables"
-			cellHeight:			fixedEffects.count * 30 * preferencesModel.uiScale + 40 * preferencesModel.uiScale
-			preferredHeight: 	count * cellHeight + 25 * preferencesModel.uiScale
+			//cellHeight:			fixedEffects.count * 30 * preferencesModel.uiScale + 40 * preferencesModel.uiScale
+			//preferredHeight: 	count * cellHeight + 25 * preferencesModel.uiScale
 			visible:			count > 0
 
 			rowComponent: Group
@@ -127,9 +127,9 @@ Form {
 				{
 					name:				"randomComponents"
 					source:				"fixedEffects"
-					cellHeight:			30 * preferencesModel.uiScale
-					preferredHeight:	count * cellHeight + 10 * preferencesModel.uiScale
-					preferredWidth:		randomEffetcs.width - 8 * preferencesModel.uiScale
+					//cellHeight:			30 * preferencesModel.uiScale
+					//preferredHeight:	count * cellHeight + 10 * preferencesModel.uiScale
+					//preferredWidth:		randomEffetcs.width - 8 * preferencesModel.uiScale
 
 					rowComponent: CheckBox { name: "randomSlopes"; label: rowValue; checked: true }
 				}
@@ -576,7 +576,7 @@ Form {
 			]
 		}
 
-		MarginalMeansContrastsTableView
+		CustomContrastsTableView
 		{
 			Layout.columnSpan:	2
 			visible:			marginalMeansContrast.checked
@@ -709,7 +709,7 @@ Form {
 			]
 		}
 
-		MarginalMeansContrastsTableView
+		CustomContrastsTableView
 		{
 			Layout.columnSpan:	2
 			visible:			trendsContrast.checked
