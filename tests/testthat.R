@@ -1,7 +1,3 @@
-pkgsDir <- "~/pkgs/Frameworks/R.framework/Versions/3.6/Resources/library"
-
-.libPaths(pkgsDir)
-
 library(jaspResults)
 library(jasptools)
 library(testthat)
