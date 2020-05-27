@@ -16,7 +16,6 @@
 #
 
 MixedModelsBGLMM   <- function(jaspResults, dataset, options, state = NULL){
-  saveOptions(options)
 
   # load dataset
   if(.mmReady(options, "GLMM"))dataset <- .mmReadData(dataset, options)
