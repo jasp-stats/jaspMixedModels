@@ -35,7 +35,6 @@ Form {
 
 		AssignedVariablesList
 		{
-			runOnChange:		false
 			name:				"dependentVariable"
 			title:				qsTr("Dependent variable")
 			suggestedColumns:	["scale"]
@@ -44,7 +43,6 @@ Form {
 
 		AssignedVariablesList
 		{
-			runOnChange:		false
 			enabled:			family.currentText == "Binomial (aggregated)"
 			name:				"dependentVariableAggregation"
 			title:				qsTr("Number of trials")
@@ -53,7 +51,6 @@ Form {
 
 		AssignedVariablesList
 		{
-			runOnChange:		false
 			name:				"fixedVariables"
 			title:				qsTr("Fixed effects variables")
 			suggestedColumns:	["ordinal", "nominal","scale"]
@@ -62,7 +59,6 @@ Form {
 		
 		AssignedVariablesList
 		{
-			runOnChange:		false
 			name:				"randomVariables"
 			title:				qsTr("Random effects grouping factors")
 			suggestedColumns:	["ordinal", "nominal"]
@@ -71,8 +67,6 @@ Form {
 
 	Group
 	{
-		runOnChange:	false
-
 		DropDown
 		{
 			name:				"family"
@@ -121,7 +115,6 @@ Form {
 			name:					"link"
 			title:					qsTr("Link")
 			radioButtonsOnSameRow:	true
-			runOnChange:			false
 			
 			RadioButton
 			{
@@ -182,30 +175,10 @@ Form {
 		}
 	}
 
-	Button
-	{
-		Layout.columnSpan:	2
-		Layout.alignment:	Qt.AlignRight
-		id:					runAnalysis
-		name:				"runAnalysis"
-		label:				"Run Analysis"
-		enabled:			false
-		Connections
-		{
-			target:			form
-			onValueChanged:	if (item && !item.runOnChange) runAnalysis.enabled = true
-		}
-		onClicked:
-		{
-			form.refreshAnalysis()
-			enabled = false;
-		}
-	}
 
 	Section
 	{
 		title:			qsTr("Model")
-		runOnChange:	false
 
 		VariablesForm
 		{
@@ -233,8 +206,6 @@ Form {
 			title:				qsTr("Random effects")
 			name:				"randomEffects"
 			source:				"randomVariables"
-			cellHeight:			fixedEffects.count * 30 * preferencesModel.uiScale + 40 * preferencesModel.uiScale
-			preferredHeight: 	count * cellHeight + 25 * preferencesModel.uiScale
 			visible:			count > 0
 
 			rowComponent: Group
@@ -249,9 +220,6 @@ Form {
 				{
 					name:				"randomComponents"
 					source:				"fixedEffects"
-					cellHeight:			30 * preferencesModel.uiScale
-					preferredHeight:	count * cellHeight + 10 * preferencesModel.uiScale
-					preferredWidth:		randomEffetcs.width - 8 * preferencesModel.uiScale
 
 					rowComponent: CheckBox { name: "randomSlopes"; label: rowValue; checked: true }
 				}
@@ -268,7 +236,6 @@ Form {
 
 		Group
 		{
-			runOnChange:	false
 
 			IntegerField
 			{
@@ -708,7 +675,7 @@ Form {
 			label:	qsTr("Specify contrasts")
 		}
 
-		MarginalMeansContrastsTableView
+		CustomContrastsTableView
 		{
 			Layout.columnSpan:	2
 			visible:			marginalMeansContrast.checked
@@ -784,7 +751,7 @@ Form {
 			label:	qsTr("Specify contrasts")
 		}
 
-		MarginalMeansContrastsTableView
+		CustomContrastsTableView
 		{
 			Layout.columnSpan:	2
 			visible:			trendsContrast.checked

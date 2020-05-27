@@ -15,12 +15,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# with Bruno
+
 # TODO: Estimated marginal means - contrasts widged - changing the the resolution removes the widget
-
-
-# TODO:
-# - expose priors specification to users in Bxxx?
+# TODO: Expose priors specification to users in Bxxx?
 
 # remove when merged to JASP
 .VovkSellkeMPR <- function(p){
@@ -112,6 +109,7 @@ RDEBUG <- function(message){
   random_effects <- NULL
   removed_me     <- list()
   removed_te     <- list()
+  added_re       <- list()
   for(temp_re in options[["randomEffects"]]){
    
     # unlist selected random effects
@@ -122,7 +120,17 @@ RDEBUG <- function(message){
         return(NA)
       }
     })
-    temp_vars <- na.omit(temp_vars)
+    temp_vars_rem <- sapply(temp_re$randomComponents, function(x){
+      if(x$randomSlopes){
+        return(NA)
+      }else{
+        return(gsub(" ", "", .v(unlist(x$value)), fixed = TRUE))
+      }
+    })
+    temp_vars     <- temp_vars[!is.na(temp_vars)]
+    temp_vars     <- sapply(temp_vars, function(x)paste(unlist(x), collapse = "*"))
+    temp_vars_rem <- temp_vars_rem[!is.na(temp_vars_rem)]
+    temp_vars_rem <- sapply(temp_vars_rem, function(x)paste(unlist(x), collapse = "*"))
     ### test sensibility of random slopes
     # main effect check #1
     # - remove main effects that have only one level of selected variable for the random effect grouping factor (eg only between subject variables)
@@ -155,6 +163,7 @@ RDEBUG <- function(message){
     }
     
     # simplify the formula
+    re_added <- .mmAddedRETerms(temp_vars, temp_vars_rem)
     re_terms <- .mmSimplifyTerms(temp_vars)
     re_terms <- paste0(re_terms, collapse = "+")
     
@@ -163,6 +172,7 @@ RDEBUG <- function(message){
     random_effects <- c(random_effects, new_re)
     removed_me[[temp_re$value]] <- .unv(me_to_remove)
     removed_te[[temp_re$value]] <- .unv(te_to_remove)
+    added_re[[temp_re$value]]   <- re_added
   }
   random_effects <- paste0(random_effects, collapse = "+")
   
@@ -171,7 +181,8 @@ RDEBUG <- function(message){
   return(list(
     model_formula = model_formula,
     removed_me    = removed_me,
-    removed_te    = removed_te
+    removed_te    = removed_te,
+    added_re      = added_re
   ))
 }
 .mmSimplifyTerms <- function(terms){
@@ -186,6 +197,24 @@ RDEBUG <- function(message){
     terms <- terms[!terms_to_remove]
   }
   return(terms)
+}
+.mmAddedRETerms <- function(terms, removed){
+  added <- NULL
+  if(length(terms) > 1 & length(removed) >= 1){
+    split_terms  <- sapply(terms, strsplit, "\\*")
+    split_terms  <- sapply(split_terms, function(x)trimws(x, which = c("both")))
+    
+    split_removed <- sapply(removed, strsplit, "\\*")
+    split_removed <- sapply(split_removed, function(x)trimws(x, which = c("both")))
+    
+    terms_to_remove <- rep(NA, length(split_terms))
+    for(i in 1:length(removed)){
+      if(any(sapply(split_terms, function(x)all(split_removed[[i]] %in% x)))){
+        added <- c(added, paste0(.unv(split_removed[[i]]),collapse = "*")) 
+      }
+    }
+  }
+  return(added)
 }
 .mmFitModel      <- function(jaspResults, dataset, options, type = "LMM"){
   
@@ -258,7 +287,8 @@ RDEBUG <- function(message){
   object <- list(
     model             = model,
     removed_me        = model_formula$removed_me,
-    removed_te        = model_formula$removed_te
+    removed_te        = model_formula$removed_te,
+    added_re          = model_formula$added_re
   )
   
   mmModel$object <- object
@@ -266,7 +296,7 @@ RDEBUG <- function(message){
   return()
 }
 .mmSummaryAnova  <- function(jaspResults, dataset, options, type = "LMM"){
-  
+
   if(!is.null(jaspResults[["ANOVAsummary"]]))return()
   
   model <- jaspResults[["mmModel"]]$object$model  
@@ -390,6 +420,7 @@ RDEBUG <- function(message){
   
   removed_me <- jaspResults[["mmModel"]]$object$removed_me
   removed_te <- jaspResults[["mmModel"]]$object$removed_te
+  added_re   <- jaspResults[["mmModel"]]$object$added_re
   if(length(removed_me) > 0){
     for(i in 1:length(removed_me)){
       ANOVAsummary$addFootnote(.mmMessageOmmitedTerms1(removed_me[[i]], names(removed_me)[i]), symbol = "Warning:")
@@ -400,6 +431,12 @@ RDEBUG <- function(message){
       ANOVAsummary$addFootnote(.mmMessageOmmitedTerms2(removed_te[[i]], names(removed_te)[i]), symbol = "Warning:" )
     }
   }
+  if(length(added_re) > 0){
+    for(i in 1:length(added_re)){
+      ANOVAsummary$addFootnote(.mmMessageAddedTerms(added_re[[i]], names(added_re)[i]), symbol = "Warning:" )
+    }
+  }
+
   
   ANOVAsummary$addFootnote(.mmMessageANOVAtype(ifelse(options$type == 3, "III", "II")))
   if(type == "GLMM"){
@@ -659,6 +696,11 @@ RDEBUG <- function(message){
     jaspResults[["plots"]] <- plots 
     return()
   }
+  if(all(!c(options$plotsMappingColor, options$plotsMappingShape, options$plotsMappingLineType, options$plotsMappingFill))){
+    plots$setError("Factor levels need to be distinguished by at least one feature. Please, check one of the 'Distinguish factor levels' options.")
+    jaspResults[["plots"]] <- plots 
+    return()
+  }
   
   # select geom
   if(options$plotsGeom %in% c("geom_jitter", "geom_violin", "geom_boxplot", "geom_count")){
@@ -719,7 +761,7 @@ RDEBUG <- function(message){
     error_arg   = list(width = 0, size  = .5 * options$plotRelativeSize),
     point_arg   = list(size = 1.5 * options$plotRelativeSize),
     line_arg    = list(size = .5 * options$plotRelativeSize),
-    legend_title= paste(.unv(options$plotsTrace), collapse = "\n"),
+    legend_title= paste(.unv(unlist(options$plotsTrace)), collapse = "\n"),
     dodge       = options$plotDodge
   )
   
@@ -1295,9 +1337,9 @@ RDEBUG <- function(message){
     }else if(type %in% c("BLMM", "BGLMM")){
       temp_row <- list(
         contrast = names(contrs)[i],
-        estimate = emm_contrast[i, ncol(emm_table) - 2],
-        lowerCI  = emm_contrast[i, ncol(emm_table) - 1],
-        upperCI  = emm_contrast[i, ncol(emm_table) - 0]
+        estimate = emm_contrast[i, ncol(emm_contrast) - 2],
+        lowerCI  = emm_contrast[i, "lower.HPD"],
+        upperCI  = emm_contrast[i, "upper.HPD"]
       )
     }
     
@@ -1721,6 +1763,7 @@ RDEBUG <- function(message){
     
     removed_me <- jaspResults[["mmModel"]]$object$removed_me
     removed_te <- jaspResults[["mmModel"]]$object$removed_te
+    added_re   <- jaspResults[["mmModel"]]$object$added_re
     if(length(removed_me) > 0){
       for(j in 1:length(removed_me)){
         temp_table$addFootnote(.mmMessageOmmitedTerms1(removed_me[[j]], names(removed_me)[j]), symbol = "Warning:")
@@ -1729,6 +1772,11 @@ RDEBUG <- function(message){
     if(length(removed_te) > 0){
       for(j in 1:length(removed_te)){
         temp_table$addFootnote(.mmMessageOmmitedTerms2(removed_te[[j]], names(removed_te)[j]), symbol = "Warning:" )
+      }
+    }
+    if(length(added_re) > 0){
+      for(i in 1:length(added_re)){
+        ANOVAsummary$addFootnote(.mmMessageAddedTerms(added_re[[i]], names(added_re)[i]), symbol = "Warning:" )
       }
     }
     if(nrow(dataset) - length(model$y) != 0){
@@ -2028,6 +2076,9 @@ rstanPlotAcor  <- function(plot_data, lags = 30){
 }
 .mmMessageOmmitedTerms2 <- function(terms, grouping){
   paste0("Number of observations not sufficient for estimating ", paste0("'",terms,"'", collapse = ", ")," random slopes for random effects grouping factor '",grouping,"'.  Consequently, random slopes for ", paste0("'",terms,"'", collapse = ", ")," have been removed for  '",grouping,"'.") 
+}
+.mmMessageAddedTerms    <- function(terms, grouping){
+  paste0("Lower order random effects terms need to be specified in presence of the higher order random effects terms. Therefore, the following random effects terms were added to the '", grouping, "' random effects grouping factor: ", paste0("'",terms,"'", collapse = ", "),".")
 }
 .mmMessageMissingRows   <- function(value){
   paste0(value, ifelse(value == 1, " observation was", " observations were"), " removed due to missing values.")

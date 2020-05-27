@@ -21,14 +21,14 @@ MixedModelsLMM   <- function(jaspResults, dataset, options, state = NULL){
   # load dataset
   if(.mmReady(options))dataset <- .mmReadData(dataset, options)
   if(.mmReady(options)).mmCheckData(dataset, options)
-  
+
   # fit the model
   if(.mmReady(options)).mmFitModel(jaspResults, dataset, options)
 
   
   # create summary tables
   .mmSummaryAnova(jaspResults, dataset, options)
-  
+    
   if(!is.null(jaspResults[["mmModel"]])){
     if(options$showFE).mmSummaryFE(jaspResults, options)
     if(options$showRE).mmSummaryRE(jaspResults, options)

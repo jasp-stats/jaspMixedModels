@@ -2,7 +2,7 @@ context("Bayesian Generalized Linear Mixed Models")
 
 # the testing doesn't cover all links / families
 
-#### maion summary for different families / links ###
+#### main summary for different families / links ###
 {
   # binomial / logit
   {
@@ -492,8 +492,6 @@ context("Bayesian Generalized Linear Mixed Models")
                              1.00254385395416, 2.05674060551404, 7.46692293804643))
   })
 }
-
-
 #### estimated marginal means + contrasts #####
 {
   options <- jasptools::analysisOptions("MixedModelsBGLMM")
@@ -601,7 +599,6 @@ context("Bayesian Generalized Linear Mixed Models")
                         ))
   })
 }
-
 #### estimated marginal means + contrasts (non-response scale) #####
 {
   options <- jasptools::analysisOptions("MixedModelsBGLMM")
@@ -712,7 +709,6 @@ context("Bayesian Generalized Linear Mixed Models")
                         ))
   })
 }
-
 #### estimated trends + contrasts #####
 {
   options <- jasptools::analysisOptions("MixedModelsBGLMM")
