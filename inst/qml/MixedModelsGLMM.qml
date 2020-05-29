@@ -596,30 +596,6 @@ Form {
 
 		Group
 		{
-			DropDown
-			{
-				name:	"marginalMeansDf"
-				id:		marginalMeansDf
-				label:	qsTr("Estimate df")
-				values:
-				[
-					{ label: "Asymptotic",				value: "asymptotic"},
-					{ label: "Satterthwaite",			value: "satterthwaite"},
-					{ label: "Kenward-Roger",			value: "kenward-roger"}
-				]
-			}
-
-			CheckBox
-			{
-				enabled:	marginalMeansDf.currentText == "Satterthwaite" | marginalMeansDf.currentText == "Kenward-Roger"
-				name:		"marginalMeansOverride"
-				label:		qsTr("Force df estimation")
-			}
-
-		}
-
-		Group
-		{
 			columns: 2
 
 			CheckBox
@@ -678,7 +654,7 @@ Form {
 
 	Section
 	{
-		title:		qsTr("Estimated trends/condtional slopes")
+		title:		qsTr("Estimated trends/conditional slopes")
 		expanded:	false
 
 		VariablesForm
@@ -733,29 +709,6 @@ Form {
 			defaultValue:	1
 			min:			0
 			enabled:		trendsVariables.columnsTypes.includes("scale")
-		}
-
-		Group
-		{
-			DropDown
-			{
-				name:	"trendsDf"
-				id:		trendsDf
-				label:	qsTr("Estimate df")
-				values:
-				[
-					{ label: "Asymptotic",				value: "asymptotic"},
-					{ label: "Satterthwaite",			value: "satterthwaite"},
-					{ label: "Kenward-Roger",			value: "kenward-roger"}
-				]
-			}
-
-			CheckBox
-			{
-				enabled:	trendsDf.currentText == "Satterthwaite" | trendsDf.currentText == "Kenward-Roger"
-				name:		"trendsOverride"
-				label:		qsTr("Force df estimation")
-			}
 		}
 
 		Group

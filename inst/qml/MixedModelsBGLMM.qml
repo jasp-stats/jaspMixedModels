@@ -687,7 +687,7 @@ Form {
 
 	Section
 	{
-		title:		qsTr("Estimated trends/condtional slopes")
+		title:		qsTr("Estimated trends/conditional slopes")
 		expanded:	false
 
 		VariablesForm

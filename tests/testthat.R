@@ -14,4 +14,4 @@ if (sum(result$failed) > 0 || sum(result$error) > 0)
 
 
 options <- readRDS(file = "D:/Projects/jasp/jasp-R-debug/options.RDS")
-results <- jasptools::run("MixedModelsLMM", "debug.csv", options, makeTests = T)
+results <- jasptools::run("MixedModelsLMM", "debug.csv", options, makeTests = F)

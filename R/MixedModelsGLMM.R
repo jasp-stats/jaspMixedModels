@@ -16,7 +16,7 @@
 #
 
 MixedModelsGLMM   <- function(jaspResults, dataset, options, state = NULL){
-  
+
   # load dataset
   if(.mmReady(options))dataset <- .mmReadData(dataset, options, "GLMM")
   if(.mmReady(options)).mmCheckData(dataset, options, "GLMM")
