@@ -384,7 +384,7 @@
       if (any(attr(model, "class") %in% c("std::runtime_error", "C++Error", "error"))) {
         if (model$message == "(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate") {
           ANOVAsummary$setError(
-            "The optimizer failed to find solution. Probabably due to quasi-separation in the data. Try removing some of the predictiors."
+            gettext("The optimizer failed to find solution. Probabably due to quasi-separation in the data. Try removing some of the predictors.")
           )
         } else if (model$message == "cannot find valid starting values: please specify some") {
           ANOVAsummary$setError("Invalid starting values.")
