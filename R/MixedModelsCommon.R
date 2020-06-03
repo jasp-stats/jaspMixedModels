@@ -81,14 +81,14 @@
 }
 .mmReady         <- function(options, type = "LMM") {
   if (type == "LMM") {
-    if (options$dependentVariable       == "" |
-        length(options$randomVariables) == 0  |
+    if (options$dependentVariable       == "" ||
+        length(options$randomVariables) == 0  ||
         length(options$fixedEffects)    == 0) {
       return(FALSE)
     }
   } else if (type == "GLMM") {
-    if (options$dependentVariable       == "" |
-        length(options$randomVariables) == 0  |
+    if (options$dependentVariable       == "" ||
+        length(options$randomVariables) == 0  ||
         length(options$fixedEffects)    == 0) {
       return(FALSE)
     }
@@ -185,7 +185,7 @@
       paste0(
         "(",
         ifelse(re_terms == "", 1, re_terms),
-        ifelse(temp_re$correlation |
+        ifelse(temp_re$correlation ||
                  re_terms == "", "|", "||"),
         .v(temp_re$value),
         ")"
@@ -233,7 +233,7 @@
 }
 .mmAddedRETerms <- function(terms, removed) {
   added <- NULL
-  if (length(terms) > 1 & length(removed) >= 1) {
+  if (length(terms) > 1 && length(removed) >= 1) {
     split_terms  <- sapply(terms, strsplit, "\\*")
     split_terms  <-
       sapply(split_terms, function(x)
@@ -380,7 +380,7 @@
     
     
     # some error managment for GLMMS - and oh boy, they can fail really easily
-    if (type %in% c("LMM", "GLMM") & !is.null(model)) {
+    if (type %in% c("LMM", "GLMM") && !is.null(model)) {
       if (any(attr(model, "class") %in% c("std::runtime_error", "C++Error", "error"))) {
         if (model$message == "(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate") {
           ANOVAsummary$setError(
@@ -1758,7 +1758,7 @@
     
     
     # take care of the scale
-    if (type %in% c("LMM", "BLMM") | what == "Trends") {
+    if (type %in% c("LMM", "BLMM") || what == "Trends") {
       emm_contrast <- tryCatch(
         as.data.frame(
           emmeans::contrast(emm, contrs,
@@ -1851,7 +1851,7 @@
       }
       
       
-      if (type %in% c("GLMM", "BGLMM") & what == "Means") {
+      if (type %in% c("GLMM", "BGLMM") && what == "Means") {
         if (!selectedResponse) {
           EMMCsummary$addFootnote(.mmMessageNotResponse)
         } else{
@@ -2286,7 +2286,7 @@
       temp_table <- createJaspTable(title = table_name)
       STANOVAsummary[[paste0("summary_", i)]] <- temp_table
       
-      if (var_name != "Intercept" & nrow(temp_summary) > 1) {
+      if (var_name != "Intercept" && nrow(temp_summary) > 1) {
         temp_table$addColumnInfo(name = "level",
                                  title = "Level",
                                  type = "string")
@@ -2337,7 +2337,7 @@
           ess_tail   = temp_summary$ess_tail[j]
         )
         
-        if (var_name != "Intercept" & nrow(temp_summary) > 1) {
+        if (var_name != "Intercept" && nrow(temp_summary) > 1) {
           var_name <-
             paste(.unv(unlist(strsplit(
               as.character(temp_summary$Variable[j]), ","
@@ -2418,7 +2418,7 @@
     if (!is.null(jaspResults[["diagnosticPlots"]]))
       return()
     
-    if (options$samplingPlot == "stan_scat" &
+    if (options$samplingPlot == "stan_scat" &&
         length(options$samplingVariable2) == 0) {
       return()
     }

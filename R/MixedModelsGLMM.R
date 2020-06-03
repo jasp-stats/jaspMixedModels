@@ -46,19 +46,19 @@ MixedModelsGLMM   <-
       # marginal means
       if (length(options$marginalMeans) > 0)
         .mmMarginalMeans(jaspResults, dataset, options, "GLMM")
-      if (length(options$marginalMeans) > 0 &
-          options$marginalMeansContrast &
+      if (length(options$marginalMeans) > 0 &&
+          options$marginalMeansContrast &&
           !is.null(jaspResults[["EMMresults"]]))
         .mmContrasts(jaspResults, options, "GLMM")
       
       
       # trends
-      if (length(options$trendsTrend) > 0 &
+      if (length(options$trendsTrend) > 0 &&
           length(options$trendsVariables) > 0)
         .mmTrends(jaspResults, dataset, options, "GLMM")
-      if (options$trendsContrast &
-          length(options$trendsTrend) > 0 &
-          length(options$trendsVariables) > 0 &
+      if (options$trendsContrast &&
+          length(options$trendsTrend) > 0 &&
+          length(options$trendsVariables) > 0 &&
           !is.null(jaspResults[["EMTresults"]]))
         .mmContrasts(jaspResults, options, "GLMM", what = "Trends")
     }
