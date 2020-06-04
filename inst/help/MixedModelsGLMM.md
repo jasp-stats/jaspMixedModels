@@ -4,10 +4,10 @@ Generalized Linear Mixed Models
 Generalized Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered given one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). They are generalization of Linear Mixed Models and allow to model response variables that are not continous using a different likelihoods and link functions.
 
 ### Assumptions
-- Linearity and additivity: The response variable is linearly related to all predictors and the effects of the predictors are additive on the linear scale.
+- Linearity and additivity: The response variable is related to all predictors according to the link function and the effects of the predictors are additive on the linear scale.
 - Independence of errors: The errors are uncorrelated with each other after taking the model (i.e., fixed effects and random effects structure) into account.
 - Homoscedasticity: The error variance of each predictor is constant across all values of that predictor.
-- Normality of errors: The errors are normally distributed with mean zero.
+- Distribution of errors: The errors are distributed according to the distributional family.
 
 ### Input
 
@@ -22,7 +22,7 @@ Generalized Linear Mixed Models allow you to model a linear relationship between
   - Distribution function which likelihood will be used for the dependent variable.
 
 #### Link
-  - Link function that will be used to the mean parameter of the selected distribution function.
+  - Link function that will be used to model the mean parameter of the selected distribution function.
 
 #### Run Analysis 
 Press the button to run the analysis. Model relevant changes in the settings will not be applied until the button is pressed.

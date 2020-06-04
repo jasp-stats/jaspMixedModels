@@ -26,7 +26,7 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 - Estimated grand mean and estimated deviations from the grand mean for all levels of each fixed effects model term. It can be changed to estimated marginal means in the `Options` section.
   - Level: Levels of the fixed effects model term.
   - Estimate: This column contains the independent variables or their interaction.
-  - SE: Standart error of the estimate.
+  - SE: Standard error of the estimate.
   - 95% CI: 95% credible interval.
     - Lower: Lower bound of the credible interval.
     - Upper: Upper bound of the credible interval.
