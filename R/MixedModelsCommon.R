@@ -185,7 +185,7 @@
     # unlist selected random effects
     temp_vars <- sapply(temp_re$randomComponents, function(x) {
       if (x$randomSlopes) {
-        return(gsub(" ", "", .v(unlist(x$value)), fixed = TRUE))
+        return(.v(unlist(x$value)))
       } else{
         return(NA)
       }
@@ -194,7 +194,7 @@
       if (x$randomSlopes) {
         return(NA)
       } else{
-        return(gsub(" ", "", .v(unlist(x$value)), fixed = TRUE))
+        return(.v(unlist(x$value)))
       }
     })
     temp_vars     <- temp_vars[!is.na(temp_vars)]
