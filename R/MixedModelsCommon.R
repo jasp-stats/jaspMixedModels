@@ -18,14 +18,82 @@
 
 # TODO: Estimated marginal means - contrasts widged - changing the the resolution removes the widget
 # TODO: Expose priors specification to users in Bxxx?
+# TODO: Add 3rd level random effects grouping factors ;) (not that difficult actually)
 
+.mmRunAnalysis   <- function(jaspResults, dataset, options, type){
+  
+  if (.mmReady(options, type))
+    dataset <- .mmReadData(dataset, options, type)
+  if (.mmReady(options, type))
+    .mmCheckData(dataset, options, type)
+
+ 
+  # fit the model
+  if (.mmReady(options, type)){
+    if(type %in% c("LMM", "GLMM")).mmFitModel(jaspResults, dataset, options, type)
+    if(type %in% c("BLMM", "BGLMM")).mmFitModelB(jaspResults, dataset, options, type)
+  }
+  
+  
+  # create (default) summary tables
+  if(type %in% c("LMM", "GLMM")).mmSummaryAnova(jaspResults, dataset, options, type)
+  if(type %in% c("BLMM", "BGLMM")).mmSummaryStanova(jaspResults, dataset, options, type)
+
+  
+  if (!is.null(jaspResults[["mmModel"]])) {
+    
+    # show fixed / random effects summary
+    if (options$showFE){
+      if(type %in% c("LMM", "GLMM")).mmSummaryFE(jaspResults, options, type)
+      if(type %in% c("BLMM", "BGLMM")).mmSummaryFEB(jaspResults, options, type)
+    }
+    if (options$showRE){
+      if(type %in% c("LMM", "GLMM")).mmSummaryRE(jaspResults, options, type)
+      if(type %in% c("BLMM", "BGLMM")).mmSummaryREB(jaspResults, options, type)
+    }
+
+ 
+    # sampling diagnostics
+    if(type %in% c("BLMM", "BGLMM")){
+      if (length(options$samplingVariable1) != 0)
+        .mmDiagnostics(jaspResults, options, dataset, type)
+    }
+    
+    
+    # create plots
+    if (length(options$plotsX))
+      .mmPlot(jaspResults, dataset, options, type)
+    
+    
+    # marginal means
+    if (length(options$marginalMeans) > 0)
+      .mmMarginalMeans(jaspResults, dataset, options, type)
+    if (length(options$marginalMeans) > 0 &&
+        options$marginalMeansContrast &&
+        !is.null(jaspResults[["EMMresults"]]))
+      .mmContrasts(jaspResults, options, type, what = "Means")
+    
+    
+    # trends
+    if (length(options$trendsTrend) > 0 &&
+        length(options$trendsVariables) > 0)
+      .mmTrends(jaspResults, dataset, options, type)
+    if (options$trendsContrast &&
+        length(options$trendsTrend) > 0 &&
+        length(options$trendsVariables) > 0 &&
+        !is.null(jaspResults[["EMTresults"]]))
+      .mmContrasts(jaspResults, options, type, what = "Trends")
+  }
+  
+  return()
+}
 
 ### common mixed-models functions
 .mmReadData      <- function(dataset, options, type = "LMM") {
   if (!is.null(dataset)) {
     return(dataset)
   } else{
-    if (type == "LMM") {
+    if (type %in% c("LMM","BLMM")) {
       return(readDataSetToEnd(
         columns = c(
           options$dependentVariable,
@@ -33,7 +101,7 @@
           options$randomVariables
         )
       ))
-    } else if (type == "GLMM") {
+    } else if (type %in% c("GLMM","BGLMM")) {
       if (options$dependentVariableAggregation == "") {
         return(readDataSetToEnd(
           columns = c(
@@ -61,7 +129,7 @@
     type = c('variance', 'infinity'),
     exitAnalysisIfErrors = TRUE
   )
-  if (type == "GLMM") {
+  if (type %in% c("GLMM","BGLMM")) {
     family_text <- .mmMessageGLMMtype(options$family, options$link)
     family_text <- substr(family_text, 1, nchar(family_text) - 1)
     if (options$family %in% c("Gamma", "inverse.gaussian", "neg_binomial_2", "poisson")) {
@@ -80,13 +148,13 @@
   }
 }
 .mmReady         <- function(options, type = "LMM") {
-  if (type == "LMM") {
+  if (type %in% c("LMM","BLMM")) {
     if (options$dependentVariable       == "" ||
         length(options$randomVariables) == 0  ||
         length(options$fixedEffects)    == 0) {
       return(FALSE)
     }
-  } else if (type == "GLMM") {
+  } else if (type %in% c("GLMM","BGLMM")) {
     if (options$dependentVariable       == "" ||
         length(options$randomVariables) == 0  ||
         length(options$fixedEffects)    == 0) {
@@ -231,7 +299,7 @@
   }
   return(terms)
 }
-.mmAddedRETerms <- function(terms, removed) {
+.mmAddedRETerms  <- function(terms, removed) {
   added <- NULL
   if (length(terms) > 1 && length(removed) >= 1) {
     split_terms  <- sapply(terms, strsplit, "\\*")
@@ -1314,11 +1382,10 @@
     # add warning message
     if (type == "LMM") {
       if (options$marginalMeansDf != attr(emm@dffun, "mesg")) {
-        # TODO: for GLMM
         EMMsummary$addFootnote(.mmMessageDFdisabled, symbol = "Warning:")
       }
     }
-    if (type == "GLMM") {
+    if (type %in% c("GLMM","BGLMM")) {
       EMMsummary$addFootnote(
         ifelse(
           options$marginalMeansResponse,
@@ -2496,15 +2563,15 @@
         )
       
       if (options$samplingPlot == "stan_trace") {
-        p <- rstanPlotTrace(plot_data[[i]])
+        p <- .rstanPlotTrace(plot_data[[i]])
       } else if (options$samplingPlot == "stan_scat") {
-        p <- rstanPlotScat(plot_data[[i]])
+        p <- .rstanPlotScat(plot_data[[i]])
       } else if (options$samplingPlot == "stan_hist") {
-        p <- rstanPlotHist(plot_data[[i]])
+        p <- .rstanPlotHist(plot_data[[i]])
       } else if (options$samplingPlot == "stan_dens") {
-        p <- rstanPlotDens(plot_data[[i]])
+        p <- .rstanPlotDens(plot_data[[i]])
       } else if (options$samplingPlot == "stan_ac") {
-        p <- rstanPlotAcor(plot_data[[i]])
+        p <- .rstanPlotAcor(plot_data[[i]])
       }
       
       
@@ -2643,7 +2710,7 @@
 }
 
 # modified rstan plotting functions
-rstanPlotHist  <- function(plot_data) {
+.rstanPlotHist  <- function(plot_data) {
   dots      <- rstan:::.add_aesthetics(list(), c("fill", "color"))
   thm       <- rstan:::rstanvis_hist_theme()
   base      <-
@@ -2653,7 +2720,7 @@ rstanPlotHist  <- function(plot_data) {
   
   return(graph)
 }
-rstanPlotTrace <- function(plot_data) {
+.rstanPlotTrace <- function(plot_data) {
   thm  <- rstan:::rstanvis_theme()
   clrs <-
     rep_len(rstan:::rstanvis_aes_ops("chain_colors"),
@@ -2671,7 +2738,7 @@ rstanPlotTrace <- function(plot_data) {
   
   graph
 }
-rstanPlotDens  <- function(plot_data, separate_chains = TRUE) {
+.rstanPlotDens  <- function(plot_data, separate_chains = TRUE) {
   clrs <-
     rep_len(rstan:::rstanvis_aes_ops("chain_colors"),
             plot_data$nchains)
@@ -2694,7 +2761,7 @@ rstanPlotDens  <- function(plot_data, separate_chains = TRUE) {
   graph + ggplot2::xlab(unique(plot_data$samp$parameter))
   
 }
-rstanPlotScat  <- function(plot_data) {
+.rstanPlotScat  <- function(plot_data) {
   thm  <- rstan:::rstanvis_theme()
   dots <- rstan:::.add_aesthetics(list(), c("fill", "pt_color",
                                             "pt_size", "alpha", "shape"))
@@ -2715,7 +2782,7 @@ rstanPlotScat  <- function(plot_data) {
   graph
   
 }
-rstanPlotAcor  <- function(plot_data, lags = 30) {
+.rstanPlotAcor  <- function(plot_data, lags = 30) {
   clrs     <-
     rep_len(rstan:::rstanvis_aes_ops("chain_colors"),
             plot_data$nchains)
@@ -2767,7 +2834,7 @@ rstanPlotAcor  <- function(plot_data, lags = 30) {
     "warmup",
     "iteration",
     "adapt_delta",
-    "treedepth",
+    "max_treedepth",
     "chains",
     "seed",
     "setSeed"

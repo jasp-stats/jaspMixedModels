@@ -17,51 +17,8 @@
 
 MixedModelsGLMM   <-
   function(jaspResults, dataset, options, state = NULL) {
-    # load dataset
-    if (.mmReady(options))
-      dataset <- .mmReadData(dataset, options, "GLMM")
-    if (.mmReady(options))
-      .mmCheckData(dataset, options, "GLMM")
-    
-    # fit the model
-    if (.mmReady(options))
-      .mmFitModel(jaspResults, dataset, options, "GLMM")
-    
-    
-    # create summary tables
-    .mmSummaryAnova(jaspResults, dataset, options, "GLMM")
-    
-    if (!is.null(jaspResults[["mmModel"]])) {
-      if (options$showFE)
-        .mmSummaryFE(jaspResults, options, "GLMM")
-      if (options$showRE)
-        .mmSummaryRE(jaspResults, options, "GLMM")
-      
-      
-      # create plots
-      if (length(options$plotsX))
-        .mmPlot(jaspResults, dataset, options, "GLMM")
-      
-      
-      # marginal means
-      if (length(options$marginalMeans) > 0)
-        .mmMarginalMeans(jaspResults, dataset, options, "GLMM")
-      if (length(options$marginalMeans) > 0 &&
-          options$marginalMeansContrast &&
-          !is.null(jaspResults[["EMMresults"]]))
-        .mmContrasts(jaspResults, options, "GLMM")
-      
-      
-      # trends
-      if (length(options$trendsTrend) > 0 &&
-          length(options$trendsVariables) > 0)
-        .mmTrends(jaspResults, dataset, options, "GLMM")
-      if (options$trendsContrast &&
-          length(options$trendsTrend) > 0 &&
-          length(options$trendsVariables) > 0 &&
-          !is.null(jaspResults[["EMTresults"]]))
-        .mmContrasts(jaspResults, options, "GLMM", what = "Trends")
-    }
+
+    .mmRunAnalysis(jaspResults, dataset, options, "GLMM")
     
     return()
   }

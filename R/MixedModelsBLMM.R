@@ -17,55 +17,8 @@
 
 MixedModelsBLMM   <-
   function(jaspResults, dataset, options, state = NULL) {
-    # load dataset
-    if (.mmReady(options))
-      dataset <- .mmReadData(dataset, options)
-    if (.mmReady(options))
-      .mmCheckData(dataset, options)
-    
-    # fit the model
-    if (is.null(jaspResults[["mmModel"]]) &&
-        .mmReady(options))
-      .mmFitModelB(jaspResults, dataset, options)
-    
-    
-    # create summary tables
-    .mmSummaryStanova(jaspResults, dataset, options)
-    
-    if (!is.null(jaspResults[["mmModel"]])) {
-      if (options$showFE)
-        .mmSummaryFEB(jaspResults, options)
-      if (options$showRE)
-        .mmSummaryREB(jaspResults, options)
-      
-      # sampling diagnostics
-      if (length(options$samplingVariable1) != 0)
-        .mmDiagnostics(jaspResults, options, dataset)
-      
-      # create plots
-      if (length(options$plotsX))
-        .mmPlot(jaspResults, dataset, options)
-      
-      
-      # marginal means
-      if (length(options$marginalMeans) > 0)
-        .mmMarginalMeans(jaspResults, dataset, options, "BLMM")
-      if (length(options$marginalMeans) > 0 &&
-          options$marginalMeansContrast &&
-          !is.null(jaspResults[["EMMresults"]]))
-        .mmContrasts(jaspResults, options, "BLMM")
-      
-      
-      # trends
-      if (length(options$trendsTrend) > 0 &&
-          length(options$trendsVariables) > 0)
-        .mmTrends(jaspResults, dataset, options, "BLMM")
-      if (options$trendsContrast &&
-          length(options$trendsTrend) > 0 &&
-          length(options$trendsVariables) > 0 &&
-          !is.null(jaspResults[["EMTresults"]]))
-        .mmContrasts(jaspResults, options, "BLMM", what = "Trends")
-    }
+
+    .mmRunAnalysis(jaspResults, dataset, options, "BLMM")
     
     return()
   }
