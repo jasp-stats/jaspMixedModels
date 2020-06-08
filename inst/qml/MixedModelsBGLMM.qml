@@ -37,23 +37,24 @@ Form {
 		{
 			name:				"dependentVariable"
 			title:				qsTr("Dependent variable")
-			suggestedColumns:	["scale"]
+			allowedColumns:		["scale","ordinal", "nominal"]
 			singleVariable:		true
 		}
 
 		AssignedVariablesList
 		{
-			enabled:			family.currentText == "Binomial (aggregated)"
+			enabled:			family.value === "binomial_agg"
 			name:				"dependentVariableAggregation"
 			title:				qsTr("Number of trials")
 			singleVariable:		true
+			allowedColumns:		["ordinal"]
 		}
 
 		AssignedVariablesList
 		{
 			name:				"fixedVariables"
 			title:				qsTr("Fixed effects variables")
-			suggestedColumns:	["ordinal", "nominal","scale"]
+			allowedColumns:		["ordinal", "nominal","scale","nominalText"]
 			itemType:			"fixedFactors"
 		}
 		
@@ -61,7 +62,7 @@ Form {
 		{
 			name:				"randomVariables"
 			title:				qsTr("Random effects grouping factors")
-			suggestedColumns:	["ordinal", "nominal"]
+			allowedColumns:		["ordinal", "nominal","nominalText"]
 		}
 	}
 

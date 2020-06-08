@@ -95,52 +95,78 @@
   } else{
     if (type %in% c("LMM","BLMM")) {
       return(readDataSetToEnd(
+        columns.as.numeric = options$dependentVariable,
         columns = c(
-          options$dependentVariable,
           options$fixedVariables,
           options$randomVariables
         )
       ))
     } else if (type %in% c("GLMM","BGLMM")) {
-      if (options$dependentVariableAggregation == "") {
+      if (options$family == "binomial_agg"){
         return(readDataSetToEnd(
+          columns.as.numeric = c(options$dependentVariable, options$dependentVariableAggregation),
           columns = c(
-            options$dependentVariable,
             options$fixedVariables,
             options$randomVariables
           )
         ))
-      } else{
+      } else  if (options$dependentVariableAggregation == "") {
         return(readDataSetToEnd(
+          columns.as.numeric = options$dependentVariable,
           columns = c(
-            options$dependentVariable,
             options$fixedVariables,
-            options$randomVariables,
-            options$dependentVariableAggregation
+            options$randomVariables
           )
         ))
-      }
+      }  
     }
   }
 }
 .mmCheckData     <- function(dataset, options, type = "LMM") {
+  
   .hasErrors(
     dataset,
-    type = c('variance', 'infinity'),
+    type = c('variance', 'infinity', 'factorLevels'),
+    factorLevels.amount  = "< 2",
     exitAnalysisIfErrors = TRUE
   )
+
+  for(var in unlist(options$fixedEffects)) {
+    if(is.factor(dataset[,.v(var)]) || is.character(dataset[,.v(var)])){
+      if(length(unique(dataset[,.v(var)])) == nrow(dataset))
+        JASP:::.quitAnalysis(gettextf("Problem found in variable '%s': Categorical variables must have less levels than is the overall number of observations.",var))
+    }
+  }
+
+  for(var in unlist(options$randomVariables)) {
+    if(length(unique(dataset[,.v(var)])) == nrow(dataset))
+      JASP:::.quitAnalysis(gettextf("The random effects grouping factor '%s' must have less levels than is the overall number of observations.",var))  
+  }  
+  
+  
   if (type %in% c("GLMM","BGLMM")) {
     family_text <- .mmMessageGLMMtype(options$family, options$link)
     family_text <- substr(family_text, 1, nchar(family_text) - 1)
-    if (options$family %in% c("Gamma", "inverse.gaussian", "neg_binomial_2", "poisson")) {
-      if (any(dataset[, .v(options$dependentVariable)] < 0))
-        stop(gettextf("%s requres that the dependent variable is > 0.",family_text))
-    } else if (options$family %in% c("binomial")) {
+    
+    if (options$family %in% c("Gamma", "inverse.gaussian")) {
+      if (any(dataset[, .v(options$dependentVariable)] <= 0))
+        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable is positive.",family_text))
+    } else if (options$family %in% c("neg_binomial_2", "poisson")) {
+      if (any(dataset[, .v(options$dependentVariable)] < 0 | any(!.is.wholenumber(dataset[, .v(options$dependentVariable)]))))
+        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable is an integer.",family_text))
+    } else if (options$family == "binomial") {
       if (any(!dataset[, .v(options$dependentVariable)] %in% c(0, 1)))
-        stop(gettextf("%s requres that the outcomes are only 0 and 1.",family_text))
-    } else if (options$family %in% c("betar")) {
-      if (any(dataset[, .v(options$dependentVariable)] < 0))
-        stop(gettextf("%s requres that the outcomes is higher than 0 and lower than 1.",family_text))
+        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable contains only 0 and 1.",family_text))
+    } else if (options$family == "binomial_agg") {
+      if (any(dataset[, .v(options$dependentVariable)] < 0 | dataset[, .v(options$dependentVariable)] > 1))
+        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable is higher than 0 and lower than 1.",family_text))
+      if (any(dataset[, .v(options$dependentVariableAggregation)] < 0) || any(!.is.wholenumber(dataset[, .v(options$dependentVariableAggregation)])))
+        JASP:::.quitAnalysis(gettextf("%s requres that the number of trials variable is an integer.",family_text))
+      if (any(!.is.wholenumber(dataset[, .v(options$dependentVariable)] * dataset[, .v(options$dependentVariableAggregation)])))
+        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable is proportion of successes out of the number of trials.",family_text))
+    } else if (options$family == "betar") {
+      if (any(dataset[, .v(options$dependentVariable)] < 0 | dataset[, .v(options$dependentVariable)] > 1))
+        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable is higher than 0 and lower than 1.",family_text))
     }
   }
 }
@@ -152,11 +178,21 @@
       return(FALSE)
     }
   } else if (type %in% c("GLMM","BGLMM")) {
-    if (options$dependentVariable       == "" ||
-        length(options$randomVariables) == 0  ||
-        length(options$fixedEffects)    == 0) {
-      return(FALSE)
+    if (options$family == "binomial_agg"){
+      if (options$dependentVariable            == "" ||
+          options$dependentVariableAggregation == "" ||
+          length(options$randomVariables)      == 0  ||
+          length(options$fixedEffects)         == 0) {
+        return(FALSE)
+      }
+    }else{
+      if (options$dependentVariable       == "" ||
+          length(options$randomVariables) == 0  ||
+          length(options$fixedEffects)    == 0) {
+        return(FALSE)
+      }
     }
+
   }
   return(TRUE)
 }
@@ -2707,7 +2743,9 @@
   return(plot_data)
   
 }
-
+# as explained in ?is.integer
+.is.wholenumber <-
+  function(x, tol = .Machine$double.eps^0.5)  abs(x - round(x)) < tol
 # modified rstan plotting functions
 .rstanPlotHist  <- function(plot_data) {
   dots      <- rstan:::.add_aesthetics(list(), c("fill", "color"))
@@ -2910,7 +2948,7 @@
   "neg_binomial_2"   = gettext("negative binomial"),
   "betar"            = gettext("beta"),
   )
-  gettextf("Generalized linear mixed model with %s  family and %s link function.",
+  gettextf("Generalized linear mixed model with %s family and %s link function.",
            family,
            link)
 }
