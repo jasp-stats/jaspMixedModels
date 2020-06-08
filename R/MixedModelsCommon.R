@@ -665,7 +665,7 @@
       temp_row <- list(
         variable = var_name,
         std      = temp_StdDev[i],
-        var      = sqrt(temp_StdDev[i])
+        var      = temp_StdDev[i]^2
       )
       
       REvar$addRows(temp_row)
@@ -747,7 +747,7 @@
            var      = sqrt(sigma(model$full_model[[length(model$full_model)]])))
   } else{
     temp_row <- list(std      = sigma(model$full_model),
-                     var      = sqrt(sigma(model$full_model)))
+                     var      = sigma(model$full_model)^2)
   }
   
   REres$addRows(temp_row)
@@ -2120,7 +2120,7 @@
       temp_row <- list(
         variable = var_name,
         std      = temp_StdDev[i],
-        var      = sqrt(temp_StdDev[i])
+        var      = temp_StdDev[i]^2
       )
       
       REvar$addRows(temp_row)
@@ -2199,7 +2199,7 @@
   
   temp_row <- list(
     std      = rstanarm:::sigma.stanreg(model),
-    var      = sqrt(rstanarm:::sigma.stanreg(model))
+    var      = rstanarm:::sigma.stanreg(model)^2
   )
   
   REres$addRows(temp_row)
