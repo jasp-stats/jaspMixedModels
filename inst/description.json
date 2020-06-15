@@ -1,6 +1,7 @@
 {
 	"moduleDescription" :
 	{
+		"name" :		"MixedModels",
 		"title" :		"Mixed Models",
 		"description":	"This module offers the standard Frequentist and Bayesian Mixed Models analyses.",
 		"icon":			"MixedModels_classical.svg",
