@@ -3,9 +3,10 @@ import JASP.Module 	1.0
 
 Description
 {
-	title		: "Mixed Models"
-	icon		: "analysis-descriptives.svg"
-	description	: "This module offers the Linear Mixed Models analysis."
+	name:		: "Mixed Models"
+	title		: qsTr("Mixed Models")
+	description	: qsTr("This module offers the standard Frequentist and Bayesian Mixed Models analyses.")
+	icon		: "MixedModels_classical.svg"
 	version		: "0.13"
 	author		: "JASP Team"
 	maintainer	: "JASP Team <info@jasp-stats.org>"
@@ -16,7 +17,7 @@ Description
 	GroupTitle
 	{
 		title:	qsTr("Classical")
-		icon:	"analysis-classical-crosstabs.svg"
+		icon:	"MixedModels_classical.svg"
 	}
 
 	Analysis
@@ -34,7 +35,7 @@ Description
 	GroupTitle
 	{
 		title: 	qsTr("Bayesian")
-		icon:	"analysis-bayesian-crosstabs.svg"
+		icon:	"MixedModels_bayesian.svg"
 	}
 		
 	Analysis

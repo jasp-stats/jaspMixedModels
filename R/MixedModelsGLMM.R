@@ -15,38 +15,10 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-MixedModelsGLMM   <- function(jaspResults, dataset, options, state = NULL){
-  
-  if(!options$run)return()
-  if(!.mmReady(options, "GLMM"))return()
-  
-  
-  # load dataset
-  dataset <- .mmReadData(dataset, options, "GLMM")
-  .mmCheckData(dataset)
-  
-  # fit the model
-  if(is.null(jaspResults[["mmModel"]])).mmFitModel(jaspResults, dataset, options, "GLMM")
-  
-  
-  # create summary tables
-  .mmSummaryAnova(jaspResults, dataset, options, "GLMM")
-  if(options$showFE).mmSummaryFE(jaspResults, options, "GLMM")
-  if(options$showRE).mmSummaryRE(jaspResults, options, "GLMM")
-  
-  
-  # create plots
-  if(length(options$plotsX)).mmPlot(jaspResults, dataset, options, "GLMM")
-  
-  
-  # marginal means
-  if(length(options$marginalMeans) > 0).mmMarginalMeans(jaspResults, dataset, options, "GLMM")
-  if(options$marginalMeansContrast & !is.null(jaspResults[["EMMresults"]])).mmContrasts(jaspResults, options, "GLMM")
-  
-  
-  # trends
-  if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0).mmTrends(jaspResults, dataset, options, "GLMM")
-  if(length(options$trendsTrend) > 0 & length(options$trendsVariables) > 0 & !is.null(jaspResults[["EMTresults"]])).mmContrasts(jaspResults, options, "GLMM", what = "Trends")
-  
-  return()
-}
+MixedModelsGLMM   <-
+  function(jaspResults, dataset, options, state = NULL) {
+
+    .mmRunAnalysis(jaspResults, dataset, options, "GLMM")
+    
+    return()
+  }

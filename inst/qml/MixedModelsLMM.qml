@@ -19,7 +19,7 @@ import QtQuick			2.12
 import JASP.Controls	1.0
 import JASP.Widgets		1.0
 import JASP				1.0
-import QtQuick.Layouts  1.3
+import QtQuick.Layouts	1.3
 
 Form {
 	id: form
@@ -27,68 +27,58 @@ Form {
 	VariablesForm
 	{
 		preferredHeight: 350
-		AvailableVariablesList		{ name: "allVariablesList" }
+
+		AvailableVariablesList
+		{
+			name:				"allVariablesList"
+		}
+
 		AssignedVariablesList
 		{
 			name:				"dependentVariable"
 			title:				qsTr("Dependent variable")
-			suggestedColumns:	["scale"]
-			singleVariable:     true
+			allowedColumns:		["scale"]
+			singleVariable:		true
 		}
+
 		AssignedVariablesList
 		{
 			name:				"fixedVariables"
 			title:				qsTr("Fixed effects variables")
-			suggestedColumns:	["ordinal", "nominal","scale"]
+			allowedColumns:		["ordinal", "nominal","scale","nominalText"]
 			itemType:			"fixedFactors"
 		}
+		
 		AssignedVariablesList
 		{
 			name:				"randomVariables"
 			title:				qsTr("Random effects grouping factors")
-			suggestedColumns:	["ordinal", "nominal"]
+			allowedColumns:		["ordinal", "nominal","nominalText"]
 		}
 	}
 
-	Button
-	{
-		id: runAnalysis
-		name: "runAnalysis"
-		label: "Run Analysis"
-		enabled: false
-		Connections
-		{
-			target: form
-			onValueChanged: runAnalysis.enabled = true
-		}
-		onClicked:
-		{
-			form.refreshAnalysis()
-			enabled = false;
-		}
-	}
 
 	Section
 	{
-		title: qsTr("Model")
-		runOnChange: false
+		title:			qsTr("Model")
 
 		VariablesForm
 		{
-			preferredHeight: 250
+			preferredHeight:	250
+
 			AvailableVariablesList
 			{
-				name: "availableModelComponents"
-				title: qsTr("Model components")
-				source: "fixedVariables"
+				name:	"availableModelComponents"
+				title:	qsTr("Model components")
+				source:	"fixedVariables"
 			}
 
 			AssignedVariablesList
 			{
-				id			: fixedEffects
-				name		: "fixedEffects"
-				title		: qsTr("Fixed effects")
-				listViewType: JASP.Interaction
+				id:				fixedEffects
+				name:			"fixedEffects"
+				title:			qsTr("Fixed effects")
+				listViewType:	JASP.Interaction
 			}
 		}
 
@@ -98,25 +88,20 @@ Form {
 			title:				qsTr("Random effects")
 			name:				"randomEffects"
 			source:				"randomVariables"
-			cellHeight:			fixedEffects.count * 30 * preferencesModel.uiScale + 40 * preferencesModel.uiScale
-			preferredHeight: 	count * cellHeight + 25 * preferencesModel.uiScale
 			visible:			count > 0
 
 			rowComponent: Group
 			{
 				RowLayout
 				{
-					Layout.preferredWidth: randomEffetcs.width
+					Layout.preferredWidth:	randomEffetcs.width
 					Label { text: qsTr("Random slopes by %1").arg(rowValue); Layout.preferredWidth: parent.width / 2 }
 					CheckBox { label: qsTr("Correlations"); name: "correlations"; checked: true; Layout.preferredWidth: parent.width / 2 }
 				}
 				ComponentsList
 				{
-					name:   "randomComponents"
-					source: "fixedEffects"
-					cellHeight: 30 * preferencesModel.uiScale
-					preferredHeight: count * cellHeight + 10 * preferencesModel.uiScale
-					preferredWidth: randomEffetcs.width - 8 * preferencesModel.uiScale
+					name:				"randomComponents"
+					source:				"fixedEffects"
 
 					rowComponent: CheckBox { name: "randomSlopes"; label: rowValue; checked: true }
 				}
@@ -133,19 +118,19 @@ Form {
 	
 		RadioButtonGroup
 		{
-			columns: 2
-  			name: "type"
-  			title: qsTr("Type")
-			radioButtonsOnSameRow: true
-  			RadioButton { value: "2"; label: qsTr("II") }
-  			RadioButton { value: "3"; label: qsTr("III"); checked: true }
+			columns:				2
+			name:					"type"
+			title:					qsTr("Type")
+			radioButtonsOnSameRow:	true
+			RadioButton { value: "2"; label: qsTr("II") }
+			RadioButton { value: "3"; label: qsTr("III"); checked: true }
 		}
 
 		CheckBox
 		{
-			enabled: method.currentText == "parametric bootstrap" | method.currentText == "likelihood ratio tests"
-			name: "test_intercept"
-			label: qsTr("Test intercept")
+			enabled:	method.currentText == "parametric bootstrap" | method.currentText == "likelihood ratio tests"
+			name:		"test_intercept"
+			label:		qsTr("Test intercept")
 		}
 
 		Group
@@ -158,19 +143,19 @@ Form {
 				values:
 				[
 					{ label: "Satterthwaite",			value: "S"},
-    				{ label: "Kenward-Roger",			value: "KR"},
+					{ label: "Kenward-Roger",			value: "KR"},
 					{ label: "likelihood ratio tests",	value: "LRT"},
-    				{ label: "parametric bootstrap",	value: "PB"}
-  				]
+					{ label: "parametric bootstrap",	value: "PB"}
+				]
 			}
 
 			IntegerField
 			{
-				enabled: method.currentText == "parametric bootstrap"
- 				name: "bootstrap_samples"
-				label: qsTr("No. samples")
-				defaultValue: 10
-				fieldWidth: 60
+				enabled:		method.currentText == "parametric bootstrap"
+				name:			"bootstrap_samples"
+				label:			qsTr("No. samples")
+				defaultValue:	500
+				fieldWidth:		60
 			}
 		}
 
@@ -178,14 +163,14 @@ Form {
 		{
 			CheckBox
 			{
-				name: "showFE"
-				label: qsTr("Fixed effects estimates")
+				name:	"showFE"
+				label:	qsTr("Fixed effects estimates")
 			}
 
 			CheckBox
 			{
-				name: "showRE"
-				label: qsTr("Variance/correlation estimates")
+				name:	"showRE"
+				label:	qsTr("Variance/correlation estimates")
 			}
 		}
 
@@ -193,61 +178,63 @@ Form {
 		
 		CheckBox
 		{
-			name: "pvalVS"
-			label: qsTr("Vovk-Sellke maximum p-ratio")
+			name:	"pvalVS"
+			label:	qsTr("Vovk-Sellke maximum p-ratio")
 		}
 
 	}
 
 	Section
 	{
-		title: qsTr("Plots")
-		expanded: false
+		title:		qsTr("Plots")
+		expanded:	false
 
 		VariablesForm
 		{
-			preferredHeight: 250
+			preferredHeight:	250
+
 			AvailableVariablesList
 			{
-				name: "availableModelComponentsPlot"	// TODO: filter only factors from the data
-				title: qsTr("Model factors")
-				source: "fixedVariables" 				// TODO: don't use the variables itself but assigned model terms (and ignore interactions)
+				name:	"availableModelComponentsPlot"
+				title:	qsTr("Model factors")
+				source:	[ { name: "fixedEffects", use: "type=ordinal|nominal|nominalText"} ]
 			}
 
 			AssignedVariablesList
 			{
-				name: "plotsX"
-				title: qsTr("Horizontal Axis")
+				name:	"plotsX"
+				title:	qsTr("Horizontal axis")
 			}
 
 			AssignedVariablesList
 			{
-				name: "plotsTrace"
-				id:	  plotsTrace
-				title: qsTr("Separate Lines")
+				name:	"plotsTrace"
+				id:		plotsTrace
+				title:	qsTr("Separate lines")
 			}
 
 			AssignedVariablesList
 			{
-				name: "plotsPanel"
-				title: qsTr("Separate Plots")
+				name:	"plotsPanel"
+				title:	qsTr("Separate plots")
 			}
 		}
 
 		VariablesForm
 		{
-			preferredHeight: 100
+			preferredHeight:	100
+
 			AvailableVariablesList
 			{
-				name: "plotsRandom" 
-				title: qsTr("Random effects grouping factors")
-				source: "randomVariables"
+				name:	"plotsRandom" 
+				title:	qsTr("Random effects grouping factors")
+				source:	"randomVariables"
 			}
 
-			AssignedVariablesList // TODO: make assigned by default and link to id
+			AssignedVariablesList
 			{
-				name: "plotsAgregatedOver"
-				title: qsTr("Background data show")
+				name:	"plotsAgregatedOver"
+				title:	qsTr("Background data show")
 				addAvailableVariablesToAssigned: true
 			}
 		}
@@ -262,52 +249,59 @@ Form {
 				values:
 				[
 					{ label: "Model",			value: "model"},
-    				{ label: "None",			value: "none"},
-    				{ label: "Mean",			value: "mean"},
+					{ label: "None",			value: "none"},
+					{ label: "Mean",			value: "mean"},
 					{ label: "Within",			value: "within"},
 					{ label: "Between",			value: "between"}
-  				]
+				]
 			}
 
 			CIField
 			{
-				enabled: plotsCImethod.currentText != "None"
-				name: "plotsCIwidth"
-				label: "Confidence interval"
+				enabled:	plotsCImethod.currentText != "None"
+				name:		"plotsCIwidth"
+				label:		"Confidence interval"
 			}
 		}
 
 		Group
 		{
-			title: qsTr("Distinguish factor levels")
-			columns: 4
+			title:		qsTr("Distinguish factor levels")
+			columns:	4
+
 			CheckBox
 			{
-				name: "plotsMappingColor"
-				label: qsTr("Color")
+				name:		"plotsMappingColor"
+				label:		qsTr("Color")
+				checked:	false
 			}
+
 			CheckBox
 			{
-				name: "plotsMappingShape"
-				label: qsTr("Shape")
-				checked: true
+				name:		"plotsMappingShape"
+				label:		qsTr("Shape")
+				checked:	true
 			}
+
 			CheckBox
 			{
-				name: "plotsMappingLineType"
-				label: qsTr("Linetype")
-				checked: true
+				name:		"plotsMappingLineType"
+				label:		qsTr("Linetype")
+				checked:	true
 			}
+
 			CheckBox
 			{
-				name: "plotsMappingFill"
-				label: qsTr("Fill")
+				name:		"plotsMappingFill"
+				label:		qsTr("Fill")
+				checked:	false
 			}
 		}
 
 		Group
 		{
-			columns: 1
+			columns:	1
+
 			DropDown
 			{
 				name:	"plotsGeom"
@@ -316,7 +310,7 @@ Form {
 				values:
 				[
 					{ label: "Jitter",				value: "geom_jitter"},
-					{ label: "Beeswarm",			value: "geom_beeswarm"},
+				//	{ label: "Beeswarm",			value: "geom_beeswarm"}, # enable once the package loading is changed
 					{ label: "Violin",				value: "geom_violin"},
 					{ label: "Boxplot",				value: "geom_boxplot"},
 					{ label: "Boxjitter",			value: "geom_boxjitter"},
@@ -326,76 +320,69 @@ Form {
 
 			DoubleField
 			{
-				name: "plotAlpha"
-				label: qsTr("Transparency")
-				defaultValue: .7
-				min: 0
-				max: 1
-				inclusive: JASP.None
+				name:			"plotAlpha"
+				label:			qsTr("Transparency")
+				defaultValue:	.7
+				min:			0
+				max: 			1
+				inclusive:		JASP.None
 			}
 
 			DoubleField
 			{
-				visible: plotsGeom.currentText == "Jitter" | plotsGeom.currentText == "Boxjitter"
-				name: "plotJitterWidth"
-				label: qsTr("Jitter width")
-				defaultValue: 0
-				min: 0
+				visible:		plotsGeom.currentText == "Jitter" | plotsGeom.currentText == "Boxjitter"
+				name:			"plotJitterWidth"
+				label:			qsTr("Jitter width")
+				defaultValue:	0
+				min:			0
 			}
 
 			DoubleField
 			{
-				visible: plotsGeom.currentText == "Jitter" | plotsGeom.currentText == "Boxjitter"
-				name: "plotJitterHeight"
-				label: qsTr("Jitter height")
-				defaultValue: 0
-				min: 0
+				visible:		plotsGeom.currentText == "Jitter" | plotsGeom.currentText == "Boxjitter"
+				name:			"plotJitterHeight"
+				label:			qsTr("Jitter height")
+				defaultValue:	0
+				min:			0
 			}
 
 			DoubleField
 			{
-				visible: plotsGeom.currentText == "Violin" | plotsGeom.currentText == "Boxplot" | plotsGeom.currentText == "Boxjitter"
-				name: "plotGeomWidth"
-				label: qsTr("Geom width")
-				defaultValue: 1
-				min: 0
+				visible:		plotsGeom.currentText == "Violin" | plotsGeom.currentText == "Boxplot" | plotsGeom.currentText == "Boxjitter"
+				name:			"plotGeomWidth"
+				label:			qsTr("Geom width")
+				defaultValue:	1
+				min:			0
 			}
 
 			DoubleField
 			{
-				visible: plotsTrace.lenght != 0 // TODO: make this work
-				name: "plotDodge"
-				label: qsTr("Dodge")
-				defaultValue: 0.3
-				min: 0
+				visible:		plotsTrace.count != 0
+				name:			"plotDodge"
+				label:			qsTr("Dodge")
+				defaultValue:	0.3
+				min:			0
 			}
 		}
+
 		Group
 		{
-			columns: 1
+			columns:	1
+
 			DropDown
 			{
 				name:	"plotsTheme"
-				id:     plotsTheme
+				id:		plotsTheme
 				label:	qsTr("Theme")
 				values:
 				[
 					{ label: "JASP",			value: "JASP"},
 					{ label: "Black White",		value: "theme_bw"},
-    				{ label: "Light",			value: "theme_light"},
+					{ label: "Light",			value: "theme_light"},
 					{ label: "Minimal",			value: "theme_minimal"},
 					{ label: "APA", 			value: "jtools::theme_apa"},
 					{ label: "pubr",			value: "ggpubr::theme_pubr"}
-  				]
-			}
-
-			DoubleField
-			{
-				enabled: plotsTheme.currentText != "JASP"
-				name: "plotRelativeSizeText"
-				label: qsTr("Relative size text")
-				defaultValue: 1.5
-				min: 0
+				]
 			}
 
 			DropDown
@@ -406,12 +393,11 @@ Form {
 				[
 					{ label: "None",			value: "none"},
 					{ label: "Bottom",			value: "bottom"},
-    				{ label: "Right",			value: "right"},
+					{ label: "Right",			value: "right"},
 					{ label: "Top",				value: "top"},
 					{ label: "Left", 			value: "left"}
-  				]
+				]
 			}
-
 
 			DropDown
 			{
@@ -423,65 +409,75 @@ Form {
 					{ label: "None",				value: "none"},
 					{ label: "Black",				value: "black"},
 					{ label: "Light grey",			value: "lightgrey"},
-   		 			{ label: "Blue",				value: "blue"},
+					{ label: "Blue",				value: "blue"},
 					{ label: "Red",					value: "red"},
 					{ label: "Violet",				value: "violet"}
-  				]
+				]
 			}
 
 			DoubleField
 			{
-				name: "plotRelativeSize"
-				label: qsTr("Relative size foreground data")
-				defaultValue: 1
-				min: 0
+				enabled:		plotsTheme.currentText != "JASP"
+				name:			"plotRelativeSizeText"
+				label:			qsTr("Relative size text")
+				defaultValue:	1.5
+				min:			0
+			}
+
+			DoubleField
+			{
+				name:			"plotRelativeSize"
+				label:			qsTr("Relative size foreground data")
+				defaultValue:	1
+				min:			0
 			}
 
 			CheckBox
 			{
-				name: "plotsEstimatesTable"
-				label: qsTr("Estimates table")
+				name:	"plotsEstimatesTable"
+				label:	qsTr("Estimates table")
 			}
 		}
 	}
 
 	Section
 	{
-		title: qsTr("Estimated marginal means")
-		expanded: false
+		title:		qsTr("Estimated marginal means")
+		expanded:	false
 
 		VariablesForm
 		{
-			preferredHeight: 250
+			preferredHeight:	250
+
 			AvailableVariablesList
 			{
-				name: "availableModelComponentsMeans"
-				title: qsTr("Model variables")
+				name:	"availableModelComponentsMeans"
+				title:	qsTr("Model variables")
 				source: [{ name: "fixedEffects", use: "noInteraction" }]
 			}
 
 			AssignedVariablesList
 			{
-				id: marginalMeans
-				name: "marginalMeans"
-				title: qsTr("Selected variables")
+				id:		marginalMeans
+				name:	"marginalMeans"
+				title:	qsTr("Selected variables")
 			}
 		}
 
 		CIField
 		{
-			name: "marginalMeansCIwidth"
-			label: "Confidence interval"
+			name:	"marginalMeansCIwidth"
+			label:	"Confidence interval"
 		}
 
 		DoubleField
-		{ // TODO: grayed out unless continous variable is selected
-			id:	marginalMeansSD
-			name: "marginalMeansSD"
-			label: "SD factor covariates"
-			defaultValue: 1
-			min: 0
-			enabled: marginalMeans.columnsTypes.includes("scale")
+		{
+			id:				marginalMeansSD
+			name:			"marginalMeansSD"
+			label:			"SD factor covariates"
+			defaultValue: 	1
+			min:			0
+			enabled:		marginalMeans.columnsTypes.includes("scale")
 		}
 
 		Group
@@ -495,45 +491,43 @@ Form {
 				[
 					{ label: "Asymptotic",				value: "asymptotic"},
 					{ label: "Satterthwaite",			value: "satterthwaite"},
-   	 				{ label: "Kenward-Roger",			value: "kenward-roger"}
-  				]
+					{ label: "Kenward-Roger",			value: "kenward-roger"}
+				]
 			}
 
 			CheckBox
 			{
-				enabled: marginalMeansDf.currentText == "Satterthwaite" | marginalMeansDf.currentText == "Kenward-Roger"
-				name: "marginalMeansOverride"
-				label: qsTr("Force df estimation")
+				enabled:	marginalMeansDf.currentText == "Satterthwaite" | marginalMeansDf.currentText == "Kenward-Roger"
+				name:		"marginalMeansOverride"
+				label:		qsTr("Force df estimation")
 			}
 
 		}
-
 
 		Group
 		{
 			columns: 2
+
 			CheckBox
 			{
-				name: "marginalMeansCompare"
-				id: marginalMeansCompare
-				label: qsTr("Compare marginal means to:")
+				name:	"marginalMeansCompare"
+				id:		marginalMeansCompare
+				label:	qsTr("Compare marginal means to:")
 			}
 
 			IntegerField
 			{
-				enabled: marginalMeansCompare.checked
-				name: "marginalMeansCompareTo"
+				enabled:	marginalMeansCompare.checked
+				name:		"marginalMeansCompareTo"
 			}
 		}
 		
-
 		CheckBox
 		{
-			name: "marginalMeansContrast"
-			id: marginalMeansContrast
-			label: qsTr("Specify contrasts")
+			name:	"marginalMeansContrast"
+			id:		marginalMeansContrast
+			label:	qsTr("Specify contrasts")
 		}
-
 
 		DropDown
 		{
@@ -551,72 +545,73 @@ Form {
 			]
 		}
 
-		MarginalMeansContrastsTableView
+		CustomContrastsTableView
 		{
-			Layout.columnSpan: 2
-			visible: marginalMeansContrast.checked
-			name: "Contrasts"
-			source:	"marginalMeans"
-			scaleFactor: marginalMeansSD.value
+			Layout.columnSpan:	2
+			visible:			marginalMeansContrast.checked
+			name:				"Contrasts"
+			source:				"marginalMeans"
+			scaleFactor:		marginalMeansSD.value
 		}
 	}
 
 	Section
 	{
-		title: qsTr("Estimated trends/condtional slopes")
-		expanded: false
+		title:		qsTr("Estimated trends/conditional slopes")
+		expanded:	false
 
 		VariablesForm
 		{
 			preferredHeight: 100
+
 			AvailableVariablesList
 			{
-				name: "availableModelComponentsTrends1"
-				title: qsTr("Continous variables")
-				source: [ { name: "fixedEffects", use: "type=nominal|scale"} ]
+				name:	"availableModelComponentsTrends1"
+				title:	qsTr("Continous variables")
+				source: [ { name: "fixedEffects", use: "type=scale"} ]
 			}
 
 			AssignedVariablesList
 			{
-				singleVariable: true
-				name: "trendsTrend"
-				title: qsTr("Trend variable")
+				singleVariable:	true
+				name:			"trendsTrend"
+				title:			qsTr("Trend variable")
 			}
 		}
-
 
 		VariablesForm
 		{
 			preferredHeight: 250
+
 			AvailableVariablesList
 			{
-				name: "availableModelComponentsTrends2"
-				title: qsTr("Model variables")
-				source: "fixedEffects"
+				name:	"availableModelComponentsTrends2"
+				title:	qsTr("Model variables")
+				source:	[{ name: "fixedEffects", use: "noInteraction" }]
 			}
 
 			AssignedVariablesList
 			{
-				id: trendsVariables
-				name: "trendsVariables"
-				title: qsTr("Selected variables")
+				id:		trendsVariables
+				name:	"trendsVariables"
+				title:	qsTr("Selected variables")
 			}
 		}
 
 		CIField
 		{
-			name: "trendsCIwidth"
-			label: "Confidence interval"
+			name:	"trendsCIwidth"
+			label:	"Confidence interval"
 		}
 
 		DoubleField
-		{ // TODO: grayed out unless continous variable is selected
-			id:	trendsSD
-			name: "trendsSD"
-			label: "SD factor covariates"
-			defaultValue: 1
-			min: 0
-			enabled: trendsVariables.columnsTypes.includes("scale")
+		{ 
+			id:				trendsSD
+			name:			"trendsSD"
+			label:			"SD factor covariates"
+			defaultValue:	1
+			min:			0
+			enabled:		trendsVariables.columnsTypes.includes("scale")
 		}
 
 		Group
@@ -630,45 +625,42 @@ Form {
 				[
 					{ label: "Asymptotic",				value: "asymptotic"},
 					{ label: "Satterthwaite",			value: "satterthwaite"},
-   	 				{ label: "Kenward-Roger",			value: "kenward-roger"}
-  				]
+					{ label: "Kenward-Roger",			value: "kenward-roger"}
+				]
 			}
 
 			CheckBox
 			{
-				enabled: trendsDf.currentText == "Satterthwaite" | trendsDf.currentText == "Kenward-Roger"
-				name: "trendsOverride"
-				label: qsTr("Force df estimation")
+				enabled:	trendsDf.currentText == "Satterthwaite" | trendsDf.currentText == "Kenward-Roger"
+				name:		"trendsOverride"
+				label:		qsTr("Force df estimation")
 			}
-
 		}
-
 
 		Group
 		{
 			columns: 2
+
 			CheckBox
 			{
-				name: "trendsCompare"
-				id: trendsCompare
-				label: qsTr("Compare marginal means to:")
+				name:	"trendsCompare"
+				id:		trendsCompare
+				label:	qsTr("Compare trends to:")
 			}
 
 			IntegerField
 			{
-				enabled: trendsCompare.checked
-				name: "trendsCompareTo"
+				enabled:	trendsCompare.checked
+				name:		"trendsCompareTo"
 			}
 		}
-		
 
 		CheckBox
 		{
-			name: "trendsContrast"
-			id: trendsContrast
-			label: qsTr("Specify contrasts")
+			name:	"trendsContrast"
+			id:		trendsContrast
+			label:	qsTr("Specify contrasts")
 		}
-
 
 		DropDown
 		{
@@ -686,13 +678,13 @@ Form {
 			]
 		}
 
-		MarginalMeansContrastsTableView
+		CustomContrastsTableView
 		{
-			Layout.columnSpan: 2
-			visible: trendsContrast.checked
-			name: "trendsContrasts"
-			source:	"trendsVariables"
-			scaleFactor: trendsSD.value
+			Layout.columnSpan:	2
+			visible:			trendsContrast.checked
+			name:				"trendsContrasts"
+			source:				"trendsVariables"
+			scaleFactor:		trendsSD.value
 		}
 	}
 
