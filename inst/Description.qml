@@ -3,7 +3,7 @@ import JASP.Module 	1.0
 
 Description
 {
-	name		: "MixedModels"
+	name		: "jaspMixedModels"
 	title		: qsTr("Mixed Models")
 	description	: qsTr("This module offers the standard Frequentist and Bayesian Mixed Models analyses.")
 	icon		: "MixedModels_classical.svg"
