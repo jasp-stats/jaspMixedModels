@@ -2,7 +2,7 @@ context("Bayesian Linear Mixed Models")
 
 #### overall summary ####
 {
-  options <- jasptools::analysisOptions("MixedModelsBLMM")
+  options <- jaspTools::analysisOptions("MixedModelsBLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                         dependentVariable = list(containsColumn = TRUE), fixedEffects = list(
                           list()), fixedVariables = list(containsColumn = TRUE), 
@@ -29,7 +29,7 @@ context("Bayesian Linear Mixed Models")
   options$trendsTrend <- list()
   options$warmup <- 500
   set.seed(1)
-  results <- jasptools::run("MixedModelsBLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsBLMM", "debug.csv", options)
   
   
   test_that("Intercept table results match", {
@@ -51,7 +51,7 @@ context("Bayesian Linear Mixed Models")
 }
 #### overall summary (continuous predictior) ####
 {
-  options <- jasptools::analysisOptions("MixedModelsBLMM")
+  options <- jaspTools::analysisOptions("MixedModelsBLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                         dependentVariable = list(containsColumn = TRUE), fixedEffects = list(
                           list(), list(), list()), fixedVariables = list(containsColumn = TRUE), 
@@ -84,7 +84,7 @@ context("Bayesian Linear Mixed Models")
   options$trendsTrend <- list()
   options$warmup <- 500
   set.seed(1)
-  results <- jasptools::run("MixedModelsBLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsBLMM", "debug.csv", options)
   
   
   test_that("Fixed Effects Estimates table results match", {
@@ -145,7 +145,7 @@ context("Bayesian Linear Mixed Models")
 }
 #### overall summary (deviation from the mean + RE/FE) ####
 {
-  options <- jasptools::analysisOptions("MixedModelsBLMM")
+  options <- jaspTools::analysisOptions("MixedModelsBLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                         dependentVariable = list(containsColumn = TRUE), fixedEffects = list(
                           list()), fixedVariables = list(containsColumn = TRUE), 
@@ -176,7 +176,7 @@ context("Bayesian Linear Mixed Models")
   options$trendsTrend <- list()
   options$warmup <- 500
   set.seed(1)
-  results <- jasptools::run("MixedModelsBLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsBLMM", "debug.csv", options)
   
   
   test_that("Fixed Effects Estimates table results match", {

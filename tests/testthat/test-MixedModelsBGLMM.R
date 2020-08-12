@@ -6,7 +6,7 @@ context("Bayesian Generalized Linear Mixed Models")
 {
   # binomial / logit
   {
-    options <- jasptools::analysisOptions("MixedModelsBGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsBGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -33,7 +33,7 @@ context("Bayesian Generalized Linear Mixed Models")
     options$trendsTrend <- list()
     options$warmup <- 500
     set.seed(1)
-    results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
     
     
     test_that("Intercept table results match", {
@@ -52,7 +52,7 @@ context("Bayesian Generalized Linear Mixed Models")
   }
   # binomial / probit
   {
-    options <- jasptools::analysisOptions("MixedModelsBGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsBGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -80,7 +80,7 @@ context("Bayesian Generalized Linear Mixed Models")
     options$trendsTrend <- list()
     options$warmup <- 500
     set.seed(1)
-    results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
     
     
     test_that("Intercept table results match", {
@@ -99,7 +99,7 @@ context("Bayesian Generalized Linear Mixed Models")
   }
   # binomial / cauchit
   {
-    options <- jasptools::analysisOptions("MixedModelsBGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsBGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -127,7 +127,7 @@ context("Bayesian Generalized Linear Mixed Models")
     options$trendsTrend <- list()
     options$warmup <- 500
     set.seed(1)
-    results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
     
     
     test_that("Intercept table results match", {
@@ -146,7 +146,7 @@ context("Bayesian Generalized Linear Mixed Models")
   }
   # binomial / cloglog
   {
-    options <- jasptools::analysisOptions("MixedModelsBGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsBGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -174,7 +174,7 @@ context("Bayesian Generalized Linear Mixed Models")
     options$trendsTrend <- list()
     options$warmup <- 500
     set.seed(1)
-    results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
     
     
     test_that("Intercept table results match", {
@@ -193,7 +193,7 @@ context("Bayesian Generalized Linear Mixed Models")
   }
   # binomial / log
   {
-    options <- jasptools::analysisOptions("MixedModelsBGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsBGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -221,7 +221,7 @@ context("Bayesian Generalized Linear Mixed Models")
     options$trendsTrend <- list()
     options$warmup <- 500
     set.seed(1)
-    results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
     
     
     test_that("Intercept table results match", {
@@ -240,7 +240,7 @@ context("Bayesian Generalized Linear Mixed Models")
   }
   # negative-binomial / identity
   {
-    options <- jasptools::analysisOptions("MixedModelsBGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsBGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -269,7 +269,7 @@ context("Bayesian Generalized Linear Mixed Models")
     options$trendsTrend <- list()
     options$warmup <- 500
     set.seed(1)
-    results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
     
     
     test_that("Intercept table results match", {
@@ -288,7 +288,7 @@ context("Bayesian Generalized Linear Mixed Models")
   }
   # beta / logit
   {
-    options <- jasptools::analysisOptions("MixedModelsBGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsBGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -316,7 +316,7 @@ context("Bayesian Generalized Linear Mixed Models")
     options$trendsTrend <- list()
     options$warmup <- 500
     set.seed(1)
-    results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
     
     
     test_that("Intercept table results match", {
@@ -336,7 +336,7 @@ context("Bayesian Generalized Linear Mixed Models")
 }
 #### overall summary ####
 {
-  options <- jasptools::analysisOptions("MixedModelsBGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsBGLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                         dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                           containsColumn = TRUE), fixedEffects = list(list()), 
@@ -367,7 +367,7 @@ context("Bayesian Generalized Linear Mixed Models")
   options$trendsTrend <- list()
   options$warmup <- 500
   set.seed(1)
-  results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
   
   
   test_that("Fixed Effects Estimates table results match", {
@@ -416,7 +416,7 @@ context("Bayesian Generalized Linear Mixed Models")
   
   
   
-  options <- jasptools::analysisOptions("MixedModelsBGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsBGLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                         dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                           containsColumn = TRUE), fixedEffects = list(list()), 
@@ -447,7 +447,7 @@ context("Bayesian Generalized Linear Mixed Models")
   options$trendsTrend <- list()
   options$warmup <- 500
   set.seed(1)
-  results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
   
   
   test_that("Fixed Effects Estimates table results match", {
@@ -494,7 +494,7 @@ context("Bayesian Generalized Linear Mixed Models")
 }
 #### estimated marginal means + contrasts #####
 {
-  options <- jasptools::analysisOptions("MixedModelsBGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsBGLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE)), 
                                          list(levels = list(containsColumn = TRUE)), list(levels = list(
                                            containsColumn = TRUE)), list(levels = list(containsColumn = TRUE)), 
@@ -541,7 +541,7 @@ context("Bayesian Generalized Linear Mixed Models")
   options$trendsTrend <- list()
   options$warmup <- 500
   set.seed(1)
-  results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
   
   
   test_that("Estimated Marginal Means table results match", {
@@ -601,7 +601,7 @@ context("Bayesian Generalized Linear Mixed Models")
 }
 #### estimated marginal means + contrasts (non-response scale) #####
 {
-  options <- jasptools::analysisOptions("MixedModelsBGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsBGLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE)), 
                                          list(levels = list(containsColumn = TRUE)), list(levels = list(
                                            containsColumn = TRUE)), list(levels = list(containsColumn = TRUE)), 
@@ -651,7 +651,7 @@ context("Bayesian Generalized Linear Mixed Models")
   options$trendsTrend <- list()
   options$warmup <- 500
   set.seed(1)
-  results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
   
   
   test_that("Estimated Marginal Means table results match", {
@@ -711,7 +711,7 @@ context("Bayesian Generalized Linear Mixed Models")
 }
 #### estimated trends + contrasts #####
 {
-  options <- jasptools::analysisOptions("MixedModelsBGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsBGLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE)), 
                                          list(levels = list(containsColumn = TRUE)), list(levels = list(
                                            containsColumn = TRUE))), dependentVariable = list(containsColumn = TRUE), 
@@ -754,7 +754,7 @@ context("Bayesian Generalized Linear Mixed Models")
   options$trendsVariables <- list(list(variable = "facGender"))
   options$warmup <- 500
   set.seed(1)
-  results <- jasptools::run("MixedModelsBGLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsBGLMM", "debug.csv", options)
   
   
   test_that("Intercept table results match", {

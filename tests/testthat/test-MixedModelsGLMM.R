@@ -4,7 +4,7 @@ context("Generalized Linear Mixed Models")
 #### ANOVA tables different model tests / families / links ###
 {
   test_that("ANOVA Summary table results match (binomial / logit)", {
-    options <- jasptools::analysisOptions("MixedModelsGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -26,13 +26,13 @@ context("Generalized Linear Mixed Models")
                                          values = list()))
     options$trendsTrend <- list()
     set.seed(1)
-    results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     expect_equal_tables(table,
                         list(1, "contNormal", 0.496613369631141, 0.462166121618139))
   })
   test_that("ANOVA Summary table results match (binomial / probit)", {
-    options <- jasptools::analysisOptions("MixedModelsGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -55,13 +55,13 @@ context("Generalized Linear Mixed Models")
                                          values = list()))
     options$trendsTrend <- list()
     set.seed(1)
-    results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     expect_equal_tables(table,
                         list(1, "contNormal", 0.493344377834231, 0.469224008127867))
   })
   test_that("ANOVA Summary table results match (binomial / cauchit)", {
-    options <- jasptools::analysisOptions("MixedModelsGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -84,13 +84,13 @@ context("Generalized Linear Mixed Models")
                                          values = list()))
     options$trendsTrend <- list()
     set.seed(1)
-    results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     expect_equal_tables(table,
                         list(1, "contNormal", 0.511278057099532, 0.431450520272136))
   })
   test_that("ANOVA Summary table results match (binomial / cloglog)", {
-    options <- jasptools::analysisOptions("MixedModelsGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -113,13 +113,13 @@ context("Generalized Linear Mixed Models")
                                          values = list()))
     options$trendsTrend <- list()
     set.seed(1)
-    results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     expect_equal_tables(table,
                         list(1, "contNormal", 0.502062833294605, 0.450573290973296))
   })
   test_that("ANOVA Summary table results match (binomial / log)", {
-    options <- jasptools::analysisOptions("MixedModelsGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -142,13 +142,13 @@ context("Generalized Linear Mixed Models")
                                          values = list()))
     options$trendsTrend <- list()
     set.seed(1)
-    results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     expect_equal_tables(table,
                         list(1, "facGender", 0.246403123723302, 1.34358278549087))
   })
   test_that("ANOVA Summary table results match (poisson  / identity)", {
-    options <- jasptools::analysisOptions("MixedModelsGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -172,13 +172,13 @@ context("Generalized Linear Mixed Models")
                                          values = list()))
     options$trendsTrend <- list()
     set.seed(1)
-    results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     expect_equal_tables(table,
                         list(1, "facGender", 0.361954228971617, 0.83110144154216))
   })
   test_that("ANOVA Summary table results match (poisson  / log)", {
-    options <- jasptools::analysisOptions("MixedModelsGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -202,13 +202,13 @@ context("Generalized Linear Mixed Models")
                                          values = list()))
     options$trendsTrend <- list()
     set.seed(1)
-    results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     expect_equal_tables(table,
                         list(1, "facGender", 0.378606857258377, 0.775220568488294))
   })
   test_that("ANOVA Summary table results match (poisson  / sqrt)", {
-    options <- jasptools::analysisOptions("MixedModelsGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -232,13 +232,13 @@ context("Generalized Linear Mixed Models")
                                          values = list()))
     options$trendsTrend <- list()
     set.seed(1)
-    results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     expect_equal_tables(table,
                         list(1, "facGender", 0.37005249358997, 0.803488211907279))
   })
   test_that("ANOVA Summary table results match (gamma    / identity), type II", {
-    options <- jasptools::analysisOptions("MixedModelsGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -263,13 +263,13 @@ context("Generalized Linear Mixed Models")
     options$trendsTrend <- list()
     options$type <- "2"
     set.seed(1)
-    results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     expect_equal_tables(table,
                         list(1, "facGender", 0.529079144695415, 0.396159887255862))
   })
   test_that("ANOVA Summary table results match (gamma    / inverse), type II, PB", {
-    options <- jasptools::analysisOptions("MixedModelsGLMM")
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
     options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                           dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                             containsColumn = TRUE), fixedEffects = list(list()), 
@@ -296,7 +296,7 @@ context("Generalized Linear Mixed Models")
     options$trendsTrend <- list()
     options$type <- "2"
     set.seed(1)
-    results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+    results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     expect_equal_tables(table,
                         list(1, "contBinom", 0.324635800502782, 1, 0.970177958797194))
@@ -304,7 +304,7 @@ context("Generalized Linear Mixed Models")
 }
 #### overall summary ####
 {
-  options <- jasptools::analysisOptions("MixedModelsGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsGLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                         dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                           containsColumn = TRUE), fixedEffects = list(list(), list(), 
@@ -335,7 +335,7 @@ context("Generalized Linear Mixed Models")
                                        values = list()))
   options$trendsTrend <- list()
   set.seed(1)
-  results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
   
   
   test_that("ANOVA Summary table results match", {
@@ -381,7 +381,7 @@ context("Generalized Linear Mixed Models")
 }
 #### estimated marginal means + contrasts #####
 {
-  options <- jasptools::analysisOptions("MixedModelsGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsGLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE)), 
                                          list(levels = list(containsColumn = TRUE)), list(levels = list(
                                            containsColumn = TRUE))), dependentVariable = list(containsColumn = TRUE), 
@@ -430,7 +430,7 @@ context("Generalized Linear Mixed Models")
                                        values = list()))
   options$trendsTrend <- list()
   set.seed(1)
-  results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
   
   
   test_that("ANOVA Summary table results match", {
@@ -474,7 +474,7 @@ context("Generalized Linear Mixed Models")
 }
 #### estimated marginal means + contrasts (non-response scale) #####
 {
-  options <- jasptools::analysisOptions("MixedModelsGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsGLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE)), 
                                          list(levels = list(containsColumn = TRUE)), list(levels = list(
                                            containsColumn = TRUE))), dependentVariable = list(containsColumn = TRUE), 
@@ -527,7 +527,7 @@ context("Generalized Linear Mixed Models")
                                        values = list()))
   options$trendsTrend <- list()
   set.seed(1)
-  results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
   
   
   test_that("ANOVA Summary table results match", {
@@ -571,7 +571,7 @@ context("Generalized Linear Mixed Models")
 }
 #### estimated trends + contrasts #####
 {
-  options <- jasptools::analysisOptions("MixedModelsGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsGLMM")
   options$.meta <- list(Contrasts = list(list(levels = list(containsColumn = TRUE))), 
                         dependentVariable = list(containsColumn = TRUE), dependentVariableAggregation = list(
                           containsColumn = TRUE), fixedEffects = list(list(), list(), 
@@ -621,7 +621,7 @@ context("Generalized Linear Mixed Models")
   options$trendsTrend <- list(list(variable = "contNormal"))
   options$trendsVariables <- list(list(variable = "facExperim"), list(variable = "facGender"))
   set.seed(1)
-  results <- jasptools::run("MixedModelsGLMM", "debug.csv", options)
+  results <- jaspTools::run("MixedModelsGLMM", "debug.csv", options)
   
   
   test_that("ANOVA Summary table results match", {

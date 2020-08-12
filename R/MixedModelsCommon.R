@@ -152,7 +152,7 @@
 }
 .mmCheckData     <- function(dataset, options, type = "LMM") {
  
-  if(nrow(dataset) < length(options$fixedEffects))JASP:::.quitAnalysis("The dataset contains fewer observations than predictors (after excluding NAs/NaN/Inf).")
+  if(nrow(dataset) < length(options$fixedEffects))jaspBase:::.quitAnalysis("The dataset contains fewer observations than predictors (after excluding NAs/NaN/Inf).")
   
   check_variables <- 1:ncol(dataset)
   if(type %in% c("GLMM", "BGLMM"))
@@ -178,19 +178,19 @@
   for(var in unlist(options$fixedEffects)) {
     if(is.factor(dataset[,.v(var)]) || is.character(dataset[,.v(var)])){
       if(length(unique(dataset[,.v(var)])) == nrow(dataset))
-        JASP:::.quitAnalysis(gettextf("The categorical fixed effect '%s' must have fewer levels than the overall number of observations.",var))
+        jaspBase:::.quitAnalysis(gettextf("The categorical fixed effect '%s' must have fewer levels than the overall number of observations.",var))
     }
   }
 
   for(var in unlist(options$randomVariables)) {
     if(length(unique(dataset[,.v(var)])) == nrow(dataset))
-      JASP:::.quitAnalysis(gettextf("The random effects grouping factor '%s' must have fewer levels than the overall number of observations.",var))  
+      jaspBase:::.quitAnalysis(gettextf("The random effects grouping factor '%s' must have fewer levels than the overall number of observations.",var))  
   }  
   
   # check hack-able options
   if (type %in% c("BLMM", "BGLMM")) {
     if (options$iteration - 1 <= options$warmup) {
-      JASP:::.quitAnalysis(gettext("The number of iterations must be at least 2 iterations higher than the burnin"))
+      jaspBase:::.quitAnalysis(gettext("The number of iterations must be at least 2 iterations higher than the burnin"))
     }
   }
   
@@ -201,23 +201,23 @@
     
     if (options$family %in% c("Gamma", "inverse.gaussian")) {
       if (any(dataset[, .v(options$dependentVariable)] <= 0))
-        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable is positive.",family_text))
+        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable is positive.",family_text))
     } else if (options$family %in% c("neg_binomial_2", "poisson")) {
       if (any(dataset[, .v(options$dependentVariable)] < 0 | any(!.is.wholenumber(dataset[, .v(options$dependentVariable)]))))
-        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable is an integer.",family_text))
+        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable is an integer.",family_text))
     } else if (options$family == "binomial") {
       if (any(!dataset[, .v(options$dependentVariable)] %in% c(0, 1)))
-        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable contains only 0 and 1.",family_text))
+        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable contains only 0 and 1.",family_text))
     } else if (options$family == "binomial_agg") {
       if (any(dataset[, .v(options$dependentVariable)] < 0 | dataset[, .v(options$dependentVariable)] > 1))
-        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable is higher than 0 and lower than 1.",family_text))
+        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable is higher than 0 and lower than 1.",family_text))
       if (any(dataset[, .v(options$dependentVariableAggregation)] < 0) || any(!.is.wholenumber(dataset[, .v(options$dependentVariableAggregation)])))
-        JASP:::.quitAnalysis(gettextf("%s requres that the number of trials variable is an integer.",family_text))
+        jaspBase:::.quitAnalysis(gettextf("%s requres that the number of trials variable is an integer.",family_text))
       if (any(!.is.wholenumber(dataset[, .v(options$dependentVariable)] * dataset[, .v(options$dependentVariableAggregation)])))
-        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable is proportion of successes out of the number of trials.",family_text))
+        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable is proportion of successes out of the number of trials.",family_text))
     } else if (options$family == "betar") {
       if (any(dataset[, .v(options$dependentVariable)] <= 0 | dataset[, .v(options$dependentVariable)] >= 1))
-        JASP:::.quitAnalysis(gettextf("%s requres that the dependent variable is higher than 0 and lower than 1.",family_text))
+        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable is higher than 0 and lower than 1.",family_text))
     }
   }
 }
@@ -416,7 +416,7 @@
 
   if (options$method == "PB") {
     seed_dependencies <- c("seed", "setSeed")
-    JASP:::.setSeedJASP(options)
+    jaspBase:::.setSeedJASP(options)
   } else{
     seed_dependencies <- NULL
   }
@@ -615,10 +615,10 @@
         temp_row$pval     = model$anova_table$`Pr(>Chisq)`[i]
       }
       if (options$pvalVS) {
-        temp_row$pvalVS <- JASP:::.VovkSellkeMPR(temp_row$pval)
+        temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
         if (options$method == "PB") {
           temp_row$pvalBootVS <-
-            JASP:::.VovkSellkeMPR(temp_row$pvalBoot)
+            jaspBase:::.VovkSellkeMPR(temp_row$pvalBoot)
         }
       }
       
@@ -984,7 +984,7 @@
     }
     
     if (options$pvalVS) {
-      temp_row$pvalVS <- JASP:::.VovkSellkeMPR(temp_row$pval)
+      temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
     }
     
     FEsummary$addRows(temp_row)
@@ -1130,7 +1130,7 @@
       data_arg$color <- options$plotsBackgroundColor
     
     
-    JASP:::.setSeedJASP(options)
+    jaspBase:::.setSeedJASP(options)
     p <- tryCatch(
       afex::afex_plot(
         model,
@@ -1176,7 +1176,7 @@
     # add theme
     if (options$plotsTheme == "JASP") {
       p <-
-        JASPgraphs::themeJasp(p, legend.position = options$plotLegendPosition)
+        jaspGraphs::themeJasp(p, legend.position = options$plotLegendPosition)
     } else if (options$plotsTheme == "theme_bw") {
       p <-
         p + ggplot2::theme_bw() + ggplot2::theme(legend.position = "bottom")
@@ -1496,7 +1496,7 @@
           temp_row$stat <- emm_test[i, grep("ratio", colnames(emm_test))]
           temp_row$pval <- emm_test[i, "p.value"]
           if (options$pvalVS) {
-            temp_row$pvalVS <- JASP:::.VovkSellkeMPR(temp_row$pval)
+            temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
           }
         }
       } else if (type %in% c("BLMM", "BGLMM")) {
@@ -1759,7 +1759,7 @@
           temp_row$stat <- emm_test[i, grep("ratio", colnames(emm_test))]
           temp_row$pval <- emm_test[i, "p.value"]
           if (options$pvalVS) {
-            temp_row$pvalVS <- JASP:::.VovkSellkeMPR(temp_row$pval)
+            temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
           }
         }
       }
@@ -2052,12 +2052,12 @@
           pval     =  emm_contrast[i, "p.value"]
         )
         if (options$pvalVS) {
-          temp_row$pvalVS <- JASP:::.VovkSellkeMPR(temp_row$pval)
+          temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
         }
         
         EMMCsummary$addFootnote(.messagePvalAdjustment(selectedAdjustment), symbol = "\u2020", colNames = "pval")
         if (options$pvalVS) {
-          temp_row$pvalVS <- JASP:::.VovkSellkeMPR(temp_row$pval)
+          temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
         }
         
       } else if (type %in% c("BLMM", "BGLMM")) {
@@ -2797,7 +2797,7 @@
       
       
       if (options$samplingPlot %in% c("stan_hist", "stan_dens")) {
-        p <- JASPgraphs::themeJasp(p, sides = "b")
+        p <- jaspGraphs::themeJasp(p, sides = "b")
         p <- p + ggplot2::theme(
           axis.title.y = ggplot2::element_blank(),
           axis.text.y  = ggplot2::element_blank(),
@@ -2805,7 +2805,7 @@
         )
         p <- p + ggplot2::labs(x = var_name)
       } else{
-        p <- JASPgraphs::themeJasp(p)
+        p <- jaspGraphs::themeJasp(p)
       }
       if (options$samplingPlot == "stan_trace") {
         p <- p + ggplot2::theme(plot.margin = ggplot2::margin(r = 10 * (nchar(options$iteration - options$warmup) - 2)))
@@ -2985,7 +2985,7 @@
     ggplot2::labs(x = "", y = levels(plot_data$samp$parameter)) + thm
 
   graph <- graph + ggplot2::scale_x_continuous(
-    breaks = JASPgraphs::getPrettyAxisBreaks(c(1,max(plot_data$samp$iteration))))
+    breaks = jaspGraphs::getPrettyAxisBreaks(c(1,max(plot_data$samp$iteration))))
 
   
   graph
