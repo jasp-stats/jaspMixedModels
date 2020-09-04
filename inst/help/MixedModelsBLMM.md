@@ -10,6 +10,10 @@ Bayesian Linear Mixed Models allow you to model a linear relationship between on
 - Homoscedasticity: The error variance of each predictor is constant across all values of that predictor.
 - Normality of errors: The errors are normally distributed with mean zero.
 
+The analysis uses sum contrast encoding for categorical (nominal and ordinal) predictors (R uses dummy encoding by default). This scheme is used for better interpretability of models with interactions. However, the fixed and random effects estimates will differ from those obtained from R with default settings. We advise using the 'Estimated marginal means' section for obtaining mean estimates at individual factor levels. For comparing the mean estimates, use the contrasts option.
+
+The analysis uses a long data format.
+
 ### Input
 
 #### Assignment Box
@@ -23,7 +27,7 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 
 
 ### Output
-- Estimated grand mean and estimated deviations from the grand mean for all levels of each fixed effects model term. It can be changed to estimated marginal means in the `Options` section.
+- Estimated grand mean and estimated differences from the grand mean for all levels of each fixed effects model term. It can be changed to estimated marginal means in the `Options` section.
   - Level: Levels of the fixed effects model term.
   - Estimate: This column contains the independent variables or their interaction.
   - SE: Standard error of the estimate.
@@ -44,13 +48,13 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 
 
 ### Options
-- Warmup: Number of iterations reserved for warm-up.
+- Burnin: Number of iterations reserved for burnin.
 - Iterations: Total number of iterations.
 - Chains: Number of chains.
 - Adapt delta: Average targer proposal acceptance of each step. Increasing `Adapt delta` results in better-behaved chains, but also longer fitting times.
 - Maximum treedepth: The cap for number of trees evaluated during each iteration. Prevents excessively long execution times.
 - Show: What should be the default output.
-  - Deviations from mean: A table for each fixed effects term will be created in the default output and it will show the deviation from the grand mean for each of the terms' levels (or one standard deviation distance for continuous terms). This option is selected by default.
+  - Differences from intercept: A table for each fixed effects term will be created in the default output and it will show the differences from the grand mean for each of the terms' levels (or one standard deviation distance for continuous terms). This option is selected by default.
   - Marginal means: A table for each fixed effects term will be created in the default output and it will show the estimated marginal mean for each of the terms' levels (or one standard deviation distance for continuous terms). 
 - Fixed effects estimates: Shows the estimated fixed effect coefficients.
 - Variance/correlation estimates: Shows the estimated residual variances and variances/correlations of random effects coefficients.
@@ -137,5 +141,6 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 - rstan
 - rstanarm
 - emmeans
+- loo
 - ggplot2
 - stats

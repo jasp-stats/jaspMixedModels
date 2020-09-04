@@ -152,7 +152,7 @@
 }
 .mmCheckData     <- function(dataset, options, type = "LMM") {
  
-  if(nrow(dataset) < length(options$fixedEffects))jaspBase:::.quitAnalysis("The dataset contains fewer observations than predictors (after excluding NAs/NaN/Inf).")
+  if(nrow(dataset) < length(options$fixedEffects)).quitAnalysis("The dataset contains fewer observations than predictors (after excluding NAs/NaN/Inf).")
   
   check_variables <- 1:ncol(dataset)
   if(type %in% c("GLMM", "BGLMM"))
@@ -178,19 +178,19 @@
   for(var in unlist(options$fixedEffects)) {
     if(is.factor(dataset[,.v(var)]) || is.character(dataset[,.v(var)])){
       if(length(unique(dataset[,.v(var)])) == nrow(dataset))
-        jaspBase:::.quitAnalysis(gettextf("The categorical fixed effect '%s' must have fewer levels than the overall number of observations.",var))
+        .quitAnalysis(gettextf("The categorical fixed effect '%s' must have fewer levels than the overall number of observations.",var))
     }
   }
 
   for(var in unlist(options$randomVariables)) {
     if(length(unique(dataset[,.v(var)])) == nrow(dataset))
-      jaspBase:::.quitAnalysis(gettextf("The random effects grouping factor '%s' must have fewer levels than the overall number of observations.",var))  
+      .quitAnalysis(gettextf("The random effects grouping factor '%s' must have fewer levels than the overall number of observations.",var))  
   }  
   
   # check hack-able options
   if (type %in% c("BLMM", "BGLMM")) {
     if (options$iteration - 1 <= options$warmup) {
-      jaspBase:::.quitAnalysis(gettext("The number of iterations must be at least 2 iterations higher than the burnin"))
+      .quitAnalysis(gettext("The number of iterations must be at least 2 iterations higher than the burnin"))
     }
   }
   
@@ -201,23 +201,23 @@
     
     if (options$family %in% c("Gamma", "inverse.gaussian")) {
       if (any(dataset[, .v(options$dependentVariable)] <= 0))
-        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable is positive.",family_text))
+        .quitAnalysis(gettextf("%s requires that the dependent variable is positive.",family_text))
     } else if (options$family %in% c("neg_binomial_2", "poisson")) {
       if (any(dataset[, .v(options$dependentVariable)] < 0 | any(!.is.wholenumber(dataset[, .v(options$dependentVariable)]))))
-        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable is an integer.",family_text))
+        .quitAnalysis(gettextf("%s requires that the dependent variable is an integer.",family_text))
     } else if (options$family == "binomial") {
       if (any(!dataset[, .v(options$dependentVariable)] %in% c(0, 1)))
-        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable contains only 0 and 1.",family_text))
+        .quitAnalysis(gettextf("%s requires that the dependent variable contains only 0 and 1.",family_text))
     } else if (options$family == "binomial_agg") {
       if (any(dataset[, .v(options$dependentVariable)] < 0 | dataset[, .v(options$dependentVariable)] > 1))
-        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable is higher than 0 and lower than 1.",family_text))
+        .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",family_text))
       if (any(dataset[, .v(options$dependentVariableAggregation)] < 0) || any(!.is.wholenumber(dataset[, .v(options$dependentVariableAggregation)])))
-        jaspBase:::.quitAnalysis(gettextf("%s requres that the number of trials variable is an integer.",family_text))
+        .quitAnalysis(gettextf("%s requires that the number of trials variable is an integer.",family_text))
       if (any(!.is.wholenumber(dataset[, .v(options$dependentVariable)] * dataset[, .v(options$dependentVariableAggregation)])))
-        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable is proportion of successes out of the number of trials.",family_text))
+        .quitAnalysis(gettextf("%s requires that the dependent variable is proportion of successes out of the number of trials.",family_text))
     } else if (options$family == "betar") {
       if (any(dataset[, .v(options$dependentVariable)] <= 0 | dataset[, .v(options$dependentVariable)] >= 1))
-        jaspBase:::.quitAnalysis(gettextf("%s requres that the dependent variable is higher than 0 and lower than 1.",family_text))
+        .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",family_text))
     }
   }
 }
@@ -416,7 +416,7 @@
 
   if (options$method == "PB") {
     seed_dependencies <- c("seed", "setSeed")
-    jaspBase:::.setSeedJASP(options)
+    .setSeedJASP(options)
   } else{
     seed_dependencies <- NULL
   }
@@ -615,10 +615,10 @@
         temp_row$pval     = model$anova_table$`Pr(>Chisq)`[i]
       }
       if (options$pvalVS) {
-        temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
+        temp_row$pvalVS <- VovkSellkeMPR(temp_row$pval)
         if (options$method == "PB") {
           temp_row$pvalBootVS <-
-            jaspBase:::.VovkSellkeMPR(temp_row$pvalBoot)
+            VovkSellkeMPR(temp_row$pvalBoot)
         }
       }
       
@@ -676,79 +676,70 @@
     return()
   
   model <- jaspResults[["mmModel"]]$object$model
+  if (is.list(model$full_model)) {
+    full_model <- model$full_model[[length(model$full_model)]]
+  } else{
+    full_model <- model$full_model
+  }
+    
+  fitSummary <- createJaspContainer("Model summary")
+  fitSummary$position <- 2
   
-  fitStats <- createJaspTable(title = gettext("Model summary"))
-  fitStats$position <- 2
-
   if (type == "LMM") {
     dependencies <- .mmDependenciesLMM
   } else if (type == "GLMM") {
     dependencies <- .mmDependenciesGLMM
   }
-  if (options$method == "PB") {
+  if (options$method == "PB")
     dependencies <- c(dependencies, "seed", "setSeed")
-  }
 
-
-  fitStats$dependOn(c(dependencies, "fitStats"))
-
+  fitSummary$dependOn(c(dependencies, "fitStats"))
+  jaspResults[["fitSummary"]] <- fitSummary
   
-  if (is.list(model$full_model)) {
-    is_REML <-
-      lme4::isREML(model$full_model[[length(model$full_model)]])
-  } else{
-    is_REML <- lme4::isREML(model$full_model)
-  }
   
-  fitStats$addColumnInfo(name = "deviance",
-                         title = gettext("Deviance"),
-                         type = "number")
-  if (is_REML) {
-    fitStats$addColumnInfo(
-      name = "devianceREML",
-      title = gettext("Deviance (REML)"),
-      type = "number"
-    )
-  }
-
+  ### fit statistics
+  fitStats <- createJaspTable(title = gettext("Fit statistics"))
+  fitStats$position <- 1
+  
+  fitStats$addColumnInfo(name = "deviance", title = gettext("Deviance"), type = "number")
+  if (lme4::isREML(full_model))
+    fitStats$addColumnInfo(name = "devianceREML", title = gettext("Deviance (REML)"), type = "number")
   fitStats$addColumnInfo(name = "loglik", title = gettext("log Lik."), type = "number")
   fitStats$addColumnInfo(name = "df",     title = gettext("df"),       type = "integer")
   fitStats$addColumnInfo(name = "aic",    title = gettext("AIC"),      type = "number")
   fitStats$addColumnInfo(name = "bic",    title = gettext("BIC"),      type = "number")
+  jaspResults[["fitSummary"]][["fitStats"]] <- fitStats
   
-  jaspResults[["fitStats"]] <- fitStats
   
+  temp_row <- list(
+    deviance = deviance(full_model, REML = FALSE),
+    loglik   = logLik(full_model),
+    df       = attr(logLik(full_model) , "df"),
+    aic      = AIC(full_model),
+    bic      = BIC(full_model)
+  )
   
-  if (is.list(model$full_model)) {
-
-    temp_row <- list(
-      deviance = deviance(model$full_model[[length(model$full_model)]], REML = FALSE),
-      loglik   = logLik(model$full_model[[length(model$full_model)]]),
-      df       = attr(logLik(model$full_model[[length(model$full_model)]]) , "df"),
-      aic      = AIC(model$full_model[[length(model$full_model)]]),
-      bic      = BIC(model$full_model[[length(model$full_model)]])
-    )
-  
-    if (is_REML)
-      temp_row$devianceREML <- lme4::REMLcrit(model$full_model[[length(model$full_model)]])
-    
-  }else{
-
-    temp_row <- list(
-      deviance = deviance(model$full_model, REML = FALSE),
-      loglik   = logLik(model$full_model),
-      df       = attr(logLik(model$full_model) , "df"),
-      aic      = AIC(model$full_model),
-      bic      = BIC(model$full_model)
-    )
-    
-    if (is_REML)
-      temp_row$devianceREML <- lme4::REMLcrit(model$full_model)
-    
-  }
+  if (lme4::isREML(full_model))
+    temp_row$devianceREML <- lme4::REMLcrit(full_model)
   
   fitStats$addRows(temp_row)
-  fitStats$addFootnote(.mmMessageFitType(is_REML))
+  fitStats$addFootnote(.mmMessageFitType(lme4::isREML(full_model)))
+  
+  
+  ### sample sizes
+  fitSizes <- createJaspTable(title = gettext("Sample sizes"))
+  fitSizes$position <- 2
+  
+  fitSizes$addColumnInfo(name = "observations", title = gettext("Observations"), type = "integer")
+  temp_row <- list(
+    observations = nrow(full_model@frame)
+  )
+  for (thisName in names(full_model@flist)) {
+    fitSizes$addColumnInfo(name = thisName, title = .unv(thisName), type = "integer", overtitle = gettext("Levels of RE grouping factors"))
+    temp_row[[thisName]] <- length(levels(full_model@flist[[thisName]]))
+  }
+  fitSizes$addRows(temp_row)
+  jaspResults[["fitSummary"]][["fitSizes"]] <- fitSizes
   
   return()
 }
@@ -984,7 +975,7 @@
     }
     
     if (options$pvalVS) {
-      temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
+      temp_row$pvalVS <- VovkSellkeMPR(temp_row$pval)
     }
     
     FEsummary$addRows(temp_row)
@@ -1130,7 +1121,7 @@
       data_arg$color <- options$plotsBackgroundColor
     
     
-    jaspBase:::.setSeedJASP(options)
+    .setSeedJASP(options)
     p <- tryCatch(
       afex::afex_plot(
         model,
@@ -1496,7 +1487,7 @@
           temp_row$stat <- emm_test[i, grep("ratio", colnames(emm_test))]
           temp_row$pval <- emm_test[i, "p.value"]
           if (options$pvalVS) {
-            temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
+            temp_row$pvalVS <- VovkSellkeMPR(temp_row$pval)
           }
         }
       } else if (type %in% c("BLMM", "BGLMM")) {
@@ -1759,7 +1750,7 @@
           temp_row$stat <- emm_test[i, grep("ratio", colnames(emm_test))]
           temp_row$pval <- emm_test[i, "p.value"]
           if (options$pvalVS) {
-            temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
+            temp_row$pvalVS <- VovkSellkeMPR(temp_row$pval)
           }
         }
       }
@@ -2052,12 +2043,12 @@
           pval     =  emm_contrast[i, "p.value"]
         )
         if (options$pvalVS) {
-          temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
+          temp_row$pvalVS <- VovkSellkeMPR(temp_row$pval)
         }
         
         EMMCsummary$addFootnote(.messagePvalAdjustment(selectedAdjustment), symbol = "\u2020", colNames = "pval")
         if (options$pvalVS) {
-          temp_row$pvalVS <- jaspBase:::.VovkSellkeMPR(temp_row$pval)
+          temp_row$pvalVS <- VovkSellkeMPR(temp_row$pval)
         }
         
       } else if (type %in% c("BLMM", "BGLMM")) {
@@ -2216,8 +2207,8 @@
   
   model <- jaspResults[["mmModel"]]$object$model
   
-  fitStats <- createJaspTable(title = gettext("Fit Statistics"))
-  fitStats$position <- 2
+  fitSummary <- createJaspContainer("Model summary")
+  fitSummary$position <- 2
   
   if (type == "BLMM") {
     dependencies <- .mmDependenciesBLMM
@@ -2225,40 +2216,32 @@
     dependencies <- .mmDependenciesBGLMM
   }
   
-
-  fitStats$dependOn(c(dependencies, "fitStats"))
+  fitSummary$dependOn(c(dependencies, "fitStats"))
+  jaspResults[["fitSummary"]] <- fitSummary
   
-
-  fitStats$addColumnInfo(name = "waic",
-                         title = gettext("WAIC"),
-                         type = "number")
-  fitStats$addColumnInfo(name = "waicSE",
-                         title = gettext("SE (WAIC)"),
-                         type = "number")
-  fitStats$addColumnInfo(name = "loo",
-                         title = gettext("LOO"),
-                         type = "number")
-  fitStats$addColumnInfo(name = "looSE",
-                         title = gettext("SE (LOO)"),
-                         type = "number")
+  ### fit statistics
+  fitStats <- createJaspTable(title = gettext("Fit Statistics"))
+  fitStats$position <- 1
   
-
-  jaspResults[["fitStats"]] <- fitStats
+  fitStats$addColumnInfo(name = "waic",   title = gettext("WAIC"),      type = "number")
+  fitStats$addColumnInfo(name = "waicSE", title = gettext("SE (WAIC)"), type = "number")
+  fitStats$addColumnInfo(name = "loo",    title = gettext("LOO"),       type = "number")
+  fitStats$addColumnInfo(name = "looSE",  title = gettext("SE (LOO)"),  type = "number")
+  
+  jaspResults[["fitSummary"]][["fitStats"]] <- fitStats
   
   waic <- loo::waic(model)
   loo  <- loo::loo(model)
 
 
-  n_bad_waic <- sum(waic$pointwise[,2] > 0.4)
-  n_bad_loo  <- length(loo::pareto_k_ids(loo, threshold = .7))
+  nBadWAIC <- sum(waic$pointwise[,2] > 0.4)
+  nBadLOO  <- length(loo::pareto_k_ids(loo, threshold = .7))
   
   
-  if(n_bad_waic > 0){
-    fitStats$addFootnote(.mmMessageBadWAIC(n_bad_waic), symbol = gettext("Warning:"))   
-  }
-  if(n_bad_loo > 0){
-    fitStats$addFootnote(.mmMessageBadLOO(n_bad_loo), symbol = gettext("Warning:"))    
-  }
+  if (nBadWAIC > 0)
+    fitStats$addFootnote(.mmMessageBadWAIC(nBadWAIC), symbol = gettext("Warning:"))   
+  if (nBadLOO > 0)
+    fitStats$addFootnote(.mmMessageBadLOO(nBadLOO), symbol = gettext("Warning:"))    
   
   
   temp_row <- list(
@@ -2270,6 +2253,22 @@
   
   fitStats$addRows(temp_row)
 
+  ### sample sizes
+  stanova_summary <- stanova:::summary.stanova(model)
+  
+  fitSizes <- createJaspTable(title = gettext("Sample sizes"))
+  fitSizes$position <- 2
+  
+  fitSizes$addColumnInfo(name = "observations", title = gettext("Observations"), type = "integer")
+  temp_row <- list(
+    observations = attr(stanova_summary, "nobs")
+  )
+  for (n in names(attr(stanova_summary, "ngrps"))) {
+    fitSizes$addColumnInfo(name = n, title = .unv(n), type = "integer", overtitle = gettext("Levels of RE grouping factors"))
+    temp_row[[n]] <- attr(stanova_summary, "ngrps")[[n]]
+  }
+  fitSizes$addRows(temp_row)
+  jaspResults[["fitSummary"]][["fitSizes"]] <- fitSizes
   
   return()
 }
@@ -3223,7 +3222,7 @@
   "hommel"     = gettext("Homel"),
   "hochberg"   = gettext("Hochberg"),
   "mvt"        = gettext("Multivariate-t"),
-  "tukey"      = gettext("Turkey"),
+  "tukey"      = gettext("Tukey"),
   "BH"         = gettext("Benjamini-Hochberg"),
   "BY"         = gettext("Benjamini-Yekutieli"),
   "scheffe"    = gettext("Scheffe"),
