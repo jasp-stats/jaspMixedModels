@@ -59,7 +59,7 @@ Section
 			{
 				Layout.preferredWidth:	randomEffetcs.width
 				Label { text: qsTr("Random slopes by %1").arg(rowValue); Layout.preferredWidth: parent.width / 2 }
-				CheckBox { label: qsTr("Correlations"); name: "correlations"; checked: true; Layout.preferredWidth: parent.width / 2 }
+				CheckBox { label: qsTr("Correlations"); name: "correlations"; checked: true }
 			}
 
 			VariablesList
