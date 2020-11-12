@@ -8,3 +8,22 @@ Website: www.jasp-stats.org
 Maintainer: JASP Team <info@jasp-stats.org>
 Description: This module offers the standard Frequentist and Bayesian Mixed Models analyses.
 License: GPL (>= 2)
+Encoding: UTF-8
+Imports:
+  afex (>= 0.28-0),
+  emmeans (>= 1.4.7),
+  ggplot2,
+  ggpubr,
+  jaspBase,
+  jaspGraphs,
+  jtools,
+  lme4,
+  loo,
+  mgcv,
+  rstan,
+  rstanarm,
+  stanova,
+  std
+Remotes:
+  jasp-stats/jaspBase,
+  jasp-stats/jaspGraphs

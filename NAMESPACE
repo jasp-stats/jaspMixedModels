@@ -1,3 +1,4 @@
+import(jaspBase)
 export(MixedModelsLMM)
 export(MixedModelsGLMM)
 export(MixedModelsBLMM)
