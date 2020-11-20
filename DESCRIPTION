@@ -22,8 +22,7 @@ Imports:
   mgcv,
   rstan,
   rstanarm,
-  stanova,
-  std
+  stanova
 Remotes:
   jasp-stats/jaspBase,
   jasp-stats/jaspGraphs
