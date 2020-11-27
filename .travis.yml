@@ -1,17 +1,16 @@
 os: osx
 language: r
 r: 3.6.1
-cache: packages
-
 before_install: 
-  - "git clone --depth 1 --branch=MacOS-Original https://github.com/jasp-stats/jasp-required-files.git ~/pkgs"
-  - "git clone --depth 1 --branch=stable https://github.com/jasp-stats/jasp-desktop.git ~/jasp-desktop"
-  - cd tests
+  - "git clone --branch=MacOS-Original https://github.com/jasp-stats/jasp-required-files.git ~/pkgs"
 install:
-  - R < install.R --no-save
+  - rm '/usr/local/bin/gfortran'
+  - brew install jags
+  - RScript -e ".libPaths(c(.libPaths(), '~/pkgs')); install.packages('remotes'); remotes::install_github('jasp-stats/jaspTools')"
 script:
-  - R < testthat.R --no-save
+  - R < tests/testthat.R --no-save
 env:
   global:
     - R_REMOTES_NO_ERRORS_FROM_WARNINGS=true
     - VDIFFR_RUN_TESTS=true
+    - REQUIRED_PKGS=~/pkgs
