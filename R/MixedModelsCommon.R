@@ -1170,34 +1170,28 @@
     
     # add theme
     if (options$plotsTheme == "JASP") {
-      p <-
-        jaspGraphs::themeJasp(p, legend.position = options$plotLegendPosition)
+      p <- jaspGraphs::themeJasp(p, legend.position = options$plotLegendPosition)
     } else if (options$plotsTheme == "theme_bw") {
-      p <-
-        p + ggplot2::theme_bw() + ggplot2::theme(legend.position = "bottom")
+      p <- p + ggplot2::theme_bw() + ggplot2::theme(legend.position = "bottom")
     } else if (options$plotsTheme == "theme_light") {
-      p <-
-        p + ggplot2::theme_light() + ggplot2::theme(legend.position = "bottom")
+      p <- p + ggplot2::theme_light() + ggplot2::theme(legend.position = "bottom")
     } else if (options$plotsTheme == "theme_minimal") {
-      p <-
-        p + ggplot2::theme_minimal() + ggplot2::theme(legend.position = "bottom")
+      p <- p + ggplot2::theme_minimal() + ggplot2::theme(legend.position = "bottom")
     } else if (options$plotsTheme == "theme_apa") {
-      p <-
-        p + jtools::theme_apa() + ggplot2::theme(legend.position = "bottom")
+      p <- p + jaspGraphs::themeApaRaw() + ggplot2::theme(legend.position = "bottom")
     } else if (options$plotsTheme == "theme_pubr") {
-      p <- p + ggpubr::theme_pubr()
+      p <- p + jaspGraphs::themePubrRaw()
     }
     
     if (options$plotsTheme != "JASP") {
-      p <-
-        p + ggplot2::theme(
-          legend.text  = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
-          legend.title = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
-          axis.text    = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
-          axis.title   = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
-          legend.position = options$plotLegendPosition
-        )
-      
+      p <- p + ggplot2::theme(
+        legend.text  = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
+        legend.title = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
+        axis.text    = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
+        axis.title   = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
+        legend.position = options$plotLegendPosition
+      )
+
     }
     
     
