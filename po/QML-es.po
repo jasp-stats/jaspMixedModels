@@ -1,0 +1,997 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Language: en_US\n"
+"X-Source-Language: American English\n"
+"X-Qt-Contexts: true\n"
+
+#, fuzzy
+msgctxt "Description|"
+msgid "Mixed Models"
+msgstr "Modelado Mixto"
+
+#, fuzzy
+msgctxt "Description|"
+msgid ""
+"This module offers the standard Frequentist and Bayesian Mixed Models "
+"analyses."
+msgstr ""
+"Este módulo ofrece los análisis estándar Frequentist y Bayesian T-Tests."
+
+#, fuzzy
+msgctxt "Description|"
+msgid "Classical"
+msgstr "Clásico"
+
+#, fuzzy
+msgctxt "Description|"
+msgid "Linear Mixed Models"
+msgstr "Modelado lineal"
+
+#, fuzzy
+msgctxt "Description|"
+msgid "Generalized Linear Mixed Models"
+msgstr "Modelado lineal generalizado"
+
+#, fuzzy
+msgctxt "Description|"
+msgid "Bayesian"
+msgstr "Bayesiano"
+
+#, fuzzy
+msgctxt "Description|"
+msgid "Bayesian Linear Mixed Models"
+msgstr "Regresión lineal bayesiana"
+
+#, fuzzy
+msgctxt "Description|"
+msgid "Bayesian Generalized Linear Mixed Models"
+msgstr "Modelado lineal generalizado"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Options"
+msgstr "Opciones"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Burnin"
+msgstr "Burnin"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Iterations"
+msgstr "Iteraciones"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Chains"
+msgstr "Cadenas"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Adapt delta"
+msgstr "Adaptar delta"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Maximum treedepth"
+msgstr "Profundidad máxima del árbol"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Show"
+msgstr "mostrar"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Differences from intercept"
+msgstr "Diferencias de la intersección"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Marginal means"
+msgstr "Medios marginales"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Model summary"
+msgstr "Resumen Modelo"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Fixed effects estimates"
+msgstr "Estimaciones de efectos fijos"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Variance/correlation estimates"
+msgstr "Estimaciones de varianza / correlación"
+
+#, fuzzy
+msgctxt "MixedModelsBOptions|"
+msgid "Credible interval"
+msgstr "Intervalo creíble"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "MCMC diagnostics"
+msgstr "Diagnóstico MCMC"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Model terms"
+msgstr "Términos modelo"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Horizontal axis"
+msgstr "Eje horizontal"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Plotted term"
+msgstr "Término trazado"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Vertical axis"
+msgstr "Eje vertical"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Plot type"
+msgstr "Tipo de parcela"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Traceplot"
+msgstr "Traceplot"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Scatterplot"
+msgstr "Gráfico de dispersión"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Histogram"
+msgstr "Histograma"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Density"
+msgstr "Densidad"
+
+#, fuzzy
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Autocorrelations"
+msgstr "Autocorrelaciones"
+
+#, fuzzy
+msgctxt "MixedModelsModel|"
+msgid "Model"
+msgstr "Modelo"
+
+#, fuzzy
+msgctxt "MixedModelsModel|"
+msgid "Model components"
+msgstr "Componentes del modelo"
+
+#, fuzzy
+msgctxt "MixedModelsModel|"
+msgid "Fixed effects"
+msgstr "Efectos fijos"
+
+#, fuzzy
+msgctxt "MixedModelsModel|"
+msgid "Random effects"
+msgstr "Efectos aleatorios"
+
+#, fuzzy, qt-format
+msgctxt "MixedModelsModel|"
+msgid "Random slopes by %1"
+msgstr "Pendientes aleatorias por %1"
+
+#, fuzzy
+msgctxt "MixedModelsModel|"
+msgid "Correlations"
+msgstr "Correlaciones"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "Options"
+msgstr "Opciones"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "Type"
+msgstr "Tipo"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "II"
+msgstr "II"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "III"
+msgstr "III"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "Test intercept"
+msgstr "Intercepción de prueba"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "Test model terms"
+msgstr "Términos del modelo de prueba"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "Likelihood ratio tests"
+msgstr "Pruebas de razón de verosimilitud"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "Parametric bootstrap"
+msgstr "Bootstrap paramétrico"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "No. samples"
+msgstr "No muestras"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "Model summary"
+msgstr "Resumen Modelo"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "Fixed effects estimates"
+msgstr "Estimaciones de efectos fijos"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "Variance/correlation estimates"
+msgstr "Estimaciones de varianza / correlación"
+
+#, fuzzy
+msgctxt "MixedModelsOptions|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr "Relación p máxima de Vovk-Sellke"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Plots"
+msgstr "Parcelas"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Model factors"
+msgstr "Factores del modelo"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Horizontal axis"
+msgstr "Eje horizontal"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Separate lines"
+msgstr "Líneas separadas"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Separate plots"
+msgstr "Parcelas separadas"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Random effects grouping factors"
+msgstr "Factores de agrupación de efectos aleatorios"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Background data show"
+msgstr "Mostrar datos de fondo"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Confidence interval method"
+msgstr "Método de intervalo de confianza"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Model"
+msgstr "Modelo"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "None"
+msgstr "Ninguna"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Mean"
+msgstr "Media"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Within"
+msgstr "Dentro"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Between"
+msgstr "Entre"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Confidence interval"
+msgstr "Intervalo de confianza"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Distinguish factor levels"
+msgstr "Distinguir niveles de factores"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Color"
+msgstr "Color"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Shape"
+msgstr "Forma"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Linetype"
+msgstr "Tipo de línea"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Fill"
+msgstr "Llenar"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Background geom"
+msgstr "Geom de fondo"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Jitter"
+msgstr "Estar nervioso"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Violin"
+msgstr "Violín"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Boxplot"
+msgstr "Diagrama de caja"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Boxjitter"
+msgstr "Boxjitter"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Count"
+msgstr "Contar"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Transparency"
+msgstr "Transparencia"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Jitter width"
+msgstr "Ancho de jitter"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Jitter height"
+msgstr "Altura de jitter"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Geom width"
+msgstr "Ancho de geom"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Dodge"
+msgstr "Esquivar"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Theme"
+msgstr "Tema"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Black White"
+msgstr "Blanco negro"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Light"
+msgstr "Ligero"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Minimal"
+msgstr "Mínimo"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Legend position"
+msgstr "Posición de la leyenda"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Bottom"
+msgstr "Fondo"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Right"
+msgstr "Correcto"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Top"
+msgstr "Parte superior"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Left"
+msgstr "Izquierda"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Color background data"
+msgstr "Datos de fondo de color"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Dark grey"
+msgstr "Gris oscuro"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Black"
+msgstr "Negro"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Light grey"
+msgstr "Gris claro"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Blue"
+msgstr "Azul"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Red"
+msgstr "rojo"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Violet"
+msgstr "Violeta"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Relative size text"
+msgstr "Texto de tamaño relativo"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Relative size foreground data"
+msgstr "Datos de primer plano de tamaño relativo"
+
+#, fuzzy
+msgctxt "MixedModelsPlots|"
+msgid "Estimates table"
+msgstr "Tabla de estimaciones"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Dependent variable"
+msgstr "Variable dependiente"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Number of trials"
+msgstr "Número de intentos"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Fixed effects variables"
+msgstr "Variables de efectos fijos"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Random effects grouping factors"
+msgstr "Factores de agrupación de efectos aleatorios"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Family"
+msgstr "Familia"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Binomial"
+msgstr "Binomio"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Binomial (aggregated)"
+msgstr "Binomial (agregado)"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Gaussian"
+msgstr "Gaussiano"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Gamma"
+msgstr "Gama"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Inverse Gaussian"
+msgstr "Gaussiano inverso"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Poisson"
+msgstr "Poisson"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Negative Binomial"
+msgstr "Binomio negativo"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Beta"
+msgstr "Beta"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Link"
+msgstr "Enlace"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Logit"
+msgstr "Logit"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Probit"
+msgstr "Probit"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Cauchit"
+msgstr "Cauchit"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Complementary LogLog"
+msgstr "LogLog complementario"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Identity"
+msgstr "Identidad"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Log"
+msgstr "Iniciar sesión"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Sqrt"
+msgstr "Sqrt"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Inverse"
+msgstr "Inverso"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Estimated marginal means"
+msgstr "Medias marginales estimadas"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Model variables"
+msgstr "Variables del modelo"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Selected variables"
+msgstr "Variables seleccionadas"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Response scale"
+msgstr "Escala de respuesta"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Specify contrasts"
+msgstr "Especificar contrastes"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Estimated trends/conditional slopes"
+msgstr "Tendencias estimadas / pendientes condicionales"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Continous variables"
+msgstr "Variables continuas"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Trend variable"
+msgstr "Variable de tendencia"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Dependent variable"
+msgstr "Variable dependiente"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Fixed effects variables"
+msgstr "Variables de efectos fijos"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Random effects grouping factors"
+msgstr "Factores de agrupación de efectos aleatorios"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Estimated marginal means"
+msgstr "Medias marginales estimadas"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Model variables"
+msgstr "Variables del modelo"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Selected variables"
+msgstr "Variables seleccionadas"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Confidence interval"
+msgstr "Intervalo de confianza"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "SD factor covariates"
+msgstr "Covariables del factor SD"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Specify contrasts"
+msgstr "Especificar contrastes"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Estimated trends/conditional slopes"
+msgstr "Tendencias estimadas / pendientes condicionales"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Continous variables"
+msgstr "Variables continuas"
+
+#, fuzzy
+msgctxt "MixedModelsBLMM|"
+msgid "Trend variable"
+msgstr "Variable de tendencia"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Dependent variable"
+msgstr "Variable dependiente"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Number of trials"
+msgstr "Número de intentos"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Fixed effects variables"
+msgstr "Variables de efectos fijos"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Random effects grouping factors"
+msgstr "Factores de agrupación de efectos aleatorios"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Family"
+msgstr "Familia"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Binomial"
+msgstr "Binomio"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Binomial (aggregated)"
+msgstr "Binomial (agregado)"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Gaussian"
+msgstr "Gaussiano"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Gamma"
+msgstr "Gama"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Inverse Gaussian"
+msgstr "Gaussiano inverso"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Poisson"
+msgstr "Poisson"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Link"
+msgstr "Enlace"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Logit"
+msgstr "Logit"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Probit"
+msgstr "Probit"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Cauchit"
+msgstr "Cauchit"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Complementary LogLog"
+msgstr "LogLog complementario"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Identity"
+msgstr "Identidad"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Log"
+msgstr "Iniciar sesión"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Sqrt"
+msgstr "Sqrt"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Inverse"
+msgstr "Inverso"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Estimated marginal means"
+msgstr "Medias marginales estimadas"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Model variables"
+msgstr "Variables del modelo"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Selected variables"
+msgstr "Variables seleccionadas"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Confidence interval"
+msgstr "Intervalo de confianza"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "SD factor covariates"
+msgstr "Covariables del factor SD"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Compare marginal means to:"
+msgstr "Compare las medias marginales con:"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Response scale"
+msgstr "Escala de respuesta"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Specify contrasts"
+msgstr "Especificar contrastes"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "P-value adjustment"
+msgstr "Ajuste del valor p"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Multivariate-t"
+msgstr "Multivariante-t"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "None"
+msgstr "Ninguna"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Estimated trends/conditional slopes"
+msgstr "Tendencias estimadas / pendientes condicionales"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Continous variables"
+msgstr "Variables continuas"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Trend variable"
+msgstr "Variable de tendencia"
+
+#, fuzzy
+msgctxt "MixedModelsGLMM|"
+msgid "Compare trends to:"
+msgstr "Compare las tendencias con:"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Dependent variable"
+msgstr "Variable dependiente"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Fixed effects variables"
+msgstr "Variables de efectos fijos"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Random effects grouping factors"
+msgstr "Factores de agrupación de efectos aleatorios"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Estimated marginal means"
+msgstr "Medias marginales estimadas"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Model variables"
+msgstr "Variables del modelo"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Selected variables"
+msgstr "Variables seleccionadas"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Confidence interval"
+msgstr "Intervalo de confianza"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "SD factor covariates"
+msgstr "Covariables del factor SD"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Estimate df"
+msgstr "Estimar gl"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Asymptotic"
+msgstr "Asintótico"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Force df estimation"
+msgstr "Forzar estimación df"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Compare marginal means to:"
+msgstr "Compare las medias marginales con:"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Specify contrasts"
+msgstr "Especificar contrastes"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "P-value adjustment"
+msgstr "Ajuste del valor p"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Multivariate-t"
+msgstr "Multivariante-t"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "None"
+msgstr "Ninguna"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Estimated trends/conditional slopes"
+msgstr "Tendencias estimadas / pendientes condicionales"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Continous variables"
+msgstr "Variables continuas"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Trend variable"
+msgstr "Variable de tendencia"
+
+#, fuzzy
+msgctxt "MixedModelsLMM|"
+msgid "Compare trends to:"
+msgstr "Compare las tendencias con:"
