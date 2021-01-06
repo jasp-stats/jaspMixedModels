@@ -1,0 +1,521 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JASP 0.9.2\n"
+"POT-Creation-Date: 2021-01-05 09:38\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid ""
+"The categorical fixed effect '%s' must have fewer levels than the overall "
+"number of observations."
+msgstr ""
+
+msgid ""
+"The random effects grouping factor '%s' must have fewer levels than the "
+"overall number of observations."
+msgstr ""
+
+msgid ""
+"The number of iterations must be at least 2 iterations higher than the burnin"
+msgstr ""
+
+msgid "%s requires that the dependent variable is positive."
+msgstr ""
+
+msgid "%s requires that the dependent variable is an integer."
+msgstr ""
+
+msgid "%s requires that the dependent variable contains only 0 and 1."
+msgstr ""
+
+msgid ""
+"%s requires that the dependent variable is higher than 0 and lower than 1."
+msgstr ""
+
+msgid "%s requires that the number of trials variable is an integer."
+msgstr ""
+
+msgid ""
+"%s requires that the dependent variable is proportion of successes out of "
+"the number of trials."
+msgstr ""
+
+msgid "ANOVA Summary"
+msgstr ""
+
+msgid "Effect"
+msgstr ""
+
+msgid "df"
+msgstr ""
+
+msgid "F"
+msgstr ""
+
+msgid "ChiSq"
+msgstr ""
+
+msgid "p"
+msgstr ""
+
+msgid "p (bootstrap)"
+msgstr ""
+
+msgid "VS-MPR"
+msgstr ""
+
+msgid "VS-MPR (bootstrap)"
+msgstr ""
+
+msgid ""
+"The optimizer failed to find a solution. Probably due to quasi-separation in "
+"the data. Try removing some of the predictors."
+msgstr ""
+
+msgid ""
+"The optimizer failed to find a solution due to invalid starting values. "
+"(JASP currently does not support specifying different starting values.)"
+msgstr ""
+
+msgid ""
+"The optimizer failed to find a solution. Probably due to scaling issues "
+"quasi-separation in the data. Try rescaling or removing some of the "
+"predictors."
+msgstr ""
+
+msgid "Intercept"
+msgstr ""
+
+msgid "Warning:"
+msgstr ""
+
+msgid "III"
+msgstr ""
+
+msgid "II"
+msgstr ""
+
+msgid "Fit statistics"
+msgstr ""
+
+msgid "Deviance"
+msgstr ""
+
+msgid "Deviance (REML)"
+msgstr ""
+
+msgid "log Lik."
+msgstr ""
+
+msgid "AIC"
+msgstr ""
+
+msgid "BIC"
+msgstr ""
+
+msgid "Sample sizes"
+msgstr ""
+
+msgid "Observations"
+msgstr ""
+
+msgid "Levels of RE grouping factors"
+msgstr ""
+
+msgid "Variance/Correlation Estimates"
+msgstr ""
+
+msgid "%s: Variance Estimates"
+msgstr ""
+
+msgid "Term"
+msgstr ""
+
+msgid "Std. Deviation"
+msgstr ""
+
+msgid "Variance"
+msgstr ""
+
+msgid "%s: Correlation Estimates"
+msgstr ""
+
+msgid "Residual Variance Estimates"
+msgstr ""
+
+msgid "Fixed Effects Estimates"
+msgstr ""
+
+msgid "Estimate"
+msgstr ""
+
+msgid "SE"
+msgstr ""
+
+msgid "t"
+msgstr ""
+
+msgid "Plot"
+msgstr ""
+
+msgid ""
+"At least one random effects grouping factor needs to be selected in field "
+"'Background data show'."
+msgstr ""
+
+msgid ""
+"Factor levels need to be distinguished by at least one feature. Please, "
+"check one of the 'Distinguish factor levels' options."
+msgstr ""
+
+msgid "Estimated Means and Confidence Intervals"
+msgstr ""
+
+msgid "Mean"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+msgid "%s%% CI"
+msgstr ""
+
+msgid "Upper"
+msgstr ""
+
+msgid "Estimated Marginal Means"
+msgstr ""
+
+msgid "Row"
+msgstr ""
+
+msgid "z"
+msgstr ""
+
+msgid "Median"
+msgstr ""
+
+msgid "%s%% HPD"
+msgstr ""
+
+msgid "Estimated Trends"
+msgstr ""
+
+msgid "%s (slope)"
+msgstr ""
+
+msgid "Contrasts"
+msgstr ""
+
+msgid "Odds Ratio"
+msgstr ""
+
+msgid "Ratio"
+msgstr ""
+
+msgid "Fit Statistics"
+msgstr ""
+
+msgid "WAIC"
+msgstr ""
+
+msgid "SE (WAIC)"
+msgstr ""
+
+msgid "LOO"
+msgstr ""
+
+msgid "SE (LOO)"
+msgstr ""
+
+msgid "Model summary"
+msgstr ""
+
+msgid "%s (differences from intercept)"
+msgstr ""
+
+msgid "%s (trend)"
+msgstr ""
+
+msgid "%s (marginal means)"
+msgstr ""
+
+msgid "Level"
+msgstr ""
+
+msgid "R-hat"
+msgstr ""
+
+msgid "ESS (bulk)"
+msgstr ""
+
+msgid "ESS (tail)"
+msgstr ""
+
+msgid ""
+"The model could not be estimated. Please, check the options and dataset for "
+"errors."
+msgstr ""
+
+msgid "Sampling diagnostics"
+msgstr ""
+
+msgid "Avg. autocorrelation"
+msgstr ""
+
+msgid ""
+"The following variables are a linear combination of each other, please, "
+"remove one of them from the analysis: %s"
+msgstr ""
+
+msgid ""
+"The intercept corresponds to the (unweighted) grand mean; for each factor "
+"with k levels, k - 1 parameters are estimated. Consequently, the estimates "
+"cannot be directly mapped to factor levels."
+msgstr ""
+
+msgid ""
+"Model fit is singular. Specified random effects parameters (random "
+"intercepts and random slopes) cannot be estimated from the available data. "
+"Carefully reduce the random effects structure, but this practice might "
+"inflate the reported p-value, and invalidates the analysis."
+msgstr ""
+
+msgid ""
+"Vovk-Sellke Maximum <em>p</em>-Ratio: Based on a two-sided <em>p</em>-value, "
+"the maximum possible odds in favor of H%1$s over H%2$s equals 1/(-e <em>p</"
+"em> log(<em>p</em>)) for <em>p</em> %3$s .37 (Sellke, Bayarri, & Berger, "
+"2001)."
+msgstr ""
+
+msgid ""
+"Numerical problems with the maximum-likelihood estimate (e.g., gradients too "
+"large). This may indicate that the specified random effects parameters "
+"(random intercepts and random slopes) cannot be estimated from the available "
+"data. Consider carefully reducing the random effects structure, but be aware "
+"this may induce unknown risks of anti-conservative results (i.e., p-values "
+"might be lower than nominal)."
+msgstr ""
+
+msgid ""
+"Estimation of degrees of freedom disabled (i.e., asymptotic results shown), "
+"because the number of observations is large. To force estimation, check "
+"corresponding option."
+msgstr ""
+
+msgid "Results are on the response scale."
+msgstr ""
+
+msgid "Results are not on the response scale and might be misleading."
+msgstr ""
+
+msgid "Type %s Sum of Squares"
+msgstr ""
+
+msgid ""
+"This analysis requires at least one random effects grouping factor to run."
+msgstr ""
+
+msgid ""
+"The 'Binomial (aggregated)' family requires the 'Number of trials' to be "
+"specified to run."
+msgstr ""
+
+msgid "P-values correspond to test of null hypothesis against %s."
+msgstr ""
+
+msgid "Results are averaged over the levels of: %s."
+msgstr ""
+
+msgid "binomial"
+msgstr ""
+
+msgid "gaussian"
+msgstr ""
+
+msgid "gamma"
+msgstr ""
+
+msgid "inverse gaussian"
+msgstr ""
+
+msgid "poisson"
+msgstr ""
+
+msgid "negative binomial"
+msgstr ""
+
+msgid "beta"
+msgstr ""
+
+msgid "Generalized linear mixed model with %s family and %s link function."
+msgstr ""
+
+msgid "Satterthwaite"
+msgstr ""
+
+msgid "Kenward-Roger"
+msgstr ""
+
+msgid "likelihood ratio tests"
+msgstr ""
+
+msgid "parametric bootstrap"
+msgstr ""
+
+msgid "Model terms tested with %s method."
+msgstr ""
+
+msgid "P-values are not adjusted."
+msgstr ""
+
+msgid "Holm"
+msgstr ""
+
+msgid "Homel"
+msgstr ""
+
+msgid "Hochberg"
+msgstr ""
+
+msgid "Multivariate-t"
+msgstr ""
+
+msgid "Tukey"
+msgstr ""
+
+msgid "Benjamini-Hochberg"
+msgstr ""
+
+msgid "Benjamini-Yekutieli"
+msgstr ""
+
+msgid "Scheffe"
+msgstr ""
+
+msgid "Sidak"
+msgstr ""
+
+msgid "Dunnett"
+msgstr ""
+
+msgid "Bonferroni"
+msgstr ""
+
+msgid "P-values are adjusted using %s adjustment."
+msgstr ""
+
+msgid ""
+"Inference possibly unreliable -- MCMC chains might not have converged; The "
+"largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', "
+"or 'Adapt delta' in the Options section."
+msgstr ""
+
+msgid ""
+"Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f "
+"< %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' "
+"in the Options section."
+msgstr ""
+
+msgid "The model was fitted using %s."
+msgstr ""
+
+msgid "The following variable is used as a random effects grouping factor: %s."
+msgid_plural ""
+"The following variables are used as random effects grouping factors: %s."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"All random slopes involving ‘%s’ have been removed for the random effects "
+"grouping factor ‘%s’. -- Factor %s does not vary within the levels of random "
+"effects grouping factor '%s'."
+msgid_plural ""
+"All random slopes involving ‘%s’ have been removed for the random effects "
+"grouping factor ‘%s’. -- Factors %s do not vary within the levels of random "
+"effects grouping factor '%s'."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"Random slopes of ‘%s’ for the random effects grouping factor ‘%s’ removed -- "
+"Too few observations to estimate random slopes of '%s' for random effects "
+"grouping factor '%s'."
+msgid_plural ""
+"Random slope of ‘%s’ for the random effects grouping factor ‘%s’ removed -- "
+"Too few observations to estimate random slope of '%s' for random effects "
+"grouping factor '%s'."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"Lower order random effects terms need to be specified in presence of the "
+"higher order random effects terms. Therefore, the following random effects "
+"term was added to the '%s' random effects grouping factor: '%s.'"
+msgid_plural ""
+"Lower order random effects terms need to be specified in presence of the "
+"higher order random effects terms. Therefore, the following random effects "
+"terms were added to the '%s' random effects grouping factor: '%s.'"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%i observation was removed due to missing values."
+msgid_plural "%i observations were removed due to missing values."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"The Hamiltonian Monte Carlo procedure might be invalid -- There was %i "
+"divergent transition after warmup. This can be solved by carefully "
+"increasing 'Adapt delta' until there are no divergent transitions."
+msgid_plural ""
+"The Hamiltonian Monte Carlo procedure might be invalid -- There were %i "
+"divergent transitions after warmup. This can be solved by carefully "
+"increasing 'Adapt delta' until there are no divergent transitions."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"Bayesian Fraction of Missing Information (BFMI) that was too low in %i chain "
+"indicating that the posterior distribution was not explored efficiently. Try "
+"increasing number of 'Burnin' and 'Iterations'."
+msgid_plural ""
+"Bayesian Fraction of Missing Information (BFMI) that was too low in %i "
+"chains indicating that the posterior distribution was not explored "
+"efficiently. Try increasing number of 'Burnin' and 'Iterations'."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"The Hamiltonian Monte Carlo procedure might be inefficient -- %i transition "
+"exceeded the maximum tree depth. This can be solved by carefully increasing "
+"'Maximum tree depth"
+msgid_plural ""
+"The Hamiltonian Monte Carlo procedure might be inefficient -- %i transitions "
+"exceeded the maximum tree depth. This can be solved by carefully increasing "
+"'Maximum tree depth"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"WAIC estimate unreliable -- There was %1.0f p_waic estimate larger than 0.4. "
+"We recommend using LOO instead."
+msgid_plural ""
+"WAIC estimate unreliable -- There were %1.0f p_waic estimates larger than "
+"0.4. We recommend using LOO instead."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid ""
+"LOO estimate unreliable -- There was %1.0f observation with the shape "
+"parameter (k) of the generalized Pareto distribution higher than > .5."
+msgid_plural ""
+"LOO estimate unreliable -- There were %1.0f observations with the shape "
+"parameter (k) of the generalized Pareto distribution higher than > .5."
+msgstr[0] ""
+msgstr[1] ""

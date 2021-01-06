@@ -1,0 +1,803 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Language: en_US\n"
+"X-Source-Language: American English\n"
+"X-Qt-Contexts: true\n"
+
+msgctxt "Description|"
+msgid "Mixed Models"
+msgstr "Gemengde Modellen"
+
+#, fuzzy
+msgctxt "Description|"
+msgid ""
+"This module offers the standard Frequentist and Bayesian Mixed Models "
+"analyses."
+msgstr ""
+"Deze module biedt de standaard Frequenstische en Bayesiaanse T-Toets "
+"analyses."
+
+msgctxt "Description|"
+msgid "Classical"
+msgstr "Klassiek"
+
+msgctxt "Description|"
+msgid "Linear Mixed Models"
+msgstr "Lineaire Gemengde Modellen"
+
+msgctxt "Description|"
+msgid "Generalized Linear Mixed Models"
+msgstr "Gegeneraliseerde Lineaire Gemengde Modellen"
+
+msgctxt "Description|"
+msgid "Bayesian"
+msgstr "Bayesiaans"
+
+msgctxt "Description|"
+msgid "Bayesian Linear Mixed Models"
+msgstr "Bayesiaanse Lineaire Gemengde Modellen"
+
+msgctxt "Description|"
+msgid "Bayesian Generalized Linear Mixed Models"
+msgstr "Bayesiaanse Gegeneraliseerde Lineaire Gemengde Modellen"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Options"
+msgstr "Opties"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Burnin"
+msgstr "Opwarming"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Iterations"
+msgstr "Iteraties"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Chains"
+msgstr "Ketens"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Adapt delta"
+msgstr "Aanpassingsdelta"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Maximum treedepth"
+msgstr "Maximale boom diepte"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Show"
+msgstr "Toon"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Differences from intercept"
+msgstr "Verschillen t.o.v. intercept"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Marginal means"
+msgstr "Marginale gemiddelden"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Model summary"
+msgstr "Model samenvatting"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Fixed effects estimates"
+msgstr "Gefixeerde effecten schattingen"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Variance/correlation estimates"
+msgstr "Variantie/correlatie schattingen"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Credible interval"
+msgstr "Geloofwaardigheidsinterval"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "MCMC diagnostics"
+msgstr "MCMC diagnostiek"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Model terms"
+msgstr "Modeltermen"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Horizontal axis"
+msgstr "Horizontale as"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Plotted term"
+msgstr "Uitgezette term"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Vertical axis"
+msgstr "Vertikale as"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Plot type"
+msgstr "Grafiektype"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Traceplot"
+msgstr "Spoordiagram"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Scatterplot"
+msgstr "Spreidingsdiagram"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Histogram"
+msgstr "Histogram"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Density"
+msgstr "Dichtheid"
+
+msgctxt "MixedModelsMCMCDiagnostics|"
+msgid "Autocorrelations"
+msgstr "Autocorrelatie"
+
+msgctxt "MixedModelsModel|"
+msgid "Model"
+msgstr "Model"
+
+msgctxt "MixedModelsModel|"
+msgid "Model components"
+msgstr "Model componenten"
+
+msgctxt "MixedModelsModel|"
+msgid "Fixed effects"
+msgstr "Gefixeerde effecten"
+
+msgctxt "MixedModelsModel|"
+msgid "Random effects"
+msgstr "Willekeurige effecten"
+
+#, qt-format
+msgctxt "MixedModelsModel|"
+msgid "Random slopes by %1"
+msgstr "Willekeurige hellingen van %1"
+
+msgctxt "MixedModelsModel|"
+msgid "Correlations"
+msgstr "Correlaties"
+
+msgctxt "MixedModelsOptions|"
+msgid "Options"
+msgstr "Opties"
+
+msgctxt "MixedModelsOptions|"
+msgid "Type"
+msgstr "Type"
+
+msgctxt "MixedModelsOptions|"
+msgid "II"
+msgstr "II"
+
+msgctxt "MixedModelsOptions|"
+msgid "III"
+msgstr "III"
+
+msgctxt "MixedModelsOptions|"
+msgid "Test intercept"
+msgstr "Toets intercept"
+
+msgctxt "MixedModelsOptions|"
+msgid "Test model terms"
+msgstr "Toets modeltermen"
+
+msgctxt "MixedModelsOptions|"
+msgid "Likelihood ratio tests"
+msgstr "Waarschijnlijkheidsratio toetsen"
+
+msgctxt "MixedModelsOptions|"
+msgid "Parametric bootstrap"
+msgstr "Parametrische bootstrap"
+
+msgctxt "MixedModelsOptions|"
+msgid "No. samples"
+msgstr "Aantal steekproeven"
+
+msgctxt "MixedModelsOptions|"
+msgid "Model summary"
+msgstr "Model samenvatting"
+
+msgctxt "MixedModelsOptions|"
+msgid "Fixed effects estimates"
+msgstr "Gefixeerde effecten schattingen"
+
+msgctxt "MixedModelsOptions|"
+msgid "Variance/correlation estimates"
+msgstr "Variantie/correlatie schattingen"
+
+msgctxt "MixedModelsOptions|"
+msgid "Vovk-Sellke maximum p-ratio"
+msgstr "Vovk-Sellke maximum p-ratio"
+
+msgctxt "MixedModelsPlots|"
+msgid "Plots"
+msgstr "Grafieken"
+
+msgctxt "MixedModelsPlots|"
+msgid "Model factors"
+msgstr "Model factoren"
+
+msgctxt "MixedModelsPlots|"
+msgid "Horizontal axis"
+msgstr "Horizontale as"
+
+msgctxt "MixedModelsPlots|"
+msgid "Separate lines"
+msgstr "Onderscheidende lijnen"
+
+msgctxt "MixedModelsPlots|"
+msgid "Separate plots"
+msgstr "Onderscheidende grafieken"
+
+msgctxt "MixedModelsPlots|"
+msgid "Random effects grouping factors"
+msgstr "Willekeurige effecten groeperingsfactoren"
+
+msgctxt "MixedModelsPlots|"
+msgid "Background data show"
+msgstr "Achtergrond gegevens tonen"
+
+msgctxt "MixedModelsPlots|"
+msgid "Confidence interval method"
+msgstr "Betrouwbaarheidsintervalmethode"
+
+msgctxt "MixedModelsPlots|"
+msgid "Model"
+msgstr "Model"
+
+msgctxt "MixedModelsPlots|"
+msgid "None"
+msgstr "Geen"
+
+msgctxt "MixedModelsPlots|"
+msgid "Mean"
+msgstr "Gemiddelde"
+
+msgctxt "MixedModelsPlots|"
+msgid "Within"
+msgstr "Binnen"
+
+msgctxt "MixedModelsPlots|"
+msgid "Between"
+msgstr "Tussen"
+
+msgctxt "MixedModelsPlots|"
+msgid "Confidence interval"
+msgstr "Betrouwbaarheidsinterval"
+
+msgctxt "MixedModelsPlots|"
+msgid "Distinguish factor levels"
+msgstr "Onderscheid factorniveaus"
+
+msgctxt "MixedModelsPlots|"
+msgid "Color"
+msgstr "Kleur"
+
+msgctxt "MixedModelsPlots|"
+msgid "Shape"
+msgstr "Vorm"
+
+msgctxt "MixedModelsPlots|"
+msgid "Linetype"
+msgstr "Lijntype"
+
+msgctxt "MixedModelsPlots|"
+msgid "Fill"
+msgstr "Vul"
+
+msgctxt "MixedModelsPlots|"
+msgid "Background geom"
+msgstr "Achtergrond geom"
+
+msgctxt "MixedModelsPlots|"
+msgid "Jitter"
+msgstr "Jitter"
+
+msgctxt "MixedModelsPlots|"
+msgid "Violin"
+msgstr "Viool"
+
+msgctxt "MixedModelsPlots|"
+msgid "Boxplot"
+msgstr "Boxplot"
+
+msgctxt "MixedModelsPlots|"
+msgid "Boxjitter"
+msgstr "Boxjitter"
+
+msgctxt "MixedModelsPlots|"
+msgid "Count"
+msgstr "Aantal"
+
+msgctxt "MixedModelsPlots|"
+msgid "Transparency"
+msgstr "Transparantie"
+
+msgctxt "MixedModelsPlots|"
+msgid "Jitter width"
+msgstr "Jitter breedte"
+
+msgctxt "MixedModelsPlots|"
+msgid "Jitter height"
+msgstr "Jitter hoogte"
+
+msgctxt "MixedModelsPlots|"
+msgid "Geom width"
+msgstr "Geom breedte"
+
+msgctxt "MixedModelsPlots|"
+msgid "Dodge"
+msgstr "Ontwijken"
+
+msgctxt "MixedModelsPlots|"
+msgid "Theme"
+msgstr "Thema"
+
+msgctxt "MixedModelsPlots|"
+msgid "Black White"
+msgstr "Zwart Wit"
+
+msgctxt "MixedModelsPlots|"
+msgid "Light"
+msgstr "Licht"
+
+msgctxt "MixedModelsPlots|"
+msgid "Minimal"
+msgstr "Minimaal"
+
+msgctxt "MixedModelsPlots|"
+msgid "Legend position"
+msgstr "Legenda positie"
+
+msgctxt "MixedModelsPlots|"
+msgid "Bottom"
+msgstr "Beneden"
+
+msgctxt "MixedModelsPlots|"
+msgid "Right"
+msgstr "Rechts"
+
+msgctxt "MixedModelsPlots|"
+msgid "Top"
+msgstr "Boven"
+
+msgctxt "MixedModelsPlots|"
+msgid "Left"
+msgstr "Links"
+
+msgctxt "MixedModelsPlots|"
+msgid "Color background data"
+msgstr "Kleur achtergrond gegevens"
+
+msgctxt "MixedModelsPlots|"
+msgid "Dark grey"
+msgstr "Donkergrijs"
+
+msgctxt "MixedModelsPlots|"
+msgid "Black"
+msgstr "Zwart"
+
+msgctxt "MixedModelsPlots|"
+msgid "Light grey"
+msgstr "Lichtgrijs"
+
+msgctxt "MixedModelsPlots|"
+msgid "Blue"
+msgstr "Blauw"
+
+msgctxt "MixedModelsPlots|"
+msgid "Red"
+msgstr "Rood"
+
+msgctxt "MixedModelsPlots|"
+msgid "Violet"
+msgstr "Paars"
+
+msgctxt "MixedModelsPlots|"
+msgid "Relative size text"
+msgstr "Relatieve tekstgrootte"
+
+msgctxt "MixedModelsPlots|"
+msgid "Relative size foreground data"
+msgstr "Relatieve voorgrondgegevensgrootte"
+
+msgctxt "MixedModelsPlots|"
+msgid "Estimates table"
+msgstr "Schattingstabel"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Dependent variable"
+msgstr "Afhankelijke variabele"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Number of trials"
+msgstr "Steekproefgrootte"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Fixed effects variables"
+msgstr "Gefixeerde effecten variabelen"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Random effects grouping factors"
+msgstr "Willekeurige effect groeperingsfactoren"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Family"
+msgstr "Familie"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Binomial"
+msgstr "Binomiaal"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Binomial (aggregated)"
+msgstr "Binomiaal (geaggregeerd)"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Gaussian"
+msgstr "Gaussische"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Gamma"
+msgstr "Gamma"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Inverse Gaussian"
+msgstr "Inverse Gaussische"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Poisson"
+msgstr "Poisson"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Negative Binomial"
+msgstr "Negatief-Binomiaal"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Beta"
+msgstr "Beta"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Link"
+msgstr "Koppeling"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Logit"
+msgstr "Logit"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Probit"
+msgstr "Probit"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Cauchit"
+msgstr "Cauchit"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Complementary LogLog"
+msgstr "Complementair LogLog"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Identity"
+msgstr "Identiteit"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Log"
+msgstr "Log"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Sqrt"
+msgstr "Wortel"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Inverse"
+msgstr "Inverse"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Estimated marginal means"
+msgstr "Geschatte marginale gemiddelden"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Model variables"
+msgstr "Model variabelen"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Selected variables"
+msgstr "Geselecteerde variabelen"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Response scale"
+msgstr "Continue uitkomstmaat"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Specify contrasts"
+msgstr "Specificeer contrasten"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Estimated trends/conditional slopes"
+msgstr "Geschatte trends/conditionele hellingen"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Continous variables"
+msgstr "Continue variabelen"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Trend variable"
+msgstr "Trend variabele"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Dependent variable"
+msgstr "Afhankelijke variabele"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Fixed effects variables"
+msgstr "Gefixeerde effect variabelen"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Random effects grouping factors"
+msgstr "Willekeurige effect groeperingsfactoren"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Estimated marginal means"
+msgstr "Geschatte marginale gemiddelden"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Model variables"
+msgstr "Model variabelen"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Selected variables"
+msgstr "Geselecteerde variabelen"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Confidence interval"
+msgstr "Betrouwbaarheidsinterval"
+
+msgctxt "MixedModelsBLMM|"
+msgid "SD factor covariates"
+msgstr "SD factor covariaten"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Specify contrasts"
+msgstr "Specificeer contrasten"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Estimated trends/conditional slopes"
+msgstr "Geschatte trends/conditionele hellingen"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Continous variables"
+msgstr "Continue variabelen"
+
+msgctxt "MixedModelsBLMM|"
+msgid "Trend variable"
+msgstr "Trend variabele"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Dependent variable"
+msgstr "Afhankelijke variabele"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Number of trials"
+msgstr "Steekproefgrootte"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Fixed effects variables"
+msgstr "Gefixeerde effecten variabelen"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Random effects grouping factors"
+msgstr "Willekeurige effect groeperingsfactoren"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Family"
+msgstr "Familie"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Binomial"
+msgstr "Binomiaal"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Binomial (aggregated)"
+msgstr "Binomiaal (geaggregeerd)"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Gaussian"
+msgstr "Gaussische"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Gamma"
+msgstr "Gamma"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Inverse Gaussian"
+msgstr "Inverse Gaussische"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Poisson"
+msgstr "Poisson"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Link"
+msgstr "Koppeling"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Logit"
+msgstr "Logit"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Probit"
+msgstr "Probit"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Cauchit"
+msgstr "Cauchit"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Complementary LogLog"
+msgstr "Complementaire LogLog"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Identity"
+msgstr "Identiteit"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Log"
+msgstr "Log"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Sqrt"
+msgstr "Wortel"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Inverse"
+msgstr "Inverse"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Estimated marginal means"
+msgstr "Geschatte marginale gemiddelde"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Model variables"
+msgstr "Model variabelen"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Selected variables"
+msgstr "Geselecteerde variabelen"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Confidence interval"
+msgstr "Betrouwbaarheidsinterval"
+
+msgctxt "MixedModelsGLMM|"
+msgid "SD factor covariates"
+msgstr "SD factoren covariaten"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Compare marginal means to:"
+msgstr "Vergelijk marginale gemiddelden met:"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Response scale"
+msgstr "Continue uitkomstmaat"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Specify contrasts"
+msgstr "Specificeer contrasten"
+
+msgctxt "MixedModelsGLMM|"
+msgid "P-value adjustment"
+msgstr "P-waarde bijstelling"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Multivariate-t"
+msgstr "Multivariaat-t"
+
+msgctxt "MixedModelsGLMM|"
+msgid "None"
+msgstr "Geen"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Estimated trends/conditional slopes"
+msgstr "Geschatte trends/conditionele hellingen"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Continous variables"
+msgstr "Continue variabelen"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Trend variable"
+msgstr "Trend variabelen"
+
+msgctxt "MixedModelsGLMM|"
+msgid "Compare trends to:"
+msgstr "Vergelijk trends met:"
+
+msgctxt "MixedModelsLMM|"
+msgid "Dependent variable"
+msgstr "Afhankelijke variabele"
+
+msgctxt "MixedModelsLMM|"
+msgid "Fixed effects variables"
+msgstr "Gefixeerde effecten variabelen"
+
+msgctxt "MixedModelsLMM|"
+msgid "Random effects grouping factors"
+msgstr "Willekeurige effect groeperingsfactoren"
+
+msgctxt "MixedModelsLMM|"
+msgid "Estimated marginal means"
+msgstr "Geschatte marginale gemiddelden"
+
+msgctxt "MixedModelsLMM|"
+msgid "Model variables"
+msgstr "Model variabelen"
+
+msgctxt "MixedModelsLMM|"
+msgid "Selected variables"
+msgstr "Geselecteerde variabelen"
+
+msgctxt "MixedModelsLMM|"
+msgid "Confidence interval"
+msgstr "Betrouwbaarheidsinterval"
+
+msgctxt "MixedModelsLMM|"
+msgid "SD factor covariates"
+msgstr "SD factoren covariaten"
+
+msgctxt "MixedModelsLMM|"
+msgid "Estimate df"
+msgstr "Geschatte vg"
+
+msgctxt "MixedModelsLMM|"
+msgid "Asymptotic"
+msgstr "Asymptotisch"
+
+msgctxt "MixedModelsLMM|"
+msgid "Force df estimation"
+msgstr "Forceer het schatten van de vg"
+
+msgctxt "MixedModelsLMM|"
+msgid "Compare marginal means to:"
+msgstr "Vergelijk marginale gemiddelden met:"
+
+msgctxt "MixedModelsLMM|"
+msgid "Specify contrasts"
+msgstr "Specificeer contrasten"
+
+msgctxt "MixedModelsLMM|"
+msgid "P-value adjustment"
+msgstr "P-waarde bijstelling"
+
+msgctxt "MixedModelsLMM|"
+msgid "Multivariate-t"
+msgstr "Multivariaat-t"
+
+msgctxt "MixedModelsLMM|"
+msgid "None"
+msgstr "Geen"
+
+msgctxt "MixedModelsLMM|"
+msgid "Estimated trends/conditional slopes"
+msgstr "Geschatte trends/conditionele hellingen"
+
+msgctxt "MixedModelsLMM|"
+msgid "Continous variables"
+msgstr "Continue variabelen"
+
+msgctxt "MixedModelsLMM|"
+msgid "Trend variable"
+msgstr "Trend variabele"
+
+msgctxt "MixedModelsLMM|"
+msgid "Compare trends to:"
+msgstr "Vergelijk trends met:"

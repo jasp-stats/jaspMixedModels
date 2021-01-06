@@ -1,0 +1,630 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: R 3.6.1\n"
+"Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
+"POT-Creation-Date: 2021-01-05 09:38\n"
+"PO-Revision-Date: 2020-12-02 21:29+0000\n"
+"Last-Translator: JASP Stats <F.A.M.Meerhoff@uva.nl>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jasp-engine/"
+"nl/>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
+"X-Generator: Weblate 4.4-dev\n"
+
+msgid ""
+"The categorical fixed effect '%s' must have fewer levels than the overall "
+"number of observations."
+msgstr ""
+"De categorisch gefixeerde effect '%s' moet minder niveaus hebben dan het "
+"totale aantal observaties."
+
+msgid ""
+"The random effects grouping factor '%s' must have fewer levels than the "
+"overall number of observations."
+msgstr ""
+"De willekeurige effecten groeperingsfactor '%s' moet minder niveaus hebben "
+"dan het totale aantal observaties."
+
+msgid ""
+"The number of iterations must be at least 2 iterations higher than the burnin"
+msgstr ""
+"Het aantal iteraties moet minstens 2 iteraties hoger zijn dan het "
+"opwarmingsaantal"
+
+msgid "%s requires that the dependent variable is positive."
+msgstr "%s vereist dat de afhankelijke variabele positief is."
+
+msgid "%s requires that the dependent variable is an integer."
+msgstr "%s vereist dat de afhankelijke variabele een geheel getal is."
+
+msgid "%s requires that the dependent variable contains only 0 and 1."
+msgstr "%s vereist dat de afhankelijke variabele slechts 0 en 1 kan zijn."
+
+msgid ""
+"%s requires that the dependent variable is higher than 0 and lower than 1."
+msgstr ""
+"%s vereist dat de afhankelijke variabele hoger dan 0 en lager dan 1 is."
+
+msgid "%s requires that the number of trials variable is an integer."
+msgstr "%s vereist dat de steekproefgrootte variabele een geheel getal is."
+
+msgid ""
+"%s requires that the dependent variable is proportion of successes out of "
+"the number of trials."
+msgstr ""
+"%s vereist dat de afhankelijke variabele het aandeel van de successen in de "
+"steekproefgrootte is."
+
+msgid "ANOVA Summary"
+msgstr "ANOVA Samenvatting"
+
+msgid "Effect"
+msgstr "Effecten"
+
+msgid "df"
+msgstr "vg"
+
+msgid "F"
+msgstr "F"
+
+msgid "ChiSq"
+msgstr "ChiKw"
+
+msgid "p"
+msgstr "p"
+
+msgid "p (bootstrap)"
+msgstr "p (bootstrap)"
+
+msgid "VS-MPR"
+msgstr "VS-MPR"
+
+msgid "VS-MPR (bootstrap)"
+msgstr "VS-MPR (bootstrap)"
+
+msgid ""
+"The optimizer failed to find a solution. Probably due to quasi-separation in "
+"the data. Try removing some of the predictors."
+msgstr ""
+"De optimalisatie procedure kon geen oplossing vinden. Waarschijnlijk is er "
+"sprake van quasi-afzondering in de gegevens. Verwijder een aantal "
+"onafhankelijke variabelen."
+
+msgid ""
+"The optimizer failed to find a solution due to invalid starting values. "
+"(JASP currently does not support specifying different starting values.)"
+msgstr ""
+"De optimalisatie procedure kon geen oplossing vinden door ongeldige "
+"beginwaarden. (Het is op dit moment nog niet mogelijk om andere beginwaarde "
+"te specificeren in JASP.)"
+
+msgid ""
+"The optimizer failed to find a solution. Probably due to scaling issues "
+"quasi-separation in the data. Try rescaling or removing some of the "
+"predictors."
+msgstr ""
+"De optimalisatie procedure kon geen oplossing vinden. Waarschijnlijk is er "
+"sprake van quasi-afzondering in de gegevens door een schalingsprobleem. "
+"Verwijder een aantal onafhankelijke variabelen."
+
+msgid "Intercept"
+msgstr "Intercept"
+
+msgid "Warning:"
+msgstr "Waarschuwing:"
+
+msgid "III"
+msgstr "III"
+
+msgid "II"
+msgstr "II"
+
+msgid "Fit statistics"
+msgstr "Pasmaten"
+
+msgid "Deviance"
+msgstr "Afwijking"
+
+msgid "Deviance (REML)"
+msgstr "Afwijking (REML)"
+
+msgid "log Lik."
+msgstr "log Aanneme."
+
+msgid "AIC"
+msgstr "AIC"
+
+msgid "BIC"
+msgstr "BIC"
+
+msgid "Sample sizes"
+msgstr "Steekproefgroottes"
+
+msgid "Observations"
+msgstr "Observaties"
+
+msgid "Levels of RE grouping factors"
+msgstr "Niveaus van RE-groeperingsfactoren"
+
+msgid "Variance/Correlation Estimates"
+msgstr "Variantie/Correlatie Schattingen"
+
+msgid "%s: Variance Estimates"
+msgstr "%s: Variantie Schattingen"
+
+msgid "Term"
+msgstr "Term"
+
+msgid "Std. Deviation"
+msgstr "Standaardafwijking"
+
+msgid "Variance"
+msgstr "Variantie"
+
+msgid "%s: Correlation Estimates"
+msgstr "%s Correlatie Schattingen"
+
+msgid "Residual Variance Estimates"
+msgstr "Residuele Variantie Schattingen"
+
+msgid "Fixed Effects Estimates"
+msgstr "Gefixeerde Effecten Schattingen"
+
+msgid "Estimate"
+msgstr "Schatting"
+
+msgid "SE"
+msgstr "Std. Fout"
+
+msgid "t"
+msgstr "t"
+
+msgid "Plot"
+msgstr "Grafiek"
+
+msgid ""
+"At least one random effects grouping factor needs to be selected in field "
+"'Background data show'."
+msgstr ""
+"Minstens een willekeurige groeperingsfactor moet geselecteerd worden in "
+"invoeringsveld 'Achtergrond gegevens tonen'."
+
+msgid ""
+"Factor levels need to be distinguished by at least one feature. Please, "
+"check one of the 'Distinguish factor levels' options."
+msgstr ""
+"De factor niveaus moeten onderscheiden worden op basis van tenminste een "
+"kenmerk. Selecteer een van de 'Onderscheiden factor niveaus' opties."
+
+msgid "Estimated Means and Confidence Intervals"
+msgstr "Geschatte Gemiddelden en Betrouwbaarheidsintervallen"
+
+msgid "Mean"
+msgstr "Gemiddelde"
+
+msgid "Lower"
+msgstr "Onder"
+
+msgid "%s%% CI"
+msgstr "%s%% BI"
+
+msgid "Upper"
+msgstr "Boven"
+
+msgid "Estimated Marginal Means"
+msgstr "Geschatte Marginale Gemiddelden"
+
+msgid "Row"
+msgstr "Rij"
+
+msgid "z"
+msgstr "z"
+
+msgid "Median"
+msgstr "Mediaan"
+
+msgid "%s%% HPD"
+msgstr "%s%% HGI"
+
+msgid "Estimated Trends"
+msgstr "Geschatte Trends"
+
+msgid "%s (slope)"
+msgstr "%s (helling)"
+
+msgid "Contrasts"
+msgstr "Contrasten"
+
+msgid "Odds Ratio"
+msgstr "Odds Ratio"
+
+msgid "Ratio"
+msgstr "Ratio"
+
+msgid "Fit Statistics"
+msgstr "Pasmaten"
+
+msgid "WAIC"
+msgstr "WAIC"
+
+msgid "SE (WAIC)"
+msgstr "Std. Dev. (WAIC)"
+
+msgid "LOO"
+msgstr "LOO"
+
+msgid "SE (LOO)"
+msgstr "Std. Dev. (LOO)"
+
+msgid "Model summary"
+msgstr "Model samenvatting"
+
+msgid "%s (differences from intercept)"
+msgstr "%s (verschillen t.o.v. intercept)"
+
+msgid "%s (trend)"
+msgstr "%s (trend)"
+
+msgid "%s (marginal means)"
+msgstr "%s (marginale gemiddelde)"
+
+msgid "Level"
+msgstr "Niveau"
+
+msgid "R-hat"
+msgstr "R-hat"
+
+msgid "ESS (bulk)"
+msgstr "ESS (bulk)"
+
+msgid "ESS (tail)"
+msgstr "ESS (staart)"
+
+msgid ""
+"The model could not be estimated. Please, check the options and dataset for "
+"errors."
+msgstr ""
+"Het model kon niet worden geschat. Controleer aub de opties en gegevens op "
+"fouten."
+
+msgid "Sampling diagnostics"
+msgstr "Steekproef diagnostiek"
+
+msgid "Avg. autocorrelation"
+msgstr "Gemiddelde autocorrelatie"
+
+msgid ""
+"The following variables are a linear combination of each other, please, "
+"remove one of them from the analysis: %s"
+msgstr ""
+"De volgende variabelen zijn lineair afhankelijk van elkaar, haal a.u.b één "
+"van deze variabelen uit de analyse: %s"
+
+msgid ""
+"The intercept corresponds to the (unweighted) grand mean; for each factor "
+"with k levels, k - 1 parameters are estimated. Consequently, the estimates "
+"cannot be directly mapped to factor levels."
+msgstr ""
+"De intercept correspondeert met een (ongewogen) overkoepelende gemiddelde; "
+"voor elke factor met k niveaus zijn k-1 parameters geschat. Als gevolg "
+"hiervan zijn de schatting niet direct te relateren aan de factor niveaus."
+
+msgid ""
+"Model fit is singular. Specified random effects parameters (random "
+"intercepts and random slopes) cannot be estimated from the available data. "
+"Carefully reduce the random effects structure, but this practice might "
+"inflate the reported p-value, and invalidates the analysis."
+msgstr ""
+"Model passing is singulier. De gespecificeerde willekeurige effecten "
+"parameters (willekeurige intercepten and willekeurige hellingen) kunnen niet "
+"geschat worden op basis van de gegevens. Reduceer de willekeurige effecten "
+"structuur, maar merk op dat hierdoor de p-waarde opblaast, waardoor de "
+"validiteit van de analyse in gevaar komt."
+
+msgid ""
+"Vovk-Sellke Maximum <em>p</em>-Ratio: Based on a two-sided <em>p</em>-value, "
+"the maximum possible odds in favor of H%1$s over H%2$s equals 1/(-e <em>p</"
+"em> log(<em>p</em>)) for <em>p</em> %3$s .37 (Sellke, Bayarri, & Berger, "
+"2001)."
+msgstr ""
+"Vovk-Sellke Maximum <em>p</em>-Ratio: Gebaseerd op een tweezijdige <em>p</"
+"em>-waarde, de maximaal mogelijke kansen ten gunste van H%1$s boven H%2$s is "
+"gelijk aan 1/(-e <em>p</em> log(<em>p</em>)) voor <em>p</em> %3$s .37 "
+"(Sellke, Bayarri, & Berger, 2001)."
+
+msgid ""
+"Numerical problems with the maximum-likelihood estimate (e.g., gradients too "
+"large). This may indicate that the specified random effects parameters "
+"(random intercepts and random slopes) cannot be estimated from the available "
+"data. Consider carefully reducing the random effects structure, but be aware "
+"this may induce unknown risks of anti-conservative results (i.e., p-values "
+"might be lower than nominal)."
+msgstr ""
+"Numerieke problemen met de meest waarschijnlijkheidsschatter, zoals een "
+"gradient dat te groot is. Hierdoor kunnen de gespecificeerde willekeurige "
+"effecten parameters (willekeurige intercepten en willekeurige hellingen) "
+"niet geschat worden op basis van de gegevens. Reduceer de willekeurige "
+"effecten structuur, maar merk op dat dit er voor zorgt dat dit de p-waarde "
+"opblaast, waardoor inferentie ongeldig wordt."
+
+msgid ""
+"Estimation of degrees of freedom disabled (i.e., asymptotic results shown), "
+"because the number of observations is large. To force estimation, check "
+"corresponding option."
+msgstr "Op basis van een normale approximatie."
+
+msgid "Results are on the response scale."
+msgstr "De getoonde resultaten zijn op de uitkomst schaal."
+
+msgid "Results are not on the response scale and might be misleading."
+msgstr ""
+"De getoonde resultaten zijn niet op de uitkomst schaal en kunnen daardoor "
+"misleidend zijn."
+
+msgid "Type %s Sum of Squares"
+msgstr "Type %s Kwadratensom"
+
+msgid ""
+"This analysis requires at least one random effects grouping factor to run."
+msgstr "Deze analyse heeft tenminste een willekeurige groeperingsfactor nodig."
+
+msgid ""
+"The 'Binomial (aggregated)' family requires the 'Number of trials' to be "
+"specified to run."
+msgstr ""
+"Voor de 'Binomiaal (geaggregeerde)' familie moet de 'Steekproefgrootte' "
+"gespecificeerd zijn."
+
+msgid "P-values correspond to test of null hypothesis against %s."
+msgstr ""
+"De p-waarden corresponderen met een toets van de null hypothese tegen %s."
+
+msgid "Results are averaged over the levels of: %s."
+msgstr "Resultaten zijn gemiddeld over de niveaus van: %s."
+
+msgid "binomial"
+msgstr "binomiaal"
+
+msgid "gaussian"
+msgstr "Gaussische"
+
+msgid "gamma"
+msgstr "gamma"
+
+msgid "inverse gaussian"
+msgstr "inverse Gaussische"
+
+msgid "poisson"
+msgstr "Poisson"
+
+msgid "negative binomial"
+msgstr "negatief-binomiaal"
+
+msgid "beta"
+msgstr "beta"
+
+msgid "Generalized linear mixed model with %s family and %s link function."
+msgstr ""
+"Gegeneraliseerde lineaire gemengd model op basis van %s familie en %s "
+"koppeling."
+
+msgid "Satterthwaite"
+msgstr "Satterthwaite"
+
+msgid "Kenward-Roger"
+msgstr "Kenward-Roger"
+
+msgid "likelihood ratio tests"
+msgstr "Waarschijnlijkheidsratio toets"
+
+msgid "parametric bootstrap"
+msgstr "parametrische bootstrap"
+
+msgid "Model terms tested with %s method."
+msgstr "Model termen getest met %s methode."
+
+msgid "P-values are not adjusted."
+msgstr "De p-waarden zijn niet bijgesteld."
+
+msgid "Holm"
+msgstr "Holm"
+
+msgid "Homel"
+msgstr "Homel"
+
+msgid "Hochberg"
+msgstr "Hochberg"
+
+msgid "Multivariate-t"
+msgstr "Multivariaat-t"
+
+msgid "Tukey"
+msgstr "Tukey"
+
+msgid "Benjamini-Hochberg"
+msgstr "Benjamini-Hochberg"
+
+msgid "Benjamini-Yekutieli"
+msgstr "Benjamini-Yekutieli"
+
+msgid "Scheffe"
+msgstr "Scheffe"
+
+msgid "Sidak"
+msgstr "Sidak"
+
+msgid "Dunnett"
+msgstr "Dunnett"
+
+msgid "Bonferroni"
+msgstr "Bonferroni"
+
+msgid "P-values are adjusted using %s adjustment."
+msgstr "P-waarden zijn bijgesteld m.b.v. %s bijstelling."
+
+msgid ""
+"Inference possibly unreliable -- MCMC chains might not have converged; The "
+"largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', "
+"or 'Adapt delta' in the Options section."
+msgstr ""
+"Inferentie mogelijk onbetrouwbaar -- MCMC ketens mogelijk niet "
+"geconvergeerd; De hoogste R-dakje is %.3f > 1.01. Om R-dakje te verlagen "
+"kunt u 'Iteraties' of 'Aanpassingsdelta' in de Opties sectie verhogen."
+
+msgid ""
+"Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f "
+"< %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' "
+"in the Options section."
+msgstr ""
+"Lage schattingsaccuratesse -- De kleinste effectieve steekproefgrootte (ESS) "
+"is %.2f< %1.0f. Verhoog a.u.b. het aantal 'Iteraties', of 'Aanpassingsdelta' "
+"in de Opties sectie."
+
+msgid "The model was fitted using %s."
+msgstr "Het model is gepast m.b.v. %s."
+
+msgid "The following variable is used as a random effects grouping factor: %s."
+msgid_plural ""
+"The following variables are used as random effects grouping factors: %s."
+msgstr[0] "De volgende covariaat werd overwogen, maar niet meegenomen: %s."
+msgstr[1] "De volgende covariaten werden overwogen, maar niet meegenomen: %s."
+
+#, fuzzy
+msgid ""
+"All random slopes involving ‘%s’ have been removed for the random effects "
+"grouping factor ‘%s’. -- Factor %s does not vary within the levels of random "
+"effects grouping factor '%s'."
+msgid_plural ""
+"All random slopes involving ‘%s’ have been removed for the random effects "
+"grouping factor ‘%s’. -- Factors %s do not vary within the levels of random "
+"effects grouping factor '%s'."
+msgstr[0] ""
+"Alle willekeurige hellingen van '%s' zijn verwijderd voor de willekeurige "
+"effecten groeperingsfactor '%s'. -- Factor %s verandert niet mee met de "
+"niveaus van de willekeurige effecten groeperinsfactor '%s'."
+msgstr[1] ""
+"Alle willekeurige hellingen van '%s' zijn verwijderd voor de willekeurige "
+"effecten groeperingsfactor '%s'. -- Factoren %s veranderen niet mee met de "
+"niveaus van de willekeurige effecten groeperinsfactor '%s'."
+
+#, fuzzy
+msgid ""
+"Random slopes of ‘%s’ for the random effects grouping factor ‘%s’ removed -- "
+"Too few observations to estimate random slopes of '%s' for random effects "
+"grouping factor '%s'."
+msgid_plural ""
+"Random slope of ‘%s’ for the random effects grouping factor ‘%s’ removed -- "
+"Too few observations to estimate random slope of '%s' for random effects "
+"grouping factor '%s'."
+msgstr[0] ""
+"Willekeurige hellingen van '%s' voor de willekeurige effecten "
+"groeperingsfactor '%s' verwijderd -- Te weinig observaties voor het schatten "
+"van de willekeurige hellingen van '%s' voor willekeurige effecten "
+"groeperingsfactor '%s'."
+msgstr[1] ""
+"Willekeurige helling van '%s' voor de willekeurige effecten "
+"groeperingsfactor '%s' verwijderd -- Te weinig observaties voor het schatten "
+"van de willekeurige hellingen van '%s' voor willekeurige effecten "
+"groeperingsfactor '%s'."
+
+msgid ""
+"Lower order random effects terms need to be specified in presence of the "
+"higher order random effects terms. Therefore, the following random effects "
+"term was added to the '%s' random effects grouping factor: '%s.'"
+msgid_plural ""
+"Lower order random effects terms need to be specified in presence of the "
+"higher order random effects terms. Therefore, the following random effects "
+"terms were added to the '%s' random effects grouping factor: '%s.'"
+msgstr[0] ""
+"De volgende willekeurige effecten term is toegevoegd aan '%s' willekeurige "
+"effecten groeperingsfactor: '%s.', omdat voor hogere orde effecten de lagere "
+"orde effecten meegemodelleerd moeten worden."
+msgstr[1] ""
+"De volgende willekeurige effecten termen zijn toegevoegd aan '%s' "
+"willekeurige effecten groeperingsfactor: '%s.', omdat voor hogere orde "
+"effecten de lagere orde effecten meegemodelleerd moeten worden."
+
+msgid "%i observation was removed due to missing values."
+msgid_plural "%i observations were removed due to missing values."
+msgstr[0] "%i observatie is verwijderd, omdat de waarde ontbreekt."
+msgstr[1] "%i observaties zijn verwijderd omdat de waarden ontbreken."
+
+msgid ""
+"The Hamiltonian Monte Carlo procedure might be invalid -- There was %i "
+"divergent transition after warmup. This can be solved by carefully "
+"increasing 'Adapt delta' until there are no divergent transitions."
+msgid_plural ""
+"The Hamiltonian Monte Carlo procedure might be invalid -- There were %i "
+"divergent transitions after warmup. This can be solved by carefully "
+"increasing 'Adapt delta' until there are no divergent transitions."
+msgstr[0] ""
+"Mogelijk problemen met de validiteit van de Hamiltoniaanse Monte Carlo "
+"procedure -- %i divergente transitie na het opwarmen. Verhoog "
+"'Aanpassingsdelta' totdat er geen divergente transities meer zijn."
+msgstr[1] ""
+"Mogelijk problemen met de validiteit van de Hamiltoniaanse Monte Carlo "
+"procedure -- %i divergente transities na het opwarmen. Verhoog "
+"'Aanpassingsdelta' totdat er geen divergente transities meer zijn."
+
+msgid ""
+"Bayesian Fraction of Missing Information (BFMI) that was too low in %i chain "
+"indicating that the posterior distribution was not explored efficiently. Try "
+"increasing number of 'Burnin' and 'Iterations'."
+msgid_plural ""
+"Bayesian Fraction of Missing Information (BFMI) that was too low in %i "
+"chains indicating that the posterior distribution was not explored "
+"efficiently. Try increasing number of 'Burnin' and 'Iterations'."
+msgstr[0] ""
+"Bayesiaanse Fractie van Ontbrekende Informatie (BFMI) was te laag in %i "
+"keten wat er op duidt dat de keten de parameterruimte niet efficient verkend "
+"heeft. Verhoog het aantal iteraties in 'Opwarming' en 'Iteraties'."
+msgstr[1] ""
+"Bayesiaanse Fractie van Ontbrekende Informatie (BFMI) was te laag in %i "
+"keten wat er op duidt dat de ketens de parameterruimte niet efficient "
+"verkend hebben. Verhoog het aantal iteraties in 'Opwarming' en 'Iteraties'."
+
+msgid ""
+"The Hamiltonian Monte Carlo procedure might be inefficient -- %i transition "
+"exceeded the maximum tree depth. This can be solved by carefully increasing "
+"'Maximum tree depth"
+msgid_plural ""
+"The Hamiltonian Monte Carlo procedure might be inefficient -- %i transitions "
+"exceeded the maximum tree depth. This can be solved by carefully increasing "
+"'Maximum tree depth"
+msgstr[0] ""
+"Mogelijk inefficiente Hamiltoniaanse Monte Carlo procedure -- %i transitie "
+"overschreed de maximale boom diepte. Dit probleem kan opgelost worden door "
+"geleidelijk de 'Maximale boom diepte' te verhogen"
+msgstr[1] ""
+"Mogelijk inefficiente Hamiltoniaanse Monte Carlo procedure -- %i transities "
+"overschreden de maximale boom diepte. Dit probleem kan opgelost worden door "
+"geleidelijk de 'Maximale boom diepte' te verhogen"
+
+msgid ""
+"WAIC estimate unreliable -- There was %1.0f p_waic estimate larger than 0.4. "
+"We recommend using LOO instead."
+msgid_plural ""
+"WAIC estimate unreliable -- There were %1.0f p_waic estimates larger than "
+"0.4. We recommend using LOO instead."
+msgstr[0] ""
+"WAIC onbetrouwbaar -- %1.0f p_waic schatting groter dan 0.4. Wellicht is het "
+"resultaat van LOO betrouwbaarder."
+msgstr[1] ""
+"WAIC onbetrouwbaar -- %1.0f p_waic schattingen groter dan 0.4. Wellicht is "
+"het resultaat van LOO betrouwbaarder."
+
+msgid ""
+"LOO estimate unreliable -- There was %1.0f observation with the shape "
+"parameter (k) of the generalized Pareto distribution higher than > .5."
+msgid_plural ""
+"LOO estimate unreliable -- There were %1.0f observations with the shape "
+"parameter (k) of the generalized Pareto distribution higher than > .5."
+msgstr[0] ""
+"LOO schatting onbetrouwbaar -- %1.0f observatie met een schaalparameter k "
+"van de generaliseerde Pareto distributie hoger dan .5."
+msgstr[1] ""
+"LOO schatting onbetrouwbaar -- %1.0f observaties met een schaalparameter k "
+"van de generaliseerde Pareto distributie hoger dan .5."
