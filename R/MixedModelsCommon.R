@@ -986,6 +986,15 @@
   
 
 }
+.mmFixPlotAxis   <- function(p){
+  
+  yTicks <- jaspGraphs::getPrettyAxisBreaks(ggplot2::layer_scales(p)$y$range$range)
+  yRange <- range(yTicks)
+  xTicks <- ggplot2::layer_scales(p)$x$range$range
+  
+  p + ggplot2::scale_y_continuous(breaks = yTicks, limits = yRange) +
+    ggplot2::scale_x_discrete(breaks = xTicks)
+}
 .mmPlot          <- function(jaspResults, dataset, options, type = "LMM") {
     model <- jaspResults[["mmModel"]]$object$model
     
@@ -1131,73 +1140,63 @@
         model,
         dv          = .v(options$dependentVariable),
         x           = .v(unlist(options$plotsX)),
-        trace       = if (length(options$plotsTrace) != 0)
-          .v(unlist(options$plotsTrace)),
-        panel       = if (length(options$plotsPanel) != 0)
-          .v(unlist(options$plotsPanel)),
+        trace       = if (length(options$plotsTrace) != 0) .v(unlist(options$plotsTrace)),
+        panel       = if (length(options$plotsPanel) != 0) .v(unlist(options$plotsPanel)),
         id          = .v(options$plotsAgregatedOver),
         data_geom   = getFromNamespace(options$plotsGeom, geom_package),
         mapping     = mapping,
         error       = options$plotsCImethod,
         error_level = options$plotsCIwidth,
         data_alpha  = options$plotAlpha,
-        data_arg    = if (length(data_arg) != 0)
-          data_arg,
+        data_arg    = if (length(data_arg) != 0) data_arg,
         error_arg   = list(
           width = 0,
           size  = .5 * options$plotRelativeSize
         ),
         point_arg   = list(size = 1.5 * options$plotRelativeSize),
         line_arg    = list(size = .5 * options$plotRelativeSize),
-        legend_title = paste(.unv(unlist(
-          options$plotsTrace
-        )), collapse = "\n"),
+        legend_title = paste(.unv(unlist(options$plotsTrace)), collapse = "\n"),
         dodge       = options$plotDodge
       ),
       error = function(e)
         e
     )
     
-    if (class(p) %in% c("simpleError", "error")) {
+    if (any(class(p) %in% c("simpleError", "error"))) {
       plots$setError(p$message)
       return()
     }
     
+    # fix the axis
+    p <- .mmFixPlotAxis(p)
+    
     # fix names of the variables
-    p <-
-      p + ggplot2::labs(x = unlist(options$plotsX),
-                        y = options$dependentVariable)
+    p <- p + ggplot2::labs(x = unlist(options$plotsX), y = options$dependentVariable)
     
     # add theme
     if (options$plotsTheme == "JASP") {
-      p <-
-        jaspGraphs::themeJasp(p, legend.position = options$plotLegendPosition)
-    } else if (options$plotsTheme == "theme_bw") {
-      p <-
-        p + ggplot2::theme_bw() + ggplot2::theme(legend.position = "bottom")
-    } else if (options$plotsTheme == "theme_light") {
-      p <-
-        p + ggplot2::theme_light() + ggplot2::theme(legend.position = "bottom")
-    } else if (options$plotsTheme == "theme_minimal") {
-      p <-
-        p + ggplot2::theme_minimal() + ggplot2::theme(legend.position = "bottom")
-    } else if (options$plotsTheme == "theme_apa") {
-      p <-
-        p + jtools::theme_apa() + ggplot2::theme(legend.position = "bottom")
-    } else if (options$plotsTheme == "theme_pubr") {
-      p <- p + ggpubr::theme_pubr()
-    }
-    
-    if (options$plotsTheme != "JASP") {
-      p <-
-        p + ggplot2::theme(
-          legend.text  = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
-          legend.title = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
-          axis.text    = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
-          axis.title   = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
-          legend.position = options$plotLegendPosition
-        )
       
+      p <- jaspGraphs::themeJasp(p, legend.position = options$plotLegendPosition)
+      
+    } else  if (options$plotsTheme != "JASP") {
+      
+      p <- p + switch(
+        options$plotsTheme,
+        "theme_bw"      = ggplot2::theme_bw()       + ggplot2::theme(legend.position = "bottom"),
+        "theme_light"   = ggplot2::theme_light()    + ggplot2::theme(legend.position = "bottom"),
+        "theme_minimal" = ggplot2::theme_minimal()  + ggplot2::theme(legend.position = "bottom"),
+        "theme_apa"     = jaspGraphs::themeApaRaw() + ggplot2::theme(legend.position = "bottom"),
+        "theme_pubr"    = jaspGraphs::themePubrRaw()
+      )
+      
+      p <- p + ggplot2::theme(
+        legend.text  = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
+        legend.title = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
+        axis.text    = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
+        axis.title   = ggplot2::element_text(size = ggplot2::rel(options$plotRelativeSizeText)),
+        legend.position = options$plotLegendPosition
+      )
+
     }
     
     
