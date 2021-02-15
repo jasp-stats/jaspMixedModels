@@ -47,7 +47,7 @@ Section
 
 	ComponentsList
 	{
-		id:					randomEffetcs
+		id:					randomEffects
 		title:				qsTr("Random effects")
 		name:				"randomEffects"
 		source:				"randomVariables"
@@ -57,18 +57,19 @@ Section
 		{
 			RowLayout
 			{
-				Layout.preferredWidth:	randomEffetcs.width
-				Label { text: qsTr("Random slopes by %1").arg(rowValue); Layout.preferredWidth: parent.width / 2 }
-				CheckBox { label: qsTr("Correlations"); name: "correlations"; checked: true }
+				width:		randomComponentsList.width
+				Label		{ text: qsTr("Random slopes by %1").arg(rowValue);					width: parent.width / 2 }
+				CheckBox	{ label: qsTr("Correlations"); name: "correlations"; checked: true; preferredWidth: parent.width / 2 }
 			}
 
 			VariablesList
 			{
+				id				: randomComponentsList
 				name			: "randomComponents"
 				source			: "fixedEffects"
 				listViewType	: JASP.AssignedVariables
 				preferredHeight	: 120 * preferencesModel.uiScale
-				preferredWidth	: randomEffetcs.width - 2 * jaspTheme.contentMargin
+				preferredWidth	: randomEffects.width - 2 * jaspTheme.contentMargin
 				draggable		: false
 				optionKey		: "value"
 				interactionHighOrderCheckBox: "randomSlopes"
