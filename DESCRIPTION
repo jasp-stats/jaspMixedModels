@@ -1,7 +1,7 @@
 Package: jaspMixedModels
 Type: Package
 Title: Mixed Models Module for JASP
-Version: 0.13.0
+Version: 0.15.0
 Date: 2020-10-27
 Author: JASP Team
 Website: jasp-stats.org
