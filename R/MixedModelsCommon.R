@@ -3232,7 +3232,7 @@
   "tukey"      = gettext("Tukey"),
   "BH"         = gettext("Benjamini-Hochberg"),
   "BY"         = gettext("Benjamini-Yekutieli"),
-  "scheffe"    = gettext("Scheffe"),
+  "scheffe"    = gettext("Scheffé"),
   "sidak"      = gettext("Sidak"),
   "dunnettx"   = gettext("Dunnett"),
   "bonferroni" = gettext("Bonferroni")

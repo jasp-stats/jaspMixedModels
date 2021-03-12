@@ -161,7 +161,7 @@ Form {
 			[
 				{ label: "Holm",					value: "holm"},
 				{ label: qsTr("Multivariate-t"),	value: "mvt"},
-				{ label: "Scheffe",					value: "scheffe"},
+				{ label: "Scheffé",					value: "scheffe"},
 				{ label: "Tukey",					value: "tukey"},
 				{ label: qsTr("None"),				value: "none"},
 				{ label: "Bonferroni",				value: "bonferroni"},
@@ -294,7 +294,7 @@ Form {
 			[
 				{ label: "Holm",					value: "holm"},
 				{ label: qsTr("Multivariate-t"),	value: "mvt"},
-				{ label: "Scheffe",					value: "scheffe"},
+				{ label: "Scheffé",					value: "scheffe"},
 				{ label: "Tukey",					value: "tukey"},
 				{ label: qsTr("None"),				value: "none"},
 				{ label: "Bonferroni",				value: "bonferroni"},
