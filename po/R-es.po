@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: JASP 0.9.2\n"
 "POT-Creation-Date: 2021-01-05 09:38\n"
-"PO-Revision-Date: 2021-03-06 09:51+0000\n"
+"PO-Revision-Date: 2021-03-18 05:18+0000\n"
 "Last-Translator: Paulina Elizabeth Robalino <paulina.e.robalino@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/es/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.5.1\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -140,10 +140,10 @@ msgid "Term"
 msgstr ""
 
 msgid "Std. Deviation"
-msgstr ""
+msgstr "Desviación estándar"
 
 msgid "Variance"
-msgstr ""
+msgstr "Varianza"
 
 msgid "%s: Correlation Estimates"
 msgstr ""
@@ -183,13 +183,13 @@ msgid "Mean"
 msgstr "Media"
 
 msgid "Lower"
-msgstr ""
+msgstr "Más bajo"
 
 msgid "%s%% CI"
 msgstr ""
 
 msgid "Upper"
-msgstr ""
+msgstr "Superior"
 
 msgid "Estimated Marginal Means"
 msgstr ""
@@ -201,7 +201,7 @@ msgid "z"
 msgstr ""
 
 msgid "Median"
-msgstr ""
+msgstr "Mediana"
 
 msgid "%s%% HPD"
 msgstr ""
@@ -390,25 +390,25 @@ msgid "Multivariate-t"
 msgstr ""
 
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgid "Benjamini-Hochberg"
-msgstr ""
+msgstr "Benjamini-Hochberg"
 
 msgid "Benjamini-Yekutieli"
-msgstr ""
+msgstr "Benjamini-Yekutieli"
 
 msgid "Scheffe"
-msgstr ""
+msgstr "Scheffe"
 
 msgid "Sidak"
-msgstr ""
+msgstr "Sidak"
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Bonferroni"
-msgstr ""
+msgstr "Bonferroni"
 
 msgid "P-values are adjusted using %s adjustment."
 msgstr ""
