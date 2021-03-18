@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2021-03-06 15:28\n"
-"PO-Revision-Date: 2021-03-12 00:02+0000\n"
+"PO-Revision-Date: 2021-03-19 18:18+0000\n"
 "Last-Translator: Alex França <alex.tonante@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/pt/>\n"
@@ -61,18 +61,17 @@ msgstr ""
 msgid "Effect"
 msgstr "Efeitos"
 
-#, fuzzy
 msgid "df"
-msgstr "gl:"
+msgstr "gl"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "ChiSq"
 msgstr ""
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 #, fuzzy
 msgid "p (bootstrap)"
@@ -178,8 +177,9 @@ msgstr ""
 msgid "Estimate"
 msgstr "Estimativas"
 
+#, fuzzy
 msgid "SE"
-msgstr ""
+msgstr "EP"
 
 #, fuzzy
 msgid "t"
@@ -207,14 +207,16 @@ msgstr "Intervalos de Confiança"
 msgid "Mean"
 msgstr "Médias"
 
+#, fuzzy
 msgid "Lower"
-msgstr ""
+msgstr "Inferior"
 
 msgid "%s%% CI"
 msgstr ""
 
+#, fuzzy
 msgid "Upper"
-msgstr ""
+msgstr "Superior"
 
 #, fuzzy
 msgid "Estimated Marginal Means"
