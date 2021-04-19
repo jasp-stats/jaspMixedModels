@@ -6,7 +6,7 @@ Date: 2020-10-27
 Author: JASP Team
 Website: jasp-stats.org
 Maintainer: JASP Team <info@jasp-stats.org>
-Description: This module offers the standard Frequentist and Bayesian Mixed Models analyses.
+Description: Evaluate the difference between multiple means with random effects
 License: GPL (>= 2)
 Encoding: UTF-8
 Imports:
