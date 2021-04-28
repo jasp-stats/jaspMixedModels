@@ -5,7 +5,7 @@ Description
 {
 	name		: "jaspMixedModels"
 	title		: qsTr("Mixed Models")
-	description	: qsTr("This module offers the standard Frequentist and Bayesian Mixed Models analyses.")
+	description	: qsTr("Evaluate the difference between multiple means with random effects")
 	icon		: "MixedModels_classical.svg"
 	version		: "0.13"
 	author		: "JASP Team"
