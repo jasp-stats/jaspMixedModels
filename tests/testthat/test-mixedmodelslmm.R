@@ -1,6 +1,5 @@
 context("Linear Mixed Models")
 
-
 ### default, all selected output using Satterwhite method
 {
   options <- analysisOptions("MixedModelsLMM")
