@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.13.0\n"
 "POT-Creation-Date: 2021-01-05 09:38\n"
-"PO-Revision-Date: 2021-02-21 04:50+0000\n"
-"Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
+"PO-Revision-Date: 2021-04-22 00:29+0000\n"
+"Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/ja/>\n"
 "Language: ja\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5\n"
+"X-Generator: Weblate 4.7-dev\n"
 
 msgid "The categorical fixed effect '%s' must have fewer levels than the overall number of observations."
 msgstr ""
@@ -230,16 +230,19 @@ msgid "%s (marginal means)"
 msgstr ""
 
 msgid "Level"
-msgstr ""
+msgstr "水準"
 
+#, fuzzy
 msgid "R-hat"
-msgstr ""
+msgstr "R-hat"
 
+#, fuzzy
 msgid "ESS (bulk)"
-msgstr ""
+msgstr "ESS (bulk)"
 
+#, fuzzy
 msgid "ESS (tail)"
-msgstr ""
+msgstr "ESS (tail)"
 
 msgid "The model could not be estimated. Please, check the options and dataset for errors."
 msgstr ""
