@@ -10,12 +10,6 @@ msgid "Mixed Models"
 msgstr ""
 
 msgctxt "Description|"
-msgid ""
-"This module offers the standard Frequentist and Bayesian Mixed Models "
-"analyses."
-msgstr ""
-
-msgctxt "Description|"
 msgid "Classical"
 msgstr ""
 
@@ -794,4 +788,8 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means with random effects"
 msgstr ""

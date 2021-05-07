@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-01-05 09:38\n"
+"POT-Creation-Date: 2021-05-07 13:18\n"
 "PO-Revision-Date: 2021-03-18 05:18+0000\n"
 "Last-Translator: Johannes Keyser <johanneskeyser@posteo.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/"
@@ -453,7 +453,8 @@ msgstr "Benjamini-Hochberg"
 msgid "Benjamini-Yekutieli"
 msgstr "Benjamini-Yekutieli"
 
-msgid "Scheffe"
+#, fuzzy
+msgid "Scheffé"
 msgstr "Scheffe"
 
 msgid "Sidak"

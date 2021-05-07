@@ -13,14 +13,6 @@ msgctxt "Description|"
 msgid "Mixed Models"
 msgstr "Modelado Mixto"
 
-#, fuzzy
-msgctxt "Description|"
-msgid ""
-"This module offers the standard Frequentist and Bayesian Mixed Models "
-"analyses."
-msgstr ""
-"Este módulo ofrece los análisis estándar Frequentist y Bayesian T-Tests."
-
 msgctxt "Description|"
 msgid "Classical"
 msgstr "Clásico"
@@ -993,3 +985,7 @@ msgstr "Variable de tendencia"
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
 msgstr "Compare las tendencias con:"
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means with random effects"
+msgstr ""
