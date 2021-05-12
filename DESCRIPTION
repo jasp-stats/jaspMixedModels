@@ -1,10 +1,28 @@
 Package: jaspMixedModels
 Type: Package
 Title: Mixed Models Module for JASP
-Version: 0.13.0
-Date: 2021-05-11
+Version: 0.15.0
+Date: 2020-10-27
 Author: JASP Team
 Website: jasp-stats.org
 Maintainer: JASP Team <info@jasp-stats.org>
 Description: Evaluate the difference between multiple means with random effects
 License: GPL (>= 2)
+Encoding: UTF-8
+Imports:
+  afex (>= 0.28-0),
+  emmeans (>= 1.4.7),
+  ggplot2,
+  ggpol,
+  jaspBase,
+  jaspGraphs,
+  lme4,
+  loo,
+  mgcv,
+  rstan,
+  rstanarm,
+  stanova
+Remotes:
+  jasp-stats/jaspBase,
+  jasp-stats/jaspGraphs,
+  bayesstuff/stanova
