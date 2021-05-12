@@ -79,8 +79,7 @@ test_that("Model Summary table results match R, SPSS, SAS, Minitab", {
   resultTable <- results$results$fitSummary$collection$fitSummary_fitStats$data
   jaspTools::expect_equal_tables(
     "test"=resultTable,
-    "ref"=list(14417.0742986659, 14476.8312824251, 14375.9948109478, 14401.0742986659,
-               8, -7200.53714933294)
+    "ref"=list(14417.0742986659, 14476.8312824251, 14401.0742986659, 8, -7200.53714933294)
   )
 })
 
