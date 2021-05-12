@@ -952,7 +952,7 @@ context("Linear Mixed Models")
   test_that("Fit statistics table results match", {
     table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_fitStats"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(245.086327825346, 258.577299277642, 211.983097505533, 233.086327825346,
+                                   list(258.577299277642, 211.983097505533, 233.086327825346,
                                         6, -116.543163912673))
   })
   
