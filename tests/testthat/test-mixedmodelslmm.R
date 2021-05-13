@@ -405,8 +405,8 @@ context("Linear Mixed Models")
   test_that("Fit statistics table results match", {
     table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_fitStats"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(749.049627510379, 793.495017206253, 706.672293574207, 725.049627510379,
-                                        12, -362.524813755189))
+                                   list(749.049627510379, 793.495017206253, 725.049627510379, 12, -362.524813755189
+                                   ))
   })
   
   test_that("Plot matches", {
@@ -952,8 +952,8 @@ context("Linear Mixed Models")
   test_that("Fit statistics table results match", {
     table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_fitStats"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(245.086327825346, 258.577299277642, 211.983097505533, 233.086327825346,
-                                        6, -116.543163912673))
+                                   list(245.086327825346, 258.577299277642, 233.086327825346, 6, -116.543163912673
+                                   ))
   })
   
   test_that("Plot matches", {
