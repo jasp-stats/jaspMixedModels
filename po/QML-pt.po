@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-05-15 20:51+0000\n"
+"Last-Translator: Luanna dos Santos Silva <luannasilva91@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.7-dev\n"
 "X-Language: en_US\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -18,40 +24,42 @@ msgstr "Clássico"
 
 msgctxt "Description|"
 msgid "Linear Mixed Models"
-msgstr ""
+msgstr "Modelos Lineares Mistos"
 
 msgctxt "Description|"
 msgid "Generalized Linear Mixed Models"
-msgstr ""
+msgstr "Modelos Lineares Generalizados Mistos"
 
 msgctxt "Description|"
 msgid "Bayesian"
 msgstr "Bayesiano"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Bayesian Linear Mixed Models"
-msgstr ""
-
-msgctxt "Description|"
-msgid "Bayesian Generalized Linear Mixed Models"
-msgstr ""
+msgstr "Análise Bayesiana de Modelos Lineares Mistos"
 
 #, fuzzy
+msgctxt "Description|"
+msgid "Bayesian Generalized Linear Mixed Models"
+msgstr "Análise Bayesiana de Modelos Lineares Generalizados Mistos"
+
 msgctxt "MixedModelsBOptions|"
 msgid "Options"
 msgstr "Opções"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Burnin"
-msgstr ""
+msgstr "Aquecimento"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Iterations"
-msgstr ""
+msgstr "Interações"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Chains"
-msgstr ""
+msgstr "Correntes"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Adapt delta"
