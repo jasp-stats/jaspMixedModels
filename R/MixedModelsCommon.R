@@ -700,8 +700,9 @@
   ### fit statistics
   fitStats <- createJaspTable(title = gettext("Fit statistics"))
   fitStats$position <- 1
-  
-  fitStats$addColumnInfo(name = "deviance", title = gettext("Deviance"), type = "number")
+
+  if (!lme4::isREML(full_model))
+    fitStats$addColumnInfo(name = "deviance", title = gettext("Deviance"), type = "number")
   if (lme4::isREML(full_model))
     fitStats$addColumnInfo(name = "devianceREML", title = gettext("Deviance (REML)"), type = "number")
   fitStats$addColumnInfo(name = "loglik", title = gettext("log Lik."), type = "number")
@@ -712,13 +713,14 @@
   
   
   temp_row <- list(
-    deviance = deviance(full_model, REML = FALSE),
     loglik   = logLik(full_model),
     df       = attr(logLik(full_model) , "df"),
     aic      = AIC(full_model),
     bic      = BIC(full_model)
   )
-  
+
+  if (!lme4::isREML(full_model))
+    temp_row$deviance     <- deviance(full_model, REML = FALSE)
   if (lme4::isREML(full_model))
     temp_row$devianceREML <- lme4::REMLcrit(full_model)
   
@@ -3303,6 +3305,7 @@
   )
 }
 .mmMessageFitType       <- function(REML) {
-  gettextf("The model was fitted using %s.",
-           ifelse(REML, gettext("restricted maximum likelihood"), gettext("maximum likelihood")))
+  gettextf("The model was fitted using %1$s.%2$s",
+           ifelse(REML, gettext("restricted maximum likelihood"), gettext("maximum likelihood")),
+           ifelse(REML, gettext(" Please note that models with different fixed effects cannot be compared when REML is used. To use ML, switch 'Test model terms' to 'Likelihood ratio tests'."), ""))
 }
