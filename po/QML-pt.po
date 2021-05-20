@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-15 20:51+0000\n"
+"PO-Revision-Date: 2021-05-22 00:40+0000\n"
 "Last-Translator: Luanna dos Santos Silva <luannasilva91@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/pt/>\n"
@@ -61,167 +61,174 @@ msgctxt "MixedModelsBOptions|"
 msgid "Chains"
 msgstr "Correntes"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Adapt delta"
-msgstr ""
+msgstr "Adaptar delta"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Maximum treedepth"
-msgstr ""
+msgstr "Maximum treedepth"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Show"
-msgstr ""
+msgstr "Apresenta"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Differences from intercept"
-msgstr ""
+msgstr "Diferenças de interceptação"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "Meios marginais"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Model summary"
-msgstr ""
+msgstr "Resumo do modelo"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Fixed effects estimates"
-msgstr ""
+msgstr "Estimativas de efeitos fixos"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Variance/correlation estimates"
-msgstr ""
+msgstr "Estimativas de variância/correlação"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Credible interval"
 msgstr "Intervalo de credibilidade"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "MCMC diagnostics"
-msgstr ""
+msgstr "Diagnósticos MCMC"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Model terms"
-msgstr ""
+msgstr "Termos do modelo"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Eixo horizontal"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plotted term"
-msgstr ""
+msgstr "Plotted term"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Eixo vertical"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plot type"
-msgstr ""
+msgstr "Tipo de plot"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Traceplot"
-msgstr ""
+msgstr "Traceplot"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Scatterplot"
-msgstr ""
+msgstr "Scatterplot"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Histogram"
-msgstr ""
+msgstr "Histograma"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Density"
-msgstr ""
+msgstr "Densidade"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Autocorrelations"
-msgstr ""
+msgstr "Autocorrelações"
 
-#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Model"
 msgstr "Modelo"
 
 msgctxt "MixedModelsModel|"
 msgid "Model components"
-msgstr ""
+msgstr "Componentes do modelo"
 
 msgctxt "MixedModelsModel|"
 msgid "Fixed effects"
-msgstr ""
+msgstr "Efeitos fixos"
 
 msgctxt "MixedModelsModel|"
 msgid "Random effects"
-msgstr ""
+msgstr "Efeitos aleatórios"
 
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "MixedModelsModel|"
 msgid "Random slopes by %1"
-msgstr ""
+msgstr "Declives aleatórios em% 1"
 
 msgctxt "MixedModelsModel|"
 msgid "Correlations"
-msgstr ""
+msgstr "Correlações"
 
-#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Options"
 msgstr "Opções"
 
 msgctxt "MixedModelsOptions|"
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 msgctxt "MixedModelsOptions|"
 msgid "II"
-msgstr ""
+msgstr "II"
 
 msgctxt "MixedModelsOptions|"
 msgid "III"
-msgstr ""
+msgstr "III"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Test intercept"
-msgstr ""
+msgstr "Interceptar teste"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test model terms"
-msgstr ""
+msgstr "Termos do modelo de teste"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
-msgstr ""
+msgstr "Testes de razão de verossimilhança"
 
 msgctxt "MixedModelsOptions|"
 msgid "Parametric bootstrap"
-msgstr ""
+msgstr "Bootstrap paramétrico"
 
 #, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "No. samples"
-msgstr "No. de amostras"
+msgstr "Número de amostras"
 
 msgctxt "MixedModelsOptions|"
 msgid "Model summary"
-msgstr ""
+msgstr "Resumo do modelo"
 
 msgctxt "MixedModelsOptions|"
 msgid "Fixed effects estimates"
-msgstr ""
+msgstr "Estimativas de efeitos fixos"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Variance/correlation estimates"
-msgstr ""
+msgstr "Estimativas de variância/correlação"
 
 #, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Razão p máxima de Vovk-Sellke"
+msgstr "Razão-p máxima de Vovk-Sellke"
 
 #, fuzzy
 msgctxt "MixedModelsPlots|"
@@ -230,69 +237,71 @@ msgstr "Diagramas"
 
 msgctxt "MixedModelsPlots|"
 msgid "Model factors"
-msgstr ""
+msgstr "Fatores de modelo"
 
 msgctxt "MixedModelsPlots|"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Eixo horizontal"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Separate lines"
-msgstr ""
+msgstr "Linhas separadas"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Separate plots"
-msgstr ""
+msgstr "Gráficos separados"
 
 msgctxt "MixedModelsPlots|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Fatores de agrupamento de efeitos aleatórios"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Background data show"
-msgstr ""
+msgstr "Mostrar dados de fundo"
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval method"
-msgstr ""
+msgstr "Método de intervalo de confiança"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Model"
 msgstr "Modelo"
 
 msgctxt "MixedModelsPlots|"
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 msgctxt "MixedModelsPlots|"
 msgid "Mean"
-msgstr ""
+msgstr "Média"
 
 msgctxt "MixedModelsPlots|"
 msgid "Within"
-msgstr ""
+msgstr "Dentro de"
 
 msgctxt "MixedModelsPlots|"
 msgid "Between"
-msgstr ""
+msgstr "Entre"
+
+msgctxt "MixedModelsPlots|"
+msgid "Confidence interval"
+msgstr "Intervalo de confiança"
 
 #, fuzzy
 msgctxt "MixedModelsPlots|"
-msgid "Confidence interval"
-msgstr "Intervalo de Confiança"
-
-msgctxt "MixedModelsPlots|"
 msgid "Distinguish factor levels"
-msgstr ""
+msgstr "Distinguir níveis de fator"
 
 msgctxt "MixedModelsPlots|"
 msgid "Color"
-msgstr ""
+msgstr "Cor"
 
 msgctxt "MixedModelsPlots|"
 msgid "Shape"
-msgstr ""
+msgstr "Forma"
 
 msgctxt "MixedModelsPlots|"
 msgid "Linetype"
