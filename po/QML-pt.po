@@ -1,15 +1,9 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-05-22 00:40+0000\n"
-"Last-Translator: Luanna dos Santos Silva <luannasilva91@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
-"jaspmixedmodels-qml/pt/>\n"
-"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Language: en_US\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -443,9 +437,10 @@ msgctxt "MixedModelsBGLMM|"
 msgid "Fixed effects variables"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Fatores de agrupamento de efeitos aleatórios"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Family"
@@ -559,9 +554,10 @@ msgctxt "MixedModelsBLMM|"
 msgid "Fixed effects variables"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Fatores de agrupamento de efeitos aleatórios"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated marginal means"
@@ -612,9 +608,10 @@ msgctxt "MixedModelsGLMM|"
 msgid "Fixed effects variables"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Fatores de agrupamento de efeitos aleatórios"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Family"
@@ -721,9 +718,10 @@ msgctxt "MixedModelsGLMM|"
 msgid "Multivariate-t"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated trends/conditional slopes"
@@ -749,9 +747,10 @@ msgctxt "MixedModelsLMM|"
 msgid "Fixed effects variables"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Fatores de agrupamento de efeitos aleatórios"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated marginal means"
@@ -802,9 +801,10 @@ msgctxt "MixedModelsLMM|"
 msgid "Multivariate-t"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated trends/conditional slopes"
