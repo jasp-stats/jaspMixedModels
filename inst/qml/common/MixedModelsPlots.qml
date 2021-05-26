@@ -242,7 +242,7 @@ Section
 		DropDown
 		{
 			name:	"plotsBackgroundColor"
-			label:	qsTr("Color background data")
+			label:	qsTr("Border color")
 			enabled:plotsGeom.currentValue != "geom_jitter"
 			values:
 			[
