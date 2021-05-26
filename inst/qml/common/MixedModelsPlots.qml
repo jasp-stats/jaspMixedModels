@@ -216,12 +216,12 @@ Section
 			label:	qsTr("Theme")
 			values:
 			[
-				{ label: "JASP",				value: "JASP"},
-				{ label: qsTr("Black White"),	value: "theme_bw"},
-				{ label: qsTr("Light"),			value: "theme_light"},
-				{ label: qsTr("Minimal"),		value: "theme_minimal"},
-				{ label: "APA",					value: "jtools::theme_apa"},
-				{ label: "pubr",				value: "ggpubr::theme_pubr"}
+				{ label: "JASP",					value: "JASP"},
+				{ label: qsTr("White background"),	value: "theme_bw"},
+				{ label: qsTr("Light"),				value: "theme_light"},
+				{ label: qsTr("Minimal")	,		value: "theme_minimal"},
+				{ label: "APA",						value: "theme_apa"},
+				{ label: "pubr",					value: "theme_pubr"}
 			]
 		}
 

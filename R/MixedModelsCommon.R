@@ -1187,8 +1187,15 @@
         "theme_bw"      = ggplot2::theme_bw()       + ggplot2::theme(legend.position = "bottom"),
         "theme_light"   = ggplot2::theme_light()    + ggplot2::theme(legend.position = "bottom"),
         "theme_minimal" = ggplot2::theme_minimal()  + ggplot2::theme(legend.position = "bottom"),
-        "theme_apa"     = jaspGraphs::themeApaRaw() + ggplot2::theme(legend.position = "bottom"),
-        "theme_pubr"    = jaspGraphs::themePubrRaw()
+        "theme_pubr"    = jaspGraphs::themePubrRaw(legend = options$plotLegendPosition),
+        "theme_apa"     = jaspGraphs::themeApaRaw(legend.pos = switch(
+          options$plotLegendPosition,
+          "none"  = "none",
+          "botom" = "bottommiddle",
+          "right" = "bottomright",
+          "top"   = "topmiddle",
+          "left"  = "bottomleft"
+        ))
       )
       
       p <- p + ggplot2::theme(
