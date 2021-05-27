@@ -652,13 +652,13 @@
     added_re   <- jaspResults[["mmModel"]]$object$added_re
     
     for (i in seq_along(removed_me))
-      ANOVAsummary$addFootnote(.mmMessageOmmitedTerms1(removed_me[[i]], names(removed_me)[i]), symbol = gettext("Warning:"))
+      ANOVAsummary$addFootnote(.mmMessageOmmitedTerms1(removed_me[[i]], names(removed_me)[i]), symbol = gettext("Note:"))
     
     for (i in seq_along(removed_te))
-      ANOVAsummary$addFootnote(.mmMessageOmmitedTerms2(removed_te[[i]], names(removed_te)[i]), symbol = gettext("Warning:"))
+      ANOVAsummary$addFootnote(.mmMessageOmmitedTerms2(removed_te[[i]], names(removed_te)[i]), symbol = gettext("Note:"))
     
     for (i in seq_along(added_re))
-      ANOVAsummary$addFootnote(.mmMessageAddedTerms(added_re[[i]], names(added_re)[i]), symbol = gettext("Warning:"))
+      ANOVAsummary$addFootnote(.mmMessageAddedTerms(added_re[[i]], names(added_re)[i]), symbol = gettext("Note:"))
     
 
     
@@ -2700,18 +2700,18 @@
       if (length(removed_me) > 0) {
         for (j in 1:length(removed_me)) {
           temp_table$addFootnote(.mmMessageOmmitedTerms1(removed_me[[j]], names(removed_me)[j]),
-                                 symbol = gettext("Warning:"))
+                                 symbol = gettext("Note:"))
         }
       }
       if (length(removed_te) > 0) {
         for (j in 1:length(removed_te)) {
           temp_table$addFootnote(.mmMessageOmmitedTerms2(removed_te[[j]], names(removed_te)[j]),
-                                 symbol = gettext("Warning:"))
+                                 symbol = gettext("Note:"))
         }
       }
       if (length(added_re) > 0) {
         for (i in 1:length(added_re)) {
-          temp_table$addFootnote(.mmMessageAddedTerms(added_re[[i]], names(added_re)[i]), symbol = gettext("Warning:"))
+          temp_table$addFootnote(.mmMessageAddedTerms(added_re[[i]], names(added_re)[i]), symbol = gettext("Note:"))
         }
       }
       if (jaspResults[["n_missing"]]$object != 0) {
