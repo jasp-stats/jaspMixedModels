@@ -2125,7 +2125,7 @@
     model_formula <- .mmModelFormula(options, dataset)
 
     if (type == "BLMM") {
-      model <- stanova::stanova(
+      model <- tryCatch(stanova::stanova(
         formula           = as.formula(model_formula$model_formula),
         check_contrasts   = "contr.bayes",
         data              = dataset,
@@ -2136,7 +2136,7 @@
         control           = list(max_treedepth = options$max_treedepth),
         seed              = .getSeedJASP(options),
         model_fun         = "lmer"
-      )
+      ), error = function(e) e )
       
     } else if (type == "BGLMM") {
       # needs to be evaluated in the global environment
@@ -2154,7 +2154,7 @@
       if (options$family == "binomial_agg") {
         glmm_weight <<- dataset[, .v(options$dependentVariableAggregation)]
         
-        model <- stanova::stanova(
+        model <- tryCatch(stanova::stanova(
           formula           = as.formula(model_formula$model_formula),
           check_contrasts   = "contr.bayes",
           data              = dataset,
@@ -2167,10 +2167,10 @@
           family            = eval(call("binomial", glmm_link)),
           seed              = .getSeedJASP(options),
           model_fun         = "glmer"
-        )
+        ), error = function(e) e )
         
       } else{
-        model <- stanova::stanova(
+        model <- tryCatch(stanova::stanova(
           formula           = as.formula(model_formula$model_formula),
           check_contrasts   = "contr.bayes",
           data              = dataset,
@@ -2182,12 +2182,18 @@
           family            = glmm_family,
           seed              = .getSeedJASP(options),
           model_fun         = "glmer"
-        )
+        ), error = function(e) e )
         
       }
       
     }
     
+  if (inherits(model, "error")) {
+    if (model$message == "Dropping columns failed to produce full column rank design matrix")
+      .quitAnalysis(gettext("The specified combination of factors does not produce an estimable model. The most likely reason for this issue is a factor / combination of factors leading to more levels than are estimable."))
+    else
+      .quitAnalysis(paste0(gettext("Please, report the following error message at JASP GitHub https://github.com/jasp-stats/jasp-issues: "), model$message))
+  }
     
     object <- list(
       model             = model,
