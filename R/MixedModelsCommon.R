@@ -1146,6 +1146,11 @@
       plots$setError(p$message)
       return()
     }
+
+    if (options$plotsGeom == "geom_violin" && (length(options$plotsAgregatedOver) == 1 && length(unique(dataset[, .v(options$plotsAgregatedOver)])) < 3)) {
+      plots$setError(gettext("Violin geom requires that the random effects grouping factors has at least 3 levels."))
+      return()
+    }
     
     # fix the axis
     p <- .mmFixPlotAxis(p)
