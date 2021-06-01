@@ -975,6 +975,10 @@
     ggplot2::scale_x_discrete(breaks = xTicks)
 }
 .mmPlot          <- function(jaspResults, dataset, options, type = "LMM") {
+
+    if (!is.null(jaspResults[["plots"]]))
+      return()
+
     model <- jaspResults[["mmModel"]]$object$model
     
     # automatic size specification will somewhat work unless there is more than 2 variables in panel
