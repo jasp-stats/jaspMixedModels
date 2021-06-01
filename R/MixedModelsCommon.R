@@ -594,10 +594,7 @@
       if (rownames(model$anova_table)[i] == "(Intercept)") {
         effect_name <- gettext("Intercept")
       } else{
-        effect_name <-
-          paste(.unv(unlist(strsplit(
-            rownames(model$anova_table)[i], ":"
-          ))), collapse = " * ")
+        effect_name <- jaspBase::gsubInteractionSymbol(rownames(model$anova_table)[i])
       }
       
       temp_row <- list(effect = effect_name,
@@ -798,12 +795,7 @@
       if (names(temp_StdDev)[i] == "(Intercept)") {
         var_name <- gettext("Intercept")
       } else{
-        var_name <-
-          paste(.unv(unlist(strsplit(
-            names(temp_StdDev)[i], ":"
-          ))), collapse = ":")
-        var_name <-
-          .mmVariableNames(var_name, options$fixedVariables)
+        var_name <- .mmVariableNames(names(temp_StdDev)[i], options$fixedVariables)
       }
       
       temp_row <- list(
@@ -834,12 +826,7 @@
         if (rownames(temp_Corr)[i] == "(Intercept)") {
           var_name <- gettext("Intercept")
         } else{
-          var_name <-
-            paste(.unv(unlist(strsplit(
-              rownames(temp_Corr)[i], ":"
-            ))), collapse = ":")
-          var_name <-
-            .mmVariableNames(var_name, options$fixedVariables)
+          var_name <- .mmVariableNames(rownames(temp_Corr)[i], options$fixedVariables)
         }
         REcor$addColumnInfo(name = paste0("v", i),
                             title = var_name,
@@ -851,12 +838,7 @@
         if (rownames(temp_Corr)[i] == "(Intercept)") {
           var_name <- gettext("Intercept")
         } else{
-          var_name <-
-            paste(.unv(unlist(strsplit(
-              rownames(temp_Corr)[i], ":"
-            ))), collapse = ":")
-          var_name <-
-            .mmVariableNames(var_name, options$fixedVariables)
+          var_name <- .mmVariableNames(rownames(temp_Corr)[i], options$fixedVariables)
         }
         
         temp_row <- list(variable = var_name)
@@ -947,12 +929,7 @@
     if (rownames(FE_coef)[i] == "(Intercept)") {
       effect_name <- gettext("Intercept")
     } else{
-      effect_name <-
-        paste(.unv(unlist(strsplit(
-          rownames(FE_coef)[i], ":"
-        ))), collapse = ":")
-      effect_name <-
-        .mmVariableNames(effect_name, options$fixedVariables)
+      effect_name <- .mmVariableNames(rownames(FE_coef)[i], options$fixedVariables)
     }
     
     if (type == "LMM") {
@@ -2340,12 +2317,7 @@
       if (names(temp_StdDev)[i] == "(Intercept)") {
         var_name <- gettext("Intercept")
       } else{
-        var_name <-
-          paste(.unv(unlist(strsplit(
-            names(temp_StdDev)[i], ":"
-          ))), collapse = ":")
-        var_name <-
-          .mmVariableNames(var_name, options$fixedVariables)
+        var_name <- .mmVariableNames(names(temp_StdDev)[i], options$fixedVariables)
       }
       
       temp_row <- list(
@@ -2376,12 +2348,7 @@
         if (rownames(temp_Corr)[i] == "(Intercept)") {
           var_name <- gettext("Intercept")
         } else{
-          var_name <-
-            paste(.unv(unlist(strsplit(
-              rownames(temp_Corr)[i], ":"
-            ))), collapse = ":")
-          var_name <-
-            .mmVariableNames(var_name, options$fixedVariables)
+          var_name <- .mmVariableNames(rownames(temp_Corr)[i], options$fixedVariables)
         }
         REcor$addColumnInfo(name = paste0("v", i),
                             title = var_name,
@@ -2393,12 +2360,7 @@
         if (rownames(temp_Corr)[i] == "(Intercept)") {
           var_name <- gettext("Intercept")
         } else{
-          var_name <-
-            paste(.unv(unlist(strsplit(
-              rownames(temp_Corr)[i], ":"
-            ))), collapse = ":")
-          var_name <-
-            .mmVariableNames(var_name, options$fixedVariables)
+          var_name <- .mmVariableNames(rownames(temp_Corr)[i], options$fixedVariables)
         }
         
         temp_row <- list(variable = var_name)
@@ -2495,12 +2457,7 @@
     if (rownames(fe_summary)[i] == "(Intercept)") {
       effect_name <- "Intercept"
     } else{
-      effect_name <-
-        paste(.unv(unlist(strsplit(
-          rownames(fe_summary)[i], ":"
-        ))), collapse = ":")
-      effect_name <-
-        .mmVariableNames(effect_name, options$fixedVariables)
+      effect_name <- .mmVariableNames(rownames(fe_summary)[i], options$fixedVariables)
     }
     
     temp_row <- list(
@@ -2559,10 +2516,7 @@
         var_name   <- gettext("Intercept")
         table_name <- var_name
       } else{
-        var_name   <-
-          paste(.unv(unlist(strsplit(
-            names(model_summary)[i], ":"
-          ))), collapse = "*")
+        var_name   <- jaspBase::gsubInteractionSymbol(names(model_summary)[i])
         if (options$show == "deviation") {
           table_name <-
             gettextf("%s (differences from intercept)",var_name)
@@ -2644,15 +2598,15 @@
         )
         
         if (var_name != "Intercept" && nrow(temp_summary) > 1) {
-          var_name <-
+          var_name <- 
             paste(.unv(unlist(strsplit(
               as.character(temp_summary$Variable[j]), ","
-            ))), collapse = ":")
+            ))), collapse = jaspBase::interactionSymbol)
           var_name <- gsub(" ", "", var_name, fixed = TRUE)
-          if (grepl(":", names(model_summary)[i], fixed = T)) {
+          if (grepl(jaspBase::interactionSymbol, names(model_summary)[i], fixed = T)) {
             for (n in unlist(strsplit(.unv(names(
               model_summary
-            )[i]), ":"))) {
+            )[i]), jaspBase::interactionSymbol))) {
               var_name <- gsub(n, "", var_name, fixed = TRUE)
             }
           } else{
@@ -2850,7 +2804,7 @@
       )
     }
   }
-  var_name <- gsub(":", ") * ", var_name, fixed = TRUE)
+  var_name <- gsub(":", paste0(")", jaspBase::interactionSymbol), var_name, fixed = TRUE)
   var_name <- paste0(var_name, ")")
   var_name <- gsub(" ()", "", var_name, fixed = TRUE)
   return(var_name)
@@ -2865,7 +2819,7 @@
   
   for(cft in coefs_trend){
     if(cft %in% strsplit(par, ":")[[1]] && !grepl(.unv(cft), coefs_name)){
-      coefs_name <- paste0(coefs_name, ":", .unv(cft))
+      coefs_name <- paste0(coefs_name, jaspBase::interactionSymbol, .unv(cft))
     }
   }
   
