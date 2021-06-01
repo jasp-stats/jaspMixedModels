@@ -1002,7 +1002,7 @@
     
     # automatic size specification will somewhat work unless there is more than 2 variables in panel
     height <- 350
-    width  <- 450 * prod(sapply(unlist(options$plotsX), function(x) length(unique(dataset[, .v(x)])) / 2))
+    width  <- 150 * prod(sapply(unlist(options$plotsX), function(x) length(unique(dataset[, .v(x)])) / 2))
 
     if (length(options$plotsPanel) > 0) {
       width  <-
@@ -1016,7 +1016,8 @@
     } else if (options$plotLegendPosition %in% c("left", "right")) {
       width  <- width + 100
     }
-    
+    width <- width + 150
+
     plots  <- createJaspPlot(title = gettext("Plot"), width = width, height = height)
     
     plots$position <- 5
