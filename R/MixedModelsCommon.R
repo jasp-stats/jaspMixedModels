@@ -556,6 +556,11 @@
             gettext("The optimizer failed to find a solution. Probably due to quasi-separation in the data. Try removing some of the predictors.")
           )
 
+        else if (model$message == "PIRLS loop resulted in NaN value")
+          ANOVAsummary$setError(
+            gettext("The optimizer failed to find a solution. Probably due to quasi-separation in the data or an overly complex model structure. Try removing some of the predictors.")
+          )
+
         else if (model$message == "cannot find valid starting values: please specify some")
           # currently no solution to this, it seems to be a problem with synthetic data only.
           # I will try silving it once someone actually has problem with real data.
