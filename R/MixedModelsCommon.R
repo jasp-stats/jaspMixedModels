@@ -2197,7 +2197,7 @@
 
   if (inherits(model, "error")) {
     if (model$message == "Dropping columns failed to produce full column rank design matrix")
-      .quitAnalysis(gettext("The specified combination of factors does not produce an estimable model. The most likely reason for this issue is a factor / combination of factors leading to more levels than are estimable."))
+      .quitAnalysis(gettext("The specified combination of factors does not produce an estimable model. A factor or combination of factors resulted in more levels than the effective sample size."))
     else
       .quitAnalysis(paste0(gettext("Please, report the following error message at JASP GitHub https://github.com/jasp-stats/jasp-issues: "), model$message))
   }
@@ -5488,7 +5488,7 @@
 
   if (inherits(model, "error")) {
     if (model$message == "Dropping columns failed to produce full column rank design matrix")
-      .quitAnalysis(gettext("The specified combination of factors does not produce an estimable model. The most likely reason for this issue is a factor / combination of factors leading to more levels than are estimable."))
+      .quitAnalysis(gettext("The specified combination of factors does not produce an estimable model. A factor or combination of factors resulted in more levels than the effective sample size."))
     else
       .quitAnalysis(paste0(gettext("Please, report the following error message at JASP GitHub https://github.com/jasp-stats/jasp-issues: "), model$message))
   }
