@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2021-05-07 13:18\n"
-"PO-Revision-Date: 2021-05-31 18:33+0000\n"
+"PO-Revision-Date: 2021-06-15 09:20+0000\n"
 "Last-Translator: Alex França <alex.tonante@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/pt/>\n"
@@ -80,7 +80,7 @@ msgid "p (bootstrap)"
 msgstr "bootstraps"
 
 msgid "VS-MPR"
-msgstr ""
+msgstr "VS-MPR"
 
 #, fuzzy
 msgid "VS-MPR (bootstrap)"
@@ -120,9 +120,8 @@ msgstr ""
 msgid "Fit statistics"
 msgstr "Estatísticas"
 
-#, fuzzy
 msgid "Deviance"
-msgstr "Avançado"
+msgstr "Desvio"
 
 msgid "Deviance (REML)"
 msgstr ""
@@ -240,9 +239,8 @@ msgstr ""
 msgid "Contrasts"
 msgstr "Contrastes"
 
-#, fuzzy
 msgid "Odds Ratio"
-msgstr "Razão de probabilidade"
+msgstr "Razão de chance"
 
 msgid "Ratio"
 msgstr ""
