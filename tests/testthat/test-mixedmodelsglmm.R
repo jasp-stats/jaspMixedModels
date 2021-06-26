@@ -5,7 +5,7 @@ context("Generalized Linear Mixed Models")
 {
   skip_on_os("mac")   # problems with precision outside of windows
   skip_on_os("linux") # problems with precision outside of windows
-  options <- analysisOptions("MixedModelsGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsGLMM")
   options$Contrasts <- list(list(isContrast = FALSE, levels = c("1", "2", "3", "4",
                                                                 "5", "6"), name = "cA", values = c("1", "2", "1", "2", "1", "2"
                                                                 )), list(isContrast = FALSE, levels = c("1", "2", "3", "4", "5",
@@ -290,7 +290,7 @@ context("Generalized Linear Mixed Models")
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0.067540856, 0.169211418, 1, 1, 0.052260709, 0.052824504, 1,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0.12313927, 0.085084118, 1, 0.018040391, 0.055642594, 1, 0.901317881,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0.859124256)), class = "data.frame", row.names = c(NA, -300L))
-  results <- runAnalysis("MixedModelsGLMM", dataset, options)
+  results <-  jaspTools::runAnalysis("MixedModelsGLMM", dataset, options)
 
 
   test_that("ANOVA Summary table results match", {
@@ -387,7 +387,7 @@ context("Generalized Linear Mixed Models")
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-    jaspTools::expect_equal_plots(testPlot, "plot-glmm-1", dir="MixedModelsGLMM")
+    jaspTools::expect_equal_plots(testPlot, "plot-glmm-1")
   })
 
   test_that("Estimated Trends table results match", {
@@ -402,7 +402,7 @@ context("Generalized Linear Mixed Models")
 
 ### binomial + probit, type II with LRT, no random slopes, custom options
 {
-  options <- analysisOptions("MixedModelsGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsGLMM")
   options$Contrasts <- list(list(isContrast = FALSE, levels = c("2", "3", "4", "5",
                                                                 "6", "7"), name = "contNormal", values = c("-1.11", "0", "1.11",
                                                                                                            "-1.11", "0", "1.11")), list(isContrast = FALSE, levels = c("2",
@@ -464,7 +464,7 @@ context("Generalized Linear Mixed Models")
   options$trendsTrend <- list()
   options$type <- "2"
   set.seed(1)
-  results <- runAnalysis("MixedModelsGLMM", "debug", options)
+  results <- jaspTools::runAnalysis("MixedModelsGLMM", "debug", options)
 
 
   test_that("ANOVA Summary table results match", {
@@ -549,13 +549,13 @@ context("Generalized Linear Mixed Models")
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-    jaspTools::expect_equal_plots(testPlot, "plot-glmm-2", dir="MixedModelsGLMM")
+    jaspTools::expect_equal_plots(testPlot, "plot-glmm-2")
   })
 }
 
 ### gamma + log, parametric bootsrap, no correlation
 {
-  options <- analysisOptions("MixedModelsGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsGLMM")
   options$Contrasts <- list(list(isContrast = FALSE, levels = c("2", "3"), name = "facGender",
                                  values = c("f", "m")), list(isContrast = TRUE, levels = c("2",
                                                                                            "3"), name = "Contrast 1", values = c("1", "0")), list(isContrast = TRUE,
@@ -614,7 +614,7 @@ context("Generalized Linear Mixed Models")
   options$trendsTrend <- list()
   options$type <- "2"
   set.seed(1)
-  results <- runAnalysis("MixedModelsGLMM", "debug", options)
+  results <- jaspTools::runAnalysis("MixedModelsGLMM", "debug", options)
 
 
   test_that("ANOVA Summary table results match", {
@@ -688,13 +688,13 @@ context("Generalized Linear Mixed Models")
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-    jaspTools::expect_equal_plots(testPlot, "plot-glmm-3", dir="MixedModelsGLMM")
+    jaspTools::expect_equal_plots(testPlot, "plot-glmm-3")
   })
 }
 
 ### poisson + log, type II parametric bootsrap
 {
-  options <- analysisOptions("MixedModelsGLMM")
+  options <- jaspTools::analysisOptions("MixedModelsGLMM")
   options$Contrasts <- list(list(isContrast = FALSE, levels = c("2", "3"), name = "facGender",
                                  values = c("f", "m")), list(isContrast = TRUE, levels = c("2",
                                                                                            "3"), name = "Contrast 1", values = c("0", "0")))
@@ -742,7 +742,7 @@ context("Generalized Linear Mixed Models")
   options$trendsTrend <- list()
   options$type <- "2"
   set.seed(1)
-  results <- runAnalysis("MixedModelsGLMM", "debug", options)
+  results <- jaspTools::runAnalysis("MixedModelsGLMM", "debug", options)
 
 
   test_that("ANOVA Summary table results match", {
@@ -791,7 +791,7 @@ context("Generalized Linear Mixed Models")
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-    jaspTools::expect_equal_plots(testPlot, "plot-glmm-4", dir="MixedModelsGLMM")
+    jaspTools::expect_equal_plots(testPlot, "plot-glmm-4")
   })
 }
 
@@ -870,7 +870,7 @@ context("Generalized Linear Mixed Models")
                                     5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L,
                                     5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L,
                                     5L, 5L)), class = "data.frame", row.names = c(NA, -60L))
-  results <- runAnalysis("MixedModelsGLMM", dataset, options)
+  results <- jaspTools::runAnalysis("MixedModelsGLMM", dataset, options)
 
 
   test_that("ANOVA Summary table results match", {
@@ -943,6 +943,6 @@ context("Generalized Linear Mixed Models")
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-    jaspTools::expect_equal_plots(testPlot, "plot-glmm-5", dir="MixedModelsGLMM")
+    jaspTools::expect_equal_plots(testPlot, "plot-glmm-5")
   })
 }

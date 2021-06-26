@@ -2,7 +2,7 @@ context("Linear Mixed Models")
 
 ### default, all selected output using Satterwhite method
 {
-  options <- analysisOptions("MixedModelsLMM")
+  options <- jaspTools::analysisOptions("MixedModelsLMM")
   options$Contrasts <- list(list(isContrast = FALSE, levels = c("1", "2", "3", "4", 
                                                                 "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", 
                                                                 "16", "17", "18"), name = "cA", values = c("1", "2", "1", "2", 
@@ -313,7 +313,7 @@ context("Linear Mixed Models")
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0.067540856, 0.169211418, 1, 1, 0.052260709, 0.052824504, 1, 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0.12313927, 0.085084118, 1, 0.018040391, 0.055642594, 1, 0.901317881, 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0.859124256)), class = "data.frame", row.names = c(NA, -300L))
-  results <- runAnalysis("MixedModelsLMM", dataset, options)
+  results <-  jaspTools::runAnalysis("MixedModelsLMM", dataset, options)
   
   
   test_that("ANOVA Summary table results match", {
@@ -412,7 +412,7 @@ context("Linear Mixed Models")
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-    jaspTools::expect_equal_plots(testPlot, "plot-lmm-1", dir="MixedModelsLMM")
+    jaspTools::expect_equal_plots(testPlot, "plot-lmm-1")
   })
   
   test_that("Estimated Trends table results match", {
@@ -525,7 +525,7 @@ context("Linear Mixed Models")
   
   test_that("ANOVA Summary table results match", {
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list("1, 18.41", "contGamma", 0.653715812700852, 1, 0.207944253049949,
                              "1, 41.32", "contBinom", 0.980965955359944, 1, 0.000576132863050751,
                              "1, 31.67", "facExperim", 0.150390022121331, 1.29117932770481,
@@ -549,7 +549,7 @@ context("Linear Mixed Models")
   
   test_that("Estimated Marginal Means table results match", {
     table <- results[["results"]][["EMMsummary"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(0, -2.8707548076634, 71.9900762735203, 0.162066154069144, -0.776927722113553,
                              1, 0.079474455095956, 1.82792948364777, 0.471035277718885, -1.77891951105823,
                              1.10106003025184, 0, 2.03296079621, 6.83551339852499, -0.0692441954233528,
@@ -570,7 +570,7 @@ context("Linear Mixed Models")
   
   test_that("Fixed Effects Estimates table results match", {
     table <- results[["results"]][["FEsummary"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(29.731918444623, 0.0266514294991932, 0.912642659804403, 1, 0.240876860206388,
                              0.110643378016293, "Intercept", 82.2103671303575, -0.0471704250772184,
                              0.60243960877149, 1, 0.0902066016520024, -0.522915443142307,
@@ -606,58 +606,58 @@ context("Linear Mixed Models")
   
   test_that("facFive.3: Correlation Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE4"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(1, "facExperim (control)", "NaN", 1, "facExperim (experimental)"
                         ))
   })
   
   test_that("facFive.4: Correlation Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE5"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(1, "facGender (f)", "NaN", 1, "facGender (m)"))
   })
   
   test_that("Residual Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_RES5"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(1.01552953184787, 1.03130023005516))
   })
   
   test_that("facFive: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE1"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(0, 0, "Intercept"))
   })
   
   test_that("facFive.1: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE2"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(0, 0, "contGamma"))
   })
   
   test_that("facFive.2: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE3"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(0, 0, "contBinom"))
   })
   
   test_that("facFive.3: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE4"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(0, 0, "facExperim (control)", 0.237531600307891, 0.0564212611448276,
                              "facExperim (experimental)"))
   })
   
   test_that("facFive.4: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE5"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(0, 0, "facGender (f)", 0.156150662299331, 0.0243830293365197,
                              "facGender (m)"))
   })
   
   test_that("Contrasts table results match", {
     table <- results[["results"]][["contrasts_Means"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list("Contrast 1", 82.2103671303575, -0.231310349492497, 0.60243960877149,
                              1, 0.442347520093316, -0.522915443142307, "Contrast 2", 79.902751067842,
                              -0.642750180031443, 0.548152227927422, 1, 1.06574918195276,
@@ -666,7 +666,7 @@ context("Linear Mixed Models")
   
   test_that("Contrasts table results match", {
     table <- results[["results"]][["contrasts_Trends"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list("Contrast 1", 57.0113581457788, -0.560541517971749, 0.0729821205951162,
                              1.92573082206986, 0.306860675388687, -1.82669713954627))
   })
@@ -674,12 +674,12 @@ context("Linear Mixed Models")
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-    expect_equal_plots(testPlot, "plot-lmm-2", dir="MixedModelsLMM")
+    jaspTools::expect_equal_plots(testPlot, "plot-lmm-2")
   })
   
   test_that("Estimated Trends table results match", {
     table <- results[["results"]][["trendsSummary"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(54.9443259882744, "control", "f", -0.23167495146059, 1, 2.7550330650536e-44,
                              1.33130145662102e+41, 0.202640740799574, 0.174435417422133,
                              -43.5527650942956, 0.580545786304856, 71.3758039065814, "experimental",
@@ -748,13 +748,13 @@ context("Linear Mixed Models")
   
   test_that("ANOVA Summary table results match", {
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(1, "facGender", 0.0892620294750889, 2.88763209614939))
   })
   
   test_that("Estimated Marginal Means table results match", {
     table <- results[["results"]][["EMMsummary"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(-0.421706173425421, "f", -0.704496259899192, 0.144283307603805,
                              -0.13891608695165, 0.0410342976475168, "m", -0.296581004637054,
                              0.172255870489273, 0.378649599932087))
@@ -762,7 +762,7 @@ context("Linear Mixed Models")
   
   test_that("Estimated Means and Confidence Intervals table results match", {
     table <- results[["results"]][["EstimatesTable"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list("f", -2.19323331697357, -0.421706173425421, 1.34982097012273,
                              "m", -0.812059108259059, 0.0410342976475168, 0.894127703554092
                         ))
@@ -770,7 +770,7 @@ context("Linear Mixed Models")
   
   test_that("Fixed Effects Estimates table results match", {
     table <- results[["results"]][["FEsummary"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(10.7325465569702, -0.190335937888952, 0.110892631343371, 0.10955506682194,
                              -1.73735403948323, "Intercept", 7.33390917066216, -0.231370235536469,
                              0.082440039209281, 0.115076349521506, -2.01058024953449, "facGender (1)"
@@ -780,7 +780,7 @@ context("Linear Mixed Models")
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-    expect_equal_plots(testPlot, "plot-lmm-3", dir="MixedModelsLMM")
+    jaspTools::expect_equal_plots(testPlot, "plot-lmm-3")
   })
 }
 ### parametric bootstrap
@@ -837,14 +837,14 @@ context("Linear Mixed Models")
   
   test_that("ANOVA Summary table results match", {
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(1, "facGender", 0.0585272236145518, 0.129411764705882, 3.57863502661178
                         ))
   })
   
   test_that("Estimated Marginal Means table results match", {
     table <- results[["results"]][["EMMsummary"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(-0.421706207520219, "f", -0.704496301095866, 0.144283311227277,
                              -0.138916113944573, 0.0410341526398586, "m", -0.296585024170459,
                              0.172257847324448, 0.378653329450176))
@@ -852,7 +852,7 @@ context("Linear Mixed Models")
   
   test_that("Fixed Effects Estimates table results match", {
     table <- results[["results"]][["FEsummary"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(10.7321152909457, -0.19033602744018, 0.110894939742407, 0.109555523338383,
                              -1.73734761735647, "Intercept", 7.33364788694893, -0.231370180080039,
                              0.0824437479104129, 0.115077396728607, -2.01056147129998, "facGender (1)"
@@ -861,19 +861,19 @@ context("Linear Mixed Models")
   
   test_that("facFive: Correlation Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE1"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(1, "Intercept", -1, 1, "facGender (1)"))
   })
   
   test_that("Residual Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_RES1"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(1.01581460714797, 1.00787628563627))
   })
   
   test_that("facFive: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE1"]][["data"]]
-    expect_equal_tables(table,
+    jaspTools::expect_equal_tables(table,
                         list(0.0906377552259416, 0.00821520267239771, "Intercept", 0.120437360968589,
                              0.0145051579170782, "facGender (1)"))
   })
@@ -881,7 +881,7 @@ context("Linear Mixed Models")
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-    expect_equal_plots(testPlot, "plot-lmm-4", dir="MixedModelsLMM")
+    jaspTools::expect_equal_plots(testPlot, "plot-lmm-4")
   })
 }
 
@@ -959,6 +959,6 @@ context("Linear Mixed Models")
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
-    jaspTools::expect_equal_plots(testPlot, "plot-lmm-5", dir="MixedModelsLMM")
+    jaspTools::expect_equal_plots(testPlot, "plot-lmm-5")
   })
 }
