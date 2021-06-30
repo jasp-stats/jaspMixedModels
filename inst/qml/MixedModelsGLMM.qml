@@ -82,7 +82,7 @@ Form {
 			values:
 			[
 				{ label: qsTr("Binomial"),				value: "binomial"},
-				{ label: qsTr("Binomial (aggregated)"),	value: "binomial_agg"},
+				{ label: qsTr("Binomial (aggregated)"),	value: "binomialAgg"},
 				{ label: qsTr("Gaussian"),				value: "gaussian"},
 				{ label: qsTr("Gamma"),					value: "Gamma"},
 				{ label: qsTr("Inverse Gaussian"),		value: "inverse.gaussian"},
@@ -92,7 +92,7 @@ Form {
 			property var familyMap:
 			{
 				"binomial":			["logit", "probit", "cauchit", "cloglog", "log"],
-				"binomial_agg":     ["logit", "probit", "cauchit", "cloglog", "log"],
+				"binomialAgg":      ["logit", "probit", "cauchit", "cloglog", "log"],
 				"gaussian":			["identity", "log", "inverse"],
 				"Gamma":			["identity", "log", "inverse"],
 				"inverse.gaussian":	["identity", "log", "inverse"],
@@ -102,7 +102,7 @@ Form {
 			property var familyDefault:
 			{
 				"binomial":			"logit",
-				"binomial_agg":		"logit",
+				"binomialAgg":		"logit",
 				"gaussian":			"identity",
 				"Gamma":			"log",
 				"inverse.gaussian":	"log",

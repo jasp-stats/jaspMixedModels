@@ -99,7 +99,7 @@
 .mmMessageGLMMtype      <- function(family, link) {
   family <- switch(family,
                    "binomial"         = gettext("binomial"),
-                   "binomial_agg"     = gettext("binomial"),
+                   "binomialAgg"      = gettext("binomial"),
                    "gaussian"         = gettext("gaussian"),
                    "Gamma"            = gettext("gamma"),
                    "inverse.gaussian" = gettext("inverse gaussian"),

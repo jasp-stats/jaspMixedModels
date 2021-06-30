@@ -15,14 +15,14 @@ context("Generalized Linear Mixed Models")
                                                                                                                                                                                                                                "0", "0")), list(isContrast = TRUE, levels = c("1", "2", "3",
                                                                                                                                                                                                                                                                               "4", "5", "6"), name = "Contrast 2", values = c("1", "-1", "0",
                                                                                                                                                                                                                                                                                                                               "0", "0", "0")))
-  options$bootstrap_samples <- 500
-  options$dependentVariable <- "JaspColumn_.5._Encoded"
+  options$bootstrapSamples <- 500
+  options$dependentVariable <- "Variable5"
   options$fitStats <- TRUE
-  options$fixedEffects <- list(list(components = "JaspColumn_.1._Encoded"), list(components = "JaspColumn_.7._Encoded"),
-                               list(components = c("JaspColumn_.1._Encoded", "JaspColumn_.7._Encoded"
+  options$fixedEffects <- list(list(components = "Variable1"), list(components = "Variable7"),
+                               list(components = c("Variable1", "Variable7"
                                )))
-  options$fixedVariables <- c("JaspColumn_.1._Encoded", "JaspColumn_.7._Encoded")
-  options$marginalMeans <- list(list(variable = "JaspColumn_.1._Encoded"), list(variable = "JaspColumn_.7._Encoded"))
+  options$fixedVariables <- c("Variable1", "Variable7")
+  options$marginalMeans <- list(list(variable = "Variable1"), list(variable = "Variable7"))
   options$marginalMeansContrast <- TRUE
   options$method <- "LRT"
   options$plotAlpha <- 0.7
@@ -33,7 +33,7 @@ context("Generalized Linear Mixed Models")
   options$plotLegendPosition <- "none"
   options$plotRelativeSize <- 1
   options$plotRelativeSizeText <- 1.5
-  options$plotsAgregatedOver <- "JaspColumn_.0._Encoded"
+  options$plotsAgregatedOver <- "Variable0"
   options$plotsBackgroundColor <- "darkgrey"
   options$plotsCImethod <- "model"
   options$plotsCIwidth <- 0.95
@@ -46,13 +46,13 @@ context("Generalized Linear Mixed Models")
   options$plotsPanel <- list()
   options$plotsTheme <- "JASP"
   options$plotsTrace <- list()
-  options$plotsX <- list(list(variable = "JaspColumn_.1._Encoded"))
+  options$plotsX <- list(list(variable = "Variable1"))
   options$pvalVS <- FALSE
   options$randomEffects <- list(
     list(correlations = TRUE,
-         randomComponents = list(list(randomSlopes = TRUE, value = "JaspColumn_.1._Encoded")),
-         value = "JaspColumn_.0._Encoded"))
-  options$randomVariables <- "JaspColumn_.0._Encoded"
+         randomComponents = list(list(randomSlopes = TRUE, value = "Variable1")),
+         value = "Variable0"))
+  options$randomVariables <- "Variable0"
   options$seed <- 1
   options$setSeed <- FALSE
   options$showFE <- TRUE
@@ -63,12 +63,12 @@ context("Generalized Linear Mixed Models")
   options$trendsContrasts <- list(list(isContrast = FALSE, levels = c("1", "2"), name = "cA",
                                        values = c("1", "2")), list(isContrast = TRUE, levels = c("1",
                                                                                                  "2"), name = "Contrast 1", values = c("-1", "1")))
-  options$trendsTrend <- list(list(variable = "JaspColumn_.7._Encoded"))
-  options$trendsVariables <- list(list(variable = "JaspColumn_.1._Encoded"))
+  options$trendsTrend <- list(list(variable = "Variable7"))
+  options$trendsVariables <- list(list(variable = "Variable1"))
   options$type <- "3"
   options$link <- "logit"
   set.seed(1)
-  dataset <- structure(list(JaspColumn_.0._Encoded = c(1L, 2L, 3L, 4L, 5L,
+  dataset <- structure(list(Variable0 = c(1L, 2L, 3L, 4L, 5L,
                                                        6L, 7L, 8L, 9L, 10L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L,
                                                        1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L, 1L, 2L, 3L, 4L, 5L,
                                                        6L, 7L, 8L, 9L, 10L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L,
@@ -88,7 +88,7 @@ context("Generalized Linear Mixed Models")
                                                        6L, 7L, 8L, 9L, 10L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L,
                                                        1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L, 1L, 2L, 3L, 4L, 5L,
                                                        6L, 7L, 8L, 9L, 10L, 1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L,
-                                                       1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L), JaspColumn_.1._Encoded = c(1L,
+                                                       1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L), Variable1 = c(1L,
                                                                                                                             1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L,
                                                                                                                             2L, 2L, 2L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 2L, 2L, 2L,
                                                                                                                             2L, 2L, 2L, 2L, 2L, 2L, 2L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L,
@@ -107,7 +107,7 @@ context("Generalized Linear Mixed Models")
                                                                                                                             1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L,
                                                                                                                             2L, 2L, 2L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 2L, 2L, 2L,
                                                                                                                             2L, 2L, 2L, 2L, 2L, 2L, 2L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L,
-                                                                                                                            1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L), JaspColumn_.2._Encoded = c(1L,
+                                                                                                                            1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L), Variable2 = c(1L,
                                                                                                                                                                                                     1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                                                                                                                                                                                                     1L, 1L, 1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L,
                                                                                                                                                                                                     2L, 2L, 2L, 2L, 2L, 2L, 2L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L,
@@ -126,7 +126,7 @@ context("Generalized Linear Mixed Models")
                                                                                                                                                                                                     1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                                                                                                                                                                                                     1L, 1L, 1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L,
                                                                                                                                                                                                     2L, 2L, 2L, 2L, 2L, 2L, 2L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L,
-                                                                                                                                                                                                    3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L), JaspColumn_.3._Encoded = c(1L,
+                                                                                                                                                                                                    3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L), Variable3 = c(1L,
                                                                                                                                                                                                                                                                             1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                                                                                                                                                                                                                                                                             1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                                                                                                                                                                                                                                                                             1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L,
@@ -145,7 +145,7 @@ context("Generalized Linear Mixed Models")
                                                                                                                                                                                                                                                                             5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L,
                                                                                                                                                                                                                                                                             5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L,
                                                                                                                                                                                                                                                                             5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L,
-                                                                                                                                                                                                                                                                            5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L), JaspColumn_.4._Encoded = c(-0.653989689,
+                                                                                                                                                                                                                                                                            5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L), Variable4 = c(-0.653989689,
                                                                                                                                                                                                                                                                                                                                                     0.597847379, 0.53124944, -0.919283666, 1.549214002, -0.964337181,
                                                                                                                                                                                                                                                                                                                                                     0.758624407, -0.633353539, 0.093434858, 0.081944247, 1.251310302,
                                                                                                                                                                                                                                                                                                                                                     1.399815493, -0.942716455, -0.495601118, 0.917930091, 0.344838602,
@@ -205,7 +205,7 @@ context("Generalized Linear Mixed Models")
                                                                                                                                                                                                                                                                                                                                                     -1.502343948, -1.37596223, 0.74894869, 0.664588217, 1.321486377,
                                                                                                                                                                                                                                                                                                                                                     1.888462109, -0.903168893, -3.201437624, -0.535609031, 0.554010178,
                                                                                                                                                                                                                                                                                                                                                     -0.547718747, 1.542488798, 1.851156869, 0.154379085, 0.617288371,
-                                                                                                                                                                                                                                                                                                                                                    1.273637679, -1.466949312, -0.150368723, -0.256217966), JaspColumn_.5._Encoded = c(1L,
+                                                                                                                                                                                                                                                                                                                                                    1.273637679, -1.466949312, -0.150368723, -0.256217966), Variable5 = c(1L,
                                                                                                                                                                                                                                                                                                                                                                                                                                        0L, 1L, 0L, 1L, 0L, 1L, 0L, 1L, 0L, 0L, 1L, 0L, 1L, 1L, 1L, 1L,
                                                                                                                                                                                                                                                                                                                                                                                                                                        0L, 1L, 0L, 1L, 1L, 1L, 0L, 1L, 0L, 0L, 0L, 1L, 0L, 0L, 0L, 0L,
                                                                                                                                                                                                                                                                                                                                                                                                                                        0L, 0L, 1L, 1L, 0L, 0L, 0L, 0L, 0L, 1L, 1L, 0L, 1L, 0L, 1L, 1L,
@@ -224,7 +224,7 @@ context("Generalized Linear Mixed Models")
                                                                                                                                                                                                                                                                                                                                                                                                                                        0L, 0L, 0L, 1L, 1L, 0L, 0L, 0L, 1L, 1L, 0L, 0L, 1L, 1L, 1L, 1L,
                                                                                                                                                                                                                                                                                                                                                                                                                                        0L, 1L, 1L, 0L, 0L, 1L, 0L, 1L, 1L, 1L, 0L, 1L, 1L, 1L, 1L, 0L,
                                                                                                                                                                                                                                                                                                                                                                                                                                        0L, 0L, 0L, 1L, 0L, 0L, 1L, 1L, 0L, 0L, 1L, 1L, 1L, 1L, 0L, 0L,
-                                                                                                                                                                                                                                                                                                                                                                                                                                       0L, 1L, 0L, 1L, 0L, 1L, 1L, 1L, 0L, 1L, 0L), JaspColumn_.6._Encoded = c(2L,
+                                                                                                                                                                                                                                                                                                                                                                                                                                       0L, 1L, 0L, 1L, 0L, 1L, 1L, 1L, 0L, 1L, 0L), Variable6 = c(2L,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                2L, 4L, 3L, 8L, 0L, 2L, 1L, 1L, 1L, 6L, 4L, 0L, 1L, 2L, 1L, 0L,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0L, 4L, 1L, 0L, 1L, 3L, 10L, 3L, 1L, 1L, 1L, 2L, 1L, 2L, 0L,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                2L, 0L, 3L, 4L, 2L, 1L, 0L, 2L, 1L, 1L, 0L, 2L, 0L, 1L, 0L, 1L,
@@ -244,7 +244,7 @@ context("Generalized Linear Mixed Models")
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0L, 0L, 0L, 0L, 18L, 10L, 4L, 12L, 0L, 9L, 1L, 1L, 1L, 0L, 3L,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                3L, 0L, 0L, 0L, 4L, 1L, 1L, 4L, 1L, 0L, 4L, 5L, 14L, 2L, 1L,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                1L, 3L, 0L, 0L, 2L, 2L, 5L, 9L, 0L, 0L, 2L, 1L, 0L, 3L, 6L, 0L,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               4L, 6L, 0L, 1L, 1L), JaspColumn_.7._Encoded = c(0.427219425,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               4L, 6L, 0L, 1L, 1L), Variable7 = c(0.427219425,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0.220688309, 0.570053273, 0.231100824, 0.131067892, 1, 0.076567255,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                0.405903343, 0.474725634, 0.990018262, 0.192843674, 0.224774893,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                1, 0.740614383, 0.851823829, 0.653432541, 1, 1, 0.624686075,
@@ -296,9 +296,9 @@ context("Generalized Linear Mixed Models")
   test_that("ANOVA Summary table results match", {
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, "JaspColumn_.1._Encoded", 0.991431110310274, 0.000115341522132439,
-                                        1, "JaspColumn_.7._Encoded", 0.0187024090268013, 5.5291293975402,
-                                        1, "JaspColumn_.1._Encoded * JaspColumn_.7._Encoded", 0.528941241360197,
+                                   list(1, "Variable1", 0.991431110310274, 0.000115341522132439,
+                                        1, "Variable7", 0.0187024090268013, 5.5291293975402,
+                                        1, "Variable1 * Variable7", 0.528941241360197,
                                         0.396425180671656))
   })
 
@@ -329,16 +329,16 @@ context("Generalized Linear Mixed Models")
     jaspTools::expect_equal_tables(table,
                                    list(1.01114715607801, 0.188755680199758, 0.769360854494757, 1.31426904575492,
                                         "Intercept", 0.00493804175582078, 0.991565307672846, 0.467108193062088,
-                                        0.0105715160409623, "JaspColumn_.1._Encoded", -2.50123804213005,
-                                        0.0208986439411648, 1.08287583244124, -2.30981056848527, "JaspColumn_.7._Encoded",
+                                        0.0105715160409623, "Variable1", -2.50123804213005,
+                                        0.0208986439411648, 1.08287583244124, -2.30981056848527, "Variable7",
                                         0.43017430669552, 0.528658632555254, 0.682756807631676, 0.630054950587302,
-                                        "JaspColumn_.1._Encoded * JaspColumn_.7._Encoded"))
+                                        "Variable1 * Variable7"))
   })
 
-  test_that("JaspColumn_.0._Encoded: Correlation Estimates table results match", {
+  test_that("Variable0: Correlation Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE1"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, "Intercept", -0.860597215248448, 1, "JaspColumn_.1._Encoded"
+                                   list(1, "Intercept", -0.860597215248448, 1, "Variable1"
                                    ))
   })
 
@@ -348,15 +348,15 @@ context("Generalized Linear Mixed Models")
                                    list(1, 1))
   })
 
-  test_that("JaspColumn_.0._Encoded: Variance Estimates table results match", {
+  test_that("Variable0: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE1"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list(0.889188580238109, 0.790656331225863, "Intercept", 0.470404764148096,
-                                        0.221280642133226, "JaspColumn_.1._Encoded"))
+                                        0.221280642133226, "Variable1"))
   })
 
   test_that("Contrasts table results match", {
-    table <- results[["results"]][["contrasts_Means"]][["data"]]
+    table <- results[["results"]][["contrastsMeans"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list("Contrast 1", "<unicode><unicode><unicode>", 0.209335420026882,
                                         0.0163060641315532, 0.0791239089261232, 2.64566580276431, "Contrast 2",
@@ -365,7 +365,7 @@ context("Generalized Linear Mixed Models")
   })
 
   test_that("Contrasts table results match", {
-    table <- results[["results"]][["contrasts_Trends"]][["data"]]
+    table <- results[["results"]][["contrastsTrends"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list("Contrast 1", "<unicode><unicode><unicode>", 0.430174306695523,
                                         0.528658632555254, 0.68275680763168, 0.630054950587302))
@@ -412,7 +412,7 @@ context("Generalized Linear Mixed Models")
                                                                                                                                                                                                                                                                                                                                                         "-1", "0", "0", "0", "0")), list(isContrast = TRUE, levels = c("2",
                                                                                                                                                                                                                                                                                                                                                                                                                        "3", "4", "5", "6", "7"), name = "Contrast 2", values = c("0",
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  "1", "-1", "0", "0", "0")))
-  options$bootstrap_samples <- 500
+  options$bootstrapSamples <- 500
   options$dependentVariable <- "contBinom"
   options$fitStats <- TRUE
   options$fixedEffects <- list(list(components = "contNormal"), list(components = "facGender"),
@@ -525,7 +525,7 @@ context("Generalized Linear Mixed Models")
   })
 
   test_that("Contrasts table results match", {
-    table <- results[["results"]][["contrasts_Means"]][["data"]]
+    table <- results[["results"]][["contrastsMeans"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list("Contrast 1", "<unicode><unicode><unicode>", 0.25187564641617,
                                         0.294980047829034, 0.24050936605887, 1.04725920051911, "Contrast 2",
@@ -561,7 +561,7 @@ context("Generalized Linear Mixed Models")
                                                                                            "3"), name = "Contrast 1", values = c("1", "0")), list(isContrast = TRUE,
                                                                                                                                                   levels = c("2", "3"), name = "Contrast 2", values = c("0",
                                                                                                                                                                                                         "0")))
-  options$bootstrap_samples <- 10
+  options$bootstrapSamples <- 10
   options$dependentVariable <- "contGamma"
   options$family <- "Gamma"
   options$fitStats <- FALSE
@@ -679,7 +679,7 @@ context("Generalized Linear Mixed Models")
   })
 
   test_that("Contrasts table results match", {
-    table <- results[["results"]][["contrasts_Means"]][["data"]]
+    table <- results[["results"]][["contrastsMeans"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list("Contrast 1", "<unicode><unicode><unicode>", 0.587430349612986,
                                         6.35907081922447e-08, 0.108614466701096, 5.408398783834))
@@ -698,7 +698,7 @@ context("Generalized Linear Mixed Models")
   options$Contrasts <- list(list(isContrast = FALSE, levels = c("2", "3"), name = "facGender",
                                  values = c("f", "m")), list(isContrast = TRUE, levels = c("2",
                                                                                            "3"), name = "Contrast 1", values = c("0", "0")))
-  options$bootstrap_samples <- 10
+  options$bootstrapSamples <- 10
   options$dependentVariable <- "facFifty"
   options$family <- "poisson"
   options$fitStats <- FALSE
@@ -801,10 +801,10 @@ context("Generalized Linear Mixed Models")
   options$Contrasts <- list(list(isContrast = FALSE, levels = c("2", "3"), name = "cA",
                                  values = c("1", "2")), list(isContrast = TRUE, levels = c("2",
                                                                                            "3"), name = "Contrast 1", values = c("-1", "1")))
-  options$bootstrap_samples <- 500
+  options$bootstrapSamples <- 500
   options$dependentVariable <- "binom_mean"
   options$dependentVariableAggregation <- "rep"
-  options$family <- "binomial_agg"
+  options$family <- "binomialAgg"
   options$fitStats <- TRUE
   options$fixedEffects <- list(list(components = "cA"), list(components = "cB"), list(components = c("cA",
                                                                                                      "cB")))
@@ -870,35 +870,34 @@ context("Generalized Linear Mixed Models")
                                     5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L,
                                     5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L, 5L,
                                     5L, 5L)), class = "data.frame", row.names = c(NA, -60L))
-  results <- jaspTools::runAnalysis("MixedModelsGLMM", dataset, options)
+  results <- jaspTools::runAnalysis("MixedModelsGLMM", dataset = dataset, options)
 
 
   test_that("ANOVA Summary table results match", {
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list(1, "cA", 0.768666971055732, 0.0865059874772953, 1, "cB", 0.479800725027522,
-                                        0.499316216168296, 1, "cA * cB", 0.859034817019825, 0.0315428035947605
-                                   ))
+                                        0.499316216168296, 1, "cA<unicode><unicode><unicode><unicode><unicode><unicode><unicode><unicode><unicode>cB",
+                                        0.859034817019825, 0.0315428035947605))
   })
 
-  # rounding due to problems on MacOS
   test_that("Estimated Marginal Means table results match", {
     table <- results[["results"]][["EMMsummary"]][["data"]]
-    jaspTools::expect_equal_tables(sapply(as.numeric(unlist(table)), round, 3, simplify = F),
-                                   sapply(list(1, 0.521559047720783, 0.41115145068317, 1, 0.0567190036068068,
-                                               0.629899750093515, 2, 0.543534580013736, 0.424298904623603,
-                                               2, 0.0607273848025058, 0.657981320465884), round, 3, simplify = F))
+    jaspTools::expect_equal_tables(table,
+                                   list(1, 0.521559047720783, 0.41115145068317, 1, 0.0567190036068068,
+                                        0.629899750093515, 2, 0.543534580013736, 0.424298904623603,
+                                        2, 0.0607273848025058, 0.657981320465884))
   })
 
-  # rounding due to problems on MacOS
   test_that("Fixed Effects Estimates table results match", {
     table <- results[["results"]][["FEsummary"]][["data"]]
-    jaspTools::expect_equal_tables(sapply(as.numeric(unlist(table)), round, 3, simplify = F),
-                                   sapply(as.numeric(c(0.661160396272512, 0.526032009864107, 1.04271672627264, 0.634074796743634,
+    jaspTools::expect_equal_tables(table,
+                                   list(0.661160396272512, 0.526032009864107, 1.04271672627264, 0.634074796743634,
                                         "Intercept", 0.194569016770762, 0.768524273472735, 0.661111825925663,
                                         0.294305757574876, "cA", -0.331580696152255, 0.480882470945843,
                                         0.470404674525666, -0.704883931025144, "cB", -0.0531391637884625,
-                                        0.858923106746129, 0.298962625751381, -0.177745173514275, "cA * cB")), round, 3, simplify = F))
+                                        0.858923106746129, 0.298962625751381, -0.177745173514275, "cA<unicode><unicode><unicode><unicode><unicode><unicode><unicode><unicode><unicode>cB"
+                                   ))
   })
 
   test_that("id: Correlation Estimates table results match", {
@@ -921,7 +920,7 @@ context("Generalized Linear Mixed Models")
   })
 
   test_that("Contrasts table results match", {
-    table <- results[["results"]][["contrasts_Means"]][["data"]]
+    table <- results[["results"]][["contrastsMeans"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list("Contrast 1", "<unicode><unicode><unicode>", 0.021975532292953,
                                         0.74419933094708, 0.0673481619405325, 0.326297432027278))

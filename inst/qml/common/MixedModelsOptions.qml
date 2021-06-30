@@ -69,7 +69,7 @@ Section
 		IntegerField
 		{
 			enabled:		method.currentValue == "PB"
-			name:			"bootstrap_samples"
+			name:			"bootstrapSamples"
 			label:			qsTr("No. samples")
 			defaultValue:	500
 			min:			100

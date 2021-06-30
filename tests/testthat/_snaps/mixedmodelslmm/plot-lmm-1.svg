@@ -117,8 +117,8 @@
 <polyline points='541.04,515.60 541.04,507.09 ' style='stroke-width: 0.64; stroke-linecap: butt;' />
 <text x='242.77' y='534.27' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='9.46px' lengthAdjust='spacingAndGlyphs'>1</text>
 <text x='541.04' y='534.27' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='9.46px' lengthAdjust='spacingAndGlyphs'>2</text>
-<text x='391.91' y='566.78' text-anchor='middle' style='font-size: 20.40px; font-family: sans;' textLength='239.34px' lengthAdjust='spacingAndGlyphs'>JaspColumn_.1._Encoded</text>
-<text transform='translate(19.02,263.90) rotate(-90)' text-anchor='middle' style='font-size: 20.40px; font-family: sans;' textLength='239.34px' lengthAdjust='spacingAndGlyphs'>JaspColumn_.4._Encoded</text>
+<text x='391.91' y='566.78' text-anchor='middle' style='font-size: 20.40px; font-family: sans;' textLength='86.19px' lengthAdjust='spacingAndGlyphs'>Variable1</text>
+<text transform='translate(19.02,263.90) rotate(-90)' text-anchor='middle' style='font-size: 20.40px; font-family: sans;' textLength='86.19px' lengthAdjust='spacingAndGlyphs'>Variable4</text>
 <text x='391.91' y='11.70' text-anchor='middle' style='font-size: 17.00px; font-family: sans;' textLength='80.29px' lengthAdjust='spacingAndGlyphs'>plot-lmm-1</text>
 </g>
 </svg>
