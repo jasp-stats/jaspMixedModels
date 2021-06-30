@@ -1,120 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: R 3.6.1\n"
-"Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: 2021-06-30 10:31\n"
-"PO-Revision-Date: 2020-12-02 21:29+0000\n"
-"Last-Translator: JASP Stats <F.A.M.Meerhoff@uva.nl>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/jasp-engine/"
-"nl/>\n"
-"Language: nl\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: gl_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.4-dev\n"
+"X-Virgin-Header: remove this line if you change anything in the header.\n"
+"X-Language: gl_ES\n"
+"X-Source-Language: C\n"
+"X-Generator: Poedit 2.3\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
 "number of observations."
 msgstr ""
-"De categorisch gefixeerde effect '%s' moet minder niveaus hebben dan het "
-"totale aantal observaties."
 
 msgid ""
 "The random effects grouping factor '%s' must have fewer levels than the "
 "overall number of observations."
 msgstr ""
-"De willekeurige effecten groeperingsfactor '%s' moet minder niveaus hebben "
-"dan het totale aantal observaties."
 
 msgid ""
 "The number of iterations must be at least 2 iterations higher than the burnin"
 msgstr ""
-"Het aantal iteraties moet minstens 2 iteraties hoger zijn dan het "
-"opwarmingsaantal"
 
+#, fuzzy
 msgid "%s requires that the dependent variable is positive."
-msgstr "%s vereist dat de afhankelijke variabele positief is."
+msgstr "Correlacionar variables dependentes"
 
+#, fuzzy
 msgid "%s requires that the dependent variable is an integer."
-msgstr "%s vereist dat de afhankelijke variabele een geheel getal is."
+msgstr "Correlacionar variables dependentes"
 
 msgid "%s requires that the dependent variable contains only 0 and 1."
-msgstr "%s vereist dat de afhankelijke variabele slechts 0 en 1 kan zijn."
+msgstr ""
 
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
 msgstr ""
-"%s vereist dat de afhankelijke variabele hoger dan 0 en lager dan 1 is."
 
 msgid "%s requires that the number of trials variable is an integer."
-msgstr "%s vereist dat de steekproefgrootte variabele een geheel getal is."
+msgstr ""
 
 msgid ""
 "%s requires that the dependent variable is proportion of successes out of "
 "the number of trials."
 msgstr ""
-"%s vereist dat de afhankelijke variabele het aandeel van de successen in de "
-"steekproefgrootte is."
 
+#, fuzzy
 msgid "ANOVA Summary"
-msgstr "ANOVA Samenvatting"
+msgstr "Resumo"
 
 msgid "Effect"
-msgstr "Effecten"
+msgstr "Efecto"
 
 msgid "df"
-msgstr "vg"
+msgstr "gl"
 
+#, fuzzy
 msgid "F"
-msgstr "F"
+msgstr "FB"
 
 msgid "ChiSq"
-msgstr "ChiKw"
+msgstr ""
 
 msgid "p"
 msgstr "p"
 
+#, fuzzy
 msgid "p (bootstrap)"
-msgstr "p (bootstrap)"
+msgstr "bootstraps"
 
 msgid "VS-MPR"
-msgstr "VS-MPR"
+msgstr ""
 
+#, fuzzy
 msgid "VS-MPR (bootstrap)"
-msgstr "VS-MPR (bootstrap)"
+msgstr "bootstraps"
 
 msgid ""
 "The optimizer failed to find a solution. Probably due to quasi-separation in "
 "the data. Try removing some of the predictors."
 msgstr ""
-"De optimalisatie procedure kon geen oplossing vinden. Waarschijnlijk is er "
-"sprake van quasi-afzondering in de gegevens. Verwijder een aantal "
-"onafhankelijke variabelen."
 
 msgid ""
 "The optimizer failed to find a solution due to invalid starting values. "
 "(JASP currently does not support specifying different starting values.)"
 msgstr ""
-"De optimalisatie procedure kon geen oplossing vinden door ongeldige "
-"beginwaarden. (Het is op dit moment nog niet mogelijk om andere beginwaarde "
-"te specificeren in JASP.)"
 
 msgid ""
 "The optimizer failed to find a solution. Probably due to scaling issues "
 "quasi-separation in the data. Try rescaling or removing some of the "
 "predictors."
 msgstr ""
-"De optimalisatie procedure kon geen oplossing vinden. Waarschijnlijk is er "
-"sprake van quasi-afzondering in de gegevens door een schalingsprobleem. "
-"Verwijder een aantal onafhankelijke variabelen."
 
+#, fuzzy
 msgid "Intercept"
-msgstr "Intercept"
+msgstr "Constantes"
 
+#, fuzzy
 msgid "Warning:"
-msgstr "Waarschuwing:"
+msgstr "Planificación"
 
 msgid "III"
 msgstr "III"
@@ -122,17 +117,19 @@ msgstr "III"
 msgid "II"
 msgstr "II"
 
+#, fuzzy
 msgid "Fit statistics"
-msgstr "Pasmaten"
+msgstr "estatístico t"
 
 msgid "Deviance"
-msgstr "Afwijking"
+msgstr "Desviación"
 
+#, fuzzy
 msgid "Deviance (REML)"
-msgstr "Afwijking (REML)"
+msgstr "Desviación"
 
 msgid "log Lik."
-msgstr "log Aanneme."
+msgstr ""
 
 msgid "AIC"
 msgstr "AIC"
@@ -140,177 +137,185 @@ msgstr "AIC"
 msgid "BIC"
 msgstr "BIC"
 
+#, fuzzy
 msgid "Sample sizes"
-msgstr "Steekproefgroottes"
+msgstr "Tamaño da mostra"
 
+#, fuzzy
 msgid "Observations"
-msgstr "Observaties"
+msgstr "Iteracións"
 
+#, fuzzy
 msgid "Levels of RE grouping factors"
-msgstr "Niveaus van RE-groeperingsfactoren"
+msgstr "Factores de agrupamento de efectos aleatorios"
 
+#, fuzzy
 msgid "Variance/Correlation Estimates"
-msgstr "Variantie/Correlatie Schattingen"
+msgstr "Estimacións de varianzas/correlacións"
 
+#, fuzzy
 msgid "%s: Variance Estimates"
-msgstr "%s: Variantie Schattingen"
+msgstr "Estimacións de varianzas/correlacións"
 
 msgid "Term"
-msgstr "Term"
+msgstr ""
 
+#, fuzzy
 msgid "Std. Deviation"
-msgstr "Standaardafwijking"
+msgstr "Desviación típica"
 
 msgid "Variance"
-msgstr "Variantie"
+msgstr "Varianza"
 
+#, fuzzy
 msgid "%s: Correlation Estimates"
-msgstr "%s Correlatie Schattingen"
+msgstr "Matriz de correlacións"
 
+#, fuzzy
 msgid "Residual Variance Estimates"
-msgstr "Residuele Variantie Schattingen"
+msgstr "Varianzas dos erros"
 
+#, fuzzy
 msgid "Fixed Effects Estimates"
-msgstr "Gefixeerde Effecten Schattingen"
+msgstr "Estimacións de efectos fixos"
 
+#, fuzzy
 msgid "Estimate"
-msgstr "Schatting"
+msgstr "Estimado"
 
+#, fuzzy
 msgid "SE"
-msgstr "Std. Fout"
+msgstr "M.E.S."
 
 msgid "t"
 msgstr "t"
 
 msgid "Plot"
-msgstr "Grafiek"
+msgstr "Gráfica"
 
 msgid ""
 "At least one random effects grouping factor needs to be selected in field "
 "'Background data show'."
 msgstr ""
-"Minstens een willekeurige groeperingsfactor moet geselecteerd worden in "
-"invoeringsveld 'Achtergrond gegevens tonen'."
 
 msgid ""
 "Factor levels need to be distinguished by at least one feature. Please, "
 "check one of the 'Distinguish factor levels' options."
 msgstr ""
-"De factor niveaus moeten onderscheiden worden op basis van tenminste een "
-"kenmerk. Selecteer een van de 'Onderscheiden factor niveaus' opties."
 
+#, fuzzy
 msgid "Estimated Means and Confidence Intervals"
-msgstr "Geschatte Gemiddelden en Betrouwbaarheidsintervallen"
+msgstr "Intervalo de confianza"
 
 msgid "Mean"
-msgstr "Gemiddelde"
+msgstr "Media"
 
 msgid "Lower"
-msgstr "Onder"
+msgstr "Inferior"
 
 msgid "%s%% CI"
-msgstr "%s%% BI"
+msgstr ""
 
 msgid "Upper"
-msgstr "Boven"
+msgstr "Superior"
 
 msgid "Estimated Marginal Means"
-msgstr "Geschatte Marginale Gemiddelden"
+msgstr "Medias marxinais estimadas"
 
 msgid "Row"
-msgstr "Rij"
+msgstr "Fila"
 
 msgid "z"
-msgstr "z"
+msgstr ""
 
 msgid "Median"
-msgstr "Mediaan"
+msgstr "Mediana"
 
 msgid "%s%% HPD"
-msgstr "%s%% HGI"
+msgstr ""
 
+#, fuzzy
 msgid "Estimated Trends"
-msgstr "Geschatte Trends"
+msgstr "Estimar gl"
 
 msgid "%s (slope)"
-msgstr "%s (helling)"
+msgstr ""
 
 msgid "Contrasts"
-msgstr "Contrasten"
+msgstr "Probas"
 
 msgid "Odds Ratio"
-msgstr "Odds Ratio"
+msgstr "Proporción de posibilidades"
 
 msgid "Ratio"
-msgstr "Ratio"
+msgstr "Proporción"
 
+#, fuzzy
 msgid "Fit Statistics"
-msgstr "Pasmaten"
+msgstr "Estatísticos"
 
 msgid "WAIC"
-msgstr "WAIC"
+msgstr ""
 
 msgid "SE (WAIC)"
-msgstr "Std. Dev. (WAIC)"
+msgstr ""
 
 msgid "LOO"
-msgstr "LOO"
+msgstr ""
 
 msgid "SE (LOO)"
-msgstr "Std. Dev. (LOO)"
+msgstr ""
 
 msgid "Model summary"
-msgstr "Model samenvatting"
+msgstr "Resumo do modelo"
 
+#, fuzzy
 msgid "%s (differences from intercept)"
-msgstr "%s (verschillen t.o.v. intercept)"
+msgstr "Diferenzas coa constante"
 
 msgid "%s (trend)"
-msgstr "%s (trend)"
+msgstr ""
 
+#, fuzzy
 msgid "%s (marginal means)"
-msgstr "%s (marginale gemiddelde)"
+msgstr "Medias marxinais"
 
+#, fuzzy
 msgid "Level"
-msgstr "Niveau"
+msgstr "Niveis"
 
 msgid "R-hat"
-msgstr "R-hat"
+msgstr "R-circunflexo"
 
 msgid "ESS (bulk)"
-msgstr "ESS (bulk)"
+msgstr ""
 
 msgid "ESS (tail)"
-msgstr "ESS (staart)"
+msgstr ""
 
 msgid ""
 "The model could not be estimated. Please, check the options and dataset for "
 "errors."
 msgstr ""
-"Het model kon niet worden geschat. Controleer aub de opties en gegevens op "
-"fouten."
 
+#, fuzzy
 msgid "Sampling diagnostics"
-msgstr "Steekproef diagnostiek"
+msgstr "Unidades da mostraxe"
 
+#, fuzzy
 msgid "Avg. autocorrelation"
-msgstr "Gemiddelde autocorrelatie"
+msgstr "Autocorrelación"
 
 msgid ""
 "The following variables are a linear combination of each other, please, "
 "remove one of them from the analysis: %s"
 msgstr ""
-"De volgende variabelen zijn lineair afhankelijk van elkaar, haal a.u.b één "
-"van deze variabelen uit de analyse: %s"
 
 msgid ""
 "The intercept corresponds to the (unweighted) grand mean; for each factor "
 "with k levels, k - 1 parameters are estimated. Consequently, the estimates "
 "cannot be directly mapped to factor levels."
 msgstr ""
-"De intercept correspondeert met een (ongewogen) overkoepelende gemiddelde; "
-"voor elke factor met k niveaus zijn k-1 parameters geschat. Als gevolg "
-"hiervan zijn de schatting niet direct te relateren aan de factor niveaus."
 
 msgid ""
 "Model fit is singular. Specified random effects parameters (random "
@@ -318,11 +323,6 @@ msgid ""
 "Carefully reduce the random effects structure, but this practice might "
 "inflate the reported p-value, and invalidates the analysis."
 msgstr ""
-"Model passing is singulier. De gespecificeerde willekeurige effecten "
-"parameters (willekeurige intercepten and willekeurige hellingen) kunnen niet "
-"geschat worden op basis van de gegevens. Reduceer de willekeurige effecten "
-"structuur, maar merk op dat hierdoor de p-waarde opblaast, waardoor de "
-"validiteit van de analyse in gevaar komt."
 
 msgid ""
 "Vovk-Sellke Maximum <em>p</em>-Ratio: Based on a two-sided <em>p</em>-value, "
@@ -330,10 +330,6 @@ msgid ""
 "em> log(<em>p</em>)) for <em>p</em> %3$s .37 (Sellke, Bayarri, & Berger, "
 "2001)."
 msgstr ""
-"Vovk-Sellke Maximum <em>p</em>-Ratio: Gebaseerd op een tweezijdige <em>p</"
-"em>-waarde, de maximaal mogelijke kansen ten gunste van H%1$s boven H%2$s is "
-"gelijk aan 1/(-e <em>p</em> log(<em>p</em>)) voor <em>p</em> %3$s .37 "
-"(Sellke, Bayarri, & Berger, 2001)."
 
 msgid ""
 "Numerical problems with the maximum-likelihood estimate (e.g., gradients too "
@@ -343,119 +339,117 @@ msgid ""
 "this may induce unknown risks of anti-conservative results (i.e., p-values "
 "might be lower than nominal)."
 msgstr ""
-"Numerieke problemen met de meest waarschijnlijkheidsschatter, zoals een "
-"gradient dat te groot is. Hierdoor kunnen de gespecificeerde willekeurige "
-"effecten parameters (willekeurige intercepten en willekeurige hellingen) "
-"niet geschat worden op basis van de gegevens. Reduceer de willekeurige "
-"effecten structuur, maar merk op dat dit er voor zorgt dat dit de p-waarde "
-"opblaast, waardoor inferentie ongeldig wordt."
 
 msgid ""
 "Estimation of degrees of freedom disabled (i.e., asymptotic results shown), "
 "because the number of observations is large. To force estimation, check "
 "corresponding option."
-msgstr "Op basis van een normale approximatie."
+msgstr ""
 
+#, fuzzy
 msgid "Results are on the response scale."
-msgstr "De getoonde resultaten zijn op de uitkomst schaal."
+msgstr "Preferencias de resultados"
 
 msgid "Results are not on the response scale and might be misleading."
 msgstr ""
-"De getoonde resultaten zijn niet op de uitkomst schaal en kunnen daardoor "
-"misleidend zijn."
 
+#, fuzzy
 msgid "Type %s Sum of Squares"
-msgstr "Type %s Kwadratensom"
+msgstr "Suma de cadrados"
 
 msgid ""
 "This analysis requires at least one random effects grouping factor to run."
-msgstr "Deze analyse heeft tenminste een willekeurige groeperingsfactor nodig."
+msgstr ""
 
 msgid ""
 "The 'Binomial (aggregated)' family requires the 'Number of trials' to be "
 "specified to run."
 msgstr ""
-"Voor de 'Binomiaal (geaggregeerde)' familie moet de 'Steekproefgrootte' "
-"gespecificeerd zijn."
 
 msgid "P-values correspond to test of null hypothesis against %s."
 msgstr ""
-"De p-waarden corresponderen met een toets van de null hypothese tegen %s."
 
 msgid "Results are averaged over the levels of: %s."
-msgstr "Resultaten zijn gemiddeld over de niveaus van: %s."
+msgstr ""
 
+#, fuzzy
 msgid "binomial"
-msgstr "binomiaal"
+msgstr "Binomial"
 
+#, fuzzy
 msgid "gaussian"
-msgstr "Gaussische"
+msgstr "Normal"
 
+#, fuzzy
 msgid "gamma"
-msgstr "gamma"
+msgstr "Gamma"
 
+#, fuzzy
 msgid "inverse gaussian"
-msgstr "inverse Gaussische"
+msgstr "Normal Inversa"
 
+#, fuzzy
 msgid "poisson"
 msgstr "Poisson"
 
+#, fuzzy
 msgid "negative binomial"
-msgstr "negatief-binomiaal"
+msgstr "Binomial Negativa"
 
 msgid "beta"
-msgstr "beta"
+msgstr ""
 
 msgid "Generalized linear mixed model with %s family and %s link function."
 msgstr ""
-"Gegeneraliseerde lineaire gemengd model op basis van %s familie en %s "
-"koppeling."
 
 msgid "Satterthwaite"
-msgstr "Satterthwaite"
+msgstr ""
 
 msgid "Kenward-Roger"
-msgstr "Kenward-Roger"
+msgstr ""
 
+#, fuzzy
 msgid "likelihood ratio tests"
-msgstr "Waarschijnlijkheidsratio toets"
+msgstr "Probas da proporción de verosimilitudes"
 
+#, fuzzy
 msgid "parametric bootstrap"
-msgstr "parametrische bootstrap"
+msgstr "Bootstrap paramétrico"
 
 msgid "Model terms tested with %s method."
-msgstr "Model termen getest met %s methode."
+msgstr ""
 
+#, fuzzy
 msgid "P-values are not adjusted."
-msgstr "De p-waarden zijn niet bijgesteld."
+msgstr "Axuste do valor p"
 
 msgid "Holm"
 msgstr "Holm"
 
 msgid "Homel"
-msgstr "Homel"
+msgstr ""
 
 msgid "Hochberg"
-msgstr "Hochberg"
+msgstr ""
 
 msgid "Multivariate-t"
-msgstr "Multivariaat-t"
+msgstr "t multivariante"
 
 msgid "Tukey"
 msgstr "Tukey"
 
 msgid "Benjamini-Hochberg"
-msgstr "Benjamini-Hochberg"
+msgstr ""
 
 msgid "Benjamini-Yekutieli"
-msgstr "Benjamini-Yekutieli"
+msgstr ""
 
 #, fuzzy
 msgid "Scheffé"
 msgstr "Scheffe"
 
 msgid "Sidak"
-msgstr "Sidak"
+msgstr ""
 
 msgid "Dunnett"
 msgstr "Dunnett"
@@ -463,38 +457,31 @@ msgstr "Dunnett"
 msgid "Bonferroni"
 msgstr "Bonferroni"
 
+#, fuzzy
 msgid "P-values are adjusted using %s adjustment."
-msgstr "P-waarden zijn bijgesteld m.b.v. %s bijstelling."
+msgstr "Axuste do valor p"
 
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; The "
 "largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', "
 "or 'Adapt delta' in the Options section."
 msgstr ""
-"Inferentie mogelijk onbetrouwbaar -- MCMC ketens mogelijk niet "
-"geconvergeerd; De hoogste R-dakje is %.3f > 1.01. Om R-dakje te verlagen "
-"kunt u 'Iteraties' of 'Aanpassingsdelta' in de Opties sectie verhogen."
 
 msgid ""
 "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f "
 "< %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' "
 "in the Options section."
 msgstr ""
-"Lage schattingsaccuratesse -- De kleinste effectieve steekproefgrootte (ESS) "
-"is %.2f< %1.0f. Verhoog a.u.b. het aantal 'Iteraties', of 'Aanpassingsdelta' "
-"in de Opties sectie."
 
-#, fuzzy
 msgid "The model was fitted using %1$s.%2$s"
-msgstr "Het model is gepast m.b.v. %s."
+msgstr ""
 
 msgid "The following variable is used as a random effects grouping factor: %s."
 msgid_plural ""
 "The following variables are used as random effects grouping factors: %s."
-msgstr[0] "De volgende covariaat werd overwogen, maar niet meegenomen: %s."
-msgstr[1] "De volgende covariaten werden overwogen, maar niet meegenomen: %s."
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy
 msgid ""
 "All random slopes involving ‘%s’ have been removed for the random effects "
 "grouping factor ‘%s’. -- Factor %s does not vary within the levels of random "
@@ -504,15 +491,8 @@ msgid_plural ""
 "grouping factor ‘%s’. -- Factors %s do not vary within the levels of random "
 "effects grouping factor '%s'."
 msgstr[0] ""
-"Alle willekeurige hellingen van '%s' zijn verwijderd voor de willekeurige "
-"effecten groeperingsfactor '%s'. -- Factor %s verandert niet mee met de "
-"niveaus van de willekeurige effecten groeperinsfactor '%s'."
 msgstr[1] ""
-"Alle willekeurige hellingen van '%s' zijn verwijderd voor de willekeurige "
-"effecten groeperingsfactor '%s'. -- Factoren %s veranderen niet mee met de "
-"niveaus van de willekeurige effecten groeperinsfactor '%s'."
 
-#, fuzzy
 msgid ""
 "Random slopes of ‘%s’ for the random effects grouping factor ‘%s’ removed -- "
 "Too few observations to estimate random slopes of '%s' for random effects "
@@ -522,15 +502,7 @@ msgid_plural ""
 "Too few observations to estimate random slope of '%s' for random effects "
 "grouping factor '%s'."
 msgstr[0] ""
-"Willekeurige hellingen van '%s' voor de willekeurige effecten "
-"groeperingsfactor '%s' verwijderd -- Te weinig observaties voor het schatten "
-"van de willekeurige hellingen van '%s' voor willekeurige effecten "
-"groeperingsfactor '%s'."
 msgstr[1] ""
-"Willekeurige helling van '%s' voor de willekeurige effecten "
-"groeperingsfactor '%s' verwijderd -- Te weinig observaties voor het schatten "
-"van de willekeurige hellingen van '%s' voor willekeurige effecten "
-"groeperingsfactor '%s'."
 
 msgid ""
 "Lower order random effects terms need to be specified in presence of the "
@@ -541,18 +513,12 @@ msgid_plural ""
 "higher order random effects terms. Therefore, the following random effects "
 "terms were added to the '%s' random effects grouping factor: '%s.'"
 msgstr[0] ""
-"De volgende willekeurige effecten term is toegevoegd aan '%s' willekeurige "
-"effecten groeperingsfactor: '%s.', omdat voor hogere orde effecten de lagere "
-"orde effecten meegemodelleerd moeten worden."
 msgstr[1] ""
-"De volgende willekeurige effecten termen zijn toegevoegd aan '%s' "
-"willekeurige effecten groeperingsfactor: '%s.', omdat voor hogere orde "
-"effecten de lagere orde effecten meegemodelleerd moeten worden."
 
 msgid "%i observation was removed due to missing values."
 msgid_plural "%i observations were removed due to missing values."
-msgstr[0] "%i observatie is verwijderd, omdat de waarde ontbreekt."
-msgstr[1] "%i observaties zijn verwijderd omdat de waarden ontbreken."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid ""
 "The Hamiltonian Monte Carlo procedure might be invalid -- There was %i "
@@ -563,13 +529,7 @@ msgid_plural ""
 "divergent transitions after warmup. This can be solved by carefully "
 "increasing 'Adapt delta' until there are no divergent transitions."
 msgstr[0] ""
-"Mogelijk problemen met de validiteit van de Hamiltoniaanse Monte Carlo "
-"procedure -- %i divergente transitie na het opwarmen. Verhoog "
-"'Aanpassingsdelta' totdat er geen divergente transities meer zijn."
 msgstr[1] ""
-"Mogelijk problemen met de validiteit van de Hamiltoniaanse Monte Carlo "
-"procedure -- %i divergente transities na het opwarmen. Verhoog "
-"'Aanpassingsdelta' totdat er geen divergente transities meer zijn."
 
 msgid ""
 "Bayesian Fraction of Missing Information (BFMI) that was too low in %i chain "
@@ -580,13 +540,7 @@ msgid_plural ""
 "chains indicating that the posterior distribution was not explored "
 "efficiently. Try increasing number of 'Burnin' and 'Iterations'."
 msgstr[0] ""
-"Bayesiaanse Fractie van Ontbrekende Informatie (BFMI) was te laag in %i "
-"keten wat er op duidt dat de keten de parameterruimte niet efficient verkend "
-"heeft. Verhoog het aantal iteraties in 'Opwarming' en 'Iteraties'."
 msgstr[1] ""
-"Bayesiaanse Fractie van Ontbrekende Informatie (BFMI) was te laag in %i "
-"keten wat er op duidt dat de ketens de parameterruimte niet efficient "
-"verkend hebben. Verhoog het aantal iteraties in 'Opwarming' en 'Iteraties'."
 
 msgid ""
 "The Hamiltonian Monte Carlo procedure might be inefficient -- %i transition "
@@ -597,13 +551,7 @@ msgid_plural ""
 "exceeded the maximum tree depth. This can be solved by carefully increasing "
 "'Maximum tree depth"
 msgstr[0] ""
-"Mogelijk inefficiente Hamiltoniaanse Monte Carlo procedure -- %i transitie "
-"overschreed de maximale boom diepte. Dit probleem kan opgelost worden door "
-"geleidelijk de 'Maximale boom diepte' te verhogen"
 msgstr[1] ""
-"Mogelijk inefficiente Hamiltoniaanse Monte Carlo procedure -- %i transities "
-"overschreden de maximale boom diepte. Dit probleem kan opgelost worden door "
-"geleidelijk de 'Maximale boom diepte' te verhogen"
 
 msgid ""
 "WAIC estimate unreliable -- There was %1.0f p_waic estimate larger than 0.4. "
@@ -612,11 +560,7 @@ msgid_plural ""
 "WAIC estimate unreliable -- There were %1.0f p_waic estimates larger than "
 "0.4. We recommend using LOO instead."
 msgstr[0] ""
-"WAIC onbetrouwbaar -- %1.0f p_waic schatting groter dan 0.4. Wellicht is het "
-"resultaat van LOO betrouwbaarder."
 msgstr[1] ""
-"WAIC onbetrouwbaar -- %1.0f p_waic schattingen groter dan 0.4. Wellicht is "
-"het resultaat van LOO betrouwbaarder."
 
 msgid ""
 "LOO estimate unreliable -- There was %1.0f observation with the shape "
@@ -625,8 +569,5 @@ msgid_plural ""
 "LOO estimate unreliable -- There were %1.0f observations with the shape "
 "parameter (k) of the generalized Pareto distribution higher than > .5."
 msgstr[0] ""
-"LOO schatting onbetrouwbaar -- %1.0f observatie met een schaalparameter k "
-"van de generaliseerde Pareto distributie hoger dan .5."
 msgstr[1] ""
-"LOO schatting onbetrouwbaar -- %1.0f observaties met een schaalparameter k "
-"van de generaliseerde Pareto distributie hoger dan .5."
+
