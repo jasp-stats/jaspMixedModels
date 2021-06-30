@@ -131,12 +131,12 @@
   dataset <- data.frame(dataset)
 
   # check and use only the variables that actually used for modeling
-  used_variables <- .v(c(
+  used_variables <- c(
     options$dependentVariable,
     if(type %in% c("GLMM", "BGLMM")) if(options$dependentVariableAggregation != "") options$dependentVariableAggregation,
     unique(unlist(options$fixedEffects)),
     if(length(options$randomVariables) != 0) options$randomVariables
-  ))
+  )
   dataset <- dataset[,used_variables]
 
   # omit NAs/NaN/Infs and store the number of omitted observations
@@ -157,7 +157,7 @@
   check_variables <- 1:ncol(dataset)
   if(type %in% c("GLMM", "BGLMM"))
     if(options$dependentVariableAggregation != "")
-      check_variables <- check_variables[-which(.v(options$dependentVariableAggregation) == colnames(dataset))]
+      check_variables <- check_variables[-which(options$dependentVariableAggregation == colnames(dataset))]
 
 
   .hasErrors(
@@ -176,14 +176,14 @@
   )
 
   for(var in unlist(options$fixedEffects)) {
-    if(is.factor(dataset[,.v(var)]) || is.character(dataset[,.v(var)])){
-      if(length(unique(dataset[,.v(var)])) == nrow(dataset))
+    if(is.factor(dataset[,var]) || is.character(dataset[,var])){
+      if(length(unique(dataset[,var])) == nrow(dataset))
         .quitAnalysis(gettextf("The categorical fixed effect '%s' must have fewer levels than the overall number of observations.",var))
     }
   }
 
   for(var in unlist(options$randomVariables)) {
-    if(length(unique(dataset[,.v(var)])) == nrow(dataset))
+    if(length(unique(dataset[,var])) == nrow(dataset))
       .quitAnalysis(gettextf("The random effects grouping factor '%s' must have fewer levels than the overall number of observations.",var))
   }
 
@@ -200,23 +200,23 @@
     family_text <- substr(family_text, 1, nchar(family_text) - 1)
 
     if (options$family %in% c("Gamma", "inverse.gaussian")) {
-      if (any(dataset[, .v(options$dependentVariable)] <= 0))
+      if (any(dataset[, options$dependentVariable] <= 0))
         .quitAnalysis(gettextf("%s requires that the dependent variable is positive.",family_text))
     } else if (options$family %in% c("neg_binomial_2", "poisson")) {
-      if (any(dataset[, .v(options$dependentVariable)] < 0 | any(!.is.wholenumber(dataset[, .v(options$dependentVariable)]))))
+      if (any(dataset[, options$dependentVariable] < 0 | any(!.is.wholenumber(dataset[, options$dependentVariable]))))
         .quitAnalysis(gettextf("%s requires that the dependent variable is an integer.",family_text))
     } else if (options$family == "binomial") {
-      if (any(!dataset[, .v(options$dependentVariable)] %in% c(0, 1)))
+      if (any(!dataset[, options$dependentVariable] %in% c(0, 1)))
         .quitAnalysis(gettextf("%s requires that the dependent variable contains only 0 and 1.",family_text))
     } else if (options$family == "binomial_agg") {
-      if (any(dataset[, .v(options$dependentVariable)] < 0 | dataset[, .v(options$dependentVariable)] > 1))
+      if (any(dataset[, options$dependentVariable] < 0 | dataset[, options$dependentVariable] > 1))
         .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",family_text))
-      if (any(dataset[, .v(options$dependentVariableAggregation)] < 0) || any(!.is.wholenumber(dataset[, .v(options$dependentVariableAggregation)])))
+      if (any(dataset[, options$dependentVariableAggregation] < 0) || any(!.is.wholenumber(dataset[, options$dependentVariableAggregation])))
         .quitAnalysis(gettextf("%s requires that the number of trials variable is an integer.",family_text))
-      if (any(!.is.wholenumber(dataset[, .v(options$dependentVariable)] * dataset[, .v(options$dependentVariableAggregation)])))
+      if (any(!.is.wholenumber(dataset[, options$dependentVariable] * dataset[, options$dependentVariableAggregation])))
         .quitAnalysis(gettextf("%s requires that the dependent variable is proportion of successes out of the number of trials.",family_text))
     } else if (options$family == "betar") {
-      if (any(dataset[, .v(options$dependentVariable)] <= 0 | dataset[, .v(options$dependentVariable)] >= 1))
+      if (any(dataset[, options$dependentVariable] <= 0 | dataset[, options$dependentVariable] >= 1))
         .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",family_text))
     }
   }
@@ -251,7 +251,7 @@
   # fixed effects
   feTerms  <-
     sapply(options[["fixedEffects"]], function(x)
-      paste(.v(unlist(x)), collapse = "*"))
+      paste(unlist(x), collapse = "*"))
   # simplify the terms
   feTerms  <- .mmSimplifyTerms(feTerms)
   # create the FE formula
@@ -269,7 +269,7 @@
     # unlist selected random effects
     tempVars <- sapply(tempRe$randomComponents, function(x) {
       if (x$randomSlopes) {
-        return(.v(unlist(x$value)))
+        return(unlist(x$value))
       } else{
         return(NA)
       }
@@ -278,7 +278,7 @@
       if (x$randomSlopes) {
         return(NA)
       } else{
-        return(.v(unlist(x$value)))
+        return(unlist(x$value))
       }
     })
     tempVars     <- tempVars[!is.na(tempVars)]
@@ -295,7 +295,7 @@
     # - and associated interactions
     meToRemove <- NULL
     for (me in tempVars[!grepl("\\*", tempVars)]) {
-      tempTable <- table(dataset[, c(.v(tempRe$value), me)])
+      tempTable <- table(dataset[, c(tempRe$value, me)])
       if (all(apply(tempTable, 1, function(x)
         sum(x > 0)) <= 1)) {
         meToRemove <- c(meToRemove, me)
@@ -313,10 +313,10 @@
     for (te in tempVars) {
       tempTerms <- unlist(strsplit(te, "\\*"))
       if (any(sapply(tempTerms, function(x)
-        typeof(dataset[, .v(x)]) == "double")))
+        typeof(dataset[, x]) == "double")))
         next
       tempTable <-
-        table(dataset[, c(.v(tempRe$value), tempTerms)])
+        table(dataset[, c(tempRe$value, tempTerms)])
       if (all(tempTable <= 1)) {
         teToRemove <- c(teToRemove, te)
       }
@@ -339,19 +339,19 @@
         ifelse(reTerms == "", 1, reTerms),
         ifelse(tempRe$correlation ||
                  reTerms == "", "|", "||"),
-        .v(tempRe$value),
+        tempRe$value,
         ")"
       )
 
     randomEffects <- c(randomEffects, newRe)
-    removedMe[[tempRe$value]] <- .unv(meToRemove)
-    removedTe[[tempRe$value]] <- .unv(teToRemove)
+    removedMe[[tempRe$value]] <- meToRemove
+    removedTe[[tempRe$value]] <- teToRemove
     addedRe[[tempRe$value]]   <- reAdded
   }
   randomEffects <- paste0(randomEffects, collapse = "+")
 
   modelFormula <-
-    paste0(.v(options$dependentVariable),
+    paste0(options$dependentVariable,
            "~",
            fixedEffects,
            "+",
@@ -400,7 +400,7 @@
     for (i in 1:length(removed)) {
       if (any(sapply(splitTerms, function(x)
         all(splitRemoved[[i]] %in% x)))) {
-        added <- c(added, paste0(.unv(splitRemoved[[i]]), collapse = "*"))
+        added <- c(added, paste0(splitRemoved[[i]], collapse = "*"))
       }
     }
   }
@@ -454,7 +454,7 @@
 
     # I wish there was a better way to do this
     if (options$family == "binomial_agg") {
-      glmmWeight <<- dataset[, .v(options$dependentVariableAggregation)]
+      glmmWeight <<- dataset[, options$dependentVariableAggregation]
       model <- tryCatch(
         afex::mixed(
           formula         = as.formula(modelFormula$modelFormula),
@@ -571,7 +571,7 @@
 
 
       else
-        ANOVAsummary$setError(.unv(model$message))
+        ANOVAsummary$setError(model$message)
 
 
       return()
@@ -740,7 +740,7 @@
     observations = nrow(full_model@frame)
   )
   for (thisName in names(full_model@flist)) {
-    fitSizes$addColumnInfo(name = thisName, title = .unv(thisName), type = "integer", overtitle = gettext("Levels of RE grouping factors"))
+    fitSizes$addColumnInfo(name = thisName, title = thisName, type = "integer", overtitle = gettext("Levels of RE grouping factors"))
     tempRow[[thisName]] <- length(levels(full_model@flist[[thisName]]))
   }
   fitSizes$addRows(tempRow)
@@ -782,7 +782,7 @@
     tempVarCorr <- VarCorr[[gi]]
 
     # add variance summary
-    REvar <- createJaspTable(title = gettextf("%s: Variance Estimates",.unv(names(VarCorr)[gi])))
+    REvar <- createJaspTable(title = gettextf("%s: Variance Estimates",names(VarCorr)[gi]))
 
     REvar$addColumnInfo(name = "variable",
                         title = gettext("Term"),
@@ -820,7 +820,7 @@
     if (length(tempStdDev) > 1) {
       tempCorr <- attr(tempVarCorr, "correlation")
       REcor <-
-        createJaspTable(title = gettextf("%s: Correlation Estimates",.unv(names(VarCorr)[gi])))
+        createJaspTable(title = gettextf("%s: Correlation Estimates",names(VarCorr)[gi]))
 
       # add columns
       REcor$addColumnInfo(name = "variable",
@@ -987,14 +987,14 @@
 
   # automatic size specification will somewhat work unless there is more than 2 variables in panel
   height <- 350
-  width  <- 150 * prod(sapply(unlist(options$plotsX), function(x) length(unique(dataset[, .v(x)])) / 2))
+  width  <- 150 * prod(sapply(unlist(options$plotsX), function(x) length(unique(dataset[, x])) / 2))
 
   if (length(options$plotsPanel) > 0) {
     width  <-
-      width * length(unique(dataset[, .v(unlist(options$plotsPanel)[1])]))
+      width * length(unique(dataset[, unlist(options$plotsPanel)[1]]))
   } else if (length(options$plotsPanel) > 1) {
     height <-
-      height * length(unique(dataset[, .v(unlist(options$plotsPanel)[2])]))
+      height * length(unique(dataset[, unlist(options$plotsPanel)[2]]))
   }
   if (options$plotLegendPosition %in% c("bottom", "top")) {
     height <- height + 50
@@ -1126,11 +1126,11 @@
   p <- tryCatch(
     afex::afex_plot(
       model,
-      dv          = .v(options$dependentVariable),
-      x           = .v(unlist(options$plotsX)),
-      trace       = if (length(options$plotsTrace) != 0) .v(unlist(options$plotsTrace)),
-      panel       = if (length(options$plotsPanel) != 0) .v(unlist(options$plotsPanel)),
-      id          = .v(options$plotsAgregatedOver),
+      dv          = options$dependentVariable,
+      x           = unlist(options$plotsX),
+      trace       = if (length(options$plotsTrace) != 0) unlist(options$plotsTrace),
+      panel       = if (length(options$plotsPanel) != 0) unlist(options$plotsPanel),
+      id          = options$plotsAgregatedOver,
       data_geom   = getFromNamespace(options$plotsGeom, geom_package),
       mapping     = mapping,
       error       = options$plotsCImethod,
@@ -1143,7 +1143,7 @@
       ),
       point_arg   = list(size = 1.5 * options$plotRelativeSize),
       line_arg    = list(size = .5 * options$plotRelativeSize),
-      legend_title = paste(.unv(unlist(options$plotsTrace)), collapse = "\n"),
+      legend_title = paste(unlist(options$plotsTrace), collapse = "\n"),
       dodge       = options$plotDodge
     ),
     error = function(e)
@@ -1155,7 +1155,7 @@
     return()
   }
 
-  if (options$plotsGeom == "geom_violin" && (length(options$plotsAgregatedOver) == 1 && length(unique(dataset[, .v(options$plotsAgregatedOver)])) < 3)) {
+  if (options$plotsGeom == "geom_violin" && (length(options$plotsAgregatedOver) == 1 && length(unique(dataset[, options$plotsAgregatedOver])) < 3)) {
     plots$setError(gettext("Violin geom requires that the random effects grouping factors has at least 3 levels."))
     return()
   }
@@ -1205,13 +1205,13 @@
   if (options$plotsEstimatesTable) {
     plotData <- afex::afex_plot(
       model,
-      x           = .v(unlist(options$plotsX)),
-      dv          = .v(options$dependentVariable),
+      x           = unlist(options$plotsX),
+      dv          = options$dependentVariable,
       trace       = if (length(options$plotsTrace) != 0)
-        .v(unlist(options$plotsTrace)),
+        unlist(options$plotsTrace),
       panel       = if (length(options$plotsPanel) != 0)
-        .v(unlist(options$plotsPanel)),
-      id          = .v(options$plotsAgregatedOver),
+        unlist(options$plotsPanel),
+      id          = options$plotsAgregatedOver,
       data_geom   = getFromNamespace(options$plotsGeom, geom_package),
       error       = options$plotsCImethod,
       error_level = options$plotsCIwidth,
@@ -1240,7 +1240,7 @@
 
     for (v in attr(plotData, "pri.vars")) {
       EstimatesTable$addColumnInfo(name = v,
-                                   title = .unv(v),
+                                   title = v,
                                    type = "string")
     }
 
@@ -1297,11 +1297,11 @@
   # deal with continuous predictors
   at <- NULL
   for (var in unlist(options$marginalMeans)) {
-    if (typeof(dataset[, .v(var)]) == "double") {
-      at[[.v(var)]] <-
+    if (typeof(dataset[, var]) == "double") {
+      at[[var]] <-
         c(
-          mean(dataset[, .v(var)], na.rm = TRUE) + c(-1, 0, 1) * options$marginalMeansSD *
-            sd(dataset[, .v(var)], na.rm = TRUE)
+          mean(dataset[, var], na.rm = TRUE) + c(-1, 0, 1) * options$marginalMeansSD *
+            sd(dataset[, var], na.rm = TRUE)
         )
     }
   }
@@ -1315,7 +1315,7 @@
   }
   emm <- emmeans::emmeans(
     object  = model,
-    specs   = .v(unlist(options$marginalMeans)),
+    specs   = unlist(options$marginalMeans),
     at      = at,
     options = list(level  = options$marginalMeansCIwidth),
     lmer.df = if (type == "LMM")
@@ -1385,13 +1385,13 @@
                              type = "integer")
   }
   for (v in unlist(options$marginalMeans)) {
-    if (typeof(dataset[, .v(v)]) == "double") {
-      EMMsummary$addColumnInfo(name = .v(v),
-                               title = .unv(v),
+    if (typeof(dataset[, v]) == "double") {
+      EMMsummary$addColumnInfo(name = v,
+                               title = v,
                                type = "number")
     } else{
-      EMMsummary$addColumnInfo(name = .v(v),
-                               title = .unv(v),
+      EMMsummary$addColumnInfo(name = v,
+                               title = v,
                                type = "string")
     }
   }
@@ -1469,10 +1469,10 @@
     }
 
     for (v in unlist(options$marginalMeans)) {
-      if (typeof(dataset[, .v(v)]) == "double") {
-        tempRow[.v(v)] <- emmTable[i, .v(v)]
+      if (typeof(dataset[, v]) == "double") {
+        tempRow[v] <- emmTable[i, v]
       } else{
-        tempRow[.v(v)] <- as.character(emmTable[i, .v(v)])
+        tempRow[v] <- as.character(emmTable[i, v])
       }
     }
 
@@ -1506,7 +1506,7 @@
 
 
   if (length(emm@misc$avgd.over) != 0) {
-    EMMsummary$addFootnote(.mmMessageAveragedOver(.unv(emm@misc$avgd.over)))
+    EMMsummary$addFootnote(.mmMessageAveragedOver(emm@misc$avgd.over))
   }
   # add warning message
   if (type == "LMM") {
@@ -1543,11 +1543,11 @@
   # deal with continuous predictors
   at <- NULL
   for (var in unlist(options$trendsVariables)) {
-    if (typeof(dataset[, .v(var)]) == "double") {
-      at[[.v(var)]] <-
+    if (typeof(dataset[, var]) == "double") {
+      at[[var]] <-
         c(
-          mean(dataset[, .v(var)], na.rm = TRUE) + c(-1, 0, 1) * options$trendsSD *
-            sd(dataset[, .v(var)], na.rm = TRUE)
+          mean(dataset[, var], na.rm = TRUE) + c(-1, 0, 1) * options$trendsSD *
+            sd(dataset[, var], na.rm = TRUE)
         )
     }
   }
@@ -1582,8 +1582,8 @@
   emm <- emmeans::emtrends(
     object  = trendsModel,
     data    = trendsDataset,
-    specs   = .v(unlist(options$trendsVariables)),
-    var     = .v(unlist(options$trendsTrend)),
+    specs   = unlist(options$trendsVariables),
+    var     = unlist(options$trendsTrend),
     at      = trendsAt,
     options = list(level = trendsCI),
     lmer.df = if (trendsType == "LMM")
@@ -1648,13 +1648,13 @@
   trendsVarNames <- colnames(emmTable)[1:(grep(".trend", colnames(emmTable), fixed = TRUE) - 1)]
 
   for (v in trendsVarNames) {
-    if (typeof(dataset[, .v(v)]) == "double") {
+    if (typeof(dataset[, v]) == "double") {
       trendsSummary$addColumnInfo(name = v,
-                                  title = .unv(v),
+                                  title = v,
                                   type = "number")
     } else{
       trendsSummary$addColumnInfo(name = v,
-                                  title = .unv(v),
+                                  title = v,
                                   type = "string")
     }
   }
@@ -1730,7 +1730,7 @@
     }
 
     for (vi in 1:length(trendsVarNames)) {
-      if (typeof(dataset[, .v(trendsVarNames[vi])]) == "double") {
+      if (typeof(dataset[, trendsVarNames[vi]]) == "double") {
         tempRow[trendsVarNames[vi]] <- emmTable[i, vi]
       } else{
         tempRow[trendsVarNames[vi]] <-
@@ -1766,7 +1766,7 @@
 
 
   if (length(emm@misc$avgd.over) != 0) {
-    trendsSummary$addFootnote(.mmMessageAveragedOver(.unv(emm@misc$avgd.over)))
+    trendsSummary$addFootnote(.mmMessageAveragedOver(emm@misc$avgd.over))
   }
   # add warning message
   if (type == "LMM") {
@@ -2159,7 +2159,7 @@
 
     # I wish there was a better way to do this
     if (options$family == "binomial_agg") {
-      glmmWeight <<- dataset[, .v(options$dependentVariableAggregation)]
+      glmmWeight <<- dataset[, options$dependentVariableAggregation]
 
       model <- tryCatch(stanova::stanova(
         formula           = as.formula(modelFormula$modelFormula),
@@ -2276,7 +2276,7 @@
     observations = attr(stanovaSummary, "nobs")
   )
   for (n in names(attr(stanovaSummary, "ngrps"))) {
-    fitSizes$addColumnInfo(name = n, title = .unv(n), type = "integer", overtitle = gettext("Levels of RE grouping factors"))
+    fitSizes$addColumnInfo(name = n, title = n, type = "integer", overtitle = gettext("Levels of RE grouping factors"))
     tempRow[[n]] <- attr(stanovaSummary, "ngrps")[[n]]
   }
   fitSizes$addRows(tempRow)
@@ -2318,7 +2318,7 @@
 
     # add variance summary
     REvar <-
-      createJaspTable(title = gettextf("%s: Variance Estimates",.unv(names(VarCorr)[gi])))
+      createJaspTable(title = gettextf("%s: Variance Estimates",names(VarCorr)[gi]))
 
     REvar$addColumnInfo(name = "variable",
                         title = gettext("Term"),
@@ -2356,7 +2356,7 @@
     if (length(tempStdDev) > 1) {
       tempCorr <- attr(tempVarCorr, "correlation")
       REcor <-
-        createJaspTable(title = gettextf("%s: Correlation Estimates",.unv(names(VarCorr)[gi])))
+        createJaspTable(title = gettextf("%s: Correlation Estimates",names(VarCorr)[gi]))
 
       # add columns
       REcor$addColumnInfo(name = "variable",
@@ -2617,19 +2617,19 @@
 
       if (varName != "Intercept" && nrow(tempSummary) > 1) {
         varName <-
-          paste(.unv(unlist(strsplit(
+          paste(unlist(strsplit(
             as.character(tempSummary$Variable[j]), ","
-          ))), collapse = jaspBase::interactionSymbol)
+          )), collapse = jaspBase::interactionSymbol)
         varName <- gsub(" ", "", varName, fixed = TRUE)
         if (grepl(jaspBase::interactionSymbol, names(modelSummary)[i], fixed = T)) {
-          for (n in unlist(strsplit(.unv(names(
+          for (n in unlist(strsplit(names(
             modelSummary
-          )[i]), jaspBase::interactionSymbol))) {
+          )[i], jaspBase::interactionSymbol))) {
             varName <- gsub(n, "", varName, fixed = TRUE)
           }
         } else{
           varName <-
-            gsub(.unv(names(modelSummary)[i]), "", varName, fixed = TRUE)
+            gsub(names(modelSummary)[i], "", varName, fixed = TRUE)
         }
         tempRow$level <- varName
       }
@@ -2729,14 +2729,14 @@
 
   if (options$samplingPlot != "stan_scat") {
     pars <-
-      paste0(.v(unlist(options$samplingVariable1)), collapse = ":")
+      paste0(unlist(options$samplingVariable1), collapse = ":")
   } else{
-    pars <- c(paste0(.v(unlist(
+    pars <- c(paste0(unlist(
       options$samplingVariable1
-    )), collapse = ":"),
-    paste0(.v(unlist(
+    ), collapse = ":"),
+    paste0(unlist(
       options$samplingVariable2
-    )), collapse = ":"))
+    ), collapse = ":"))
   }
 
   plotData <-
@@ -2752,9 +2752,9 @@
       varName <- strsplit(as.character(pars), ":")
       varName <-
         sapply(varName, function(x)
-          paste(.unv(unlist(
+          paste(unlist(
             strsplit(x, ",")
-          )), collapse = ":"))
+          ), collapse = ":"))
       varName <-
         sapply(varName, function(x)
           gsub(" ", "", x, fixed = TRUE))
@@ -2836,8 +2836,8 @@
   coefs_trend <- strsplit(coefs_trend, ",")
 
   for(cft in coefs_trend){
-    if(cft %in% strsplit(par, ":")[[1]] && !grepl(.unv(cft), coefs_name)){
-      coefs_name <- paste0(coefs_name, jaspBase::interactionSymbol, .unv(cft))
+    if(cft %in% strsplit(par, ":")[[1]] && !grepl(cft, coefs_name)){
+      coefs_name <- paste0(coefs_name, jaspBase::interactionSymbol, cft)
     }
   }
 
@@ -2859,9 +2859,9 @@
     for (cf in 1:coefs) {
 
       coefs_name <-
-        paste(.unv(unlist(
+        paste(unlist(
           strsplit(dimnames(samples)$Parameter[cf], ",")
-        )), collapse = ":")
+        ), collapse = ":")
       coefs_name <- gsub(" ", "", coefs_name, fixed = TRUE)
       coefs_name <- .mmVariableNames(coefs_name, options$fixedVariables)
       coefs_name <- .mmAddCoefNameStanova(samples, pars, coefs_name)
@@ -2895,17 +2895,17 @@
       for (cf2 in 1:coefs2) {
 
         coefs1Name <-
-          paste(.unv(unlist(
+          paste(unlist(
             strsplit(dimnames(samples1)$Parameter[cf1], ",")
-          )), collapse = ":")
+          ), collapse = ":")
         coefs1Name <- gsub(" ", "", coefs1Name, fixed = TRUE)
         coefs1Name <- .mmVariableNames(coefs1Name, options$fixedVariables)
         coefs1Name <- .mmAddCoefNameStanova(samples1, pars[[1]], coefs1Name)
 
         coefs2Name <-
-          paste(.unv(unlist(
+          paste(unlist(
             strsplit(dimnames(samples2)$Parameter[cf2], ",")
-          )), collapse = ":")
+          ), collapse = ":")
         coefs2Name <- gsub(" ", "", coefs2Name, fixed = TRUE)
         coefs2Name <- .mmVariableNames(coefs2Name, options$fixedVariables)
         coefs2Name <- .mmAddCoefNameStanova(samples2, pars[[2]], coefs2Name)
@@ -3058,7 +3058,7 @@
     nearOne <- 1 - abs(cor_mat) < sqrt(.Machine$double.eps)
     if(any(nearOne)){
       var_ind   <- which(nearOne, arr.ind = TRUE)
-      varNames <- paste("'", .unv(rownames(cor_mat)[var_ind[,"row"]]),"' and '", .unv(colnames(cor_mat)[var_ind[,"col"]]),"'", sep = "", collapse = ", ")
+      varNames <- paste("'", rownames(cor_mat)[var_ind[,"row"]],"' and '", colnames(cor_mat)[var_ind[,"col"]],"'", sep = "", collapse = ", ")
       return(gettextf("The following variables are a linear combination of each other, please, remove one of them from the analysis: %s", varNames))
     }
   }
