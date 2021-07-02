@@ -791,13 +791,8 @@
 
     for (i in 1:length(tempStdDev)) {
 
-      if (names(tempStdDev)[i] == "(Intercept)")
-        varName <- gettext("Intercept")
-      else
-        varName <- .mmVariableNames(names(tempStdDev)[i], options$fixedVariables)
-
       tempRow <- list(
-        variable = varName,
+        variable = .mmVariableNames(names(tempStdDev)[i], options$fixedVariables),
         std      = tempStdDev[i],
         var      = tempStdDev[i]^2
       )
@@ -818,25 +813,14 @@
       # add columns
       REcor$addColumnInfo(name = "variable", title = gettext("Term"), type = "string")
       for (i in 1:nrow(tempCorr)) {
-
-        if (rownames(tempCorr)[i] == "(Intercept)")
-          varName <- gettext("Intercept")
-        else
-          varName <- .mmVariableNames(rownames(tempCorr)[i], options$fixedVariables)
-
-        REcor$addColumnInfo(name = paste0("v", i), title = varName, type = "number")
+        REcor$addColumnInfo(name = paste0("v", i), title = .mmVariableNames(names(tempStdDev)[i], options$fixedVariables), type = "number")
       }
 
       # fill rows
       for (i in 1:nrow(tempCorr)) {
 
-        if (rownames(tempCorr)[i] == "(Intercept)")
-          varName <- gettext("Intercept")
-        else
-          varName <- .mmVariableNames(rownames(tempCorr)[i], options$fixedVariables)
+        tempRow <- list(variable = .mmVariableNames(rownames(tempCorr)[i], options$fixedVariables))
 
-
-        tempRow <- list(variable = varName)
         for (j in 1:i) {
           tempRow[paste0("v", j)] <- tempCorr[i, j]
         }
@@ -918,16 +902,10 @@
 
   for (i in 1:nrow(FEcoef)) {
 
-    if (rownames(FEcoef)[i] == "(Intercept)")
-      effectName <- gettext("Intercept")
-    else
-      effectName <- .mmVariableNames(rownames(FEcoef)[i], options$fixedVariables)
-
-
     if (type == "LMM") {
 
       tempRow <- list(
-        term     = effectName,
+        term     = .mmVariableNames(rownames(FEcoef)[i], options$fixedVariables),
         estimate = FEcoef[i, 1],
         se       = FEcoef[i, 2],
         df       = FEcoef[i, 3],
@@ -938,7 +916,7 @@
     } else if (type == "GLMM") {
 
       tempRow <- list(
-        term     = effectName,
+        term     = .mmVariableNames(rownames(FEcoef)[i], options$fixedVariables),
         estimate = FEcoef[i, 1],
         se       = FEcoef[i, 2],
         stat     = FEcoef[i, 3]
@@ -2102,13 +2080,8 @@
 
     for (i in 1:length(tempStdDev)) {
 
-      if (names(tempStdDev)[i] == "(Intercept)")
-        varName <- gettext("Intercept")
-      else
-        varName <- .mmVariableNames(names(tempStdDev)[i], options$fixedVariables)
-
       tempRow <- list(
-        variable = varName,
+        variable = .mmVariableNames(names(tempStdDev)[i], options$fixedVariables),
         std      = tempStdDev[i],
         var      = tempStdDev[i]^2
       )
@@ -2131,11 +2104,7 @@
 
       for (i in 1:nrow(tempCorr)) {
 
-        if (rownames(tempCorr)[i] == "(Intercept)")
-          varName <- gettext("Intercept")
-        else
-          varName <- .mmVariableNames(rownames(tempCorr)[i], options$fixedVariables)
-
+        varName <- .mmVariableNames(rownames(tempCorr)[i], options$fixedVariables)
         REcor$addColumnInfo(name = paste0("v", i), title = varName, type = "number")
 
       }
@@ -2143,12 +2112,7 @@
       # fill rows
       for (i in 1:nrow(tempCorr)) {
 
-        if (rownames(tempCorr)[i] == "(Intercept)")
-          varName <- gettext("Intercept")
-        else
-          varName <- .mmVariableNames(rownames(tempCorr)[i], options$fixedVariables)
-
-        tempRow <- list(variable = varName)
+        tempRow <- list(variable = .mmVariableNames(rownames(tempCorr)[i], options$fixedVariables))
 
         for (j in 1:i) {
           tempRow[paste0("v", j)] <- tempCorr[i, j]
@@ -2213,13 +2177,8 @@
 
   for (i in 1:nrow(feSummary)) {
 
-    if (rownames(feSummary)[i] == "(Intercept)")
-      effectName <- "Intercept"
-    else
-      effectName <- .mmVariableNames(rownames(feSummary)[i], options$fixedVariables)
-
     tempRow <- list(
-      term     = effectName,
+      term     = .mmVariableNames(rownames(feSummary)[i], options$fixedVariables),
       estimate = feSummary[i, 1],
       se       = feSummary[i, 3],
       lowerCI  = feSummary[i, 4],
@@ -2339,9 +2298,9 @@
         varName <- paste(unlist(strsplit(as.character(tempSummary$Variable[j]), ",")), collapse = jaspBase::interactionSymbol)
         varName <- gsub(" ", "", varName, fixed = TRUE)
 
-        if (grepl(jaspBase::interactionSymbol, names(modelSummary)[i], fixed = TRUE)) {
+        if (grepl(":", names(modelSummary)[i], fixed = TRUE)) {
 
-          for (n in unlist(strsplit(names(modelSummary)[i], jaspBase::interactionSymbol))) {
+          for (n in unlist(strsplit(names(modelSummary)[i], ":"))) {
             varName <- gsub(n, "", varName, fixed = TRUE)
           }
 
@@ -2488,7 +2447,10 @@
 }
 
 # helper functions
-.mmVariableNames  <- function(varName, variables) {
+.mmVariableNames      <- function(varName, variables) {
+
+  if (varName == "(Intercept)")
+    return(gettext("Intercept"))
 
   for (vn in variables) {
     inf <- regexpr(vn, varName, fixed = TRUE)

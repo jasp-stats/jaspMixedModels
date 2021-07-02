@@ -47,3 +47,6 @@ Thumbs.db
 
 # RStudio files
 .Rproj.user
+
+# some local files
+do-not-share
