@@ -447,7 +447,7 @@
   modelFormula <- .mmModelFormula(options, dataset)
 
   if (type == "LMM") {
-    model <- tryCatch(
+    model <- try(
       afex::mixed(
         formula         = as.formula(modelFormula$modelFormula),
         data            = dataset,
@@ -456,9 +456,7 @@
         test_intercept  = if (options$method %in% c("LRT", "PB")) options$test_intercept else FALSE,
         args_test       = list(nsim = options$bootstrapSamples),
         check_contrasts = TRUE
-      ),
-      error = function(e) return(e)
-    )
+      ))
   } else if (type == "GLMM") {
     # needs to be avaluated in the global environment
     glmmFamily <<- options$family
@@ -467,7 +465,7 @@
     # I wish there was a better way to do this
     if (options$family == "binomialAgg") {
       glmmWeight <<- dataset[, options$dependentVariableAggregation]
-      model <- tryCatch(
+      model <- try(
         afex::mixed(
           formula         = as.formula(modelFormula$modelFormula),
           data            = dataset,
@@ -478,11 +476,9 @@
           check_contrasts = TRUE,
           family          = eval(call("binomial", glmmLink)),
           weights         = glmmWeight
-        ),
-        error = function(e) return(e)
-      )
+        ))
     } else {
-      model <- tryCatch(
+      model <- try(
         afex::mixed(
           formula         = as.formula(modelFormula$modelFormula),
           data            = dataset,
@@ -493,9 +489,7 @@
           check_contrasts = TRUE,
           #start           = start,
           family          = eval(call(glmmFamily, glmmLink))
-        ),
-        error = function(e) return(e)
-      )
+      ))
     }
   }
 
@@ -1070,7 +1064,7 @@
     model <- model$full_model[[length(model$full_model)]]
 
   .setSeedJASP(options)
-  p <- tryCatch(
+  p <- try(
     afex::afex_plot(
       model,
       dv          = options$dependentVariable,
@@ -1092,9 +1086,7 @@
       line_arg    = list(size = .5 * options$plotRelativeSize),
       legend_title = paste(unlist(options$plotsTrace), collapse = "\n"),
       dodge       = options$plotDodge
-    ),
-    error = function(e) e
-  )
+    ))
 
   if (inherits(p, "error")) {
     plots$setError(p$message)
@@ -1727,37 +1719,31 @@
 
   # take care of the scale
   if (type %in% c("LMM", "BLMM") || what == "Trends") {
-    emmContrast <- tryCatch(
+    emmContrast <- try(
       as.data.frame(
         emmeans::contrast(
           emm,
           contrs,
           adjust = if (type %in% c("LMM", "GLMM")) selectedAdjustment)
-      ),
-      error = function(e) e
-    )
+      ))
   } else if (type %in% c("GLMM", "BGLMM")) {
     if (selectedResponse) {
-      emmContrast <- tryCatch(
+      emmContrast <- try(
         as.data.frame(
           emmeans::contrast(
             emmeans::regrid(emm),
             contrs,
             adjust = if (type == "GLMM") selectedAdjustment
           )
-        ),
-        error = function(e) e
-      )
+        ))
     } else {
-      emmContrast <- tryCatch(
+      emmContrast <- try(
         as.data.frame(
           emmeans::contrast(
             emm,
             contrs,
             adjust = if (type == "GLMM") selectedAdjustment)
-        ),
-        error = function(e) e
-      )
+        ))
     }
   }
 
@@ -1892,7 +1878,7 @@
 
   if (type == "BLMM") {
 
-    model <- tryCatch(stanova::stanova(
+    model <- try(stanova::stanova(
       formula           = as.formula(modelFormula$modelFormula),
       check_contrasts   = "contr.bayes",
       data              = dataset,
@@ -1903,7 +1889,7 @@
       control           = list(max_treedepth = options$max_treedepth),
       seed              = .getSeedJASP(options),
       model_fun         = "lmer"
-    ), error = function(e) e )
+    ))
 
   } else if (type == "BGLMM") {
 
@@ -1922,7 +1908,7 @@
     if (options$family == "binomialAgg") {
       glmmWeight <<- dataset[, options$dependentVariableAggregation]
 
-      model <- tryCatch(stanova::stanova(
+      model <- try(stanova::stanova(
         formula           = as.formula(modelFormula$modelFormula),
         check_contrasts   = "contr.bayes",
         data              = dataset,
@@ -1935,11 +1921,11 @@
         family            = eval(call("binomial", glmmLink)),
         seed              = .getSeedJASP(options),
         model_fun         = "glmer"
-      ), error = function(e) e )
+      ))
 
     } else {
 
-      model <- tryCatch(stanova::stanova(
+      model <- try(stanova::stanova(
         formula           = as.formula(modelFormula$modelFormula),
         check_contrasts   = "contr.bayes",
         data              = dataset,
@@ -1951,7 +1937,7 @@
         family            = glmmFamily,
         seed              = .getSeedJASP(options),
         model_fun         = "glmer"
-      ), error = function(e) e )
+      ))
 
     }
 
