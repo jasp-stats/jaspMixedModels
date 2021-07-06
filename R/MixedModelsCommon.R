@@ -552,7 +552,7 @@
 
   # some error managment for GLMMS - and oh boy, they can fail really easily
   if (type %in% c("LMM", "GLMM") && !is.null(model)) {
-    if (any(attr(model, "class") %in% c("std::runtime_error", "C++Error", "error"))) {
+    if (inherits(model, c("std::runtime_error", "C++Error", "try-error"))) {
       if (model == "(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate")
         ANOVAsummary$setError(
           gettext("The optimizer failed to find a solution. Probably due to quasi-separation in the data. Try removing some of the predictors.")
