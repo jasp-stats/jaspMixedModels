@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: R 3.6.1\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2021-06-30 10:31\n"
-"PO-Revision-Date: 2021-06-15 09:20+0000\n"
-"Last-Translator: Alex França <alex.tonante@gmail.com>\n"
+"PO-Revision-Date: 2021-07-10 23:34+0000\n"
+"Last-Translator: Luanna dos Santos Silva <luannasilva91@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/pt/>\n"
 "Language: pt\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.8-dev\n"
 "X-Language: en_US\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -24,44 +24,51 @@ msgstr ""
 "O efeito fixo categórico \"%s\" deve ter menos níveis do que o número total "
 "de observações."
 
+#, fuzzy
 msgid ""
 "The random effects grouping factor '%s' must have fewer levels than the "
 "overall number of observations."
 msgstr ""
+"O fator de agrupamento de efeitos aleatórios '% s' deve ter menos níveis do "
+"que o número geral de observações."
 
+#, fuzzy
 msgid ""
 "The number of iterations must be at least 2 iterations higher than the burnin"
 msgstr ""
+"O número de iterações deve ser pelo menos 2 iterações maior do que o burnin"
 
-#, fuzzy
 msgid "%s requires that the dependent variable is positive."
-msgstr "Correlacionar variáveis dependentes"
+msgstr "%s requer que a variável dependente seja positiva."
 
 #, fuzzy
 msgid "%s requires that the dependent variable is an integer."
-msgstr "Correlacionar variáveis dependentes"
+msgstr "% s requer que a variável dependente seja um número inteiro."
 
 msgid "%s requires that the dependent variable contains only 0 and 1."
-msgstr ""
+msgstr "%s requer que a variável dependente contenha apenas 0 e 1."
 
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
-msgstr ""
+msgstr "%s requer que a variável dependente seja maior que 0 e menor que 1."
 
+#, fuzzy
 msgid "%s requires that the number of trials variable is an integer."
-msgstr ""
+msgstr "% s requer que a variável do número de tentativas seja um inteiro."
 
+#, fuzzy
 msgid ""
 "%s requires that the dependent variable is proportion of successes out of "
 "the number of trials."
 msgstr ""
+"%s requer que a variável dependente seja a proporção de sucessos do número "
+"de tentativas."
 
 msgid "ANOVA Summary"
-msgstr ""
+msgstr "Resumo ANOVA"
 
-#, fuzzy
 msgid "Effect"
-msgstr "Efeitos"
+msgstr "Efeito"
 
 msgid "df"
 msgstr "gl"
@@ -69,93 +76,103 @@ msgstr "gl"
 msgid "F"
 msgstr "F"
 
+#, fuzzy
 msgid "ChiSq"
-msgstr ""
+msgstr "Qui-quadrado"
 
 msgid "p"
 msgstr "p"
 
-#, fuzzy
 msgid "p (bootstrap)"
-msgstr "bootstraps"
+msgstr "p (bootstrap)"
 
 msgid "VS-MPR"
 msgstr "VS-MPR"
 
 #, fuzzy
 msgid "VS-MPR (bootstrap)"
-msgstr "bootstraps"
+msgstr "VS-MPR (bootstrap)"
 
 msgid ""
 "The optimizer failed to find a solution. Probably due to quasi-separation in "
 "the data. Try removing some of the predictors."
 msgstr ""
+"O otimizador não conseguiu encontrar uma solução. Provavelmente devido à "
+"quase separação nos dados. Tente remover alguns dos preditores."
 
 msgid ""
 "The optimizer failed to find a solution due to invalid starting values. "
 "(JASP currently does not support specifying different starting values.)"
 msgstr ""
+"O otimizador falhou em encontrar uma solução devido a valores iniciais "
+"inválidos. (JASP atualmente não suporta a especificação de diferentes "
+"valores iniciais.)"
 
 msgid ""
 "The optimizer failed to find a solution. Probably due to scaling issues "
 "quasi-separation in the data. Try rescaling or removing some of the "
 "predictors."
 msgstr ""
+"O otimizador não conseguiu encontrar uma solução. Provavelmente devido a "
+"problemas de escala de quase separação nos dados. Tente redimensionar ou "
+"remover alguns dos preditores."
 
-#, fuzzy
 msgid "Intercept"
-msgstr "Interceptos"
+msgstr "Interceptar"
 
 #, fuzzy
 msgid "Warning:"
-msgstr "Carregando:"
-
-msgid "III"
-msgstr ""
-
-msgid "II"
-msgstr ""
+msgstr "Aviso:"
 
 #, fuzzy
+msgid "III"
+msgstr "III"
+
+#, fuzzy
+msgid "II"
+msgstr "II"
+
 msgid "Fit statistics"
-msgstr "Estatísticas"
+msgstr "Estatísticas de ajuste"
 
 msgid "Deviance"
 msgstr "Desvio"
 
+#, fuzzy
 msgid "Deviance (REML)"
-msgstr ""
+msgstr "Desvio (REML)"
 
+#, fuzzy
 msgid "log Lik."
-msgstr ""
+msgstr "log Lik."
 
 #, fuzzy
 msgid "AIC"
 msgstr "AIC"
 
+#, fuzzy
 msgid "BIC"
 msgstr "BIC"
 
-#, fuzzy
 msgid "Sample sizes"
 msgstr "Tamanho da amostra"
 
-#, fuzzy
 msgid "Observations"
-msgstr "Opções"
-
-msgid "Levels of RE grouping factors"
-msgstr ""
+msgstr "Observações"
 
 #, fuzzy
+msgid "Levels of RE grouping factors"
+msgstr "Níveis de fatores de agrupamento RE"
+
 msgid "Variance/Correlation Estimates"
-msgstr "Covariâncias / correlações ajustadas"
+msgstr "Variância/Estimativas de Correlação"
 
 msgid "%s: Variance Estimates"
-msgstr ""
+msgstr "%s: Estimativas de variação"
 
+#, fuzzy
 msgid "Term"
-msgstr ""
+msgstr "Termo"
 
 msgid "Std. Deviation"
 msgstr "Desvio Padrão"
@@ -164,17 +181,16 @@ msgid "Variance"
 msgstr "Variância"
 
 msgid "%s: Correlation Estimates"
-msgstr ""
+msgstr "%s: Estimativas de correlação"
 
-#, fuzzy
 msgid "Residual Variance Estimates"
-msgstr "Variâncias residual"
+msgstr "Estimativas de variância residual"
 
 msgid "Fixed Effects Estimates"
-msgstr ""
+msgstr "Estimativas de efeitos fixos"
 
 msgid "Estimate"
-msgstr "Estimativas"
+msgstr "Estimativa"
 
 msgid "SE"
 msgstr "EP"
@@ -182,23 +198,27 @@ msgstr "EP"
 msgid "t"
 msgstr "t"
 
-#, fuzzy
 msgid "Plot"
-msgstr "Diagramas"
+msgstr "Diagrama"
 
+#, fuzzy
 msgid ""
 "At least one random effects grouping factor needs to be selected in field "
 "'Background data show'."
 msgstr ""
+"Pelo menos um fator de agrupamento de efeitos aleatórios precisa ser "
+"selecionado no campo 'Mostrar dados de fundo'."
 
+#, fuzzy
 msgid ""
 "Factor levels need to be distinguished by at least one feature. Please, "
 "check one of the 'Distinguish factor levels' options."
 msgstr ""
+"Os níveis de fator precisam ser diferenciados por pelo menos um recurso. Por "
+"favor, marque uma das opções de 'Distinguir níveis de fator'."
 
-#, fuzzy
 msgid "Estimated Means and Confidence Intervals"
-msgstr "Intervalos de Confiança"
+msgstr "Médias estimadas e Intervalos de confiança"
 
 msgid "Mean"
 msgstr "Média"
@@ -207,56 +227,59 @@ msgid "Lower"
 msgstr "Inferior"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% IC"
 
 msgid "Upper"
 msgstr "Superior"
 
-#, fuzzy
 msgid "Estimated Marginal Means"
-msgstr "Médias marginais"
+msgstr "Médias marginais estimadas"
 
 msgid "Row"
-msgstr ""
+msgstr "Linha"
 
 msgid "z"
-msgstr ""
+msgstr "z"
 
 msgid "Median"
 msgstr "Mediana"
 
+#, fuzzy
 msgid "%s%% HPD"
-msgstr ""
+msgstr "%s%% HPD"
+
+msgid "Estimated Trends"
+msgstr "Tendências estimadas"
 
 #, fuzzy
-msgid "Estimated Trends"
-msgstr "Estimativas"
-
 msgid "%s (slope)"
-msgstr ""
+msgstr "%s (inclinação)"
 
 #, fuzzy
 msgid "Contrasts"
 msgstr "Contrastes"
 
 msgid "Odds Ratio"
-msgstr "Razão de chance"
+msgstr "Razão de probabilidade"
 
 msgid "Ratio"
-msgstr ""
+msgstr "Razão"
 
 #, fuzzy
 msgid "Fit Statistics"
-msgstr "Estatísticas"
+msgstr "Estatísticas de ajuste"
 
+#, fuzzy
 msgid "WAIC"
-msgstr ""
+msgstr "WAIC"
 
+#, fuzzy
 msgid "SE (WAIC)"
-msgstr ""
+msgstr "EP (WAIC)"
 
+#, fuzzy
 msgid "LOO"
-msgstr ""
+msgstr "LOO"
 
 msgid "SE (LOO)"
 msgstr ""
