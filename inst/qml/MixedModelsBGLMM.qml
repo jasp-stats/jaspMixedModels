@@ -81,7 +81,7 @@ Form {
 			values:
 			[
 				{ label: qsTr("Binomial"),				value: "binomial"},
-				{ label: qsTr("Binomial (aggregated)"),	value: "binomial_agg"},
+				{ label: qsTr("Binomial (aggregated)"),	value: "binomialAgg"},
 				{ label: qsTr("Gaussian"),				value: "gaussian"},
 				{ label: qsTr("Gamma"),					value: "Gamma"},
 				{ label: qsTr("Inverse Gaussian"),		value: "inverse.gaussian"},
