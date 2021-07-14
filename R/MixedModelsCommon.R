@@ -2187,7 +2187,7 @@
     return()
 
   model <- jaspResults[["mmModel"]]$object$model
-  if (!is.null(model) && jaspBase::isTryError(jaspResults[["mmModel"]]$object$model)) {
+  if (!is.null(model) && !jaspBase::isTryError(model)) {
     modelSummary <-
       summary(
         model,
