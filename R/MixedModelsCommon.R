@@ -2304,7 +2304,7 @@
       tempTable$addFootnote(.mmMessageLowBMFI(length(lowBmfi)), symbol = gettext("Warning:"))
 
     if (maxTreedepth != 0)
-      tempTable$addFootnote(.mmMessageMaxTreedepth(max_treedepth))
+      tempTable$addFootnote(.mmMessageMaxTreedepth(maxTreedepth))
 
     if (maxRhat > 1.01)
       tempTable$addFootnote(.mmMessageMaxRhat(maxRhat), symbol = gettext("Warning:"))
