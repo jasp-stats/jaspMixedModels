@@ -209,3 +209,15 @@
     return(gettext("The model was fitted using maximum likelihood."))
   }
 }
+.mmErrorOnFit           <- function(error) {
+  if (grepl("(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate", error))
+    return(gettext("The optimizer failed to find a solution. Probably due to quasi-separation in the data. Try removing some of the predictors."))
+  else if (grepl("PIRLS loop resulted in NaN value", error))
+    return(gettext("The optimizer failed to find a solution. Probably due to quasi-separation in the data or an overly complex model structure. Try removing some of the predictors."))
+  else if (grepl( "cannot find valid starting values: please specify some", error))
+    return(gettext("The optimizer failed to find a solution due to invalid starting values. (JASP currently does not support specifying different starting values.)"))
+  else if (grepl("Downdated VtV is not positive definite", error))
+    return(gettext("The optimizer failed to find a solution. Probably due to scaling issues quasi-separation in the data. Try rescaling or removing some of the predictors."))
+  else
+    return(error)
+}

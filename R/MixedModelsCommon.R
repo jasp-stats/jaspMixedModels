@@ -550,35 +550,10 @@
 
   ANOVAsummary$dependOn(c(dependencies, seedDependencies, "pvalVS"))
 
-  # some error managment for GLMMS - and oh boy, they can fail really easily
-  if (type %in% c("LMM", "GLMM") && !is.null(model)) {
-    if (inherits(model, c("std::runtime_error", "C++Error", "try-error"))) {
-      if (model == "(maxstephalfit) PIRLS step-halvings failed to reduce deviance in pwrssUpdate")
-        ANOVAsummary$setError(
-          gettext("The optimizer failed to find a solution. Probably due to quasi-separation in the data. Try removing some of the predictors.")
-        )
-
-      else if (model == "PIRLS loop resulted in NaN value")
-        ANOVAsummary$setError(
-          gettext("The optimizer failed to find a solution. Probably due to quasi-separation in the data or an overly complex model structure. Try removing some of the predictors.")
-        )
-
-      else if (model == "cannot find valid starting values: please specify some")
-        # currently no solution to this, it seems to be a problem with synthetic data only.
-        # I will try silving it once someone actually has problem with real data.
-        ANOVAsummary$setError(gettext("The optimizer failed to find a solution due to invalid starting values. (JASP currently does not support specifying different starting values.)"))
-
-      else if (model == "Downdated VtV is not positive definite")
-        ANOVAsummary$setError(gettext("The optimizer failed to find a solution. Probably due to scaling issues quasi-separation in the data. Try rescaling or removing some of the predictors."))
-
-
-      else
-        ANOVAsummary$setError(model)
-
-
-      return()
-    }
-
+  # some error management for GLMMS - and oh boy, they can fail really easily
+  if (!is.null(model) && inherits(model, c("std::runtime_error", "C++Error", "try-error"))) {
+    ANOVAsummary$setError(.mmErrorOnFit(model))
+    return()
   }
 
 
@@ -1944,7 +1919,7 @@
   }
 
   if (jaspBase::isTryError(model)) {
-    if (model == "Dropping columns failed to produce full column rank design matrix")
+    if (grepl("Dropping columns failed to produce full column rank design matrix", model))
       .quitAnalysis(gettext("The specified combination of factors does not produce an estimable model. A factor or combination of factors resulted in more levels than the effective sample size."))
     else
       .quitAnalysis(paste0(gettext("Please, report the following error message at JASP GitHub https://github.com/jasp-stats/jasp-issues: "), model))
