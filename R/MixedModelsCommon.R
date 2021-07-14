@@ -2163,12 +2163,17 @@
 
   model <- jaspResults[["mmModel"]]$object$model
   if (!is.null(model) && !jaspBase::isTryError(model)) {
+
     modelSummary <-
       summary(
         model,
         probs = c(.50 - options$summaryCI / 2, .50, .50 + options$summaryCI / 2),
         diff_intercept = options$show == "deviation"
       )
+
+    if (any(sapply(modelSummary, is.null)))
+      .quitAnalysis("The model summary could not be produced. Please, verify that the predictors and the outcome variable have reasonable scaling  and that there are sufficient observations for each factor level.")
+
   } else {
     # dummy object for creating empty summary
     modelSummary <- list("Model summary" = matrix(NA, nrow = 0, ncol = 0))
