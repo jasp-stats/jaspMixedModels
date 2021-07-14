@@ -2608,7 +2608,7 @@
   clrs     <- rep_len(rstan:::rstanvis_aes_ops("chain_colors"), plotData$nchains)
   thm      <- rstan:::rstanvis_theme()
   dots     <- rstan:::.add_aesthetics(list(), c("size", "color", "fill"))
-  acDat    <- rstan:::.ac_plotData(dat = plotData$samp, lags = lags, partial = FALSE)
+  acDat    <- rstan:::.ac_plot_data(dat = plotData$samp, lags = lags, partial = FALSE)
 
   dots$position <- "dodge"
   dots$stat     <- "summary"
