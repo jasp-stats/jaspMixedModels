@@ -92,12 +92,25 @@ Form {
 
 			property var familyMap: {
 				"binomial":					["logit", "probit", "cauchit", "cloglog", "log"],
+				"binomialAgg":     			["logit", "probit", "cauchit", "cloglog", "log"],
 				"gaussian":					["identity", "log", "inverse"],
 				"Gamma":					["identity", "log", "inverse"],
 				"inverse.gaussian":			["identity", "log", "inverse"],
 				"poisson":					["identity", "log", "sqrt"],
 				"neg_binomial_2":			["identity", "log", "sqrt"],
 				"betar":					["logit", "probit", "cauchit", "cloglog", "log"]
+			}
+
+			property var familyDefault:
+			{
+				"binomial":			"logit",
+				"binomialAgg":		"logit",
+				"gaussian":			"identity",
+				"Gamma":			"log",
+				"inverse.gaussian":	"log",
+				"poisson":			"log",
+				"neg_binomial_2":	"log",
+				"betar":			"logit"
 			}
 
 			onCurrentValueChanged:
@@ -126,7 +139,7 @@ Form {
 				label:		qsTr("Logit")
 				value:		"logit"
 				visible:	family.familyMap[family.currentValue].includes(value)
-				checked:	true
+				checked:	family.familyDefault[family.currentValue] == "logit"
 			}
 			
 			RadioButton
@@ -134,6 +147,7 @@ Form {
 				label:		qsTr("Probit")
 				value:		"probit"
 				visible:	family.familyMap[family.currentValue].includes(value)
+				checked:	family.familyDefault[family.currentValue] == "probit"
 			}
 
 			RadioButton
@@ -141,6 +155,7 @@ Form {
 				label:		qsTr("Cauchit")
 				value:		"cauchit"
 				visible:	family.familyMap[family.currentValue].includes(value)
+				checked:	family.familyDefault[family.currentValue] == "cauchit"
 			}
 
 			RadioButton
@@ -148,6 +163,7 @@ Form {
 				label:		qsTr("Complementary LogLog")
 				value:		"cloglog"
 				visible:	family.familyMap[family.currentValue].includes(value)
+				checked:	family.familyDefault[family.currentValue] == "cloglog"
 			}
 
 			RadioButton
@@ -155,6 +171,7 @@ Form {
 				label:		qsTr("Identity")
 				value:		"identity"
 				visible:	family.familyMap[family.currentValue].includes(value)
+				checked:	family.familyDefault[family.currentValue] == "identity"
 			}
 
 			RadioButton
@@ -162,6 +179,7 @@ Form {
 				label:		qsTr("Log")
 				value:		"log"
 				visible:	family.familyMap[family.currentValue].includes(value)
+				checked:	family.familyDefault[family.currentValue] == "log"
 			}
 
 			RadioButton
@@ -169,6 +187,7 @@ Form {
 				label:		qsTr("Sqrt")
 				value:		"sqrt"
 				visible:	family.familyMap[family.currentValue].includes(value)
+				checked:	family.familyDefault[family.currentValue] == "sqrt"
 			}
 
 			RadioButton
@@ -176,6 +195,7 @@ Form {
 				label:		qsTr("Inverse")
 				value:		"inverse"
 				visible:	family.familyMap[family.currentValue].includes(value)
+				checked:	family.familyDefault[family.currentValue] == "inverse"
 			}
 		}
 	}
