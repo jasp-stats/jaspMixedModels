@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-07-20 16:35+0000\n"
+"PO-Revision-Date: 2021-07-20 19:07+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/gl/>\n"
@@ -588,7 +588,6 @@ msgctxt "MixedModelsBGLMM|"
 msgid "Family"
 msgstr "Familia"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
 msgstr "Binomial"
@@ -613,7 +612,6 @@ msgctxt "MixedModelsBGLMM|"
 msgid "Inverse Gaussian"
 msgstr "Normal Inversa"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Poisson"
 msgstr "Poisson"
@@ -628,17 +626,14 @@ msgctxt "MixedModelsBGLMM|"
 msgid "Link"
 msgstr "Enlace"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Logit"
 msgstr "Logit"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Probit"
 msgstr "Probit"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Cauchit"
 msgstr "Cauchit"
@@ -728,7 +723,6 @@ msgctxt "MixedModelsGLMM|"
 msgid "Random effects grouping factors"
 msgstr "Factores de agrupamento de efectos aleatorios"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
 msgstr "Binomial"
@@ -743,7 +737,6 @@ msgctxt "MixedModelsGLMM|"
 msgid "Gamma"
 msgstr "Gamma"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Poisson"
 msgstr "Poisson"
