@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2021-06-30 10:31\n"
-"PO-Revision-Date: 2021-07-16 01:56+0000\n"
+"PO-Revision-Date: 2021-07-22 19:33+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/gl/>\n"
@@ -25,42 +25,47 @@ msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
 "number of observations."
 msgstr ""
+"O efecto fixo categórico '%s' debe ter menos niveis que o número global de "
+"observacións."
 
 msgid ""
 "The random effects grouping factor '%s' must have fewer levels than the "
 "overall number of observations."
 msgstr ""
+"O factor de agrupamento de efectos aleatorios '%s' debe ter menos niveis que "
+"o número global de observacións."
 
 msgid ""
 "The number of iterations must be at least 2 iterations higher than the burnin"
 msgstr ""
+"O número de iteracións debe ser cando menos 2 iteracións maior que as "
+"queimadas"
 
-#, fuzzy
 msgid "%s requires that the dependent variable is positive."
-msgstr "Correlacionar variables dependentes"
+msgstr "%s require que a variable dependente sexa positiva."
 
-#, fuzzy
 msgid "%s requires that the dependent variable is an integer."
-msgstr "Correlacionar variables dependentes"
+msgstr "%s require que a variable dependente sexa un enteiro."
 
 msgid "%s requires that the dependent variable contains only 0 and 1."
-msgstr ""
+msgstr "%s require que a variable dependente conteña só 0 e 1."
 
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
-msgstr ""
+msgstr "%s require que a variable dependente sexa maior que 0 e menor que 1."
 
 msgid "%s requires that the number of trials variable is an integer."
-msgstr ""
+msgstr "%s require que o número da variable de ensaios sexa un enteiro."
 
 msgid ""
 "%s requires that the dependent variable is proportion of successes out of "
 "the number of trials."
 msgstr ""
+"%s require que a variable dependente sexa a proporción de acertos do número "
+"de intentos."
 
-#, fuzzy
 msgid "ANOVA Summary"
-msgstr "Resumo"
+msgstr "Resumo do ANOVA"
 
 msgid "Effect"
 msgstr "Efecto"
@@ -72,31 +77,34 @@ msgid "F"
 msgstr "F"
 
 msgid "ChiSq"
-msgstr ""
+msgstr "KhiCadr"
 
 msgid "p"
 msgstr "p"
 
-#, fuzzy
 msgid "p (bootstrap)"
-msgstr "bootstraps"
+msgstr "p (bootstrap)"
 
 msgid "VS-MPR"
 msgstr "VS-MPR"
 
-#, fuzzy
 msgid "VS-MPR (bootstrap)"
-msgstr "bootstraps"
+msgstr "VS-MPR (bootstrap)"
 
 msgid ""
 "The optimizer failed to find a solution. Probably due to quasi-separation in "
 "the data. Try removing some of the predictors."
 msgstr ""
+"Fallou o optimizador procurando unha solución. Probablemente debido á case "
+"separación dos datos. Intenta eliminar algúns dos preditores."
 
 msgid ""
 "The optimizer failed to find a solution due to invalid starting values. "
 "(JASP currently does not support specifying different starting values.)"
 msgstr ""
+"Fallo o optimizador ao atopar unha solución debido a valores de inicio "
+"incorrectos. (Actualmente JASP non admite a especificación de distintos "
+"valores de inicio.)"
 
 msgid ""
 "The optimizer failed to find a solution. Probably due to scaling issues "
@@ -104,9 +112,8 @@ msgid ""
 "predictors."
 msgstr ""
 
-#, fuzzy
 msgid "Intercept"
-msgstr "Constantes"
+msgstr "Constante"
 
 msgid "Warning:"
 msgstr "Aviso:"
@@ -117,9 +124,8 @@ msgstr "III"
 msgid "II"
 msgstr "II"
 
-#, fuzzy
 msgid "Fit statistics"
-msgstr "estatístico t"
+msgstr "Estatísticos de axuste"
 
 msgid "Deviance"
 msgstr "Desviación"
@@ -136,28 +142,23 @@ msgstr "AIC"
 msgid "BIC"
 msgstr "BIC"
 
-#, fuzzy
 msgid "Sample sizes"
-msgstr "Tamaño da mostra"
+msgstr "Tamaños de mostra"
 
-#, fuzzy
 msgid "Observations"
-msgstr "Iteracións"
+msgstr "Observacións"
 
-#, fuzzy
 msgid "Levels of RE grouping factors"
-msgstr "Factores de agrupamento de efectos aleatorios"
+msgstr "Niveis dos factores de agrupamento EA"
 
-#, fuzzy
 msgid "Variance/Correlation Estimates"
-msgstr "Estimacións de varianzas/correlacións"
+msgstr "Estimacións de Varianzas/Correlacións"
 
-#, fuzzy
 msgid "%s: Variance Estimates"
-msgstr "Estimacións de varianzas/correlacións"
+msgstr "%s: Estimacións de Varianzas"
 
 msgid "Term"
-msgstr ""
+msgstr "Elemento"
 
 msgid "Std. Deviation"
 msgstr "Desvío Padrón"
@@ -165,17 +166,14 @@ msgstr "Desvío Padrón"
 msgid "Variance"
 msgstr "Varianza"
 
-#, fuzzy
 msgid "%s: Correlation Estimates"
-msgstr "Matriz de correlacións"
+msgstr "%s: Estimacións das Correlacións"
 
-#, fuzzy
 msgid "Residual Variance Estimates"
-msgstr "Varianzas dos erros"
+msgstr "Estimacións das Varianzas dos Erros"
 
-#, fuzzy
 msgid "Fixed Effects Estimates"
-msgstr "Estimacións de efectos fixos"
+msgstr "Estimacións dos Efectos Fixos"
 
 msgid "Estimate"
 msgstr "Estimar"
@@ -209,7 +207,7 @@ msgid "Lower"
 msgstr "Inferior"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "IC do %s%%"
 
 msgid "Upper"
 msgstr "Superior"
@@ -229,15 +227,14 @@ msgstr "Mediana"
 msgid "%s%% HPD"
 msgstr ""
 
-#, fuzzy
 msgid "Estimated Trends"
-msgstr "Estimar gl"
+msgstr "Tendencias Estimadas"
 
 msgid "%s (slope)"
 msgstr ""
 
 msgid "Contrasts"
-msgstr "Probas"
+msgstr "Contrastes"
 
 msgid "Odds Ratio"
 msgstr "Proporción de Posibilidades"
@@ -245,35 +242,32 @@ msgstr "Proporción de Posibilidades"
 msgid "Ratio"
 msgstr "Proporción"
 
-#, fuzzy
 msgid "Fit Statistics"
-msgstr "Estatísticos"
+msgstr "Estatísticos de Axuste"
 
 msgid "WAIC"
-msgstr ""
+msgstr "WAIC"
 
 msgid "SE (WAIC)"
-msgstr ""
+msgstr "EP (WAIC)"
 
 msgid "LOO"
-msgstr ""
+msgstr "LOO"
 
 msgid "SE (LOO)"
-msgstr ""
+msgstr "EP (LOO)"
 
 msgid "Model summary"
 msgstr "Resumo do modelo"
 
-#, fuzzy
 msgid "%s (differences from intercept)"
-msgstr "Diferenzas coa constante"
+msgstr "%s (diferenzas coa constante)"
 
 msgid "%s (trend)"
-msgstr ""
+msgstr "%s (tendencia)"
 
-#, fuzzy
 msgid "%s (marginal means)"
-msgstr "Medias marxinais"
+msgstr "%s (medias marxinais)"
 
 msgid "Level"
 msgstr "Nivel"
@@ -282,23 +276,21 @@ msgid "R-hat"
 msgstr "R-circunflexo"
 
 msgid "ESS (bulk)"
-msgstr ""
+msgstr "ESS (groso)"
 
 msgid "ESS (tail)"
-msgstr ""
+msgstr "ESS (cola)"
 
 msgid ""
 "The model could not be estimated. Please, check the options and dataset for "
 "errors."
 msgstr ""
 
-#, fuzzy
 msgid "Sampling diagnostics"
-msgstr "Unidades da mostraxe"
+msgstr "Diagnósticos da mostraxe"
 
-#, fuzzy
 msgid "Avg. autocorrelation"
-msgstr "Autocorrelación"
+msgstr "Media autocorrelación"
 
 msgid ""
 "The following variables are a linear combination of each other, please, "
@@ -344,16 +336,14 @@ msgid ""
 "corresponding option."
 msgstr ""
 
-#, fuzzy
 msgid "Results are on the response scale."
-msgstr "Preferencias de resultados"
+msgstr "Os resultados están na escala de resposta."
 
 msgid "Results are not on the response scale and might be misleading."
 msgstr ""
 
-#, fuzzy
 msgid "Type %s Sum of Squares"
-msgstr "Suma de cadrados"
+msgstr "Suma de Cadrados Tipo %s"
 
 msgid ""
 "This analysis requires at least one random effects grouping factor to run."
@@ -370,26 +360,21 @@ msgstr ""
 msgid "Results are averaged over the levels of: %s."
 msgstr ""
 
-#, fuzzy
 msgid "binomial"
 msgstr "Binomial"
 
-#, fuzzy
 msgid "gaussian"
 msgstr "Normal"
 
 msgid "gamma"
 msgstr "Gamma"
 
-#, fuzzy
 msgid "inverse gaussian"
 msgstr "Normal Inversa"
 
-#, fuzzy
 msgid "poisson"
 msgstr "Poisson"
 
-#, fuzzy
 msgid "negative binomial"
 msgstr "Binomial Negativa"
 
@@ -405,20 +390,17 @@ msgstr ""
 msgid "Kenward-Roger"
 msgstr ""
 
-#, fuzzy
 msgid "likelihood ratio tests"
 msgstr "Probas da proporción de verosimilitudes"
 
-#, fuzzy
 msgid "parametric bootstrap"
 msgstr "Bootstrap paramétrico"
 
 msgid "Model terms tested with %s method."
-msgstr ""
+msgstr "Elementos do modelo probados co método %s."
 
-#, fuzzy
 msgid "P-values are not adjusted."
-msgstr "Axuste do valor p"
+msgstr "Os valores p non están axustados."
 
 msgid "Holm"
 msgstr "Holm"
@@ -441,9 +423,8 @@ msgstr ""
 msgid "Benjamini-Yekutieli"
 msgstr ""
 
-#, fuzzy
 msgid "Scheffé"
-msgstr "Scheffe"
+msgstr "Scheffé"
 
 msgid "Sidak"
 msgstr ""
@@ -454,15 +435,18 @@ msgstr "Dunnett"
 msgid "Bonferroni"
 msgstr "Bonferroni"
 
-#, fuzzy
 msgid "P-values are adjusted using %s adjustment."
-msgstr "Axuste do valor p"
+msgstr "Os valores p axustáronse utilizando o axuste %s."
 
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; The "
 "largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', "
 "or 'Adapt delta' in the Options section."
 msgstr ""
+"Inferencia posiblemente pouco fiable -- as cadeas MCMC puideron non "
+"converxer. O maior R-circunflexo é %.3f > 1.01. Para reducir o R-"
+"circunflexo, por favor, aumenta as 'Iteracións' ou 'Adapt delta' na sección "
+"de Opcións."
 
 msgid ""
 "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f "
@@ -514,8 +498,8 @@ msgstr[1] ""
 
 msgid "%i observation was removed due to missing values."
 msgid_plural "%i observations were removed due to missing values."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "a observación %i eliminouse debido a valores ausentes."
+msgstr[1] "as observacións %i elimináronse debido a valores ausentes."
 
 msgid ""
 "The Hamiltonian Monte Carlo procedure might be invalid -- There was %i "
@@ -537,7 +521,13 @@ msgid_plural ""
 "chains indicating that the posterior distribution was not explored "
 "efficiently. Try increasing number of 'Burnin' and 'Iterations'."
 msgstr[0] ""
+"A Fracción Baiesiana da Información Perdida (BFMI) era moi baixa na cadea "
+"%i, indicando que a distribución posterior non se explorou eficientemente. "
+"Intenta aumentar o número de 'Queimado' e 'Iteracións'."
 msgstr[1] ""
+"A Fracción Baiesiana da Información Perdida (BFMI) era moi baixa en %i "
+"cadeas, indicando que a distribución posterior non se explorou "
+"eficientemente. Intenta aumentar o número de 'Queimado' e 'Iteracións'."
 
 msgid ""
 "The Hamiltonian Monte Carlo procedure might be inefficient -- %i transition "
