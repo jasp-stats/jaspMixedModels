@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2021-06-30 10:31\n"
-"PO-Revision-Date: 2021-07-16 01:56+0000\n"
+"PO-Revision-Date: 2021-07-23 19:11+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/gl/>\n"
@@ -25,42 +25,47 @@ msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
 "number of observations."
 msgstr ""
+"O efecto fixo categórico '%s' debe ter menos niveis que o número global de "
+"observacións."
 
 msgid ""
 "The random effects grouping factor '%s' must have fewer levels than the "
 "overall number of observations."
 msgstr ""
+"O factor de agrupamento de efectos aleatorios '%s' debe ter menos niveis que "
+"o número global de observacións."
 
 msgid ""
 "The number of iterations must be at least 2 iterations higher than the burnin"
 msgstr ""
+"O número de iteracións debe ser cando menos 2 iteracións maior que as "
+"queimadas"
 
-#, fuzzy
 msgid "%s requires that the dependent variable is positive."
-msgstr "Correlacionar variables dependentes"
+msgstr "%s require que a variable dependente sexa positiva."
 
-#, fuzzy
 msgid "%s requires that the dependent variable is an integer."
-msgstr "Correlacionar variables dependentes"
+msgstr "%s require que a variable dependente sexa un enteiro."
 
 msgid "%s requires that the dependent variable contains only 0 and 1."
-msgstr ""
+msgstr "%s require que a variable dependente conteña só 0 e 1."
 
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
-msgstr ""
+msgstr "%s require que a variable dependente sexa maior que 0 e menor que 1."
 
 msgid "%s requires that the number of trials variable is an integer."
-msgstr ""
+msgstr "%s require que o número da variable de ensaios sexa un enteiro."
 
 msgid ""
 "%s requires that the dependent variable is proportion of successes out of "
 "the number of trials."
 msgstr ""
+"%s require que a variable dependente sexa a proporción de acertos do número "
+"de intentos."
 
-#, fuzzy
 msgid "ANOVA Summary"
-msgstr "Resumo"
+msgstr "Resumo do ANOVA"
 
 msgid "Effect"
 msgstr "Efecto"
@@ -72,41 +77,46 @@ msgid "F"
 msgstr "F"
 
 msgid "ChiSq"
-msgstr ""
+msgstr "KhiCadr"
 
 msgid "p"
 msgstr "p"
 
-#, fuzzy
 msgid "p (bootstrap)"
-msgstr "bootstraps"
+msgstr "p (bootstrap)"
 
 msgid "VS-MPR"
 msgstr "VS-MPR"
 
-#, fuzzy
 msgid "VS-MPR (bootstrap)"
-msgstr "bootstraps"
+msgstr "VS-MPR (bootstrap)"
 
 msgid ""
 "The optimizer failed to find a solution. Probably due to quasi-separation in "
 "the data. Try removing some of the predictors."
 msgstr ""
+"Fallou o optimizador procurando unha solución. Probablemente debido á case "
+"separación dos datos. Intenta eliminar algúns dos preditores."
 
 msgid ""
 "The optimizer failed to find a solution due to invalid starting values. "
 "(JASP currently does not support specifying different starting values.)"
 msgstr ""
+"Fallo o optimizador procurando unha solución debido a valores de inicio "
+"incorrectos. (Actualmente JASP non admite a especificación de distintos "
+"valores de inicio.)"
 
 msgid ""
 "The optimizer failed to find a solution. Probably due to scaling issues "
 "quasi-separation in the data. Try rescaling or removing some of the "
 "predictors."
 msgstr ""
+"Fallou o optimizador procurando unha solución. Probablemente debido á case "
+"separación en cuestións de escala. Intenta volver a escalar ou eliminar "
+"algúns dos preditores."
 
-#, fuzzy
 msgid "Intercept"
-msgstr "Constantes"
+msgstr "Constante"
 
 msgid "Warning:"
 msgstr "Aviso:"
@@ -117,9 +127,8 @@ msgstr "III"
 msgid "II"
 msgstr "II"
 
-#, fuzzy
 msgid "Fit statistics"
-msgstr "estatístico t"
+msgstr "Estatísticos de axuste"
 
 msgid "Deviance"
 msgstr "Desviación"
@@ -128,7 +137,7 @@ msgid "Deviance (REML)"
 msgstr "Desviación (MVRE)"
 
 msgid "log Lik."
-msgstr ""
+msgstr "log Ver."
 
 msgid "AIC"
 msgstr "AIC"
@@ -136,28 +145,23 @@ msgstr "AIC"
 msgid "BIC"
 msgstr "BIC"
 
-#, fuzzy
 msgid "Sample sizes"
-msgstr "Tamaño da mostra"
+msgstr "Tamaños de mostra"
 
-#, fuzzy
 msgid "Observations"
-msgstr "Iteracións"
+msgstr "Observacións"
 
-#, fuzzy
 msgid "Levels of RE grouping factors"
-msgstr "Factores de agrupamento de efectos aleatorios"
+msgstr "Niveis dos factores de agrupamento EA"
 
-#, fuzzy
 msgid "Variance/Correlation Estimates"
-msgstr "Estimacións de varianzas/correlacións"
+msgstr "Estimacións de Varianzas/Correlacións"
 
-#, fuzzy
 msgid "%s: Variance Estimates"
-msgstr "Estimacións de varianzas/correlacións"
+msgstr "%s: Estimacións de Varianzas"
 
 msgid "Term"
-msgstr ""
+msgstr "Elemento"
 
 msgid "Std. Deviation"
 msgstr "Desvío Padrón"
@@ -165,17 +169,14 @@ msgstr "Desvío Padrón"
 msgid "Variance"
 msgstr "Varianza"
 
-#, fuzzy
 msgid "%s: Correlation Estimates"
-msgstr "Matriz de correlacións"
+msgstr "%s: Estimacións das Correlacións"
 
-#, fuzzy
 msgid "Residual Variance Estimates"
-msgstr "Varianzas dos erros"
+msgstr "Estimacións das Varianzas dos Erros"
 
-#, fuzzy
 msgid "Fixed Effects Estimates"
-msgstr "Estimacións de efectos fixos"
+msgstr "Estimacións dos Efectos Fixos"
 
 msgid "Estimate"
 msgstr "Estimar"
@@ -193,11 +194,16 @@ msgid ""
 "At least one random effects grouping factor needs to be selected in field "
 "'Background data show'."
 msgstr ""
+"Cando menos, precísase seleccionar un factor de agrupamento de efectos "
+"aleatorios no campo 'Exposición de datos de fondo '."
 
 msgid ""
 "Factor levels need to be distinguished by at least one feature. Please, "
 "check one of the 'Distinguish factor levels' options."
 msgstr ""
+"Os niveis dos factores precisan distinguirse por unha característica, cando "
+"menos. Por favor, comproba unha das opcións de 'Distinguir os niveis dos "
+"factores '."
 
 msgid "Estimated Means and Confidence Intervals"
 msgstr "Medias Estimadas e Intervalos de Confianza"
@@ -209,7 +215,7 @@ msgid "Lower"
 msgstr "Inferior"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "IC do %s%%"
 
 msgid "Upper"
 msgstr "Superior"
@@ -227,17 +233,16 @@ msgid "Median"
 msgstr "Mediana"
 
 msgid "%s%% HPD"
-msgstr ""
+msgstr "HPD do %s%%"
 
-#, fuzzy
 msgid "Estimated Trends"
-msgstr "Estimar gl"
+msgstr "Tendencias Estimadas"
 
 msgid "%s (slope)"
-msgstr ""
+msgstr "%s (pendente)"
 
 msgid "Contrasts"
-msgstr "Probas"
+msgstr "Contrastes"
 
 msgid "Odds Ratio"
 msgstr "Proporción de Posibilidades"
@@ -245,35 +250,32 @@ msgstr "Proporción de Posibilidades"
 msgid "Ratio"
 msgstr "Proporción"
 
-#, fuzzy
 msgid "Fit Statistics"
-msgstr "Estatísticos"
+msgstr "Estatísticos de Axuste"
 
 msgid "WAIC"
-msgstr ""
+msgstr "WAIC"
 
 msgid "SE (WAIC)"
-msgstr ""
+msgstr "EP (WAIC)"
 
 msgid "LOO"
-msgstr ""
+msgstr "LOO"
 
 msgid "SE (LOO)"
-msgstr ""
+msgstr "EP (LOO)"
 
 msgid "Model summary"
 msgstr "Resumo do modelo"
 
-#, fuzzy
 msgid "%s (differences from intercept)"
-msgstr "Diferenzas coa constante"
+msgstr "%s (diferenzas coa constante)"
 
 msgid "%s (trend)"
-msgstr ""
+msgstr "%s (tendencia)"
 
-#, fuzzy
 msgid "%s (marginal means)"
-msgstr "Medias marxinais"
+msgstr "%s (medias marxinais)"
 
 msgid "Level"
 msgstr "Nivel"
@@ -282,34 +284,39 @@ msgid "R-hat"
 msgstr "R-circunflexo"
 
 msgid "ESS (bulk)"
-msgstr ""
+msgstr "ESS (groso)"
 
 msgid "ESS (tail)"
-msgstr ""
+msgstr "ESS (cola)"
 
 msgid ""
 "The model could not be estimated. Please, check the options and dataset for "
 "errors."
 msgstr ""
+"Non se puido estimar o modelo. Por favor, comproba que as opcións e o "
+"conxunto de datos non teñan fallos."
 
-#, fuzzy
 msgid "Sampling diagnostics"
-msgstr "Unidades da mostraxe"
+msgstr "Diagnósticos da mostraxe"
 
-#, fuzzy
 msgid "Avg. autocorrelation"
-msgstr "Autocorrelación"
+msgstr "Media autocorrelación"
 
 msgid ""
 "The following variables are a linear combination of each other, please, "
 "remove one of them from the analysis: %s"
 msgstr ""
+"As seguintes variables son unha combinación linear das outras; por favor, "
+"elimina unha delas da análise: %s"
 
 msgid ""
 "The intercept corresponds to the (unweighted) grand mean; for each factor "
 "with k levels, k - 1 parameters are estimated. Consequently, the estimates "
 "cannot be directly mapped to factor levels."
 msgstr ""
+"A constante se corresponde coa media (sen ponderar) global; para cada factor "
+"con k niveis, estímanse k - 1 parámetros. Consecuentemente, as estimacións "
+"non se poden facer corresponder directamente a niveis dos factores."
 
 msgid ""
 "Model fit is singular. Specified random effects parameters (random "
@@ -317,6 +324,11 @@ msgid ""
 "Carefully reduce the random effects structure, but this practice might "
 "inflate the reported p-value, and invalidates the analysis."
 msgstr ""
+"O axuste do modelo é peculiar. Non se poden estimar os parámetros indicados "
+"de efectos aleatorios (constantes aleatorias e pendentes aleatorias) a "
+"partir dos datos dispoñibles. Reduce con coidado a estrutura de efectos "
+"aleatorios, mais isto poderá agrandar o valor p presentado, e invalidar a "
+"análise."
 
 msgid ""
 "Vovk-Sellke Maximum <em>p</em>-Ratio: Based on a two-sided <em>p</em>-value, "
@@ -337,59 +349,66 @@ msgid ""
 "this may induce unknown risks of anti-conservative results (i.e., p-values "
 "might be lower than nominal)."
 msgstr ""
+"Hai problemas numéricos coa estimación de máxima-verosimilitude (p.e. "
+"gradientes grandes de máis). Isto pode indicar que os parámetros de efectos "
+"aleatorios indicados (constantes aleatorias e pendentes aleatorias) non se "
+"poden estimar cos datos dispoñibles. Sopesa con coidado reducir a estrutura "
+"de efectos aleatorios, mais ten conciencia de que isto pode provocar riscos "
+"descoñecidos de resultados anti-conservadores (i.e. os valores p poderían "
+"ser menores que os teóricos)."
 
 msgid ""
 "Estimation of degrees of freedom disabled (i.e., asymptotic results shown), "
 "because the number of observations is large. To force estimation, check "
 "corresponding option."
 msgstr ""
+"A estimación dos graos de liberdade está inhabilitada (i.e. nos resultados "
+"asintóticos amosados), porque o número de observacións é grande. Para forzar "
+"a estimación, marca a opción correspondente."
 
-#, fuzzy
 msgid "Results are on the response scale."
-msgstr "Preferencias de resultados"
+msgstr "Os resultados están na escala de resposta."
 
 msgid "Results are not on the response scale and might be misleading."
-msgstr ""
+msgstr "Os resultados non están na escala de resposta e poderían ser enganosos."
 
-#, fuzzy
 msgid "Type %s Sum of Squares"
-msgstr "Suma de cadrados"
+msgstr "Suma de Cadrados Tipo %s"
 
 msgid ""
 "This analysis requires at least one random effects grouping factor to run."
 msgstr ""
+"Esta análise require para funcionar un factor de agrupamento de efectos "
+"aleatorios, cando menos."
 
 msgid ""
 "The 'Binomial (aggregated)' family requires the 'Number of trials' to be "
 "specified to run."
 msgstr ""
+"A familia 'Binomial (agregada)' require para funcionar que se indique o "
+"'Número de intentos'."
 
 msgid "P-values correspond to test of null hypothesis against %s."
-msgstr ""
+msgstr "Os valores p correspóndense coa proba da hipótese nula contra %s."
 
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "Os resultados son medias calculadas sobre os niveis de: %s."
 
-#, fuzzy
 msgid "binomial"
 msgstr "Binomial"
 
-#, fuzzy
 msgid "gaussian"
 msgstr "Normal"
 
 msgid "gamma"
 msgstr "Gamma"
 
-#, fuzzy
 msgid "inverse gaussian"
 msgstr "Normal Inversa"
 
-#, fuzzy
 msgid "poisson"
 msgstr "Poisson"
 
-#, fuzzy
 msgid "negative binomial"
 msgstr "Binomial Negativa"
 
@@ -398,36 +417,34 @@ msgstr "Beta"
 
 msgid "Generalized linear mixed model with %s family and %s link function."
 msgstr ""
+"Modelo mixto linear xeneralizado coa familia %s e a función de enlace %s."
 
 msgid "Satterthwaite"
-msgstr ""
+msgstr "Satterthwaite"
 
 msgid "Kenward-Roger"
-msgstr ""
+msgstr "Kenward-Roger"
 
-#, fuzzy
 msgid "likelihood ratio tests"
 msgstr "Probas da proporción de verosimilitudes"
 
-#, fuzzy
 msgid "parametric bootstrap"
 msgstr "Bootstrap paramétrico"
 
 msgid "Model terms tested with %s method."
-msgstr ""
+msgstr "Elementos do modelo probados co método %s."
 
-#, fuzzy
 msgid "P-values are not adjusted."
-msgstr "Axuste do valor p"
+msgstr "Os valores p non están axustados."
 
 msgid "Holm"
 msgstr "Holm"
 
 msgid "Homel"
-msgstr ""
+msgstr "Homel"
 
 msgid "Hochberg"
-msgstr ""
+msgstr "Hochberg"
 
 msgid "Multivariate-t"
 msgstr "t multivariante"
@@ -436,17 +453,16 @@ msgid "Tukey"
 msgstr "Tukey"
 
 msgid "Benjamini-Hochberg"
-msgstr ""
+msgstr "Benjamini-Hochberg"
 
 msgid "Benjamini-Yekutieli"
-msgstr ""
+msgstr "Benjamini-Yekutieli"
 
-#, fuzzy
 msgid "Scheffé"
-msgstr "Scheffe"
+msgstr "Scheffé"
 
 msgid "Sidak"
-msgstr ""
+msgstr "Sidak"
 
 msgid "Dunnett"
 msgstr "Dunnett"
@@ -454,30 +470,40 @@ msgstr "Dunnett"
 msgid "Bonferroni"
 msgstr "Bonferroni"
 
-#, fuzzy
 msgid "P-values are adjusted using %s adjustment."
-msgstr "Axuste do valor p"
+msgstr "Os valores p axustáronse utilizando o axuste %s."
 
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; The "
 "largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', "
 "or 'Adapt delta' in the Options section."
 msgstr ""
+"Inferencia posiblemente pouco fiable -- as cadeas MCMC puideron non "
+"converxer. O maior R-circunflexo é %.3f > 1.01. Para reducir o R-"
+"circunflexo, por favor, aumenta as 'Iteracións' ou 'Delta de axuste' na "
+"sección de Opcións."
 
 msgid ""
 "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f "
 "< %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' "
 "in the Options section."
 msgstr ""
+"Precisión baixa da estimación -- O Tamaño da Mostra Efectivo (ESS) máis "
+"pequeno é %.2f < %1.0f. Para aumentar a precisión, por favor, aumenta "
+"'Iteracións', ou 'Delta de axuste' na sección Opcións."
 
 msgid "The model was fitted using %1$s.%2$s"
-msgstr ""
+msgstr "Axustouse o modelo utilizando %1$s.%2$s"
 
 msgid "The following variable is used as a random effects grouping factor: %s."
 msgid_plural ""
 "The following variables are used as random effects grouping factors: %s."
 msgstr[0] ""
+"Utilízase a seguinte variable como un factor de agrupamento de efectos "
+"aleatorios: %s."
 msgstr[1] ""
+"Utilízanse as seguintes variables como un factores de agrupamento de efectos "
+"aleatorios: %s."
 
 msgid ""
 "All random slopes involving ‘%s’ have been removed for the random effects "
@@ -488,7 +514,14 @@ msgid_plural ""
 "grouping factor ‘%s’. -- Factors %s do not vary within the levels of random "
 "effects grouping factor '%s'."
 msgstr[0] ""
+"Tódalas pendentes aleatorias relacionadas con ‘%s’ foron eliminadas do "
+"factor de agrupamento de efectos aleatorios ‘%s’. -- O factor %s non varía "
+"dentro dos niveis dun factor de agrupamento de efectos aleatorios '%s'."
 msgstr[1] ""
+"Tódalas pendentes aleatorias relacionadas con ‘%s’ foron eliminadas do "
+"factor de agrupamento de efectos aleatorios ‘%s’. -- Os factores %s non "
+"varían dentro dos niveis dun factor de agrupamento de efectos aleatorios "
+"'%s'."
 
 msgid ""
 "Random slopes of ‘%s’ for the random effects grouping factor ‘%s’ removed -- "
@@ -499,7 +532,13 @@ msgid_plural ""
 "Too few observations to estimate random slope of '%s' for random effects "
 "grouping factor '%s'."
 msgstr[0] ""
+"Eliminouse a pendente aleatoria de ‘%s’ para o factor de agrupamento de "
+"efectos aleatorios ‘%s’ -- Moi poucas observacións para estimar a pendente "
+"aleatoria de '%s' para o factor de agrupamento de efectos aleatorios '%s'."
 msgstr[1] ""
+"Elimináronse as pendentes aleatorias de ‘%s’ para o factor de agrupamento de "
+"efectos aleatorios ‘%s’ -- Moi poucas observacións para estimar as pendentes "
+"aleatorias de '%s' para o factor de agrupamento de efectos aleatorios '%s'."
 
 msgid ""
 "Lower order random effects terms need to be specified in presence of the "
@@ -510,12 +549,20 @@ msgid_plural ""
 "higher order random effects terms. Therefore, the following random effects "
 "terms were added to the '%s' random effects grouping factor: '%s.'"
 msgstr[0] ""
+"É preciso indicar os elementos dos efectos aleatorios de menor orde en "
+"presencia de elementos dos efectos aleatorios de maior orde. Por iso, "
+"engadiuse o seguinte elemento de efectos aleatorios ao factor '%s' de "
+"agrupamento de efectos aleatorios: '%s.'"
 msgstr[1] ""
+"É preciso indicar os elementos dos efectos aleatorios de menor orde en "
+"presencia de elementos dos efectos aleatorios de maior orde. Por iso, "
+"engadíronse os seguintes elementos de efectos aleatorios ao factor '%s' de "
+"agrupamento de efectos aleatorios: '%s.'"
 
 msgid "%i observation was removed due to missing values."
 msgid_plural "%i observations were removed due to missing values."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "a observación %i eliminouse debido a valores ausentes."
+msgstr[1] "as observacións %i elimináronse debido a valores ausentes."
 
 msgid ""
 "The Hamiltonian Monte Carlo procedure might be invalid -- There was %i "
@@ -526,7 +573,15 @@ msgid_plural ""
 "divergent transitions after warmup. This can be solved by carefully "
 "increasing 'Adapt delta' until there are no divergent transitions."
 msgstr[0] ""
+"O procedemento de Monte Carlo do Hamiltoniano podería ser incorrecto -- "
+"Había %i transición diverxente logo do quecemento. Isto pódese resolver "
+"aumentando coidadosamente 'Delta de axuste' ata que non haxa transicións "
+"diverxentes."
 msgstr[1] ""
+"O procedemento de Monte Carlo do Hamiltoniano podería ser incorrecto -- "
+"Había %i transicións diverxentes logo do quecemento. Isto pódese resolver "
+"aumentando coidadosamente 'Delta de axuste' ata que non haxa transicións "
+"diverxentes."
 
 msgid ""
 "Bayesian Fraction of Missing Information (BFMI) that was too low in %i chain "
@@ -537,7 +592,13 @@ msgid_plural ""
 "chains indicating that the posterior distribution was not explored "
 "efficiently. Try increasing number of 'Burnin' and 'Iterations'."
 msgstr[0] ""
+"A Fracción Baiesiana da Información Perdida (BFMI) era moi baixa na cadea "
+"%i, indicando que a distribución posterior non se explorou eficientemente. "
+"Intenta aumentar o número de 'Queimado' e 'Iteracións'."
 msgstr[1] ""
+"A Fracción Baiesiana da Información Perdida (BFMI) era moi baixa en %i "
+"cadeas, indicando que a distribución posterior non se explorou "
+"eficientemente. Intenta aumentar o número de 'Queimado' e 'Iteracións'."
 
 msgid ""
 "The Hamiltonian Monte Carlo procedure might be inefficient -- %i transition "
@@ -548,7 +609,13 @@ msgid_plural ""
 "exceeded the maximum tree depth. This can be solved by carefully increasing "
 "'Maximum tree depth"
 msgstr[0] ""
+"O procedemento de Monte Carlo do Hamiltoniano podería ser ineficiente -- A "
+"transición %i supera a máxima profundidade da árbore. Isto pódese resolver "
+"aumentando coidadosamente 'Máxima profundidade da árbore'."
 msgstr[1] ""
+"O procedemento de Monte Carlo do Hamiltoniano podería ser ineficiente -- %i "
+"transicións superan a máxima profundidade da árbore. Isto pódese resolver "
+"aumentando coidadosamente 'Máxima profundidade da árbore'."
 
 msgid ""
 "WAIC estimate unreliable -- There was %1.0f p_waic estimate larger than 0.4. "
@@ -557,7 +624,11 @@ msgid_plural ""
 "WAIC estimate unreliable -- There were %1.0f p_waic estimates larger than "
 "0.4. We recommend using LOO instead."
 msgstr[0] ""
+"Estimación WAIC pouco fiable -- Había %1.0f estimación p_waic maior que 0.4. "
+"Recoméndase utilizar LOO en troques."
 msgstr[1] ""
+"Estimación WAIC pouco fiable -- Había %1.0f estimacións p_waic maiores que "
+"0.4. Recoméndase utilizar LOO en troques."
 
 msgid ""
 "LOO estimate unreliable -- There was %1.0f observation with the shape "
@@ -566,4 +637,8 @@ msgid_plural ""
 "LOO estimate unreliable -- There were %1.0f observations with the shape "
 "parameter (k) of the generalized Pareto distribution higher than > .5."
 msgstr[0] ""
+"Estimación WAIC pouco fiable -- Había a observación %1.0f con parámetro de "
+"forma (k) da distribución xeneralizada de Pareto, maior que 0.5."
 msgstr[1] ""
+"Estimación WAIC pouco fiable -- Había %1.0f observacións con parámetro de "
+"forma (k) da distribución xeneralizada de Pareto, maior que 0.5."
