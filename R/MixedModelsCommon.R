@@ -2050,7 +2050,7 @@
       REvar$addRows(tempRow)
     }
 
-    REvar$addFootnote(.mmMessageInterpretability)
+    REvar$addFootnote(.mmMessageInterpretabilityBayesian)
 
     REsummary[[paste0("VE", gi)]] <- REvar
 
@@ -2082,7 +2082,7 @@
         REcor$addRows(tempRow)
       }
 
-      REcor$addFootnote(.mmMessageInterpretability)
+      REcor$addFootnote(.mmMessageInterpretabilityBayesian)
 
       REsummary[[paste0("CE", gi)]] <- REcor
 
@@ -2152,7 +2152,7 @@
   }
 
   # add warning messages
-  FEsummary$addFootnote(.mmMessageInterpretability)
+  FEsummary$addFootnote(.mmMessageInterpretabilityBayesian)
 
   return()
 }
