@@ -6,7 +6,7 @@ Upgrades
 	Upgrade
 	{
 		functionName: 	"MixedModelsLMM"
-		fromVersion:	"0.14"
+		fromVersion:	"0.14.3"
 		toVersion:		"0.15"
 
 		ChangeRename { from: "bootstrap_samples";	to: "bootstrapSamples" }
@@ -19,7 +19,11 @@ Upgrades
 		fromVersion:	"0.14"
 		toVersion:		"0.15"
 
-		ChangeRename { from: "binomial_agg";		to: "binomialAgg" }
+		ChangeSetValue{
+		    name: "family"
+		    condition: function(options) { return options["family"] == "binomial_agg"; }
+		    jsonValue: "binomialAgg"
+		}
 		ChangeRename { from: "bootstrap_samples";	to: "bootstrapSamples" }
 	}
 
