@@ -10,17 +10,18 @@ Upgrades
 		toVersion:		"0.15"
 
 		ChangeRename { from: "bootstrap_samples";	to: "bootstrapSamples"; }
-		ChangeSetValue
+		ChangeJS
 		{
 			name:		"plotsTheme"
-			condition:	function(options) { return options["plotsTheme"] == "jtools::theme_apa"; }
-			jsonValue:	"theme_apa"
-		}
-		ChangeSetValue
-		{
-			name:		"plotsTheme"
-			condition:	function(options) { return options["plotsTheme"] == "ggpubr::theme_pubr"; }
-			jsonValue:	"theme_pubr"
+			jsFunction:	function(options) 
+			{
+				switch(options["plotsTheme"])
+				{
+					case "jtools::theme_apa":	return "theme_apa";
+					case "ggpubr::theme_pubr":	return "theme_pubr";
+					default:			return options["plotsTheme"]
+				}
+			}
 		}
 		
 	}
