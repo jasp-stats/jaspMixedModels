@@ -23,7 +23,6 @@ Upgrades
 				}
 			}
 		}
-		
 	}
 
 	Upgrade
@@ -39,17 +38,18 @@ Upgrades
 			jsonValue:	"binomialAgg"
 		}
 		ChangeRename { from: "bootstrap_samples";	to: "bootstrapSamples"; }
-		ChangeSetValue
+		ChangeJS
 		{
 			name:		"plotsTheme"
-			condition:	function(options) { return options["plotsTheme"] == "jtools::theme_apa"; }
-			jsonValue:	"theme_apa"
-		}
-		ChangeSetValue
-		{
-			name:		"plotsTheme"
-			condition:	function(options) { return options["plotsTheme"] == "ggpubr::theme_pubr"; }
-			jsonValue:	"theme_pubr"
+			jsFunction:	function(options) 
+			{
+				switch(options["plotsTheme"])
+				{
+					case "jtools::theme_apa":	return "theme_apa";
+					case "ggpubr::theme_pubr":	return "theme_pubr";
+					default:			return options["plotsTheme"]
+				}
+			}
 		}
 	}
 
@@ -59,17 +59,18 @@ Upgrades
 		fromVersion:	"0.14.3"
 		toVersion:		"0.15"
 
-		ChangeSetValue
+		ChangeJS
 		{
 			name:		"plotsTheme"
-			condition:	function(options) { return options["plotsTheme"] == "jtools::theme_apa"; }
-			jsonValue:	"theme_apa"
-		}
-		ChangeSetValue
-		{
-			name:		"plotsTheme"
-			condition:	function(options) { return options["plotsTheme"] == "ggpubr::theme_pubr"; }
-			jsonValue:	"theme_pubr"
+			jsFunction:	function(options) 
+			{
+				switch(options["plotsTheme"])
+				{
+					case "jtools::theme_apa":	return "theme_apa";
+					case "ggpubr::theme_pubr":	return "theme_pubr";
+					default:			return options["plotsTheme"]
+				}
+			}
 		}
 	}
 
@@ -85,17 +86,18 @@ Upgrades
 			condition:	function(options) { return options["family"] == "binomial_agg"; }
 			jsonValue:	"binomialAgg"
 		}
-		ChangeSetValue
+		ChangeJS
 		{
 			name:		"plotsTheme"
-			condition:	function(options) { return options["plotsTheme"] == "jtools::theme_apa"; }
-			jsonValue:	"theme_apa"
-		}
-		ChangeSetValue
-		{
-			name:		"plotsTheme"
-			condition:	function(options) { return options["plotsTheme"] == "ggpubr::theme_pubr"; }
-			jsonValue:	"theme_pubr"
+			jsFunction:	function(options) 
+			{
+				switch(options["plotsTheme"])
+				{
+					case "jtools::theme_apa":	return "theme_apa";
+					case "ggpubr::theme_pubr":	return "theme_pubr";
+					default:			return options["plotsTheme"]
+				}
+			}
 		}
 	}
 }
