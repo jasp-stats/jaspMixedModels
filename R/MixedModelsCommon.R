@@ -535,7 +535,7 @@
     if (options$method == "PB")
       ANOVAsummary$addColumnInfo(name = "pvalBootVS", title = gettext("VS-MPR (bootstrap)"), type = "number")
 
-    ANOVAsummary$addFootnote(.mmMessageVovkSellke, symbol = "\u002A", colNames = c("pvalVS", "pvalBootVS"))
+    ANOVAsummary$addFootnote(.mmMessageVovkSellke(), symbol = "\u002A", colNames = c("pvalVS", "pvalBootVS"))
   }
 
   jaspResults[["ANOVAsummary"]] <- ANOVAsummary
@@ -560,10 +560,10 @@
   if (is.null(model)) {
 
     if (options$dependentVariable != "" && length(options$fixedVariables) > 0 &&  length(options$randomVariables) == 0)
-      ANOVAsummary$addFootnote(.mmMessageMissingRE)
+      ANOVAsummary$addFootnote(.mmMessageMissingRE())
 
     if (type == "GLMM" && options$family == "binomialAgg" && options$dependentVariableAggregation == "")
-      ANOVAsummary$addFootnote(.mmMessageMissingAgg)
+      ANOVAsummary$addFootnote(.mmMessageMissingAgg())
 
     return()
   }
@@ -606,16 +606,16 @@
   if (is.list(model$full_model)) {
 
     if (lme4::isSingular(model$full_model[[length(model$full_model)]]))
-      ANOVAsummary$addFootnote(.mmMessageSingularFit, symbol = gettext("Warning:"))
+      ANOVAsummary$addFootnote(.mmMessageSingularFit(), symbol = gettext("Warning:"))
     else if (!is.null(model$full_model[[length(model$full_model)]]@optinfo$conv$lme4$messages))
-      ANOVAsummary$addFootnote(.mmMessageNumericalProblems, symbol = gettext("Warning:"))
+      ANOVAsummary$addFootnote(.mmMessageNumericalProblems(), symbol = gettext("Warning:"))
 
   } else {
 
     if (lme4::isSingular(model$full_model))
-      ANOVAsummary$addFootnote(.mmMessageSingularFit, symbol = gettext("Warning:"))
+      ANOVAsummary$addFootnote(.mmMessageSingularFit(), symbol = gettext("Warning:"))
     else if (!is.null(model$full_model@optinfo$conv$lme4$messages))
-      ANOVAsummary$addFootnote(.mmMessageNumericalProblems, symbol = gettext("Warning:"))
+      ANOVAsummary$addFootnote(.mmMessageNumericalProblems(), symbol = gettext("Warning:"))
 
   }
   if (jaspResults[["nMissing"]]$object != 0) {
@@ -769,7 +769,7 @@
       REvar$addRows(tempRow)
     }
 
-    REvar$addFootnote(.mmMessageInterpretability)
+    REvar$addFootnote(.mmMessageInterpretability())
 
     REsummary[[paste0("VE", gi)]] <- REvar
 
@@ -797,7 +797,7 @@
         REcor$addRows(tempRow)
       }
 
-      REcor$addFootnote(.mmMessageInterpretability)
+      REcor$addFootnote(.mmMessageInterpretability())
 
       REsummary[[paste0("CE", gi)]] <- REcor
 
@@ -864,7 +864,7 @@
 
   if (options$pvalVS) {
     FEsummary$addColumnInfo(name = "pvalVS",     title = gettext("VS-MPR"),     type = "number")
-    FEsummary$addFootnote(.mmMessageVovkSellke, symbol = "\u002A", colNames = "pvalVS")
+    FEsummary$addFootnote(.mmMessageVovkSellke(), symbol = "\u002A", colNames = "pvalVS")
   }
 
   jaspResults[["FEsummary"]] <- FEsummary
@@ -903,7 +903,7 @@
   }
 
   # add warning messages
-  FEsummary$addFootnote(.mmMessageInterpretability)
+  FEsummary$addFootnote(.mmMessageInterpretability())
 
   return()
 }
@@ -1283,7 +1283,7 @@
 
       if (options$pvalVS) {
         EMMsummary$addColumnInfo(name = "pvalVS", title = gettext("VS-MPR"), type = "number")
-        EMMsummary$addFootnote(.mmMessageVovkSellke, symbol = "\u002A", colNames = "pvalVS")
+        EMMsummary$addFootnote(.mmMessageVovkSellke(), symbol = "\u002A", colNames = "pvalVS")
       }
     }
 
@@ -1344,10 +1344,10 @@
 
   # add warning message
   if (type == "LMM" && options$marginalMeansDf != attr(emm@dffun, "mesg"))
-    EMMsummary$addFootnote(.mmMessageDFdisabled, symbol = gettext("Warning:"))
+    EMMsummary$addFootnote(.mmMessageDFdisabled(), symbol = gettext("Warning:"))
 
   if (type %in% c("GLMM","BGLMM"))
-    EMMsummary$addFootnote(ifelse(options$marginalMeansResponse, .mmMessageResponse, .mmMessageNotResponse))
+    EMMsummary$addFootnote(ifelse(options$marginalMeansResponse, .mmMessageResponse(), .mmMessageNotResponse()))
 
 
   object <- list(
@@ -1476,7 +1476,7 @@
 
       if (options$pvalVS) {
         trendsSummary$addColumnInfo(name = "pvalVS", title = gettext("VS-MPR"), type = "number")
-        trendsSummary$addFootnote(.mmMessageVovkSellke, symbol = "\u002A", colNames = "pvalVS")
+        trendsSummary$addFootnote(.mmMessageVovkSellke(), symbol = "\u002A", colNames = "pvalVS")
       }
     }
   } else if (type %in% c("BLMM", "BGLMM")) {
@@ -1531,10 +1531,10 @@
 
   # add warning message
   if (type == "LMM" && options$trendsDf != attr(emm@dffun, "mesg"))
-    trendsSummary$addFootnote(.mmMessageDFdisabled, symbol = gettext("Warning:"))
+    trendsSummary$addFootnote(.mmMessageDFdisabled(), symbol = gettext("Warning:"))
 
   if (type == "GLMM")
-    trendsSummary$addFootnote(.mmMessageNotResponse)
+    trendsSummary$addFootnote(.mmMessageNotResponse())
 
 
   object <- list(
@@ -1642,7 +1642,7 @@
 
     if (options$pvalVS) {
       EMMCsummary$addColumnInfo(name = "pvalVS", title = gettext("VS-MPR"),   type = "number")
-      EMMCsummary$addFootnote(.mmMessageVovkSellke, symbol = "\u002A", colNames = "pvalVS")
+      EMMCsummary$addFootnote(.mmMessageVovkSellke(), symbol = "\u002A", colNames = "pvalVS")
     }
 
   } else if (type %in% c("BLMM", "BGLMM")) {
@@ -1784,9 +1784,9 @@
     if (type %in% c("GLMM", "BGLMM") && what == "Means") {
 
       if (!selectedResponse)
-        EMMCsummary$addFootnote(.mmMessageNotResponse)
+        EMMCsummary$addFootnote(.mmMessageNotResponse())
       else
-        EMMCsummary$addFootnote(.mmMessageResponse)
+        EMMCsummary$addFootnote(.mmMessageResponse())
 
     }
 
@@ -2050,7 +2050,7 @@
       REvar$addRows(tempRow)
     }
 
-    REvar$addFootnote(.mmMessageInterpretabilityBayesian)
+    REvar$addFootnote(.mmMessageInterpretabilityBayesian())
 
     REsummary[[paste0("VE", gi)]] <- REvar
 
@@ -2082,7 +2082,7 @@
         REcor$addRows(tempRow)
       }
 
-      REcor$addFootnote(.mmMessageInterpretabilityBayesian)
+      REcor$addFootnote(.mmMessageInterpretabilityBayesian())
 
       REsummary[[paste0("CE", gi)]] <- REcor
 
@@ -2152,7 +2152,7 @@
   }
 
   # add warning messages
-  FEsummary$addFootnote(.mmMessageInterpretabilityBayesian)
+  FEsummary$addFootnote(.mmMessageInterpretabilityBayesian())
 
   return()
 }
@@ -2233,10 +2233,10 @@
     if (tableName == "Model summary") {
 
       if (options$dependentVariable != "" && length(options$fixedVariables) > 0 && length(options$randomVariables) == 0)
-        tempTable$addFootnote(.mmMessageMissingRE)
+        tempTable$addFootnote(.mmMessageMissingRE())
 
       if (type == "BGLMM" && options$family == "binomialAgg" && options$dependentVariableAggregation == "")
-        tempTable$addFootnote(.mmMessageMissingAgg)
+        tempTable$addFootnote(.mmMessageMissingAgg())
 
 
       if (jaspBase::isTryError(jaspResults[["mmModel"]]$object$model))
