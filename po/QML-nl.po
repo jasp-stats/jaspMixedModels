@@ -334,10 +334,6 @@ msgid "Theme"
 msgstr "Thema"
 
 msgctxt "MixedModelsPlots|"
-msgid "Black White"
-msgstr "Zwart Wit"
-
-msgctxt "MixedModelsPlots|"
 msgid "Light"
 msgstr "Licht"
 
@@ -364,10 +360,6 @@ msgstr "Boven"
 msgctxt "MixedModelsPlots|"
 msgid "Left"
 msgstr "Links"
-
-msgctxt "MixedModelsPlots|"
-msgid "Color background data"
-msgstr "Kleur achtergrond gegevens"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dark grey"
@@ -795,4 +787,12 @@ msgstr "Vergelijk trends met:"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means with random effects"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "White background"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Border color"
 msgstr ""

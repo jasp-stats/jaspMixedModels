@@ -335,10 +335,6 @@ msgid "Theme"
 msgstr ""
 
 msgctxt "MixedModelsPlots|"
-msgid "Black White"
-msgstr ""
-
-msgctxt "MixedModelsPlots|"
 msgid "Light"
 msgstr ""
 
@@ -364,10 +360,6 @@ msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Left"
-msgstr ""
-
-msgctxt "MixedModelsPlots|"
-msgid "Color background data"
 msgstr ""
 
 msgctxt "MixedModelsPlots|"
@@ -792,4 +784,12 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "White background"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Border color"
 msgstr ""

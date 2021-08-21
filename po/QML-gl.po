@@ -345,10 +345,6 @@ msgid "Legend position"
 msgstr "Posición da lenda"
 
 msgctxt "MixedModelsPlots|"
-msgid "Black White"
-msgstr "Negro Branco"
-
-msgctxt "MixedModelsPlots|"
 msgid "Background geom"
 msgstr "Xeometría de fondo"
 
@@ -363,10 +359,6 @@ msgstr "Eixe horizontal"
 msgctxt "MixedModelsPlots|"
 msgid "Boxjitter"
 msgstr "Dispersión da caixa"
-
-msgctxt "MixedModelsPlots|"
-msgid "Color background data"
-msgstr "Datos da cor do fondo"
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval method"
@@ -796,3 +788,11 @@ msgstr "Variables continuas"
 msgctxt "MixedModelsLMM|"
 msgid "Trend variable"
 msgstr "Variable de tendencia"
+
+msgctxt "MixedModelsPlots|"
+msgid "White background"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Border color"
+msgstr ""

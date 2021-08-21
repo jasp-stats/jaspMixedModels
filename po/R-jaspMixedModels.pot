@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2021-06-30 10:31\n"
+"POT-Creation-Date: 2021-08-21 02:49\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,19 +64,13 @@ msgstr ""
 msgid "VS-MPR (bootstrap)"
 msgstr ""
 
-msgid "The optimizer failed to find a solution. Probably due to quasi-separation in the data. Try removing some of the predictors."
-msgstr ""
-
-msgid "The optimizer failed to find a solution due to invalid starting values. (JASP currently does not support specifying different starting values.)"
-msgstr ""
-
-msgid "The optimizer failed to find a solution. Probably due to scaling issues quasi-separation in the data. Try rescaling or removing some of the predictors."
-msgstr ""
-
 msgid "Intercept"
 msgstr ""
 
 msgid "Warning:"
+msgstr ""
+
+msgid "Note:"
 msgstr ""
 
 msgid "III"
@@ -154,6 +148,9 @@ msgstr ""
 msgid "Factor levels need to be distinguished by at least one feature. Please, check one of the 'Distinguish factor levels' options."
 msgstr ""
 
+msgid "Violin geom requires that the random effects grouping factors has at least 3 levels."
+msgstr ""
+
 msgid "Estimated Means and Confidence Intervals"
 msgstr ""
 
@@ -197,6 +194,12 @@ msgid "Odds Ratio"
 msgstr ""
 
 msgid "Ratio"
+msgstr ""
+
+msgid "The specified combination of factors does not produce an estimable model. A factor or combination of factors resulted in more levels than the effective sample size."
+msgstr ""
+
+msgid "Please, report the following error message at JASP GitHub https://github.com/jasp-stats/jasp-issues:"
 msgstr ""
 
 msgid "Fit Statistics"
@@ -250,7 +253,10 @@ msgstr ""
 msgid "The following variables are a linear combination of each other, please, remove one of them from the analysis: %s"
 msgstr ""
 
-msgid "The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated. Consequently, the estimates cannot be directly mapped to factor levels."
+msgid "The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated with sum contrast coding. Consequently, the estimates cannot be directly mapped to factor levels. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences."
+msgstr ""
+
+msgid "The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated with orthonormal coding proposed by Rouder et al. (2012). Consequently, the estimates cannot be directly mapped to factor levels. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences."
 msgstr ""
 
 msgid "Model fit is singular. Specified random effects parameters (random intercepts and random slopes) cannot be estimated from the available data. Carefully reduce the random effects structure, but this practice might inflate the reported p-value, and invalidates the analysis."
@@ -370,7 +376,22 @@ msgstr ""
 msgid "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f < %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
 
-msgid "The model was fitted using %1$s.%2$s"
+msgid "The model was fitted using restricted maximum likelihood. Please note that models with different fixed effects cannot be compared when REML is used. To use ML, switch 'Test model terms' to 'Likelihood ratio tests'."
+msgstr ""
+
+msgid "The model was fitted using maximum likelihood."
+msgstr ""
+
+msgid "The optimizer failed to find a solution. Probably due to quasi-separation in the data. Try removing some of the predictors."
+msgstr ""
+
+msgid "The optimizer failed to find a solution. Probably due to quasi-separation in the data or an overly complex model structure. Try removing some of the predictors."
+msgstr ""
+
+msgid "The optimizer failed to find a solution due to invalid starting values. (JASP currently does not support specifying different starting values.)"
+msgstr ""
+
+msgid "The optimizer failed to find a solution. Probably due to scaling issues quasi-separation in the data. Try rescaling or removing some of the predictors."
 msgstr ""
 
 msgid        "The following variable is used as a random effects grouping factor: %s."
@@ -383,8 +404,8 @@ msgid_plural "All random slopes involving ‘%s’ have been removed for the ran
 msgstr[0]    ""
 msgstr[1]    ""
 
-msgid        "Random slopes of ‘%s’ for the random effects grouping factor ‘%s’ removed -- Too few observations to estimate random slopes of '%s' for random effects grouping factor '%s'."
-msgid_plural "Random slope of ‘%s’ for the random effects grouping factor ‘%s’ removed -- Too few observations to estimate random slope of '%s' for random effects grouping factor '%s'."
+msgid        "Random slope of ‘%s’ for the random effects grouping factor ‘%s’ removed -- Too few observations to estimate random slope of '%s' for random effects grouping factor '%s'."
+msgid_plural "Random slopes of ‘%s’ for the random effects grouping factor ‘%s’ removed -- Too few observations to estimate random slopes of '%s' for random effects grouping factor '%s'."
 msgstr[0]    ""
 msgstr[1]    ""
 
@@ -408,8 +429,8 @@ msgid_plural "Bayesian Fraction of Missing Information (BFMI) that was too low i
 msgstr[0]    ""
 msgstr[1]    ""
 
-msgid        "The Hamiltonian Monte Carlo procedure might be inefficient -- %i transition exceeded the maximum tree depth. This can be solved by carefully increasing 'Maximum tree depth"
-msgid_plural "The Hamiltonian Monte Carlo procedure might be inefficient -- %i transitions exceeded the maximum tree depth. This can be solved by carefully increasing 'Maximum tree depth"
+msgid        "The Hamiltonian Monte Carlo procedure might be inefficient -- %i transition exceeded the maximum tree depth. This can be solved by carefully increasing 'Maximum tree depth'."
+msgid_plural "The Hamiltonian Monte Carlo procedure might be inefficient -- %i transitions exceeded the maximum tree depth. This can be solved by carefully increasing 'Maximum tree depth'."
 msgstr[0]    ""
 msgstr[1]    ""
 
@@ -418,7 +439,7 @@ msgid_plural "WAIC estimate unreliable -- There were %1.0f p_waic estimates larg
 msgstr[0]    ""
 msgstr[1]    ""
 
-msgid        "LOO estimate unreliable -- There was %1.0f observation with the shape parameter (k) of the generalized Pareto distribution higher than > .5."
-msgid_plural "LOO estimate unreliable -- There were %1.0f observations with the shape parameter (k) of the generalized Pareto distribution higher than > .5."
+msgid        "LOO estimate unreliable -- There was %1.0f observation with the shape parameter (k) of the generalized Pareto distribution higher than 0.5."
+msgid_plural "LOO estimate unreliable -- There were %1.0f observations with the shape parameter (k) of the generalized Pareto distribution higher than 0.5."
 msgstr[0]    ""
 msgstr[1]    ""

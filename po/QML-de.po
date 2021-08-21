@@ -334,10 +334,6 @@ msgid "Theme"
 msgstr "Farbschema"
 
 msgctxt "MixedModelsPlots|"
-msgid "Black White"
-msgstr "Schwarz-Weiß"
-
-msgctxt "MixedModelsPlots|"
 msgid "Light"
 msgstr "Hell"
 
@@ -364,10 +360,6 @@ msgstr "Oben"
 msgctxt "MixedModelsPlots|"
 msgid "Left"
 msgstr "Links"
-
-msgctxt "MixedModelsPlots|"
-msgid "Color background data"
-msgstr "Farbe Hintergrund-Daten"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dark grey"
@@ -798,3 +790,11 @@ msgid "Evaluate the difference between multiple means with random effects"
 msgstr ""
 "Untersuche den Unterschied zwischen mehreren Mittelwerten mit zufälligen "
 "Effekten"
+
+msgctxt "MixedModelsPlots|"
+msgid "White background"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Border color"
+msgstr ""

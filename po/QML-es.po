@@ -402,11 +402,6 @@ msgstr "Tema"
 
 #, fuzzy
 msgctxt "MixedModelsPlots|"
-msgid "Black White"
-msgstr "Blanco negro"
-
-#, fuzzy
-msgctxt "MixedModelsPlots|"
 msgid "Light"
 msgstr "Ligero"
 
@@ -439,11 +434,6 @@ msgstr "Parte superior"
 msgctxt "MixedModelsPlots|"
 msgid "Left"
 msgstr "Izquierda"
-
-#, fuzzy
-msgctxt "MixedModelsPlots|"
-msgid "Color background data"
-msgstr "Datos de fondo de color"
 
 #, fuzzy
 msgctxt "MixedModelsPlots|"
@@ -978,3 +968,11 @@ msgstr "Compare las tendencias con:"
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means with random effects"
 msgstr "Evaluar la diferencia entre múltiples medias con efectos aleatorios"
+
+msgctxt "MixedModelsPlots|"
+msgid "White background"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Border color"
+msgstr ""
