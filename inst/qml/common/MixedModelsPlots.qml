@@ -203,6 +203,7 @@ Section
 			label:			qsTr("Geom width")
 			defaultValue:	1
 			min:			0
+			inclusive:		JASP.None
 		}
 
 		DoubleField
@@ -273,6 +274,7 @@ Section
 			label:			qsTr("Relative size text")
 			defaultValue:	1.5
 			min:			0
+			inclusive:		JASP.None
 		}
 
 		DoubleField
@@ -281,6 +283,7 @@ Section
 			label:			qsTr("Relative size foreground data")
 			defaultValue:	1
 			min:			0
+			inclusive:		JASP.None
 		}
 
 		CheckBox
