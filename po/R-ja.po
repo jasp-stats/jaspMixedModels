@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "POT-Creation-Date: 2021-08-21 02:49\n"
-"PO-Revision-Date: 2021-04-22 00:29+0000\n"
+"PO-Revision-Date: 2021-08-25 23:32+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/ja/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.7-dev\n"
+"X-Generator: Weblate 4.8.1-dev\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -94,7 +94,7 @@ msgid "Fit statistics"
 msgstr ""
 
 msgid "Deviance"
-msgstr ""
+msgstr "デビアンス"
 
 msgid "Deviance (REML)"
 msgstr ""
@@ -151,7 +151,7 @@ msgid "t"
 msgstr "t"
 
 msgid "Plot"
-msgstr ""
+msgstr "プロット"
 
 msgid ""
 "At least one random effects grouping factor needs to be selected in field "
@@ -169,7 +169,7 @@ msgid ""
 msgstr ""
 
 msgid "Estimated Means and Confidence Intervals"
-msgstr ""
+msgstr "平均値と信頼区間の推定値"
 
 msgid "Mean"
 msgstr "平均値"
@@ -178,16 +178,16 @@ msgid "Lower"
 msgstr "下"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% CI"
 
 msgid "Upper"
 msgstr "上"
 
 msgid "Estimated Marginal Means"
-msgstr ""
+msgstr "推定周辺平均"
 
 msgid "Row"
-msgstr ""
+msgstr "行"
 
 msgid "z"
 msgstr "z"
@@ -195,8 +195,9 @@ msgstr "z"
 msgid "Median"
 msgstr "中央値"
 
+#, fuzzy
 msgid "%s%% HPD"
-msgstr ""
+msgstr "%s%% HPD"
 
 msgid "Estimated Trends"
 msgstr ""
@@ -205,13 +206,13 @@ msgid "%s (slope)"
 msgstr ""
 
 msgid "Contrasts"
-msgstr ""
+msgstr "対比"
 
 msgid "Odds Ratio"
-msgstr ""
+msgstr "オッズ比"
 
 msgid "Ratio"
-msgstr ""
+msgstr "比"
 
 msgid ""
 "The specified combination of factors does not produce an estimable model. A "
@@ -228,16 +229,19 @@ msgid "Fit Statistics"
 msgstr ""
 
 msgid "WAIC"
-msgstr ""
+msgstr "WAIC"
 
+#, fuzzy
 msgid "SE (WAIC)"
-msgstr ""
+msgstr "SE (WAIC)"
 
+#, fuzzy
 msgid "LOO"
-msgstr ""
+msgstr "LOO"
 
+#, fuzzy
 msgid "SE (LOO)"
-msgstr ""
+msgstr "SE (LOO)"
 
 msgid "Model summary"
 msgstr ""
@@ -254,15 +258,12 @@ msgstr ""
 msgid "Level"
 msgstr "水準"
 
-#, fuzzy
 msgid "R-hat"
 msgstr "R-hat"
 
-#, fuzzy
 msgid "ESS (bulk)"
 msgstr "ESS (bulk)"
 
-#, fuzzy
 msgid "ESS (tail)"
 msgstr "ESS (tail)"
 
@@ -275,7 +276,7 @@ msgid "Sampling diagnostics"
 msgstr ""
 
 msgid "Avg. autocorrelation"
-msgstr ""
+msgstr "平均自己相関"
 
 msgid ""
 "The following variables are a linear combination of each other, please, "
@@ -352,25 +353,25 @@ msgid "Results are averaged over the levels of: %s."
 msgstr ""
 
 msgid "binomial"
-msgstr ""
+msgstr "二項"
 
 msgid "gaussian"
-msgstr ""
+msgstr "正規"
 
 msgid "gamma"
-msgstr ""
+msgstr "ガンマ"
 
 msgid "inverse gaussian"
-msgstr ""
+msgstr "逆正規"
 
 msgid "poisson"
-msgstr ""
+msgstr "ポアソン"
 
 msgid "negative binomial"
-msgstr ""
+msgstr "負の二項"
 
 msgid "beta"
-msgstr ""
+msgstr "ベータ"
 
 msgid "Generalized linear mixed model with %s family and %s link function."
 msgstr ""
@@ -382,19 +383,19 @@ msgid "Kenward-Roger"
 msgstr ""
 
 msgid "likelihood ratio tests"
-msgstr ""
+msgstr "尤度比検定"
 
 msgid "parametric bootstrap"
-msgstr ""
+msgstr "パラメトリックブートストラップ"
 
 msgid "Model terms tested with %s method."
 msgstr ""
 
 msgid "P-values are not adjusted."
-msgstr ""
+msgstr "P値は調整されていません。"
 
 msgid "Holm"
-msgstr ""
+msgstr "ホルム(Holm)"
 
 msgid "Homel"
 msgstr ""
@@ -403,10 +404,10 @@ msgid "Hochberg"
 msgstr ""
 
 msgid "Multivariate-t"
-msgstr ""
+msgstr "多変量-t"
 
 msgid "Tukey"
-msgstr ""
+msgstr "テューキー(Tukey)"
 
 msgid "Benjamini-Hochberg"
 msgstr ""
@@ -415,7 +416,7 @@ msgid "Benjamini-Yekutieli"
 msgstr ""
 
 msgid "Scheffé"
-msgstr ""
+msgstr "シェフェ(Scheffe)"
 
 msgid "Sidak"
 msgstr ""
@@ -424,7 +425,7 @@ msgid "Dunnett"
 msgstr "ダネット(Dunnett)"
 
 msgid "Bonferroni"
-msgstr ""
+msgstr "ボンフェローニ(Bonferroni)"
 
 msgid "P-values are adjusted using %s adjustment."
 msgstr ""
@@ -548,6 +549,7 @@ msgid_plural ""
 "WAIC estimate unreliable -- There were %1.0f p_waic estimates larger than "
 "0.4. We recommend using LOO instead."
 msgstr[0] ""
+"WAIC 推定値が信頼できません -- 0.4 より大きい %1.0f p_waic 推定値がありました。代わりに LOO を使用することをお勧めします。"
 
 msgid ""
 "LOO estimate unreliable -- There was %1.0f observation with the shape "
