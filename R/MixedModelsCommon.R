@@ -1131,7 +1131,7 @@
       return      = "data"
     )$means
 
-    EstimatesTable <- createJaspTable(title = gettext("Estimated Means and Confidence Intervals"))
+    EstimatesTable <- createJaspTable(title = if(options$plotsCImethod == "none") gettext("Estimated Means") else gettext("Estimated Means and Confidence Intervals"))
     EstimatesTable$position <- 5
     EstimatesTable$dependOn(
       c(
