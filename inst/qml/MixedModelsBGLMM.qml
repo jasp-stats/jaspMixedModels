@@ -206,7 +206,10 @@ Form {
 
 	MM.MixedModelsMCMCDiagnostics {}
 
-	MM.MixedModelsPlots {}
+	MM.MixedModelsPlots
+	{
+		analysisType: "Bayesian"
+	}
 
 	Section
 	{

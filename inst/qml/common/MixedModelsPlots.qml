@@ -27,6 +27,8 @@ Section
 	title:		qsTr("Plots")
 	expanded:	false
 
+	property string analysisType:		"frequentist"
+
 	VariablesForm
 	{
 		preferredHeight:	250 * preferencesModel.uiScale
@@ -84,14 +86,22 @@ Section
 			name:	"plotsCImethod"
 			id:		plotsCImethod
 			label:	qsTr("Confidence interval method")
-			values:
-			[
-				{ label: qsTr("Model"),			value: "model"},
-				{ label: qsTr("None"),			value: "none"},
-				{ label: qsTr("Mean"),			value: "mean"},
-				{ label: qsTr("Within"),		value: "within"},
-				{ label: qsTr("Between"),		value: "between"}
-			]
+			values: if (analysisType == "frequentist"){
+				[
+					{ label: qsTr("Model"),			value: "model"},
+					{ label: qsTr("None"),			value: "none"},
+					{ label: qsTr("Mean"),			value: "mean"},
+					{ label: qsTr("Within"),		value: "within"},
+					{ label: qsTr("Between"),		value: "between"}
+				]
+			} else if (analysisType == "Bayesian"){
+				[
+					{ label: qsTr("Model"),			value: "model"},
+					{ label: qsTr("None"),			value: "none"},
+					{ label: qsTr("Mean"),			value: "mean"}
+				]
+			}
+			
 		}
 
 		CIField
@@ -193,6 +203,7 @@ Section
 			label:			qsTr("Geom width")
 			defaultValue:	1
 			min:			0
+			inclusive:		JASP.None
 		}
 
 		DoubleField
@@ -263,6 +274,7 @@ Section
 			label:			qsTr("Relative size text")
 			defaultValue:	1.5
 			min:			0
+			inclusive:		JASP.None
 		}
 
 		DoubleField
@@ -271,6 +283,7 @@ Section
 			label:			qsTr("Relative size foreground data")
 			defaultValue:	1
 			min:			0
+			inclusive:		JASP.None
 		}
 
 		CheckBox

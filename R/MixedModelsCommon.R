@@ -1131,7 +1131,7 @@
       return      = "data"
     )$means
 
-    EstimatesTable <- createJaspTable(title = gettext("Estimated Means and Confidence Intervals"))
+    EstimatesTable <- createJaspTable(title = if(options$plotsCImethod == "none") gettext("Estimated Means") else gettext("Estimated Means and Confidence Intervals"))
     EstimatesTable$position <- 5
     EstimatesTable$dependOn(
       c(
@@ -2396,7 +2396,6 @@
         axis.text.y  = ggplot2::element_blank(),
         axis.ticks.y = ggplot2::element_blank()
       )
-      p <- p + ggplot2::labs(x = varName)
     } else {
       p <- jaspGraphs::themeJasp(p)
     }
@@ -2550,8 +2549,8 @@
   dots      <- rstan:::.add_aesthetics(list(), c("fill", "color"))
   thm       <- rstan:::rstanvis_hist_theme()
   base      <- ggplot2::ggplot(plotData$samp, ggplot2::aes_string(x = "value"))
-  graph <- base + do.call(ggplot2::geom_histogram, dots) +
-    ggplot2::xlab("") + thm + ggplot2::xlab(unique(plotData$samp$parameter))
+  graph     <- base + do.call(ggplot2::geom_histogram, dots) +
+    thm + ggplot2::xlab(unique(plotData$samp$parameter))
 
   return(graph)
 }
@@ -2573,8 +2572,7 @@
 
   clrs <- rep_len(rstan:::rstanvis_aes_ops("chain_colors"), plotData$nchains)
   thm  <- rstan:::rstanvis_hist_theme()
-  base <- ggplot2::ggplot(plotData$samp, ggplot2::aes_string(x = "value")) +
-    ggplot2::xlab("")
+  base <- ggplot2::ggplot(plotData$samp, ggplot2::aes_string(x = "value"))
 
   if (!separate_chains) {
     dots <- rstan:::.add_aesthetics(list(), c("fill", "color"))
@@ -2622,7 +2620,7 @@
   graph         <- ggplot2::ggplot(acDat, ggplot2::aes_string(x = "lag", y = "ac")) +
     do.call(ggplot2::geom_bar, dots) +
     ggplot2::scale_y_continuous(breaks = seq(0, 1, 0.25)) +
-    ggplot2::labs(x = "Lag", y = gettext("Avg. autocorrelation")) + thm
+    ggplot2::labs(title = unique(plotData$samp$parameter), x = "Lag", y = gettext("Avg. autocorrelation")) + thm
 
   return(graph)
 }
