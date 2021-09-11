@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2021-08-21 02:49\n"
+"POT-Creation-Date: 2021-09-11 02:49\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -149,6 +149,9 @@ msgid "Factor levels need to be distinguished by at least one feature. Please, c
 msgstr ""
 
 msgid "Violin geom requires that the random effects grouping factors has at least 3 levels."
+msgstr ""
+
+msgid "Estimated Means"
 msgstr ""
 
 msgid "Estimated Means and Confidence Intervals"

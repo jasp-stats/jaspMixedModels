@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2021-08-21 02:49\n"
+"POT-Creation-Date: 2021-09-11 02:49\n"
 "PO-Revision-Date: 2021-08-25 23:32+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
@@ -191,6 +191,10 @@ msgstr ""
 "A xeometría violín require que os factores de agrupamento de efectos "
 "aleatorios teñan 3 niveis, cando menos."
 
+#, fuzzy
+msgid "Estimated Means"
+msgstr "Tendencias Estimadas"
+
 msgid "Estimated Means and Confidence Intervals"
 msgstr "Medias Estimadas e Intervalos de Confianza"
 
@@ -249,8 +253,8 @@ msgid ""
 "Please, report the following error message at JASP GitHub https://github.com/"
 "jasp-stats/jasp-issues:"
 msgstr ""
-"Por favor, informa da seguinte mensaxe de fallo ao GitHub de JASP "
-"https://github.com/jasp-stats/jasp-issues:"
+"Por favor, informa da seguinte mensaxe de fallo ao GitHub de JASP https://"
+"github.com/jasp-stats/jasp-issues:"
 
 msgid "Fit Statistics"
 msgstr "Estatísticos de Axuste"
