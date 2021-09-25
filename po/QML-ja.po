@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-09-24 01:34+0000\n"
+"Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.9-dev\n"
 "X-Language: ja\n"
 "X-Qt-Contexts: true\n"
 
@@ -13,7 +19,7 @@ msgstr "混合モデル"
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr "古典的"
+msgstr "伝統的"
 
 msgctxt "Description|"
 msgid "Linear Mixed Models"
@@ -85,7 +91,7 @@ msgstr "分散共分散の推定値"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Credible interval"
-msgstr "確信区間"
+msgstr "信用区間"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "MCMC diagnostics"
@@ -414,7 +420,7 @@ msgstr "変量効果のグループ化要因"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Family"
-msgstr "族"
+msgstr "分布族"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
@@ -426,7 +432,7 @@ msgstr "二項 (集計)"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
-msgstr "ガウス"
+msgstr "正規"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gamma"
@@ -582,7 +588,7 @@ msgstr "変量効果のグループ化要因"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Family"
-msgstr "族"
+msgstr "分布族"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
@@ -594,7 +600,7 @@ msgstr "二項 (集計)"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
-msgstr "ガウス"
+msgstr "正規"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gamma"
