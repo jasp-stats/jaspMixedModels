@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-11 20:05+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9-dev\n"
 "X-Language: es\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -505,90 +511,73 @@ msgctxt "MixedModelsBGLMM|"
 msgid "Family"
 msgstr "Familia"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
-msgstr "Binomio"
+msgstr "Binomial"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial (aggregated)"
-msgstr "Binomial (agregado)"
+msgstr "Binomial (agregada)"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
-msgstr "Gaussiano"
+msgstr "Normal"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Gamma"
-msgstr "Gama"
+msgstr "Gamma"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse Gaussian"
-msgstr "Gaussiano inverso"
+msgstr "Normal Inversa"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Poisson"
 msgstr "Poisson"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Negative Binomial"
-msgstr "Binomio negativo"
+msgstr "Binomial Negativa"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Beta"
 msgstr "Beta"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Link"
 msgstr "Enlace"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Logit"
 msgstr "Logit"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Probit"
 msgstr "Probit"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Cauchit"
 msgstr "Cauchit"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Complementary LogLog"
 msgstr "LogLog complementario"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Identity"
 msgstr "Identidad"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Log"
-msgstr "Iniciar sesión"
+msgstr "Logaritmo"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Sqrt"
-msgstr "Sqrt"
+msgstr "Raíz"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse"
-msgstr "Inverso"
+msgstr "Inversa"
 
 #, fuzzy
 msgctxt "MixedModelsBGLMM|"
@@ -665,12 +654,10 @@ msgctxt "MixedModelsBLMM|"
 msgid "Confidence interval"
 msgstr "Intervalo de confianza"
 
-#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "SD factor covariates"
-msgstr "Covariables del factor SD"
+msgstr "DT de las covariables de los factores"
 
-#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Specify contrasts"
 msgstr "Especificar contrastes"
@@ -715,132 +702,106 @@ msgctxt "MixedModelsGLMM|"
 msgid "Family"
 msgstr "Familia"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
-msgstr "Binomio"
+msgstr "Binomial"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial (aggregated)"
-msgstr "Binomial (agregado)"
+msgstr "Binomial (agregada)"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
-msgstr "Gaussiano"
+msgstr "Normal"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Gamma"
-msgstr "Gama"
+msgstr "Gamma"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse Gaussian"
-msgstr "Gaussiano inverso"
+msgstr "Normal Inversa"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Poisson"
 msgstr "Poisson"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Link"
 msgstr "Enlace"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Logit"
 msgstr "Logit"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Probit"
 msgstr "Probit"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Cauchit"
 msgstr "Cauchit"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Complementary LogLog"
 msgstr "LogLog complementario"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Identity"
 msgstr "Identidad"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Log"
-msgstr "Iniciar sesión"
+msgstr "Logaritmo"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Sqrt"
-msgstr "Sqrt"
+msgstr "Raíz"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse"
-msgstr "Inverso"
+msgstr "Inversa"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated marginal means"
 msgstr "Medias marginales estimadas"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Model variables"
 msgstr "Variables del modelo"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Selected variables"
 msgstr "Variables seleccionadas"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Confidence interval"
 msgstr "Intervalo de confianza"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "SD factor covariates"
-msgstr "Covariables del factor SD"
+msgstr "DT de las covariables de los factores"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Compare marginal means to:"
 msgstr "Compare las medias marginales con:"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Response scale"
 msgstr "Escala de respuesta"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Specify contrasts"
 msgstr "Especificar contrastes"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "P-value adjustment"
 msgstr "Ajuste del valor p"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Multivariate-t"
-msgstr "Multivariante-t"
+msgstr "T multivariante"
 
-#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "None"
 msgstr "Ninguna"
@@ -900,47 +861,38 @@ msgctxt "MixedModelsLMM|"
 msgid "Confidence interval"
 msgstr "Intervalo de confianza"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "SD factor covariates"
-msgstr "Covariables del factor SD"
+msgstr "DT de las covariables de los factores"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Estimate df"
 msgstr "Estimar gl"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Asymptotic"
 msgstr "Asintótico"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Force df estimation"
-msgstr "Forzar estimación df"
+msgstr "Forzar la estimación de gl"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Compare marginal means to:"
 msgstr "Compare las medias marginales con:"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Specify contrasts"
 msgstr "Especificar contrastes"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "P-value adjustment"
 msgstr "Ajuste del valor p"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Multivariate-t"
-msgstr "Multivariante-t"
+msgstr "T multivariante"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "None"
 msgstr "Ninguna"
