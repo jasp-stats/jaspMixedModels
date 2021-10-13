@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-10-11 20:05+0000\n"
+"PO-Revision-Date: 2021-10-14 01:51+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/es/>\n"
@@ -91,20 +91,17 @@ msgctxt "MixedModelsBOptions|"
 msgid "Marginal means"
 msgstr "Medios marginales"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Model summary"
-msgstr "Resumen Modelo"
+msgstr "Resumen del modelo"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Fixed effects estimates"
 msgstr "Estimaciones de efectos fijos"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Variance/correlation estimates"
-msgstr "Estimaciones de varianza / correlación"
+msgstr "Estimaciones de varianzas/correlaciones"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Credible interval"
@@ -116,19 +113,16 @@ msgstr "Diagnósticos MCMC"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Model terms"
-msgstr "Términos del Modelo"
+msgstr "Elementos del modelo"
 
-#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Horizontal axis"
 msgstr "Eje horizontal"
 
-#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plotted term"
-msgstr "Término trazado"
+msgstr "Elemento representado"
 
-#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Vertical axis"
 msgstr "Eje vertical"
@@ -137,67 +131,55 @@ msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plot type"
 msgstr "Tipo de gráfico"
 
-#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Traceplot"
-msgstr "Traceplot"
+msgstr "Gráfico de trazado"
 
-#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Scatterplot"
 msgstr "Gráfico de dispersión"
 
-#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Histogram"
 msgstr "Histograma"
 
-#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Density"
 msgstr "Densidad"
 
-#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Autocorrelations"
 msgstr "Autocorrelaciones"
 
-#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Model"
 msgstr "Modelo"
 
-#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Model components"
 msgstr "Componentes del modelo"
 
-#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Fixed effects"
 msgstr "Efectos fijos"
 
-#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Random effects"
 msgstr "Efectos aleatorios"
 
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "MixedModelsModel|"
 msgid "Random slopes by %1"
 msgstr "Pendientes aleatorias por %1"
 
-#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Correlations"
 msgstr "Correlaciones"
 
-#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Options"
 msgstr "Opciones"
 
-#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Type"
 msgstr "Tipo"
@@ -232,27 +214,22 @@ msgctxt "MixedModelsOptions|"
 msgid "Parametric bootstrap"
 msgstr "Bootstrap paramétrico"
 
-#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "No. samples"
-msgstr "No muestras"
+msgstr "Número de muestras"
 
-#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Model summary"
-msgstr "Resumen Modelo"
+msgstr "Resumen del modelo"
 
-#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Fixed effects estimates"
 msgstr "Estimaciones de efectos fijos"
 
-#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Variance/correlation estimates"
-msgstr "Estimaciones de varianza / correlación"
+msgstr "Estimaciones de varianzas/correlaciones"
 
-#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Vovk-Sellke maximum p-ratio"
 msgstr "Relación p máxima de Vovk-Sellke"
@@ -316,60 +293,49 @@ msgctxt "MixedModelsPlots|"
 msgid "Between"
 msgstr "Entre"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval"
 msgstr "Intervalo de confianza"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Distinguish factor levels"
 msgstr "Distinguir niveles de factores"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Color"
 msgstr "Color"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Shape"
 msgstr "Forma"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Linetype"
 msgstr "Tipo de línea"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Fill"
 msgstr "Llenar"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Background geom"
-msgstr "Geom de fondo"
+msgstr "Geometría de fondo"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Jitter"
-msgstr "Estar nervioso"
+msgstr "Dispersión"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Violin"
 msgstr "Violín"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Boxplot"
 msgstr "Diagrama de caja"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Boxjitter"
-msgstr "Boxjitter"
+msgstr "Dispersión de la caja"
 
 #, fuzzy
 msgctxt "MixedModelsPlots|"
@@ -649,7 +615,6 @@ msgctxt "MixedModelsBLMM|"
 msgid "Selected variables"
 msgstr "Variables seleccionadas"
 
-#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Confidence interval"
 msgstr "Intervalo de confianza"
@@ -856,7 +821,6 @@ msgctxt "MixedModelsLMM|"
 msgid "Selected variables"
 msgstr "Variables seleccionadas"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Confidence interval"
 msgstr "Intervalo de confianza"
