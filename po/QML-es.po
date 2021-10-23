@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-10-21 17:02+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.9-dev\n"
 "X-Language: es\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -41,32 +47,26 @@ msgctxt "Description|"
 msgid "Bayesian Generalized Linear Mixed Models"
 msgstr "Modelado lineal generalizado"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Options"
 msgstr "Opciones"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Burnin"
-msgstr "Burnin"
+msgstr "Calentamiento"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Iterations"
 msgstr "Iteraciones"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Chains"
 msgstr "Cadenas"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Adapt delta"
-msgstr "Adaptar delta"
+msgstr "Delta de ajuste"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Maximum treedepth"
 msgstr "Profundidad máxima del árbol"
@@ -75,15 +75,13 @@ msgctxt "MixedModelsBOptions|"
 msgid "Show"
 msgstr "Mostrar"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Differences from intercept"
-msgstr "Diferencias de la intersección"
+msgstr "Diferencias con la constante"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Marginal means"
-msgstr "Medios marginales"
+msgstr "Medias marginales"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Model summary"
@@ -262,7 +260,6 @@ msgctxt "MixedModelsPlots|"
 msgid "Confidence interval method"
 msgstr "Método de intervalo de confianza"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Model"
 msgstr "Modelo"
@@ -272,17 +269,14 @@ msgctxt "MixedModelsPlots|"
 msgid "None"
 msgstr "Ninguna"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Mean"
 msgstr "Media"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Within"
 msgstr "Dentro"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Between"
 msgstr "Entre"
