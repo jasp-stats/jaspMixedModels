@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2021-11-21 19:40+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/es/>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.10-dev\n"
 "X-Language: es\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -319,47 +325,38 @@ msgctxt "MixedModelsPlots|"
 msgid "Boxjitter"
 msgstr "Dispersión de la caja"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Count"
-msgstr "Contar"
+msgstr "Cantidad"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Transparency"
 msgstr "Transparencia"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Jitter width"
-msgstr "Ancho de jitter"
+msgstr "Ancho de dispersión"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Jitter height"
-msgstr "Altura de jitter"
+msgstr "Altura de la dispersión"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Geom width"
 msgstr "Ancho de geom"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Dodge"
-msgstr "Esquivar"
+msgstr "Evitar"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Theme"
-msgstr "Tema"
+msgstr "Esquema de colores"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Light"
-msgstr "Ligero"
+msgstr "Claro"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Minimal"
 msgstr "Mínimo"
