@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "POT-Creation-Date: 2021-09-11 02:49\n"
-"PO-Revision-Date: 2021-11-25 11:51+0000\n"
+"PO-Revision-Date: 2021-11-25 12:05+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/es/>\n"
@@ -367,49 +367,49 @@ msgid "gamma"
 msgstr "Gamma"
 
 msgid "inverse gaussian"
-msgstr "Normal inversa"
+msgstr "Normal Inversa"
 
 msgid "poisson"
-msgstr ""
+msgstr "Poisson"
 
 msgid "negative binomial"
-msgstr ""
+msgstr "Binomial Negativa"
 
 msgid "beta"
-msgstr ""
+msgstr "Beta"
 
 msgid "Generalized linear mixed model with %s family and %s link function."
 msgstr ""
 
 msgid "Satterthwaite"
-msgstr ""
+msgstr "Satterthwaite"
 
 msgid "Kenward-Roger"
-msgstr ""
+msgstr "Kenward-Roger"
 
 msgid "likelihood ratio tests"
-msgstr ""
+msgstr "Contrastes de ratio de verosimilitudes"
 
 msgid "parametric bootstrap"
-msgstr ""
+msgstr "Bootstrap paramétrico"
 
 msgid "Model terms tested with %s method."
-msgstr ""
+msgstr "Elementos del modelo probados con el método %s."
 
 msgid "P-values are not adjusted."
-msgstr ""
+msgstr "Los valores p non están ajustados."
 
 msgid "Holm"
 msgstr "Holm"
 
 msgid "Homel"
-msgstr ""
+msgstr "Homel"
 
 msgid "Hochberg"
-msgstr ""
+msgstr "Hochberg"
 
 msgid "Multivariate-t"
-msgstr ""
+msgstr "T multivariante"
 
 msgid "Tukey"
 msgstr "Tukey"
@@ -433,7 +433,7 @@ msgid "Bonferroni"
 msgstr "Bonferroni"
 
 msgid "P-values are adjusted using %s adjustment."
-msgstr ""
+msgstr "Los valores p se ajustaron utilizando el ajuste %s."
 
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; The "
@@ -454,12 +454,15 @@ msgid ""
 msgstr ""
 
 msgid "The model was fitted using maximum likelihood."
-msgstr ""
+msgstr "Se ajustó el modelo utilizando Máxima Verosimilitud."
 
 msgid ""
 "The optimizer failed to find a solution. Probably due to quasi-separation in "
 "the data. Try removing some of the predictors."
 msgstr ""
+"Falló el optimizador buscando una solución. Probablemente debido a la casi "
+"separación de los datos. Intentar la eliminación de algunos de los "
+"predictores."
 
 msgid ""
 "The optimizer failed to find a solution. Probably due to quasi-separation in "
