@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-11-21 19:40+0000\n"
+"PO-Revision-Date: 2021-11-25 12:05+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/gl/>\n"
@@ -721,7 +721,7 @@ msgstr "Axuste do valor p"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Multivariate-t"
-msgstr "t multivariante"
+msgstr "T multivariante"
 
 msgctxt "MixedModelsGLMM|"
 msgid "None"
