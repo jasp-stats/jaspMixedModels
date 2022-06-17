@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-06-18 03:14+0000\n"
+"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"jasp/jaspmixedmodels-qml/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.13-dev\n"
 "X-Language: zh_Hans\n"
 "X-Qt-Contexts: true\n"
 
@@ -458,7 +464,7 @@ msgstr "关联"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Logit"
-msgstr "对数"
+msgstr "Logit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Probit"
@@ -618,7 +624,7 @@ msgstr "关联"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Logit"
-msgstr "对数"
+msgstr "Logit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Probit"
