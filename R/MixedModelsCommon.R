@@ -32,7 +32,6 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   if (.mmReady(options, type))
     .mmCheckData(dataset, options, type)
 
-
   # fit the model
   if (.mmReady(options, type)) {
     if (type %in% c("LMM", "GLMM")).mmFitModel(jaspResults, dataset, options, type)
@@ -293,6 +292,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   addedRe       <- list()
 
   for (tempRe in options[["randomEffects"]]) {
+
     # unlist selected random effects
     tempVars <- sapply(tempRe$randomComponents, function(x) {
       if (x$randomSlopes)
@@ -310,6 +310,11 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     tempVars     <- sapply(tempVars, function(x) paste(unlist(x), collapse = "*"))
     tempVarsRem  <- tempVarsRem[!is.na(tempVarsRem)]
     tempVarsRem  <- sapply(tempVarsRem, function(x) paste(unlist(x), collapse = "*"))
+
+    # check whether the random intercept is specified, and remove it from the list of slopes
+    tempHasIntercept <- any(tempVars == "__intercept")
+    tempVars         <- tempVars[tempVars != "__intercept"]
+    tempVarsRem      <- tempVarsRem[tempVarsRem != "__intercept"]
 
     ### test sensibility of random slopes
     # main effect check #1
@@ -355,12 +360,21 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     # simplify the formula
     reAdded <- .mmAddedRETerms(tempVars, tempVarsRem)
     reTerms <- .mmSimplifyTerms(tempVars)
-    reTerms <- paste0(reTerms, collapse = "+")
+
+    # check whether at least one random effect was specified
+    if (!tempHasIntercept && length(reTerms) == 0)
+      .quitAnalysis(gettextf(
+        "At least one random effect needs to be specified for the '%1$s' random effect grouping factors.%2$s",
+        tempRe$value,
+        if(length(meToRemove) + length(teToRemove) > 0) gettextf(
+        " Note that the following random effects were removed because they could not be estimated from the data: %1$s.",
+        paste0("'", c(meToRemove, teToRemove), "'", collapse = ", "))))
 
     newRe <-
       paste0(
         "(",
-        ifelse(reTerms == "", 1, reTerms),
+        if (tempHasIntercept) "1+" else "0+",
+        paste0(reTerms, collapse = "+"),
         ifelse(tempRe$correlation || reTerms == "", "|", "||"),
         tempRe$value,
         ")"
