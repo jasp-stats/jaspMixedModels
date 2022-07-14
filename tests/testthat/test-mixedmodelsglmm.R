@@ -52,6 +52,8 @@ context("Generalized Linear Mixed Models")
     list(correlations = TRUE,
          randomComponents = list(list(randomSlopes = TRUE, value = "Variable1")),
          value = "Variable0"))
+  options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "__intercept")
+  options$showREEstimates <- FALSE
   options$randomVariables <- "Variable0"
   options$seed <- 1
   options$setSeed <- FALSE
@@ -453,6 +455,8 @@ context("Generalized Linear Mixed Models")
                                                                                        value = "contNormal"), list(randomSlopes = FALSE, value = "facGender"),
                                                                                   list(randomSlopes = FALSE, value = c("contNormal", "facGender"
                                                                                   ))), value = "facFive"))
+  options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "__intercept")
+  options$showREEstimates <- FALSE
   options$randomVariables <- "facFive"
   options$seed <- 1
   options$setSeed <- FALSE
@@ -603,6 +607,8 @@ context("Generalized Linear Mixed Models")
     randomSlopes = TRUE, value = "facGender"), list(randomSlopes = FALSE,
                                                     value = "contBinom"), list(randomSlopes = FALSE, value = c("facGender",
                                                                                                                "contBinom"))), value = "facFive"))
+  options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "__intercept")
+  options$showREEstimates <- FALSE
   options$randomVariables <- "facFive"
   options$seed <- 1
   options$setSeed <- FALSE
@@ -732,6 +738,8 @@ context("Generalized Linear Mixed Models")
   options$pvalVS <- FALSE
   options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(list(randomSlopes = TRUE,
                                                                                        value = "facGender")), value = "facFive"))
+  options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "__intercept")
+  options$showREEstimates <- FALSE
   options$randomVariables <- "facFive"
   options$seed <- 1
   options$setSeed <- FALSE
@@ -836,6 +844,8 @@ context("Generalized Linear Mixed Models")
   options$plotsX <- list(list(variable = "cA"))
   options$pvalVS <- FALSE
   options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(list(randomSlopes = TRUE, value = "cA")), value = "id"))
+  options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "__intercept")
+  options$showREEstimates <- FALSE
   options$randomVariables <- "id"
   options$seed <- 1
   options$setSeed <- FALSE
