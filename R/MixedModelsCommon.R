@@ -63,7 +63,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       if (type %in% c("LMM", "GLMM")).mmSummaryRE(jaspResults, options, type)
       if (type %in% c("BLMM", "BGLMM")).mmSummaryREB(jaspResults, options, type)
     }
-
+    if (options$showREEstimates)
+      .mmSummaryREEstimates(jaspResults, options, type)
 
     # sampling diagnostics
     if (type %in% c("BLMM", "BGLMM")) {
@@ -844,6 +845,59 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   REsummary[[paste0("RES", gi)]] <- REres
 
   jaspResults[["REsummary"]] <- REsummary
+
+  return()
+}
+.mmSummaryREEstimates <- function(jaspResults, options, type = "LMM") {
+
+  if (!is.null(jaspResults[["REEstimatesSummary"]]))
+    return()
+
+  model <- jaspResults[["mmModel"]]$object$model
+
+  REEstimatesSummary <- createJaspContainer(title = gettext("Random Effect Estimates"))
+  REEstimatesSummary$position <- 4.1
+
+  dependencies <- .mmSwichDependencies(type)
+
+  if (options$method == "PB")
+    seedDependencies <- c("seed", "setSeed")
+  else
+    seedDependencies <- NULL
+
+  REEstimatesSummary$dependOn(c(dependencies, seedDependencies, "showREEstimates"))
+  jaspResults[["REEstimatesSummary"]] <- REEstimatesSummary
+
+  # deal with SS type II stuff
+  if (type %in% c("LMM", "GLMM")) {
+    if (is.list(model$full_model))
+      estimates <- lme4::ranef(model$full_model[[length(model$full_model)]])
+    else
+      estimates <- lme4::ranef(model$full_model)
+  } else if (type %in% c("BLMM", "BGLMM")) {
+    estimates <- rstanarm::ranef(model)
+  }
+
+  # go over each random effect grouping factor
+  for (gi in 1:length(estimates)) {
+    tempEstimates <- estimates[[gi]]
+
+    # add variance summary
+    tempTable <- createJaspTable(title = gettextf("%s: Random Effect Estimates", names(estimates)[gi]))
+
+    tempTable$addColumnInfo(name = "level", title = names(estimates)[gi], type = "string")
+    for(j in 1:ncol(tempEstimates)){
+      tempTable$addColumnInfo(name = paste0("col", j), title = colnames(tempEstimates)[j], type = "number")
+    }
+
+    for (i in 1:nrow(tempEstimates)) {
+      tempRow        <- as.list(c(rownames(tempEstimates)[i], unlist(tempEstimates[i,])))
+      names(tempRow) <- c("level", paste0("col", 1:ncol(tempEstimates)))
+      tempTable$addRows(tempRow)
+    }
+
+    REEstimatesSummary[[paste0("REEstimates", gi)]] <- tempTable
+  }
 
   return()
 }
