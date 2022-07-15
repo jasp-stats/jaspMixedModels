@@ -1710,6 +1710,16 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     EMMCsummary$addColumnInfo(name = "estimate", title = gettext("Estimate"), type = "number")
     EMMCsummary$addColumnInfo(name = "se",       title = gettext("SE"),       type = "number")
     EMMCsummary$addColumnInfo(name = "df",       title = gettext("df"),       type = "number")
+
+    if (what == "Means")
+      overtitle <- gettextf("%s%% CI", 100 * options$marginalMeansCIwidth)
+    else
+      overtitle <- gettextf("%s%% CI", 100 * options$trendsCIwidth)
+
+    EMMCsummary$addColumnInfo(name = "lowerCI",  title = gettext("Lower"),    type = "number", overtitle = overtitle)
+    EMMCsummary$addColumnInfo(name = "upperCI",  title = gettext("Upper"),    type = "number", overtitle = overtitle)
+
+
     EMMCsummary$addColumnInfo(name = "stat",     title = gettext("z"),        type = "number")
     EMMCsummary$addColumnInfo(name = "pval",     title = gettext("p"),        type = "pvalue")
 
@@ -1833,6 +1843,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         estimate =  emmContrast[i, ncol(emmContrast) - 4],
         se       =  emmContrast[i, "SE"],
         df       =  emmContrast[i, "df"],
+        lowerCI  =  emmContrast[i, ncol(emmContrast) - 4] + stats::qt(0.025, df = emmContrast[i, "df"]) * emmContrast[i, "SE"],
+        upperCI  =  emmContrast[i, ncol(emmContrast) - 4] + stats::qt(0.975, df = emmContrast[i, "df"]) * emmContrast[i, "SE"],
         stat     =  emmContrast[i, ncol(emmContrast) - 1],
         pval     =  emmContrast[i, "p.value"]
       )
