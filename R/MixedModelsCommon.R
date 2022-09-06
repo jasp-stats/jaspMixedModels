@@ -313,9 +313,9 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     tempVarsRem  <- sapply(tempVarsRem, function(x) paste(unlist(x), collapse = "*"))
 
     # check whether the random intercept is specified, and remove it from the list of slopes
-    tempHasIntercept <- any(tempVars == "__intercept")
-    tempVars         <- tempVars[tempVars != "__intercept"]
-    tempVarsRem      <- tempVarsRem[tempVarsRem != "__intercept"]
+    tempHasIntercept <- any(tempVars == "Intercept")
+    tempVars         <- tempVars[tempVars != "Intercept"]
+    tempVarsRem      <- tempVarsRem[tempVarsRem != "Intercept"]
 
     ### test sensibility of random slopes
     # main effect check #1
