@@ -672,12 +672,11 @@ context("Linear Mixed Models")
   })
 
   test_that("Contrasts table results match", {
-    table <- results[["results"]][["contrastsMeans"]][["data"]]
+    table <- results[["results"]][["contrastsTrends"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                        list("Contrast 1", 82.2103671303575, -0.231310349492497, 0.60243960877149,
-                             1, 0.442347520093316, -0.522915443142307, "Contrast 2", 79.902751067842,
-                             -0.642750180031443, 0.548152227927422, 1, 1.06574918195276,
-                             -0.603097042827413))
+                                   list("Contrast 1", 57.0113581457788, -0.560541517971749, -1.17501676812672,
+                                        0.0729821205951162, 1.92573082206986, 0.306860675388687, -1.82669713954626,
+                                        0.0539337321832206))
   })
 
   test_that("Contrasts table results match", {
@@ -696,16 +695,16 @@ context("Linear Mixed Models")
   test_that("Estimated Trends table results match", {
     table <- results[["results"]][["trendsSummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                        list(54.9443259882744, "control", "f", -0.23167495146059, 1, 2.7550330650536e-44,
-                             1.33130145662102e+41, 0.202640740799574, 0.174435417422133,
-                             -43.5527650942956, 0.580545786304856, 71.3758039065814, "experimental",
-                             "f", -0.942035950037188, 2, 2.12975342580749e-37, 2.04564283019237e+34,
-                             0.363903152386286, -0.216499872030701, -25.3267931634935, 0.509036205975787,
-                             13.0257190149006, "control", "m", -0.919049752737067, 3, 9.75601854618026e-15,
-                             1168843939638.2, 0.246740583092494, -0.386106100549617, -38.040382262658,
-                             0.146837551637834, 27.2196843463106, "experimental", "m", -0.193181947767217,
-                             4, 5.62931397120266e-30, 9.70320596242461e+26, 0.154194675384417,
-                             0.123079957342715, -57.5695627655531, 0.439341862452647))
+                                   list(54.9443259882744, "control", "f", -0.23167495146059, 1, 2.7550330650536e-44,
+                                        1.33130145662102e+41, 0.202640740799574, 0.174435417422133,
+                                        -43.5527650942956, 0.580545786304856, 71.3758039065814, "experimental",
+                                        "f", -0.942035950037188, 2, 2.12975342580749e-37, 2.04564283019237e+34,
+                                        0.363903152386286, -0.216499872030701, -25.3267931634935, 0.509036205975787,
+                                        13.0257190149006, "control", "m", -0.919049752737067, 3, 9.75601854618026e-15,
+                                        1168843939638.2, 0.246740583092494, -0.386106100549617, -38.040382262658,
+                                        0.146837551637834, 27.2196843463106, "experimental", "m", -0.193181947767217,
+                                        4, 5.62931397120266e-30, 9.70320596242461e+26, 0.154194675384417,
+                                        0.123079957342715, -57.5695627655531, 0.439341862452647))
   })
 }
 ### type II, LRT + intercept
@@ -749,7 +748,7 @@ context("Linear Mixed Models")
                                                                                                                                          randomComponents = list(list(randomSlopes = TRUE, value = "facGender")),
                                                                                                                                          value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$randomEffects[[2]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
+  options$randomEffects[[2]]$randomComponents[[length(options$randomEffects[[2]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
   options$showREEstimates <- FALSE
   options$randomVariables <- c("contBinom", "facFive")
   options$seed <- 1
