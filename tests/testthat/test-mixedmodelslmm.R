@@ -682,9 +682,11 @@ context("Linear Mixed Models")
   test_that("Contrasts table results match", {
     table <- results[["results"]][["contrastsTrends"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                        list("Contrast 1", 57.0113581457788, -0.560541517971749, 0.0729821205951162,
-                             1.92573082206986, 0.306860675388687, -1.82669713954627))
+                                   list("Contrast 1", 57.0113581457788, -0.560541517971749, -1.17501676812672,
+                                        0.0729821205951162, 1.92573082206986, 0.306860675388687, -1.82669713954626,
+                                        0.0539337321832206))
   })
+
 
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]

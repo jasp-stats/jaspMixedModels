@@ -374,7 +374,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     newRe <-
       paste0(
         "(",
-        if (tempHasIntercept) "1+" else "0+",
+        if (tempHasIntercept)    "1" else "0",
+        if (length(reTerms) > 0) "+" else "",
         paste0(reTerms, collapse = "+"),
         ifelse(tempRe$correlation || reTerms == "", "|", "||"),
         tempRe$value,
