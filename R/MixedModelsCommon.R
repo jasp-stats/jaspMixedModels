@@ -28,8 +28,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   if (.mmReady(options, type))
     dataset <- .mmReadData(jaspResults, dataset, options, type)
-#  saveRDS(dataset, file = "C:/JASP/dataset.RDS")
-#  saveRDS(options, file = "C:/JASP/options.RDS")
+
   if (.mmReady(options, type))
     dataset <- .mmCheckData(dataset, options, type)
 
