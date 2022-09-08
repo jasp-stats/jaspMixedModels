@@ -999,3 +999,4 @@ context("Linear Mixed Models")
     jaspTools::expect_equal_plots(testPlot, "plot-lmm-5")
   })
 }
+
