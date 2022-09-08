@@ -62,7 +62,7 @@ Section
 			RowLayout
 			{
 				width:		randomComponentsList.width
-				Label		{ text: qsTr("Random slopes by %1").arg(rowValue);					width: parent.width / 2 }
+				Label		{ text: qsTr("Random components (%1)").arg(rowValue);	width: parent.width / 2 }
 				CheckBox	{ label: qsTr("Correlations"); name: "correlations"; checked: true; preferredWidth: parent.width / 2 }
 			}
 
