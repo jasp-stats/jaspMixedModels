@@ -31,7 +31,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 #  saveRDS(dataset, file = "C:/JASP/dataset.RDS")
 #  saveRDS(options, file = "C:/JASP/options.RDS")
   if (.mmReady(options, type))
-    .mmCheckData(dataset, options, type)
+    dataset <- .mmCheckData(dataset, options, type)
 
   # fit the model
   if (.mmReady(options, type)) {
@@ -225,14 +225,22 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
     } else if (options$family == "binomialAgg") {
 
-      if (any(dataset[, options$dependentVariable] < 0 | dataset[, options$dependentVariable] > 1))
-        .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",familyText))
-
       if (any(dataset[, options$dependentVariableAggregation] < 0) || any(!.is.wholenumber(dataset[, options$dependentVariableAggregation])))
         .quitAnalysis(gettextf("%s requires that the number of trials variable is an integer.",familyText))
 
+      # if the user supplies the number of successes, transform them into the corresponding proportion
+      if (all(.is.wholenumber(dataset[, options$dependentVariable]))){
+        if(any(dataset[, options$dependentVariable] > dataset[, options$dependentVariableAggregation]))
+          .quitAnalysis(gettextf("%s requires that the number of successes is lower that the number of trials.",familyText))
+
+        dataset[, options$dependentVariable] <- dataset[, options$dependentVariable] / dataset[, options$dependentVariableAggregation]
+      }
+
+      if (any(dataset[, options$dependentVariable] < 0 | dataset[, options$dependentVariable] > 1))
+        .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",familyText))
+
       if (any(!.is.wholenumber(dataset[, options$dependentVariable] * dataset[, options$dependentVariableAggregation])))
-        .quitAnalysis(gettextf("%s requires that the dependent variable is proportion of successes out of the number of trials.",familyText))
+        .quitAnalysis(gettextf("%s requires that the dependent variable is either the number or proportion of successes out of the number of trials.",familyText))
 
     } else if (options$family == "betar") {
 
@@ -242,7 +250,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     }
   }
 
-  return()
+  return(dataset)
 }
 .mmReady         <- function(options, type = "LMM") {
 
