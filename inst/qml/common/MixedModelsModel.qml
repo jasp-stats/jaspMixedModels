@@ -52,13 +52,17 @@ Section
 		name:				"randomEffects"
 		source:				"randomVariables"
 		visible:			count > 0
+		property var alwaysAvailable:
+		[
+			{ label:	"Intercept",		value: "Intercept"}
+		]
 
 		rowComponent: Group
 		{
 			RowLayout
 			{
 				width:		randomComponentsList.width
-				Label		{ text: qsTr("Random slopes by %1").arg(rowValue);					width: parent.width / 2 }
+				Label		{ text: qsTr("Random components (%1)").arg(rowValue);	width: parent.width / 2 }
 				CheckBox	{ label: qsTr("Correlations"); name: "correlations"; checked: true; preferredWidth: parent.width / 2 }
 			}
 
@@ -66,7 +70,7 @@ Section
 			{
 				id				: randomComponentsList
 				name			: "randomComponents"
-				source			: "fixedEffects"
+				source			: [{values: randomEffects.alwaysAvailable}, "fixedEffects"]
 				listViewType	: JASP.AssignedVariables
 				preferredHeight	: 120 * preferencesModel.uiScale
 				preferredWidth	: randomEffects.width - 2 * jaspTheme.contentMargin

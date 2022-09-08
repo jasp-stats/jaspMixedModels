@@ -101,6 +101,12 @@ Section
 				name:	"showRE"
 				label:	qsTr("Variance/correlation estimates")
 			}
+
+			CheckBox
+			{
+				name:	"showREEstimates"
+				label:	qsTr("Random effects estimates")
+			}
 		}
 	}
 

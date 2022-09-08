@@ -30,8 +30,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     dataset <- .mmReadData(jaspResults, dataset, options, type)
 
   if (.mmReady(options, type))
-    .mmCheckData(dataset, options, type)
-
+    dataset <- .mmCheckData(dataset, options, type)
 
   # fit the model
   if (.mmReady(options, type)) {
@@ -64,7 +63,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       if (type %in% c("LMM", "GLMM")).mmSummaryRE(jaspResults, options, type)
       if (type %in% c("BLMM", "BGLMM")).mmSummaryREB(jaspResults, options, type)
     }
-
+    if (options$showREEstimates)
+      .mmSummaryREEstimates(jaspResults, options, type)
 
     # sampling diagnostics
     if (type %in% c("BLMM", "BGLMM")) {
@@ -224,14 +224,22 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
     } else if (options$family == "binomialAgg") {
 
-      if (any(dataset[, options$dependentVariable] < 0 | dataset[, options$dependentVariable] > 1))
-        .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",familyText))
-
       if (any(dataset[, options$dependentVariableAggregation] < 0) || any(!.is.wholenumber(dataset[, options$dependentVariableAggregation])))
         .quitAnalysis(gettextf("%s requires that the number of trials variable is an integer.",familyText))
 
+      # if the user supplies the number of successes, transform them into the corresponding proportion
+      if (all(.is.wholenumber(dataset[, options$dependentVariable]))){
+        if(any(dataset[, options$dependentVariable] > dataset[, options$dependentVariableAggregation]))
+          .quitAnalysis(gettextf("%s requires that the number of successes is lower that the number of trials.",familyText))
+
+        dataset[, options$dependentVariable] <- dataset[, options$dependentVariable] / dataset[, options$dependentVariableAggregation]
+      }
+
+      if (any(dataset[, options$dependentVariable] < 0 | dataset[, options$dependentVariable] > 1))
+        .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",familyText))
+
       if (any(!.is.wholenumber(dataset[, options$dependentVariable] * dataset[, options$dependentVariableAggregation])))
-        .quitAnalysis(gettextf("%s requires that the dependent variable is proportion of successes out of the number of trials.",familyText))
+        .quitAnalysis(gettextf("%s requires that the dependent variable is either the number or proportion of successes out of the number of trials.",familyText))
 
     } else if (options$family == "betar") {
 
@@ -241,7 +249,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     }
   }
 
-  return()
+  return(dataset)
 }
 .mmReady         <- function(options, type = "LMM") {
 
@@ -293,6 +301,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   addedRe       <- list()
 
   for (tempRe in options[["randomEffects"]]) {
+
     # unlist selected random effects
     tempVars <- sapply(tempRe$randomComponents, function(x) {
       if (x$randomSlopes)
@@ -310,6 +319,11 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     tempVars     <- sapply(tempVars, function(x) paste(unlist(x), collapse = "*"))
     tempVarsRem  <- tempVarsRem[!is.na(tempVarsRem)]
     tempVarsRem  <- sapply(tempVarsRem, function(x) paste(unlist(x), collapse = "*"))
+
+    # check whether the random intercept is specified, and remove it from the list of slopes
+    tempHasIntercept <- any(tempVars == "Intercept")
+    tempVars         <- tempVars[tempVars != "Intercept"]
+    tempVarsRem      <- tempVarsRem[tempVarsRem != "Intercept"]
 
     ### test sensibility of random slopes
     # main effect check #1
@@ -355,12 +369,22 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     # simplify the formula
     reAdded <- .mmAddedRETerms(tempVars, tempVarsRem)
     reTerms <- .mmSimplifyTerms(tempVars)
-    reTerms <- paste0(reTerms, collapse = "+")
+
+    # check whether at least one random effect was specified
+    if (!tempHasIntercept && length(reTerms) == 0)
+      .quitAnalysis(gettextf(
+        "At least one random effect needs to be specified for the '%1$s' random effect grouping factors.%2$s",
+        tempRe$value,
+        if(length(meToRemove) + length(teToRemove) > 0) gettextf(
+        " Note that the following random effects were removed because they could not be estimated from the data: %1$s.",
+        paste0("'", c(meToRemove, teToRemove), "'", collapse = ", "))))
 
     newRe <-
       paste0(
         "(",
-        ifelse(reTerms == "", 1, reTerms),
+        if (tempHasIntercept)    "1" else "0",
+        if (length(reTerms) > 0) "+" else "",
+        paste0(reTerms, collapse = "+"),
         ifelse(tempRe$correlation || reTerms == "", "|", "||"),
         tempRe$value,
         ")"
@@ -833,6 +857,58 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   return()
 }
+.mmSummaryREEstimates <- function(jaspResults, options, type = "LMM") {
+
+  if (!is.null(jaspResults[["REEstimatesSummary"]]))
+    return()
+
+  model <- jaspResults[["mmModel"]]$object$model
+
+  REEstimatesSummary <- createJaspContainer(title = gettext("Random Effect Estimates"))
+  REEstimatesSummary$position <- 5
+
+  dependencies <- .mmSwichDependencies(type)
+
+  if ((type %in% c("LMM", "GLMM") && options$method == "PB") || type %in% c("BLMM", "BGLMM"))
+    seedDependencies <- c("seed", "setSeed")
+  else
+    seedDependencies <- NULL
+
+  REEstimatesSummary$dependOn(c(dependencies, seedDependencies, "showREEstimates"))
+  jaspResults[["REEstimatesSummary"]] <- REEstimatesSummary
+
+  # deal with SS type II stuff
+  if (type %in% c("LMM", "GLMM")) {
+    if (is.list(model$full_model))
+      estimates <- lme4::ranef(model$full_model[[length(model$full_model)]])
+    else
+      estimates <- lme4::ranef(model$full_model)
+  } else if (type %in% c("BLMM", "BGLMM")) {
+    estimates <- rstanarm::ranef(model)
+  }
+
+  # go over each random effect grouping factor
+  for (gi in seq_along(estimates)) {
+    tempEstimates <- estimates[[gi]]
+
+    # add variance summary
+    tempTable <- createJaspTable(title = gettextf("%s: Random Effect Estimates", names(estimates)[gi]))
+    tempTable$position <- gi
+
+    tempTable$addColumnInfo(name = "level", title = names(estimates)[gi], type = "string")
+    for(j in 1:ncol(tempEstimates)){
+      tempTable$addColumnInfo(name = paste0("col", j), title = colnames(tempEstimates)[j], type = "number")
+    }
+
+    tempEstimates <- cbind.data.frame("level" = rownames(tempEstimates), tempEstimates)
+    colnames(tempEstimates) <- c("level", paste0("col", 1:(ncol(tempEstimates)-1)))
+    tempTable$setData(tempEstimates)
+
+    REEstimatesSummary[[paste0("REEstimates", gi)]] <- tempTable
+  }
+
+  return()
+}
 .mmSummaryFE     <- function(jaspResults, options, type = "LMM") {
 
   if (!is.null(jaspResults[["FEsummary"]]))
@@ -948,7 +1024,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   plots  <- createJaspPlot(title = gettext("Plot"), width = width, height = height)
 
-  plots$position <- 5
+  plots$position <- 6
   dependencies <- .mmSwichDependencies(type)
 
   plots$dependOn(
@@ -1226,7 +1302,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   EMMsummary <- createJaspTable(title = gettext("Estimated Marginal Means"))
   EMMresults <- createJaspState()
 
-  EMMsummary$position <- 7
+  EMMsummary$position <- 8
 
   dependencies <- .mmSwichDependencies(type)
   if (type %in% c("GLMM", "BGLMM"))
@@ -1422,7 +1498,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   trendsSummary <- createJaspTable(title = gettext("Estimated Trends"))
   EMTresults    <- createJaspState()
 
-  trendsSummary$position <- 9
+  trendsSummary$position <- 10
   dependencies <- .mmSwichDependencies(type)
 
   if (type %in% c("LMM", "GLMM"))
@@ -1575,7 +1651,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   EMMCsummary <- createJaspTable(title = gettext("Contrasts"))
 
-  EMMCsummary$position <- ifelse(what == "Means", 8, 10)
+  EMMCsummary$position <- ifelse(what == "Means", 9, 11)
 
   dependencies <- .mmSwichDependencies(type)
   if (type %in% c("GLMM", "BGLMM") && what == "Means")
@@ -1642,6 +1718,20 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     EMMCsummary$addColumnInfo(name = "estimate", title = gettext("Estimate"), type = "number")
     EMMCsummary$addColumnInfo(name = "se",       title = gettext("SE"),       type = "number")
     EMMCsummary$addColumnInfo(name = "df",       title = gettext("df"),       type = "number")
+
+    if (what == "Means") {
+      overtitle   <- gettextf("%s%% CI", 100 * options$marginalMeansCIwidth)
+      tempCiQuant <- c((1-options$marginalMeansCIwidth)/2, 1-((1-options$marginalMeansCIwidth)/2) )
+    } else {
+      overtitle   <- gettextf("%s%% CI", 100 * options$trendsCIwidth)
+      tempCiQuant <- c((1-options$trendsCIwidth)/2, 1-((1-options$trendsCIwidth)/2) )
+    }
+
+
+    EMMCsummary$addColumnInfo(name = "lowerCI",  title = gettext("Lower"),    type = "number", overtitle = overtitle)
+    EMMCsummary$addColumnInfo(name = "upperCI",  title = gettext("Upper"),    type = "number", overtitle = overtitle)
+
+
     EMMCsummary$addColumnInfo(name = "stat",     title = gettext("z"),        type = "number")
     EMMCsummary$addColumnInfo(name = "pval",     title = gettext("p"),        type = "pvalue")
 
@@ -1765,6 +1855,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         estimate =  emmContrast[i, ncol(emmContrast) - 4],
         se       =  emmContrast[i, "SE"],
         df       =  emmContrast[i, "df"],
+        lowerCI  =  emmContrast[i, ncol(emmContrast) - 4] + stats::qt(tempCiQuant[1], df = emmContrast[i, "df"]) * emmContrast[i, "SE"],
+        upperCI  =  emmContrast[i, ncol(emmContrast) - 4] + stats::qt(tempCiQuant[2], df = emmContrast[i, "df"]) * emmContrast[i, "SE"],
         stat     =  emmContrast[i, ncol(emmContrast) - 1],
         pval     =  emmContrast[i, "p.value"]
       )
@@ -2348,7 +2440,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     return()
 
   diagnosticPlots <- createJaspContainer(title = gettext("Sampling diagnostics"))
-  diagnosticPlots$position <- 5
+  diagnosticPlots$position <- 6
   diagnosticPlots$dependOn(c(.mmSwichDependencies(type), "samplingPlot", "samplingVariable1", "samplingVariable2"))
   jaspResults[["diagnosticPlots"]] <- diagnosticPlots
 
@@ -2547,7 +2639,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   return(plotData)
 }
 # as explained in ?is.integer
-.is.wholenumber <- function(x, tol = .Machine$double.eps^0.5)  abs(x - round(x)) < tol
+.is.wholenumber <- function(x, tol = 0.01)  abs(x - round(x)) < tol
 # modified rstan plotting functions
 .rstanPlotHist  <- function(plotData) {
 
