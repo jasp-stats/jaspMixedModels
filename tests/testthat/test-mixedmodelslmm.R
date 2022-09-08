@@ -78,6 +78,7 @@ context("Linear Mixed Models")
   options$setSeed <- FALSE
   options$showFE <- TRUE
   options$showRE <- TRUE
+  options$showREEstimates
   options$test_intercept <- FALSE
   options$trendsContrast <- TRUE
   options$trendsContrasts <- list(list(isContrast = FALSE, levels = c("1", "2", "3", "4",
@@ -376,6 +377,18 @@ context("Linear Mixed Models")
                                         284.963881035524, 0.0240067531742241, 0.931744555167491, 0.280041017559053,
                                         0.0857258461045326, "Variable1 * Variable2 * Variable7"
                                    ))
+  })
+
+  test_that("Variable0: Random Effect Estimates table results match", {
+    table <- results[["results"]][["REEstimatesSummary"]][["collection"]][["REEstimatesSummary_REEstimates1"]][["data"]]
+    jaspTools::expect_equal_tables(table,
+                                   list(0.827071744019561, -0.284795939395066, 1, -0.0136327854706812,
+                                        -0.062313967962907, 2, -0.0223894298315962, -0.037743789007373,
+                                        3, -0.034158839546811, 0.0700005964853584, 4, 0.0708883587124632,
+                                        -0.0266287214958456, 5, 0.215575273726091, -0.00988200649825494,
+                                        6, 0.397714427348485, -0.0998297710876426, 7, -0.688148389720007,
+                                        0.134725869681511, 8, -0.634370805607246, 0.266739317029601,
+                                        9, -0.118549553630228, 0.0497284122506085, 10))
   })
 
   test_that("Variable0: Random Effect Estimates table results match", {

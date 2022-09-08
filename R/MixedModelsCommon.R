@@ -28,7 +28,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   if (.mmReady(options, type))
     dataset <- .mmReadData(jaspResults, dataset, options, type)
-
+#  saveRDS(dataset, file = "C:/JASP/dataset.RDS")
+#  saveRDS(options, file = "C:/JASP/options.RDS")
   if (.mmReady(options, type))
     .mmCheckData(dataset, options, type)
 
@@ -857,11 +858,11 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   model <- jaspResults[["mmModel"]]$object$model
 
   REEstimatesSummary <- createJaspContainer(title = gettext("Random Effect Estimates"))
-  REEstimatesSummary$position <- 4.1
+  REEstimatesSummary$position <- 5
 
   dependencies <- .mmSwichDependencies(type)
 
-  if (options$method == "PB")
+  if ((type %in% c("LMM", "GLMM") && options$method == "PB") || type %in% c("BLMM", "BGLMM"))
     seedDependencies <- c("seed", "setSeed")
   else
     seedDependencies <- NULL
@@ -880,22 +881,21 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   }
 
   # go over each random effect grouping factor
-  for (gi in 1:length(estimates)) {
+  for (gi in seq_along(estimates)) {
     tempEstimates <- estimates[[gi]]
 
     # add variance summary
     tempTable <- createJaspTable(title = gettextf("%s: Random Effect Estimates", names(estimates)[gi]))
+    tempTable$position <- gi
 
     tempTable$addColumnInfo(name = "level", title = names(estimates)[gi], type = "string")
     for(j in 1:ncol(tempEstimates)){
       tempTable$addColumnInfo(name = paste0("col", j), title = colnames(tempEstimates)[j], type = "number")
     }
 
-    for (i in 1:nrow(tempEstimates)) {
-      tempRow        <- as.list(c(rownames(tempEstimates)[i], unlist(tempEstimates[i,])))
-      names(tempRow) <- c("level", paste0("col", 1:ncol(tempEstimates)))
-      tempTable$addRows(tempRow)
-    }
+    tempEstimates <- cbind.data.frame("level" = rownames(tempEstimates), tempEstimates)
+    colnames(tempEstimates) <- c("level", paste0("col", 1:(ncol(tempEstimates)-1)))
+    tempTable$setData(tempEstimates)
 
     REEstimatesSummary[[paste0("REEstimates", gi)]] <- tempTable
   }
@@ -1017,7 +1017,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   plots  <- createJaspPlot(title = gettext("Plot"), width = width, height = height)
 
-  plots$position <- 5
+  plots$position <- 6
   dependencies <- .mmSwichDependencies(type)
 
   plots$dependOn(
@@ -1295,7 +1295,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   EMMsummary <- createJaspTable(title = gettext("Estimated Marginal Means"))
   EMMresults <- createJaspState()
 
-  EMMsummary$position <- 7
+  EMMsummary$position <- 8
 
   dependencies <- .mmSwichDependencies(type)
   if (type %in% c("GLMM", "BGLMM"))
@@ -1491,7 +1491,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   trendsSummary <- createJaspTable(title = gettext("Estimated Trends"))
   EMTresults    <- createJaspState()
 
-  trendsSummary$position <- 9
+  trendsSummary$position <- 10
   dependencies <- .mmSwichDependencies(type)
 
   if (type %in% c("LMM", "GLMM"))
@@ -1644,7 +1644,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   EMMCsummary <- createJaspTable(title = gettext("Contrasts"))
 
-  EMMCsummary$position <- ifelse(what == "Means", 8, 10)
+  EMMCsummary$position <- ifelse(what == "Means", 9, 11)
 
   dependencies <- .mmSwichDependencies(type)
   if (type %in% c("GLMM", "BGLMM") && what == "Means")
@@ -2429,7 +2429,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     return()
 
   diagnosticPlots <- createJaspContainer(title = gettext("Sampling diagnostics"))
-  diagnosticPlots$position <- 5
+  diagnosticPlots$position <- 6
   diagnosticPlots$dependOn(c(.mmSwichDependencies(type), "samplingPlot", "samplingVariable1", "samplingVariable2"))
   jaspResults[["diagnosticPlots"]] <- diagnosticPlots
 
