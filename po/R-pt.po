@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-09-11 02:49\n"
+"POT-Creation-Date: 2022-09-10 03:39\n"
 "PO-Revision-Date: 2022-08-29 00:25+0000\n"
 "Last-Translator: Laura Durans <lauraadurans@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
@@ -46,19 +46,35 @@ msgstr "%s requer que a variável dependente seja um número inteiro."
 msgid "%s requires that the dependent variable contains only 0 and 1."
 msgstr "%s requer que a variável dependente contenha apenas 0 e 1."
 
+msgid "%s requires that the number of trials variable is an integer."
+msgstr "%s requer que a variável do número de tentativas seja um inteiro."
+
+#, fuzzy
+msgid ""
+"%s requires that the number of successes is lower that the number of trials."
+msgstr ""
+"%s requer que a variável dependente seja a proporção de sucessos do número "
+"de tentativas."
+
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
 msgstr "%s requer que a variável dependente seja maior que 0 e menor que 1."
 
-msgid "%s requires that the number of trials variable is an integer."
-msgstr "%s requer que a variável do número de tentativas seja um inteiro."
-
+#, fuzzy
 msgid ""
-"%s requires that the dependent variable is proportion of successes out of "
-"the number of trials."
+"%s requires that the dependent variable is either the number or proportion "
+"of successes out of the number of trials."
 msgstr ""
 "%s requer que a variável dependente seja a proporção de sucessos do número "
 "de tentativas."
+
+#, fuzzy
+msgid ""
+"At least one random effect needs to be specified for the '%1$s' random "
+"effect grouping factors.%2$s"
+msgstr ""
+"Pelo menos um fator de agrupamento de efeitos aleatórios precisa ser "
+"selecionado no campo 'Mostrar dados de fundo'."
 
 msgid "ANOVA Summary"
 msgstr "Resumo ANOVA"
@@ -149,6 +165,14 @@ msgstr "%s: Estimativas de correlação"
 
 msgid "Residual Variance Estimates"
 msgstr "Estimativas de variância residual"
+
+#, fuzzy
+msgid "Random Effect Estimates"
+msgstr "Estimativas de efeitos fixos"
+
+#, fuzzy
+msgid "%s: Random Effect Estimates"
+msgstr "Estimativas de efeitos fixos"
 
 msgid "Fixed Effects Estimates"
 msgstr "Estimativas de efeitos fixos"

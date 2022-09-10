@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2021-09-11 02:49\n"
+"POT-Creation-Date: 2022-09-10 03:39\n"
 "PO-Revision-Date: 2021-12-08 21:09+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
@@ -42,19 +42,35 @@ msgstr "%s requiere que la variable dependiente sea un entero."
 msgid "%s requires that the dependent variable contains only 0 and 1."
 msgstr "%s requiere que la variable dependiente contenga solo 0 y 1."
 
+msgid "%s requires that the number of trials variable is an integer."
+msgstr "%s requiere que el número de la variable de intentos sea un entero."
+
+#, fuzzy
+msgid ""
+"%s requires that the number of successes is lower that the number of trials."
+msgstr ""
+"%s requiere que la variable dependiente sea la proporción de aciertos del "
+"número de intentos."
+
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
 msgstr "%s requiere que la variable dependiente sea mayor que 0 y menor que 1."
 
-msgid "%s requires that the number of trials variable is an integer."
-msgstr "%s requiere que el número de la variable de intentos sea un entero."
-
+#, fuzzy
 msgid ""
-"%s requires that the dependent variable is proportion of successes out of "
-"the number of trials."
+"%s requires that the dependent variable is either the number or proportion "
+"of successes out of the number of trials."
 msgstr ""
 "%s requiere que la variable dependiente sea la proporción de aciertos del "
 "número de intentos."
+
+#, fuzzy
+msgid ""
+"At least one random effect needs to be specified for the '%1$s' random "
+"effect grouping factors.%2$s"
+msgstr ""
+"Al menos, se necesita seleccionar un factor de agrupación de efectos "
+"aleatorios en el campo 'Exposición de datos de fondo'."
 
 msgid "ANOVA Summary"
 msgstr "Resumen del ANOVA"
@@ -145,6 +161,14 @@ msgstr "%s: Estimaciones de las Correlaciones"
 
 msgid "Residual Variance Estimates"
 msgstr "Estimaciones de las Varianzas de los Errores"
+
+#, fuzzy
+msgid "Random Effect Estimates"
+msgstr "Estimaciones de los Efectos Fijos"
+
+#, fuzzy
+msgid "%s: Random Effect Estimates"
+msgstr "Estimaciones de los Efectos Fijos"
 
 msgid "Fixed Effects Estimates"
 msgstr "Estimaciones de los Efectos Fijos"
@@ -244,8 +268,8 @@ msgid ""
 "Please, report the following error message at JASP GitHub https://github.com/"
 "jasp-stats/jasp-issues:"
 msgstr ""
-"Por favor, informa del siguiente mensaje de fallo al GitHub de JASP "
-"https://github.com/jasp-stats/jasp-issues:"
+"Por favor, informa del siguiente mensaje de fallo al GitHub de JASP https://"
+"github.com/jasp-stats/jasp-issues:"
 
 msgid "Fit Statistics"
 msgstr "Estadísticas de ajuste"

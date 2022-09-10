@@ -151,11 +151,6 @@ msgctxt "MixedModelsModel|"
 msgid "Random effects"
 msgstr "随机效应"
 
-#, qt-format
-msgctxt "MixedModelsModel|"
-msgid "Random slopes by %1"
-msgstr "随机斜率由 %1"
-
 msgctxt "MixedModelsModel|"
 msgid "Correlations"
 msgstr "相关性"
@@ -795,3 +790,16 @@ msgstr "白色背景"
 msgctxt "MixedModelsPlots|"
 msgid "Border color"
 msgstr "边界颜色"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Random effects estimates"
+msgstr ""
+
+#, qt-format
+msgctxt "MixedModelsModel|"
+msgid "Random components (%1)"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Random effects estimates"
+msgstr ""

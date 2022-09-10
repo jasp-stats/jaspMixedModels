@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2021-09-11 02:49\n"
+"POT-Creation-Date: 2022-09-10 03:39\n"
 "PO-Revision-Date: 2022-06-09 14:35+0000\n"
 "Last-Translator: Johnny van Doorn <johnnydoorn@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/"
@@ -43,20 +43,36 @@ msgstr "%s vereist dat de afhankelijke variabele een geheel getal is."
 msgid "%s requires that the dependent variable contains only 0 and 1."
 msgstr "%s vereist dat de afhankelijke variabele slechts 0 en 1 kan zijn."
 
+msgid "%s requires that the number of trials variable is an integer."
+msgstr "%s vereist dat de steekproefgrootte variabele een geheel getal is."
+
+#, fuzzy
+msgid ""
+"%s requires that the number of successes is lower that the number of trials."
+msgstr ""
+"%s vereist dat de afhankelijke variabele het aandeel van de successen in de "
+"steekproefgrootte is."
+
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
 msgstr ""
 "%s vereist dat de afhankelijke variabele hoger dan 0 en lager dan 1 is."
 
-msgid "%s requires that the number of trials variable is an integer."
-msgstr "%s vereist dat de steekproefgrootte variabele een geheel getal is."
-
+#, fuzzy
 msgid ""
-"%s requires that the dependent variable is proportion of successes out of "
-"the number of trials."
+"%s requires that the dependent variable is either the number or proportion "
+"of successes out of the number of trials."
 msgstr ""
 "%s vereist dat de afhankelijke variabele het aandeel van de successen in de "
 "steekproefgrootte is."
+
+#, fuzzy
+msgid ""
+"At least one random effect needs to be specified for the '%1$s' random "
+"effect grouping factors.%2$s"
+msgstr ""
+"Minstens een willekeurige groeperingsfactor moet geselecteerd worden in "
+"invoeringsveld 'Achtergrond gegevens tonen'."
 
 msgid "ANOVA Summary"
 msgstr "ANOVA Samenvatting"
@@ -147,6 +163,14 @@ msgstr "%s Correlatie Schattingen"
 
 msgid "Residual Variance Estimates"
 msgstr "Residuele Variantie Schattingen"
+
+#, fuzzy
+msgid "Random Effect Estimates"
+msgstr "Gefixeerde Effecten Schattingen"
+
+#, fuzzy
+msgid "%s: Random Effect Estimates"
+msgstr "Gefixeerde Effecten Schattingen"
 
 msgid "Fixed Effects Estimates"
 msgstr "Gefixeerde Effecten Schattingen"
@@ -382,7 +406,8 @@ msgid "Results are on the response scale."
 msgstr "Resultaten zijn op de antwoordschaal."
 
 msgid "Results are not on the response scale and might be misleading."
-msgstr "De resultaten zijn niet op de antwoordschaal en kunnen misleidend zijn."
+msgstr ""
+"De resultaten zijn niet op de antwoordschaal en kunnen misleidend zijn."
 
 msgid "Type %s Sum of Squares"
 msgstr "Type %s Kwadratensom"

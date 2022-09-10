@@ -145,11 +145,6 @@ msgctxt "MixedModelsModel|"
 msgid "Random effects"
 msgstr ""
 
-#, qt-format
-msgctxt "MixedModelsModel|"
-msgid "Random slopes by %1"
-msgstr ""
-
 msgctxt "MixedModelsModel|"
 msgid "Correlations"
 msgstr ""
@@ -792,4 +787,17 @@ msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Border color"
+msgstr ""
+
+msgctxt "MixedModelsBOptions|"
+msgid "Random effects estimates"
+msgstr ""
+
+#, qt-format
+msgctxt "MixedModelsModel|"
+msgid "Random components (%1)"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Random effects estimates"
 msgstr ""
