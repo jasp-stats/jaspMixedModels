@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "POT-Creation-Date: 2022-09-10 03:39\n"
-"PO-Revision-Date: 2021-12-08 21:09+0000\n"
+"PO-Revision-Date: 2022-09-13 18:51+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/es/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10-dev\n"
+"X-Generator: Weblate 4.14.1-dev\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -45,32 +45,28 @@ msgstr "%s requiere que la variable dependiente contenga solo 0 y 1."
 msgid "%s requires that the number of trials variable is an integer."
 msgstr "%s requiere que el número de la variable de intentos sea un entero."
 
-#, fuzzy
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
 msgstr ""
-"%s requiere que la variable dependiente sea la proporción de aciertos del "
-"número de intentos."
+"%s requiere que el número de aciertos sea menor que el número de intentos."
 
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
 msgstr "%s requiere que la variable dependiente sea mayor que 0 y menor que 1."
 
-#, fuzzy
 msgid ""
 "%s requires that the dependent variable is either the number or proportion "
 "of successes out of the number of trials."
 msgstr ""
-"%s requiere que la variable dependiente sea la proporción de aciertos del "
-"número de intentos."
+"%s requiere que la variable dependiente sea el número de aciertos o su "
+"proporción respecto al número de intentos."
 
-#, fuzzy
 msgid ""
 "At least one random effect needs to be specified for the '%1$s' random "
 "effect grouping factors.%2$s"
 msgstr ""
-"Al menos, se necesita seleccionar un factor de agrupación de efectos "
-"aleatorios en el campo 'Exposición de datos de fondo'."
+"Al menos, se necesita especificar un factor aleatorio para los '%1$s' "
+"factores de agrupación de efectos aleatorios."
 
 msgid "ANOVA Summary"
 msgstr "Resumen del ANOVA"
@@ -162,13 +158,11 @@ msgstr "%s: Estimaciones de las Correlaciones"
 msgid "Residual Variance Estimates"
 msgstr "Estimaciones de las Varianzas de los Errores"
 
-#, fuzzy
 msgid "Random Effect Estimates"
-msgstr "Estimaciones de los Efectos Fijos"
+msgstr "Estimaciones de los Efectos Aleatorios"
 
-#, fuzzy
 msgid "%s: Random Effect Estimates"
-msgstr "Estimaciones de los Efectos Fijos"
+msgstr "%s: Estimaciones de los Efectos Aleatorios"
 
 msgid "Fixed Effects Estimates"
 msgstr "Estimaciones de los Efectos Fijos"
