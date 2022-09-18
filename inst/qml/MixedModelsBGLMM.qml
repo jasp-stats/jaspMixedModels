@@ -238,14 +238,14 @@ Form {
 		CIField
 		{
 			name:	"marginalMeansCIwidth"
-			label:	"Confidence interval"
+			label:	qsTr("Confidence interval")
 		}
 
 		DoubleField
 		{
 			id:				marginalMeansSD
 			name:			"marginalMeansSD"
-			label:			"SD factor covariates"
+			label:			qsTr("SD factor covariates")
 			defaultValue: 	1
 			min:			0
 			enabled:		marginalMeans.columnsTypes.includes("scale")
@@ -321,14 +321,14 @@ Form {
 		CIField
 		{
 			name:	"trendsCIwidth"
-			label:	"Confidence interval"
+			label:	qsTr("Confidence interval")
 		}
 
 		DoubleField
 		{ 
 			id:				trendsSD
 			name:			"trendsSD"
-			label:			"SD factor covariates"
+			label:			qsTr("SD factor covariates")
 			defaultValue:	1
 			min:			0
 			enabled:		trendsVariables.columnsTypes.includes("scale")
