@@ -54,7 +54,7 @@ Section
 		visible:			count > 0
 		property var alwaysAvailable:
 		[
-			{ label:	"Intercept",		value: "Intercept"}
+			{ label:	qsTr("Intercept"),		value: "Intercept"}
 		]
 
 		rowComponent: Group
