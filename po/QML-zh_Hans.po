@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-09-19 04:21+0000\n"
+"PO-Revision-Date: 2022-09-23 13:21+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspmixedmodels-qml/zh_Hans/>\n"
@@ -455,7 +455,7 @@ msgstr "贝塔分布"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Link"
-msgstr "关联"
+msgstr "链接函数"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Logit"
@@ -615,7 +615,7 @@ msgstr "泊松分布"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Link"
-msgstr "关联"
+msgstr "链接函数"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Logit"
