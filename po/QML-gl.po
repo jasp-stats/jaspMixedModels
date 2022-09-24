@@ -804,3 +804,17 @@ msgstr "Compoñentes aleatorias (%1)"
 msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
 msgstr "Estimacións de efectos aleatorios"
+
+msgctxt "MixedModelsModel|"
+msgid "Intercept"
+msgstr ""
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Confidence interval"
+msgstr "Intervalo de confianza"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "SD factor covariates"
+msgstr "DP das covariantes dos factores"

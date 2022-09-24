@@ -803,3 +803,17 @@ msgstr ""
 msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
 msgstr ""
+
+msgctxt "MixedModelsModel|"
+msgid "Intercept"
+msgstr ""
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "Confidence interval"
+msgstr "信頼区間"
+
+#, fuzzy
+msgctxt "MixedModelsBGLMM|"
+msgid "SD factor covariates"
+msgstr "SD要因共分散"
