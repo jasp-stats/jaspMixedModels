@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2022-09-10 03:39\n"
-"PO-Revision-Date: 2022-06-09 14:35+0000\n"
-"Last-Translator: Johnny van Doorn <johnnydoorn@gmail.com>\n"
+"PO-Revision-Date: 2022-09-27 11:22+0000\n"
+"Last-Translator: Alexander Ly <a.ly@uva.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/nl/>\n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.14.1\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -46,33 +46,29 @@ msgstr "%s vereist dat de afhankelijke variabele slechts 0 en 1 kan zijn."
 msgid "%s requires that the number of trials variable is an integer."
 msgstr "%s vereist dat de steekproefgrootte variabele een geheel getal is."
 
-#, fuzzy
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
 msgstr ""
-"%s vereist dat de afhankelijke variabele het aandeel van de successen in de "
-"steekproefgrootte is."
+"%s vereist dat het aantal successen lager is dan het aantal experimenten."
 
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
 msgstr ""
 "%s vereist dat de afhankelijke variabele hoger dan 0 en lager dan 1 is."
 
-#, fuzzy
 msgid ""
 "%s requires that the dependent variable is either the number or proportion "
 "of successes out of the number of trials."
 msgstr ""
-"%s vereist dat de afhankelijke variabele het aandeel van de successen in de "
-"steekproefgrootte is."
+"%s vereist dat de afhankelijke variabele het aantal of het aandeel van de "
+"successen in de steekproefgrootte representeert."
 
-#, fuzzy
 msgid ""
 "At least one random effect needs to be specified for the '%1$s' random "
 "effect grouping factors.%2$s"
 msgstr ""
-"Minstens een willekeurige groeperingsfactor moet geselecteerd worden in "
-"invoeringsveld 'Achtergrond gegevens tonen'."
+"Er moet ten minste één willekeurig effect worden opgegeven voor de \"%1$s\" "
+"willekeurige effectgroeperingsfactoren.%2$s"
 
 msgid "ANOVA Summary"
 msgstr "ANOVA Samenvatting"
@@ -164,13 +160,11 @@ msgstr "%s Correlatie Schattingen"
 msgid "Residual Variance Estimates"
 msgstr "Residuele Variantie Schattingen"
 
-#, fuzzy
 msgid "Random Effect Estimates"
 msgstr "Gefixeerde Effecten Schattingen"
 
-#, fuzzy
 msgid "%s: Random Effect Estimates"
-msgstr "Gefixeerde Effecten Schattingen"
+msgstr "%s: Gefixeerde Effecten Schattingen"
 
 msgid "Fixed Effects Estimates"
 msgstr "Gefixeerde Effecten Schattingen"
