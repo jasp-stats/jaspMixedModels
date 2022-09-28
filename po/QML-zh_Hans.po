@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2022-09-25 11:23+0000\n"
+"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"jasp/jaspmixedmodels-qml/zh_Hans/>\n"
+"Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.14.1\n"
 "X-Language: zh_Hans\n"
 "X-Qt-Contexts: true\n"
 
@@ -806,14 +812,12 @@ msgstr "随机效应估计"
 
 msgctxt "MixedModelsModel|"
 msgid "Intercept"
-msgstr ""
+msgstr "截距"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Confidence interval"
 msgstr "置信区间"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
 msgstr "SD 因子协变量"
