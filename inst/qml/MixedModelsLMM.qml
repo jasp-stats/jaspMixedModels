@@ -25,6 +25,12 @@ import "./common"		as MM
 Form {
 	id: form
 
+	Formula
+	{
+		lhs: "dependentVariable"
+		rhs: ["fixedEffects", {randomEffects: "randomEffects"}]
+	}
+
 	VariablesForm
 	{
 		preferredHeight: 350
