@@ -44,8 +44,8 @@
   sprintf(
     ngettext(
       length(terms),
-      "All random slopes involving ‘%s’ have been removed for the random effects grouping factor ‘%s’. -- Factor %s does not vary within the levels of random effects grouping factor '%s'.",
-      "All random slopes involving ‘%s’ have been removed for the random effects grouping factor ‘%s’. -- Factors %s do not vary within the levels of random effects grouping factor '%s'.",
+      "All random slopes involving ‘%1$s’ have been removed for the random effects grouping factor ‘%2$s’. -- Factor %3$s does not vary within the levels of random effects grouping factor '%4$s'.",
+      "All random slopes involving ‘%1$s’ have been removed for the random effects grouping factor ‘%2$s’. -- Factors %3$s do not vary within the levels of random effects grouping factor '%4$s'.",
     ),
     paste0("'", terms, "'", collapse = ", "),
     grouping,
@@ -58,8 +58,8 @@
   sprintf(
     ngettext(
       length(terms),
-      "Random slope of ‘%s’ for the random effects grouping factor ‘%s’ removed -- Too few observations to estimate random slope of '%s' for random effects grouping factor '%s'.",
-      "Random slopes of ‘%s’ for the random effects grouping factor ‘%s’ removed -- Too few observations to estimate random slopes of '%s' for random effects grouping factor '%s'."
+      "Random slope of ‘%1$s’ for the random effects grouping factor ‘%2$s’ removed -- Too few observations to estimate random slope of '%3$s' for random effects grouping factor '%4$s'.",
+      "Random slopes of ‘%1$s’ for the random effects grouping factor ‘%2$s’ removed -- Too few observations to estimate random slopes of '%3$s' for random effects grouping factor '%4$s'."
     ),
     paste0("'", terms, "'", collapse = ", "),
     grouping,
@@ -72,8 +72,8 @@
   sprintf(
     ngettext(
       length(terms),
-      "Lower order random effects terms need to be specified in presence of the higher order random effects terms. Therefore, the following random effects term was added to the '%s' random effects grouping factor: '%s.'",
-      "Lower order random effects terms need to be specified in presence of the higher order random effects terms. Therefore, the following random effects terms were added to the '%s' random effects grouping factor: '%s.'"
+      "Lower order random effects terms need to be specified in presence of the higher order random effects terms. Therefore, the following random effects term was added to the '%1$s' random effects grouping factor: '%s2$.'",
+      "Lower order random effects terms need to be specified in presence of the higher order random effects terms. Therefore, the following random effects terms were added to the '%1$s' random effects grouping factor: '%2$s.'"
     ),
     grouping,
     paste0("'", terms, "'", collapse = ", ")
@@ -102,7 +102,7 @@
                    "neg_binomial_2"   = gettext("negative binomial"),
                    "betar"            = gettext("beta"),
   )
-  gettextf("Generalized linear mixed model with %s family and %s link function.",
+  gettextf("Generalized linear mixed model with %1$s family and %2$s link function.",
            family,
            link)
 }
