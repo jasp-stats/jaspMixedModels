@@ -2783,3 +2783,19 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   "family",
   "link"
 )
+
+# this needs to be set after the latest afex update (otherwise null on initiation for some reason)
+afex::afex_options(
+  afex.type = 3,
+  afex.set_data_arg = FALSE,
+  afex.check_contrasts = TRUE,
+  afex.method_mixed = "S",
+  afex.return_aov = "afex_aov",
+  afex.es_aov = "ges",
+  afex.correction_aov = "GG",
+  afex.factorize = TRUE,
+  afex.lmer_function = "lmerTest",
+  afex.sig_symbols = c(" +", " *", " **", " ***"),
+  afex.emmeans_model = c("multivariate"),
+  afex.include_aov = FALSE
+)
