@@ -15,7 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-MixedModelsBGLMM   <-
+MixedModelsBGLMMInternal   <-
   function(jaspResults, dataset, options, state = NULL) {
 
     .mmRunAnalysis(jaspResults, dataset, options, "BGLMM")

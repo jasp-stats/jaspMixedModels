@@ -12,6 +12,7 @@ Description
 	maintainer	: "JASP Team <info@jasp-stats.org>"
 	website		: "jasp-stats.org"
 	license		: "GPL (>= 2)"
+	hasWrappers	: true
 		
 
 	GroupTitle
