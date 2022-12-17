@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.0\n"
 "POT-Creation-Date: 2022-11-30 10:34\n"
-"PO-Revision-Date: 2022-11-26 00:43+0000\n"
+"PO-Revision-Date: 2022-12-15 11:47+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/pl/>\n"
@@ -65,7 +65,7 @@ msgid "Effect"
 msgstr ""
 
 msgid "df"
-msgstr ""
+msgstr "df"
 
 msgid "F"
 msgstr ""
@@ -74,7 +74,7 @@ msgid "ChiSq"
 msgstr ""
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "p (bootstrap)"
 msgstr ""
@@ -161,10 +161,10 @@ msgid "Estimate"
 msgstr ""
 
 msgid "SE"
-msgstr ""
+msgstr "SE"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Plot"
 msgstr ""
@@ -191,16 +191,16 @@ msgid "Estimated Means and Confidence Intervals"
 msgstr ""
 
 msgid "Mean"
-msgstr ""
+msgstr "Średnia"
 
 msgid "Lower"
-msgstr ""
+msgstr "Dolny"
 
 msgid "%s%% CI"
-msgstr "%s%% CI"
+msgstr "%s%% PU"
 
 msgid "Upper"
-msgstr ""
+msgstr "Górny"
 
 msgid "Estimated Marginal Means"
 msgstr "Oszacowane średnie brzegowe"
