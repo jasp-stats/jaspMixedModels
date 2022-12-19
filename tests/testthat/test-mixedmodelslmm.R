@@ -52,7 +52,7 @@ context("Linear Mixed Models")
   options$plotsCItestMethod <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- TRUE
-  options$plotBackgroundElement <- jitter"
+  options$plotBackgroundElement <- "jitter"
   options$plotLevelsByColor <- FALSE
   options$plotLevelsByFill <- FALSE
   options$plotLevelsByLinetype <- TRUE
@@ -553,7 +553,7 @@ context("Linear Mixed Models")
   options$plotsCItestMethod <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- FALSE
-  options$plotBackgroundElement <- violin"
+  options$plotBackgroundElement <- "violin"
   options$plotLevelsByColor <- FALSE
   options$plotLevelsByFill <- TRUE
   options$plotLevelsByLinetype <- TRUE
@@ -801,7 +801,7 @@ context("Linear Mixed Models")
   options$plotsCItestMethod <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- TRUE
-  options$plotBackgroundElement <- boxplot"
+  options$plotBackgroundElement <- "boxplot"
   options$plotLevelsByColor <- TRUE
   options$plotLevelsByFill <- FALSE
   options$plotLevelsByLinetype <- TRUE
@@ -895,7 +895,7 @@ context("Linear Mixed Models")
   options$plotsCItestMethod <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- FALSE
-  options$plotBackgroundElement <- boxjitter"
+  options$plotBackgroundElement <- "boxjitter"
   options$plotLevelsByColor <- TRUE
   options$plotLevelsByFill <- FALSE
   options$plotLevelsByLinetype <- FALSE
@@ -998,7 +998,7 @@ context("Linear Mixed Models")
   options$plotsCItestMethod <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- FALSE
-  options$plotBackgroundElement <- boxjitter"
+  options$plotBackgroundElement <- "boxjitter"
   options$plotLevelsByColor <- TRUE
   options$plotLevelsByFill <- FALSE
   options$plotLevelsByLinetype <- FALSE

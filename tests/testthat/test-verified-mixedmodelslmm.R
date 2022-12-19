@@ -28,7 +28,7 @@ options$plotBackgroundColor <- "darkgrey"
 options$plotsCItestMethod <- "model"
 options$plotCiLevel <- 0.95
 options$plotEstimatesTable <- FALSE
-options$plotBackgroundElement <- jitter"
+options$plotBackgroundElement <- "jitter"
 options$plotLevelsByColor <- FALSE
 options$plotLevelsByFill <- FALSE
 options$plotLevelsByLinetype <- TRUE
