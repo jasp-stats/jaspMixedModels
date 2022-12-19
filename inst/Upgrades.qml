@@ -154,7 +154,7 @@ Upgrades
 			jsFunction: function(options)
 			{
 				// previously all things were prepended with "geom_", so we strip that out
-				options["plotBackgroundElement"].replace("geom_", "");
+				return options["plotBackgroundElement"].replace("geom_", "");
 			}
 		}
 		ChangeRename { from: "plotAlpha";		to: "plotTransparency"	}
@@ -247,10 +247,10 @@ Upgrades
 			{
 				switch(options["testMethod"])
 				{
-					case "S":						return "satterthwaite";
-					case "Kenward-Roger":			return "kenwardRoger";
-					case "Likelihood ratio tests":	return "likelihoodRatioTest";
-					case "Parametric bootstrap": 	return "parametricBootstrap";
+					case "S":	return "satterthwaite";
+					case "KR":	return "kenwardRoger";
+					case "LRT":	return "likelihoodRatioTest";
+					case "PB": 	return "parametricBootstrap";
 					default:						return options["testMethod"];
 				}
 			}
@@ -281,7 +281,7 @@ Upgrades
 			jsFunction: function(options)
 			{
 				// previously all things were prepended with "geom_", so we strip that out
-				options["plotBackgroundElement"].replace("geom_", "");
+				return options["plotBackgroundElement"].replace("geom_", "");
 			}
 		}
 		ChangeRename { from: "plotAlpha";		to: "plotTransparency"	}
@@ -392,7 +392,7 @@ Upgrades
 			jsFunction: function(options)
 			{
 				// previously all things were prepended with "geom_", so we strip that out
-				options["plotBackgroundElement"].replace("geom_", "");
+				return options["plotBackgroundElement"].replace("geom_", "");
 			}
 		}
 		ChangeRename { from: "plotAlpha";		to: "plotTransparency"	}
@@ -517,7 +517,7 @@ Upgrades
 			jsFunction: function(options)
 			{
 				// previously all things were prepended with "geom_", so we strip that out
-				options["plotBackgroundElement"].replace("geom_", "");
+				return options["plotBackgroundElement"].replace("geom_", "");
 			}
 		}
 		ChangeRename { from: "plotAlpha";		to: "plotTransparency"	}

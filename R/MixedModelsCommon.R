@@ -25,7 +25,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 # TODO: Add 3rd level random effects grouping factors ;) (not that difficult actually)
 
 .mmRunAnalysis   <- function(jaspResults, dataset, options, type) {
-
+  .setAfexOptions()
+  
   if (.mmReady(options, type))
     dataset <- .mmReadData(jaspResults, dataset, options, type)
 
@@ -2821,18 +2822,22 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   "link"
 )
 
-# this needs to be set after the latest afex update (otherwise null on initiation for some reason)
-afex::afex_options(
-  afex.type = 3,
-  afex.set_data_arg = FALSE,
-  afex.check_contrasts = TRUE,
-  afex.method_mixed = "S",
-  afex.return_aov = "afex_aov",
-  afex.es_aov = "ges",
-  afex.correction_aov = "GG",
-  afex.factorize = TRUE,
-  afex.lmer_function = "lmerTest",
-  afex.sig_symbols = c(" +", " *", " **", " ***"),
-  afex.emmeans_model = c("multivariate"),
-  afex.include_aov = FALSE
-)
+.setAfexOptions <- function() {
+  # this needs to be set after the latest afex update (otherwise null on initiation for some reason)
+  afexOptions <- afex::afex_options(
+    type = 3,
+    set_data_arg = FALSE,
+    check_contrasts = TRUE,
+    method_mixed = "S",
+    return_aov = "afex_aov",
+    es_aov = "ges",
+    correction_aov = "GG",
+    factorize = TRUE,
+    lmer_function = "lmerTest",
+    sig_symbols = c(" +", " *", " **", " ***"),
+    emmeans_model = c("multivariate"),
+    include_aov = FALSE
+  )
+
+  withr::defer_parent(afex::afex_options(afexOptions))
+}
