@@ -186,7 +186,7 @@ Upgrades
 		{
 			name:		"marginalMeansDf"
 			jsonValue:	"kenwardRoger"
-			condition:	function(options) return (options["marginalMeansDf"] === "kenward-roger");
+			condition:	function(options) { return options["marginalMeansDf"] === "kenward-roger"; }
 		}
 
 		ChangeRename { from: "marginalMeansOverride";	to: "marginalMeansDfEstimated"		}
@@ -203,7 +203,7 @@ Upgrades
 		{
 			name:		"trendsDf"
 			jsonValue:	"kenwardRoger"
-			condition:	function(options) return (options["marginalMeansDf"] === "kenward-roger");
+			condition:	function(options) { return options["trendsDf"] === "kenward-roger"; }
 		}
 		ChangeRename { from: "trendsOverride";		to: "trendsDfEstimated"		}
 		ChangeRename { from: "trendsCompare";		to: "trendsComparison"		}
@@ -343,7 +343,7 @@ Upgrades
 		{
 			name:		"estimateType"
 			jsonValue:	"marginalMeans"
-			condition:	function(options) return (options["estimateType"] === "mmeans");
+			condition:	function(options) { return options["estimateType"] === "mmeans"; }
 		}
 		ChangeRename { from: "fitStats";			to: "modelSummary"					}
 		ChangeRename { from: "showFE";				to: "fixedEffectEstimate"			}
@@ -468,7 +468,7 @@ Upgrades
 		{
 			name:		"estimateType"
 			jsonValue:	"marginalMeans"
-			condition:	function(options) return (options["estimateType"] === "mmeans");
+			condition:	function(options) { return options["estimateType"] === "mmeans"; }
 		}
 		ChangeRename { from: "fitStats";			to: "modelSummary"					}
 		ChangeRename { from: "showFE";				to: "fixedEffectEstimate"			}

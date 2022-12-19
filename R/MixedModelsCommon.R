@@ -63,7 +63,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       if (type %in% c("LMM", "GLMM")).mmSummaryRE(jaspResults, options, type)
       if (type %in% c("BLMM", "BGLMM")).mmSummaryREB(jaspResults, options, type)
     }
-    if (options$varianceCorrelationEstimateEstimates)
+    if (options$randomEffectEstimate)
       .mmSummaryREEstimates(jaspResults, options, type)
 
     # sampling diagnostics
@@ -904,7 +904,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   else
     seedDependencies <- NULL
 
-  REEstimatesSummary$dependOn(c(dependencies, seedDependencies, "varianceCorrelationEstimateEstimates"))
+  REEstimatesSummary$dependOn(c(dependencies, seedDependencies, "randomEffectEstimate"))
   jaspResults[["REEstimatesSummary"]] <- REEstimatesSummary
 
   # deal with SS type II stuff
@@ -1069,7 +1069,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       "plotSeparatePlots",
       "plotTheme",
       "plotCiLevel",
-      "plotsCItestMethod",
+      "plotCiType",
       "plotTransparency",
       "plotJitterWidth",
       "plotJitterHeight",
@@ -1151,7 +1151,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       id          = options$plotBackgroundData,
       data_geom   = .mmGetPlotElementFun(options[["plotBackgroundElement"]]),
       mapping     = mapping,
-      error       = options$plotsCItestMethod,
+      error       = options$plotCiType,
       error_level = options$plotCiLevel,
       data_alpha  = options$plotTransparency,
       data_arg    = if (length(data_arg) != 0) data_arg,
@@ -1228,12 +1228,12 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         unlist(options$plotSeparatePlots),
       id          = options$plotBackgroundData,
       data_geom   = .mmGetPlotElementFun(options[["plotBackgroundElement"]]),
-      error       = options$plotsCItestMethod,
+      error       = options$plotCiType,
       error_level = options$plotCiLevel,
       return      = "data"
     )$means
 
-    EstimatesTable <- createJaspTable(title = if(options$plotsCItestMethod == "none") gettext("Estimated Means") else gettext("Estimated Means and Confidence Intervals"))
+    EstimatesTable <- createJaspTable(title = if(options$plotCiType == "none") gettext("Estimated Means") else gettext("Estimated Means and Confidence Intervals"))
     EstimatesTable$position <- 5
     EstimatesTable$dependOn(
       c(
@@ -1243,7 +1243,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         "plotSeparatePlots",
         "plotBackgroundData",
         "plotCiLevel",
-        "plotsCItestMethod",
+        "plotCiType",
         "seed",
         "setSeed",
         "plotEstimatesTable"
@@ -1256,7 +1256,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
     EstimatesTable$addColumnInfo(name = "mean", title = gettext("Mean"), type = "number")
 
-    if (options$plotsCItestMethod != "none") {
+    if (options$plotCiType != "none") {
       EstimatesTable$addColumnInfo(name = "lowerCI", title = gettext("Lower"), type = "number", overtitle = gettextf("%s%% CI", 100 * options$plotCiLevel)      )
       EstimatesTable$addColumnInfo(name = "upperCI", title = gettext("Upper"), type = "number", overtitle = gettextf("%s%% CI", 100 * options$plotCiLevel)      )
     }
@@ -1271,7 +1271,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       }
 
       tempRow$mean     <- plotData[i, "y"]
-      if (options$plotsCItestMethod != "none") {
+      if (options$plotCiType != "none") {
         tempRow$lowerCI  <- plotData[i, "lower"]
         tempRow$upperCI  <- plotData[i, "upper"]
       }
@@ -1510,7 +1510,11 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   trendsModel   <<- model
 
   if (type == "LMM")
-    trendsDf <<- options$trendsDf
+    trendsDf <<- switch(
+      options$trendsDf,
+      kenwardRoger = "kenward-roger",
+      options$trendsDf
+    )
   else if (type == "GLMM" && options$family == "gaussian" && options$link == "identity")
     trendsDf <<- "asymptotic"
 

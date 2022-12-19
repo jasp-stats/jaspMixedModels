@@ -25,7 +25,7 @@ options$plotRelativeSizeData <- 1
 options$plotRelativeSizeText <- 1.5
 options$plotBackgroundData <- "id"
 options$plotBackgroundColor <- "darkgrey"
-options$plotsCItestMethod <- "model"
+options$plotCiType <- "model"
 options$plotCiLevel <- 0.95
 options$plotEstimatesTable <- FALSE
 options$plotBackgroundElement <- "jitter"

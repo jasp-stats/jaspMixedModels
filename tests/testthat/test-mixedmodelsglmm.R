@@ -35,7 +35,7 @@ context("Generalized Linear Mixed Models")
   options$plotRelativeSizeText <- 1.5
   options$plotBackgroundData <- "Variable0"
   options$plotBackgroundColor <- "darkgrey"
-  options$plotsCItestMethod <- "model"
+  options$plotCiType <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- TRUE
   options$plotBackgroundElement <- "jitter"
@@ -53,7 +53,7 @@ context("Generalized Linear Mixed Models")
          randomComponents = list(list(randomSlopes = TRUE, value = "Variable1")),
          value = "Variable0"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$varianceCorrelationEstimateEstimates <- FALSE
+  options$randomEffectEstimate <- FALSE
   options$randomVariables <- "Variable0"
   options$seed <- 1
   options$setSeed <- FALSE
@@ -440,7 +440,7 @@ context("Generalized Linear Mixed Models")
   options$plotRelativeSizeText <- 1.5
   options$plotBackgroundData <- "facFive"
   options$plotBackgroundColor <- "darkgrey"
-  options$plotsCItestMethod <- "model"
+  options$plotCiType <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- TRUE
   options$plotBackgroundElement <- "violin"
@@ -458,7 +458,7 @@ context("Generalized Linear Mixed Models")
                                                                                   list(randomSlopes = FALSE, value = c("contNormal", "facGender"
                                                                                   ))), value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$varianceCorrelationEstimateEstimates <- FALSE
+  options$randomEffectEstimate <- FALSE
   options$randomVariables <- "facFive"
   options$seed <- 1
   options$setSeed <- FALSE
@@ -593,7 +593,7 @@ context("Generalized Linear Mixed Models")
   options$plotRelativeSizeText <- 1.5
   options$plotBackgroundData <- "facFive"
   options$plotBackgroundColor <- "darkgrey"
-  options$plotsCItestMethod <- "model"
+  options$plotCiType <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- TRUE
   options$plotBackgroundElement <- "boxjitter"
@@ -611,7 +611,7 @@ context("Generalized Linear Mixed Models")
                                                     value = "contBinom"), list(randomSlopes = FALSE, value = c("facGender",
                                                                                                                "contBinom"))), value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$varianceCorrelationEstimateEstimates <- FALSE
+  options$randomEffectEstimate <- FALSE
   options$randomVariables <- "facFive"
   options$seed <- 1
   options$setSeed <- FALSE
@@ -727,7 +727,7 @@ context("Generalized Linear Mixed Models")
   options$plotRelativeSizeText <- 1.5
   options$plotBackgroundData <- "facFive"
   options$plotBackgroundColor <- "darkgrey"
-  options$plotsCItestMethod <- "model"
+  options$plotCiType <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- FALSE
   options$plotBackgroundElement <- "boxplot"
@@ -743,7 +743,7 @@ context("Generalized Linear Mixed Models")
   options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(list(randomSlopes = TRUE,
                                                                                        value = "facGender")), value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$varianceCorrelationEstimateEstimates <- FALSE
+  options$randomEffectEstimate <- FALSE
   options$randomVariables <- "facFive"
   options$seed <- 1
   options$setSeed <- FALSE
@@ -834,7 +834,7 @@ context("Generalized Linear Mixed Models")
   options$plotRelativeSizeText <- 1.5
   options$plotBackgroundData <- "id"
   options$plotBackgroundColor <- "darkgrey"
-  options$plotsCItestMethod <- "model"
+  options$plotCiType <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- FALSE
   options$plotBackgroundElement <- "jitter"
@@ -849,7 +849,7 @@ context("Generalized Linear Mixed Models")
   options$vovkSellke <- FALSE
   options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(list(randomSlopes = TRUE, value = "cA")), value = "id"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$varianceCorrelationEstimateEstimates <- FALSE
+  options$randomEffectEstimate <- FALSE
   options$randomVariables <- "id"
   options$seed <- 1
   options$setSeed <- FALSE
