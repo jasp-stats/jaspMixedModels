@@ -108,14 +108,14 @@ Form {
 
 			property var familyDefault:
 			{
-				"bernoulli":			"logit",
-				"binomial":		"logit",
+				"bernoulli":		"logit",
+				"binomial":			"logit",
 				"gaussian":			"identity",
 				"gamma":			"log",
 				"inverseGaussian":	"log",
 				"poisson":			"log",
 				"negativeBinomial":	"log",
-				"beta":			"logit"
+				"beta":				"logit"
 			}
 
 			onCurrentValueChanged:
