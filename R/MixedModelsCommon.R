@@ -508,7 +508,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     # needs to be avaluated in the global environment
     glmmFamily <<- .mmGetRFamily(options[["family"]])
     glmmLink   <<- options$link
-    family     <<- eval(glmmFamily, glmmLink)
+    family     <<- eval(call(glmmFamily, glmmLink))
 
     # I wish there was a better way to do this
     if (options$family == "binomial") {
