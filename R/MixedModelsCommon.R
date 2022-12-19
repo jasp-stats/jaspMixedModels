@@ -506,9 +506,9 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       ))
   } else if (type == "GLMM") {
     # needs to be avaluated in the global environment
-    glmmFamily <<- .mmGetRFamily(options[["family"]])
     glmmLink   <<- options$link
-    family     <<- eval(call(glmmFamily, glmmLink))
+    glmmFamily <<- .mmGetRFamily(options[["family"]])
+    glmmFamily <<- eval(call(glmmFamily, glmmLink))
 
     # I wish there was a better way to do this
     if (options$family == "binomial") {
@@ -522,7 +522,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
           test_intercept  = .mmGetTestIntercept(options),
           args_test       = list(nsim = options$bootstrapSamples),
           check_contrasts = TRUE,
-          family          = family,
+          family          = glmmFamily,
           weights         = glmmWeight
         ))
     } else {
@@ -536,7 +536,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
           args_test       = list(nsim = options$bootstrapSamples),
           check_contrasts = TRUE,
           #start           = start,
-          family          = family
+          family          = glmmFamily
       ))
     }
   }
@@ -2001,12 +2001,12 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     # needs to be evaluated in the global environment
     glmmLink <<- options$link
     if (options$family == "negativeBinomial") {
-      family <<- rstanarm::neg_binomial_2(link = glmmLink)
+      glmmFamily <<- rstanarm::neg_binomial_2(link = glmmLink)
     } else if (options$family == "beta") {
-      family <<- mgcv::betar(link = glmmLink)
+      glmmFamily <<- mgcv::betar(link = glmmLink)
     } else {
       glmmFamily <<- .mmGetRFamily(options[["family"]])
-      family <<- eval(call(glmmFamily, glmmLink))
+      glmmFamily <<- eval(call(glmmFamily, glmmLink))
     }
 
     # I wish there was a better way to do this
@@ -2023,7 +2023,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         adapt_delta       = options$mcmcAdaptDelta,
         control           = list(max_treedepth = options$mcmcMaxTreedepth),
         weights           = glmmWeight,
-        family            = family,
+        family            = glmmFamily,
         seed              = .getSeedJASP(options),
         model_fun         = "glmer"
       ))
@@ -2039,7 +2039,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         warmup            = options$mcmcBurnin,
         adapt_delta       = options$mcmcAdaptDelta,
         control           = list(max_treedepth = options$mcmcMaxTreedepth),
-        family            = family,
+        family            = glmmFamily,
         seed              = .getSeedJASP(options),
         model_fun         = "glmer"
       ))
