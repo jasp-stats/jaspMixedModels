@@ -430,6 +430,24 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   return(terms)
 }
+
+.mmGetTestIntercept <- function(options) {
+   out <- if (options[["testMethod"]] %in% c("likelihoodRatioTest", "parametricBootstrap")) options[["interceptTest"]] else FALSE
+   return(out)
+}
+
+.mmGetTestMethod <- function(options) {
+  out <- switch(
+    options[["testMethod"]],
+    satterthwaite       = "S",
+    kenwardRoger        = "KR",
+    likelihoodRatioTest = "LRT",
+    parametricBootstrap = "PB",
+    options[["testMethod"]]
+  )
+  return(out)
+}
+
 .mmAddedRETerms  <- function(terms, removed) {
 
   added <- NULL
@@ -481,8 +499,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         formula         = as.formula(modelFormula$modelFormula),
         data            = dataset,
         type            = options$type,
-        testMethod          = options$testMethod,
-        interceptTest  = if (options$testMethod %in% c("likelihoodRatioTest", "parametricBootstrap")) options$interceptTest else FALSE,
+        method          = .mmGetTestMethod(options),
+        test_intercept  = .mmGetTestIntercept(options),
         args_test       = list(nsim = options$bootstrapSamples),
         check_contrasts = TRUE
       ))
@@ -499,8 +517,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
           formula         = as.formula(modelFormula$modelFormula),
           data            = dataset,
           type            = options$type,
-          testMethod          = options$testMethod,
-          interceptTest  = if (options$testMethod %in% c("likelihoodRatioTest", "parametricBootstrap")) options$interceptTest else FALSE,
+          method          = .mmGetTestMethod(options),
+          test_intercept  = .mmGetTestIntercept(options),
           args_test       = list(nsim = options$bootstrapSamples),
           check_contrasts = TRUE,
           family          = eval(call("binomial", glmmLink)),
@@ -512,8 +530,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
           formula         = as.formula(modelFormula$modelFormula),
           data            = dataset,
           type            = options$type,
-          testMethod          = options$testMethod,
-          interceptTest  = if (options$testMethod %in% c("likelihoodRatioTest", "parametricBootstrap")) options$interceptTest else FALSE,
+          method          = .mmGetTestMethod(options),
+          test_intercept  = .mmGetTestIntercept(options),
           args_test       = list(nsim = options$bootstrapSamples),
           check_contrasts = TRUE,
           #start           = start,
@@ -1958,7 +1976,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       iter              = options$mcmcSamples,
       warmup            = options$mcmcBurnin,
       adapt_delta       = options$mcmcAdaptDelta,
-      control           = list(mcmcMaxTreedepth = options$mcmcMaxTreedepth),
+      control           = list(max_treedepth = options$mcmcMaxTreedepth),
       seed              = .getSeedJASP(options),
       model_fun         = "lmer"
     ))
@@ -1988,7 +2006,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         iter              = options$mcmcSamples,
         warmup            = options$mcmcBurnin,
         adapt_delta       = options$mcmcAdaptDelta,
-        control           = list(mcmcMaxTreedepth = options$mcmcMaxTreedepth),
+        control           = list(max_treedepth = options$mcmcMaxTreedepth),
         weights           = glmmWeight,
         family            = eval(call("binomial", glmmLink)),
         seed              = .getSeedJASP(options),
@@ -2005,7 +2023,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         iter              = options$mcmcSamples,
         warmup            = options$mcmcBurnin,
         adapt_delta       = options$mcmcAdaptDelta,
-        control           = list(mcmcMaxTreedepth = options$mcmcMaxTreedepth),
+        control           = list(max_treedepth = options$mcmcMaxTreedepth),
         family            = glmmFamily,
         seed              = .getSeedJASP(options),
         model_fun         = "glmer"
@@ -2479,11 +2497,11 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
     p <- switch(
       options$mcmcDiagnosticsType,
-      "traceplot" = .rstanPlotTrace(plotData[[i]]),
-      "scatterplot"  = .rstanPlotScat(plotData[[i]]),
-      "histogram"  = .rstanPlotHist(plotData[[i]]),
-      "density"  = .rstanPlotDens(plotData[[i]]),
-      "autocorrelation"    = .rstanPlotAcor(plotData[[i]])
+      "traceplot"        = .rstanPlotTrace(plotData[[i]]),
+      "scatterplot"      = .rstanPlotScat (plotData[[i]]),
+      "histogram"        = .rstanPlotHist (plotData[[i]]),
+      "density"          = .rstanPlotDens (plotData[[i]]),
+      "autocorrelation"  = .rstanPlotAcor (plotData[[i]])
     )
 
     if (options$mcmcDiagnosticsType %in% c("histogram", "density")) {
@@ -2789,7 +2807,7 @@ afex::afex_options(
   afex.type = 3,
   afex.set_data_arg = FALSE,
   afex.check_contrasts = TRUE,
-  afex.testMethod_mixed = "satterthwaite",
+  afex.method_mixed = "S",
   afex.return_aov = "afex_aov",
   afex.es_aov = "ges",
   afex.correction_aov = "GG",
