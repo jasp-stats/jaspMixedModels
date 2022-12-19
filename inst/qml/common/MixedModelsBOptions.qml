@@ -76,35 +76,35 @@ Section
 
 		RadioButtonGroup
 		{
-			name:		"show"
+			name:		"estimateType"
 			title:		qsTr("Show")
-			RadioButton { value: "deviation";	label: qsTr("Differences from intercept"); checked: true}
-			RadioButton { value: "mmeans";		label: qsTr("Marginal means") }
+			RadioButton { value: "deviation";		label: qsTr("Differences from intercept"); checked: true}
+			RadioButton { value: "marginalMeans";	label: qsTr("Marginal means") }
 		}
 
 		Group
 		{
 			CheckBox
 			{
-				name:	"fitStats"
+				name:	"modelSummary"
 				label:	qsTr("Model summary")
 			}
 
 			CheckBox
 			{
-				name:	"showFE"
+				name:	"fixedEffectEstimate"
 				label:	qsTr("Fixed effects estimates")
 			}
 
 			CheckBox
 			{
-				name:	"showRE"
+				name:	"varianceCorrelationEstimate"
 				label:	qsTr("Variance/correlation estimates")
 			}
 
 			CheckBox
 			{
-				name:	"showREEstimates"
+				name:	"randomEffectEstimate"
 				label:	qsTr("Random effects estimates")
 			}
 		}
@@ -114,7 +114,7 @@ Section
 
 	CIField
 	{
-		name:	"summaryCI"
+		name:	"ciLevel"
 		label:	qsTr("Credible interval")
 	}
 }

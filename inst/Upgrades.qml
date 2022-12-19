@@ -219,7 +219,7 @@ Upgrades
 		fromVersion:	"0.16.4"
 		toVersion:		"0.17.0"
 
-		ChangeRename { from: "dependentVariable";	to: "dependent"	}
+		ChangeRename { from: "dependentVariable";				to: "dependent"	}
 		ChangeRename { from: "dependentVariableAggregation";	to: "dependentAggregation"	}
 		ChangeJS
 		{
@@ -329,8 +329,106 @@ Upgrades
 		fromVersion:	"0.16.4"
 		toVersion:		"0.17.0"
 
+		ChangeRename { from: "dependentVariable";	to: "dependent"	}
 
+		// MixedModelsBOptions.qml
+		ChangeRename { from: "warmup";			to: "mcmcBurnin"	}
+		ChangeRename { from: "iteration";		to: "mcmcSamples"	}
+		ChangeRename { from: "chains";			to: "mcmcChains"	}
+		ChangeRename { from: "adapt_delta";		to: "mcmcAdaptDelta"	}
+		ChangeRename { from: "max_treedepth";	to: "mcmcMaxTreedepth"	}
+
+		ChangeRename { from: "show";		to: "estimateType"	}
+		ChangeSetValue
+		{
+			name:		"estimateType"
+			jsonValue:	"marginalMeans"
+			condition:	function(options) return (options["estimateType"] === "mmeans");
+		}
+		ChangeRename { from: "fitStats";			to: "modelSummary"					}
+		ChangeRename { from: "showFE";				to: "fixedEffectEstimate"			}
+		ChangeRename { from: "showRE";				to: "varianceCorrelationEstimate"	}
+		ChangeRename { from: "showREEstimates";		to: "randomEffectEstimate"			}
+		ChangeRename { from: "summaryCI";			to: "ciLevel"						}
+
+		// MixedModelsMCMCDiagnostics.qml
+		ChangeRename { from: "samplingVariable1";	to: "mcmcDiagnosticsHorizontal"		}
+		ChangeRename { from: "samplingVariable2";	to: "mcmcDiagnosticsVertical"		}
+		ChangeRename { from: "samplingPlot";		to: "mcmcDiagnosticsType"			}
+		ChangeJS
+		{
+			name:	"mcmcDiagnosticsType"
+			jsFunction:	function(options) 
+			{
+				switch(options["mcmcDiagnosticsType"])
+				{
+					case "stan_trace":	return "traceplot";
+					case "stan_scat":	return "scatterplot";
+					case "stan_hist":	return "histogram";
+					case "stan_dens":	return "density";
+					case "stan_ac":		return "autocorrelation";
+					default:			return options["mcmcDiagnosticsType"];
+				}
+
+			}
+		}
+
+		// MixedModelsPlots.qml
+		ChangeRename { from: "plotsX";					to: "plotHorizontalAxis"	}
+		ChangeRename { from: "plotsTrace";				to: "plotSeparateLines"		}
+		ChangeRename { from: "plotsPanel";				to: "plotSeparatePlots"		}
+		ChangeRename { from: "plotsAgregatedOver";		to: "plotBackgroundData"	}
+		ChangeRename { from: "plotsCImethod";			to: "plotCiType"			}
+		ChangeRename { from: "plotsCIwidth";			to: "plotCiLevel"			}
+		ChangeRename { from: "plotsMappingColor";		to: "plotLevelsByColor"		}
+		ChangeRename { from: "plotsMappingShape";		to: "plotLevelsByShape"		}
+		ChangeRename { from: "plotsMappingLineType";	to: "plotLevelsByLinetype"	}
+		ChangeRename { from: "plotsMappingFill";		to: "plotLevelsByFill"		}
+
+		ChangeRename { from: "plotsGeom";	to: "plotBackgroundElement"	}
+		ChangeJS
+		{
+			name: "plotBackgroundElement"
+			jsFunction: function(options)
+			{
+				// previously all things were prepended with "geom_", so we strip that out
+				options["plotBackgroundElement"].replace("geom_", "");
+			}
+		}
+		ChangeRename { from: "plotAlpha";		to: "plotTransparency"	}
+		ChangeRename { from: "plotGeomWidth";	to: "plotElementWidth"	}
+		ChangeRename { from: "plotsTheme";		to: "plotTheme"			}
+		ChangeJS
+		{
+			name: "plotTheme"
+			jsFunction: function(options)
+			{
+				switch(options["plotTheme"])
+				{
+					case "JASP":		return "jasp";
+					case "theme_bw":	return "whiteBackground";
+					// From the others we just strip "theme_"
+					default:			return options["plotTheme"].replace("theme_", "");
+				}
+			}
+		}
+		ChangeRename { from: "plotsBackgroundColor";	to: "plotBackgroundColor"	}
+		ChangeRename { from: "plotRelativeSize";		to: "plotRelativeSizeData"	}
+		ChangeRename { from: "plotsEstimatesTable";		to: "plotEstimatesTable"	}
+
+		// Marginal means
+		ChangeRename { from: "marginalMeans";			to: "marginalMeansTerms"	}
+		ChangeRename { from: "marginalMeansCIwidth";	to: "marginalMeansCiLevel"	}
+		ChangeRename { from: "marginalMeansSD";			to: "marginalMeansSd"		}
+		ChangeRename { from: "Contrasts";				to: "contrasts"				}
+
+		// Estimated trends/conditional slopes
+		ChangeRename { from: "trendsTrend";				to: "trendsTrendVariable"	}
+		ChangeRename { from: "trendsCIwidth";			to: "trendsCiLevel"			}
+		ChangeRename { from: "trendsSD";				to: "trendsSd"				}
 	}
+
+
 
 	Upgrade
 	{

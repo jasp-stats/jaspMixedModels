@@ -179,7 +179,7 @@ Form {
 			Layout.columnSpan:	2
 			visible:			marginalMeansContrast.checked
 			name:				"contrasts"
-			source:				"marginalMeans"
+			source:				"marginalMeansTerms"
 			scaleFactor:		marginalMeansSD.value
 		}
 	}
