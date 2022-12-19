@@ -25,7 +25,8 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 # TODO: Add 3rd level random effects grouping factors ;) (not that difficult actually)
 
 .mmRunAnalysis   <- function(jaspResults, dataset, options, type) {
-  .setAfexOptions()
+  .setOptions()
+
   
   if (.mmReady(options, type))
     dataset <- .mmReadData(jaspResults, dataset, options, type)
@@ -2822,7 +2823,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   "link"
 )
 
-.setAfexOptions <- function() {
+.setOptions <- function() {
   # this needs to be set after the latest afex update (otherwise null on initiation for some reason)
   afexOptions <- afex::afex_options(
     type = 3,
@@ -2838,6 +2839,10 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     emmeans_model = c("multivariate"),
     include_aov = FALSE
   )
+  oldOptions <- options(lme4.summary.cor.max = 12)
 
-  withr::defer_parent(afex::afex_options(afexOptions))
+  withr::defer_parent({
+    afex::afex_options(afexOptions)
+    options(oldOptions)
+  })
 }
