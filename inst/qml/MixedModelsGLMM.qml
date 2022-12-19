@@ -26,7 +26,7 @@ Form {
 
 	Formula
 	{
-		lhs: "dependentVariable"
+		lhs: "dependent"
 		rhs: ["fixedEffects", {randomEffects: "randomEffects"}]
 	}
 
@@ -41,7 +41,7 @@ Form {
 
 		AssignedVariablesList
 		{
-			name:				"dependentVariable"
+			name:				"dependent"
 			title:				qsTr("Dependent variable")
 			allowedColumns:		["scale","ordinal", "nominal"]
 			singleVariable:		true
@@ -86,31 +86,31 @@ Form {
 			indexDefaultValue:	0
 			values:
 			[
-				{ label: qsTr("Binomial"),				value: "binomial"},
-				{ label: qsTr("Binomial (aggregated)"),	value: "binomialAgg"},
+				{ label: qsTr("Binomial"),				value: "bernoulli"},
+				{ label: qsTr("Binomial (aggregated)"),	value: "binomial"},
 				{ label: qsTr("Gaussian"),				value: "gaussian"},
-				{ label: qsTr("Gamma"),					value: "Gamma"},
-				{ label: qsTr("Inverse Gaussian"),		value: "inverse.gaussian"},
+				{ label: qsTr("Gamma"),					value: "gamma"},
+				{ label: qsTr("Inverse Gaussian"),		value: "inverseGaussian"},
 				{ label: qsTr("Poisson"),				value: "poisson"}
 			]
 
 			property var familyMap:
 			{
-				"binomial":			["logit", "probit", "cauchit", "cloglog", "log"],
-				"binomialAgg":      ["logit", "probit", "cauchit", "cloglog", "log"],
-				"gaussian":			["identity", "log", "inverse"],
-				"Gamma":			["identity", "log", "inverse"],
-				"inverse.gaussian":	["identity", "log", "inverse"],
-				"poisson":			["identity", "log", "sqrt"]
+				"bernoulli":			["logit", "probit", "cauchit", "cloglog", "log"],
+				"binomial":				["logit", "probit", "cauchit", "cloglog", "log"],
+				"gaussian":				["identity", "log", "inverse"],
+				"gamma":				["identity", "log", "inverse"],
+				"inverseGaussian":		["identity", "log", "inverse"],
+				"poisson":				["identity", "log", "sqrt"]
 			}
 
 			property var familyDefault:
 			{
+				"bernoulli":		"logit",
 				"binomial":			"logit",
-				"binomialAgg":		"logit",
 				"gaussian":			"identity",
-				"Gamma":			"log",
-				"inverse.gaussian":	"log",
+				"gamma":			"log",
+				"inverseGaussian":	"log",
 				"poisson":			"log"
 			}
 
@@ -226,21 +226,21 @@ Form {
 			AssignedVariablesList
 			{
 				id:		marginalMeans
-				name:	"marginalMeans"
+				name:	"marginalMeansTerms"
 				title:	qsTr("Selected variables")
 			}
 		}
 
 		CIField
 		{
-			name:	"marginalMeansCIwidth"
+			name:	"marginalMeansCiLevel"
 			label:	qsTr("Confidence interval")
 		}
 
 		DoubleField
 		{
 			id:				marginalMeansSD
-			name:			"marginalMeansSD"
+			name:			"marginalMeansSd"
 			label:			qsTr("SD factor covariates")
 			defaultValue: 	1
 			min:			0
@@ -253,7 +253,7 @@ Form {
 
 			CheckBox
 			{
-				name:	"marginalMeansCompare"
+				name:	"marginalMeansComparison"
 				id:		marginalMeansCompare
 				label:	qsTr("Compare marginal means to:")
 			}
@@ -261,7 +261,7 @@ Form {
 			DoubleField
 			{
 				enabled:	marginalMeansCompare.checked
-				name:		"marginalMeansCompareTo"
+				name:		"marginalMeansComparisonWith"
 			}
 		}
 		
@@ -281,7 +281,7 @@ Form {
 
 		DropDown
 		{
-			name:	"marginalMeansAdjustment"
+			name:	"marginalMeansPAdjustment"
 			label:	qsTr("P-value adjustment")
 			values:
 			[
@@ -299,7 +299,7 @@ Form {
 		{
 			Layout.columnSpan:	2
 			visible:			marginalMeansContrast.checked
-			name:				"Contrasts"
+			name:				"contrasts"
 			source:				"marginalMeans"
 			scaleFactor:		marginalMeansSD.value
 		}
@@ -324,7 +324,7 @@ Form {
 			AssignedVariablesList
 			{
 				singleVariable:	true
-				name:			"trendsTrend"
+				name:			"trendsTrendVariable"
 				title:			qsTr("Trend variable")
 			}
 		}
@@ -350,14 +350,14 @@ Form {
 
 		CIField
 		{
-			name:	"trendsCIwidth"
+			name:	"trendsCiLevel"
 			label:	qsTr("Confidence interval")
 		}
 
 		DoubleField
 		{ 
 			id:				trendsSD
-			name:			"trendsSD"
+			name:			"trendsSd"
 			label:			qsTr("SD factor covariates")
 			defaultValue:	1
 			min:			0
@@ -370,7 +370,7 @@ Form {
 
 			CheckBox
 			{
-				name:	"trendsCompare"
+				name:	"trendsComparison"
 				id:		trendsCompare
 				label:	qsTr("Compare trends to:")
 			}
@@ -378,7 +378,7 @@ Form {
 			DoubleField
 			{
 				enabled:	trendsCompare.checked
-				name:		"trendsCompareTo"
+				name:		"trendsComparisonWith"
 			}
 		}
 
@@ -391,7 +391,7 @@ Form {
 
 		DropDown
 		{
-			name:	"trendsAdjustment"
+			name:	"trendsPAdjustment"
 			label:	qsTr("P-value adjustment")
 			values:
 			[

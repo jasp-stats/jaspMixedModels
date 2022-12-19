@@ -165,10 +165,13 @@ Upgrades
 			name: "plotTheme"
 			jsFunction: function(options)
 			{
-				case "JASP":		return "jasp";
-				case "theme_bw":	return "whiteBackground";
-				// From the others we just strip "theme_"
-				default:			return options["plotTheme"].replace("theme_", "");
+				switch(options["plotTheme"])
+				{
+					case "JASP":		return "jasp";
+					case "theme_bw":	return "whiteBackground";
+					// From the others we just strip "theme_"
+					default:			return options["plotTheme"].replace("theme_", "");
+				}
 			}
 		}
 		ChangeRename { from: "plotsBackgroundColor";	to: "plotBackgroundColor"	}
@@ -216,7 +219,108 @@ Upgrades
 		fromVersion:	"0.16.4"
 		toVersion:		"0.17.0"
 
+		ChangeRename { from: "dependentVariable";	to: "dependent"	}
+		ChangeRename { from: "dependentVariableAggregation";	to: "dependentAggregation"	}
+		ChangeJS
+		{
+			name:		"family"
+			jsFunction:	function(options)
+			{
+				switch(options["family"])
+				{
+					case "binomial":			return "bernoulli";
+					case "binomialAgg":			return "binomial";
+					case "Gamma":				return "gamma";
+					case "inverse.gaussian":	return "inverseGaussian";
+					default:					return options["family"];
+				}
+			}
+		}
 
+		// MixedModelOptions.qml
+		ChangeRename { from: "test_intercept";	to: "interceptTest"	}
+		ChangeRename { from: "method";			to: "testMethod"	}
+		ChangeJS
+		{
+			name:	"testMethod"
+			jsFunction:	function(options)
+			{
+				switch(options["testMethod"])
+				{
+					case "S":						return "satterthwaite";
+					case "Kenward-Roger":			return "kenwardRoger";
+					case "Likelihood ratio tests":	return "likelihoodRatioTest";
+					case "Parametric bootstrap": 	return "parametricBootstrap";
+					default:						return options["testMethod"];
+				}
+			}
+		}
+
+		ChangeRename { from: "fitStats";			to: "modelSummary"					}
+		ChangeRename { from: "showFE";				to: "fixedEffectEstimate"			}
+		ChangeRename { from: "showRE";				to: "varianceCorrelationEstimate"	}
+		ChangeRename { from: "showREEstimates";		to: "randomEffectEstimate"			}
+		ChangeRename { from: "pvalVS";				to: "vovkSellke"					}
+
+		// MixedModelsPlots.qml
+		ChangeRename { from: "plotsX";					to: "plotHorizontalAxis"	}
+		ChangeRename { from: "plotsTrace";				to: "plotSeparateLines"		}
+		ChangeRename { from: "plotsPanel";				to: "plotSeparatePlots"		}
+		ChangeRename { from: "plotsAgregatedOver";		to: "plotBackgroundData"	}
+		ChangeRename { from: "plotsCImethod";			to: "plotCiType"			}
+		ChangeRename { from: "plotsCIwidth";			to: "plotCiLevel"			}
+		ChangeRename { from: "plotsMappingColor";		to: "plotLevelsByColor"		}
+		ChangeRename { from: "plotsMappingShape";		to: "plotLevelsByShape"		}
+		ChangeRename { from: "plotsMappingLineType";	to: "plotLevelsByLinetype"	}
+		ChangeRename { from: "plotsMappingFill";		to: "plotLevelsByFill"		}
+
+		ChangeRename { from: "plotsGeom";	to: "plotBackgroundElement"	}
+		ChangeJS
+		{
+			name: "plotBackgroundElement"
+			jsFunction: function(options)
+			{
+				// previously all things were prepended with "geom_", so we strip that out
+				options["plotBackgroundElement"].replace("geom_", "");
+			}
+		}
+		ChangeRename { from: "plotAlpha";		to: "plotTransparency"	}
+		ChangeRename { from: "plotGeomWidth";	to: "plotElementWidth"	}
+		ChangeRename { from: "plotsTheme";		to: "plotTheme"			}
+		ChangeJS
+		{
+			name: "plotTheme"
+			jsFunction: function(options)
+			{
+				switch(options["plotTheme"])
+				{
+					case "JASP":		return "jasp";
+					case "theme_bw":	return "whiteBackground";
+					// From the others we just strip "theme_"
+					default:			return options["plotTheme"].replace("theme_", "");
+				}
+			}
+		}
+		ChangeRename { from: "plotsBackgroundColor";	to: "plotBackgroundColor"	}
+		ChangeRename { from: "plotRelativeSize";		to: "plotRelativeSizeData"	}
+		ChangeRename { from: "plotsEstimatesTable";		to: "plotEstimatesTable"	}
+
+		// Marginal means
+		ChangeRename { from: "marginalMeans";			to: "marginalMeansTerms"	}
+		ChangeRename { from: "marginalMeansCIwidth";	to: "marginalMeansCiLevel"	}
+		ChangeRename { from: "marginalMeansSD";			to: "marginalMeansSd"	}
+		ChangeRename { from: "marginalMeansCompare";	to: "marginalMeansComparison"		}
+		ChangeRename { from: "marginalMeansCompareTo";	to: "marginalMeansComparisonWith"	}
+		ChangeRename { from: "marginalMeansAdjustment";	to: "marginalMeansPAdjustment"		}
+		ChangeRename { from: "Contrasts";				to: "contrasts"						}
+
+		// Estimated trends/conditional slopes
+		ChangeRename { from: "trendsTrend";				to: "trendsTrendVariable"	}
+		ChangeRename { from: "trendsCIwidth";			to: "trendsCiLevel"			}
+		ChangeRename { from: "trendsSD";				to: "trendsSd"				}
+		ChangeRename { from: "trendsCompare";			to: "trendsComparison"		}
+		ChangeRename { from: "trendsCompareTo";			to: "trendsComparisonWith"	}
+		ChangeRename { from: "trendsAdjustment";		to: "trendsPAdjustment"		}
 	}
 
 	Upgrade
