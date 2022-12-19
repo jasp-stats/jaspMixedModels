@@ -120,11 +120,11 @@ Upgrades
 			{
 				switch(options["testMethod"])
 				{
-					case "S":						return "satterthwaite";
-					case "Kenward-Roger":			return "kenwardRoger";
-					case "Likelihood ratio tests":	return "likelihoodRatioTest";
-					case "Parametric bootstrap": 	return "parametricBootstrap";
-					default:						return options["testMethod"];
+					case "S":	return "satterthwaite";
+					case "KR":	return "kenwardRoger";
+					case "LRT":	return "likelihoodRatioTest";
+					case "PB": 	return "parametricBootstrap";
+					default:	return options["testMethod"];
 				}
 			}
 		}
