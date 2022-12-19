@@ -26,7 +26,7 @@ Form {
 
 	Formula
 	{
-		lhs: "dependentVariable"
+		lhs: "dependent"
 		rhs: ["fixedEffects", {randomEffects: "randomEffects"}]
 	}
 
@@ -41,7 +41,7 @@ Form {
 
 		AssignedVariablesList
 		{
-			name:				"dependentVariable"
+			name:				"dependent"
 			title:				qsTr("Dependent variable")
 			allowedColumns:		["scale"]
 			singleVariable:		true
@@ -88,21 +88,21 @@ Form {
 			AssignedVariablesList
 			{
 				id:		marginalMeans
-				name:	"marginalMeans"
+				name:	"marginalMeansTerms"
 				title:	qsTr("Selected variables")
 			}
 		}
 
 		CIField
 		{
-			name:	"marginalMeansCIwidth"
+			name:	"marginalMeansCiLevel"
 			label:	qsTr("Confidence interval")
 		}
 
 		DoubleField
 		{
 			id:				marginalMeansSD
-			name:			"marginalMeansSD"
+			name:			"marginalMeansSd"
 			label:			qsTr("SD factor covariates")
 			defaultValue: 	1
 			min:			0
@@ -120,14 +120,14 @@ Form {
 				[
 					{ label: qsTr("Asymptotic"),		value: "asymptotic"},
 					{ label: "Satterthwaite",			value: "satterthwaite"},
-					{ label: "Kenward-Roger",			value: "kenward-roger"}
+					{ label: "Kenward-Roger",			value: "kenwardRoger"}
 				]
 			}
 
 			CheckBox
 			{
-				enabled:	marginalMeansDf.currentValue == "satterthwaite" | marginalMeansDf.currentValue == "kenward-roger"
-				name:		"marginalMeansOverride"
+				enabled:	marginalMeansDf.currentValue == "satterthwaite" | marginalMeansDf.currentValue == "kenwardRoger"
+				name:		"marginalMeansDfEstimated"
 				label:		qsTr("Force df estimation")
 			}
 
@@ -139,7 +139,7 @@ Form {
 
 			CheckBox
 			{
-				name:	"marginalMeansCompare"
+				name:	"marginalMeansComparison"
 				id:		marginalMeansCompare
 				label:	qsTr("Compare marginal means to:")
 			}
@@ -147,7 +147,7 @@ Form {
 			DoubleField
 			{
 				enabled:	marginalMeansCompare.checked
-				name:		"marginalMeansCompareTo"
+				name:		"marginalMeansComparisonWith"
 			}
 		}
 		
@@ -160,7 +160,7 @@ Form {
 
 		DropDown
 		{
-			name:	"marginalMeansAdjustment"
+			name:	"marginalMeansPAdjustment"
 			label:	qsTr("P-value adjustment")
 			values:
 			[
@@ -178,7 +178,7 @@ Form {
 		{
 			Layout.columnSpan:	2
 			visible:			marginalMeansContrast.checked
-			name:				"Contrasts"
+			name:				"contrasts"
 			source:				"marginalMeans"
 			scaleFactor:		marginalMeansSD.value
 		}
@@ -203,7 +203,7 @@ Form {
 			AssignedVariablesList
 			{
 				singleVariable:	true
-				name:			"trendsTrend"
+				name:			"trendsTrendVariable"
 				title:			qsTr("Trend variable")
 			}
 		}
@@ -229,14 +229,14 @@ Form {
 
 		CIField
 		{
-			name:	"trendsCIwidth"
+			name:	"trendsCiLevel"
 			label:	qsTr("Confidence interval")
 		}
 
 		DoubleField
 		{ 
 			id:				trendsSD
-			name:			"trendsSD"
+			name:			"trendsSd"
 			label:			qsTr("SD factor covariates")
 			defaultValue:	1
 			min:			0
@@ -254,14 +254,14 @@ Form {
 				[
 					{ label: qsTr("Asymptotic"),		value: "asymptotic"},
 					{ label: "Satterthwaite",			value: "satterthwaite"},
-					{ label: "Kenward-Roger",			value: "kenward-roger"}
+					{ label: "Kenward-Roger",			value: "kenwardRoger"}
 				]
 			}
 
 			CheckBox
 			{
-				enabled:	trendsDf.currentValue == "satterthwaite" | trendsDf.currentValue == "kenward-roger"
-				name:		"trendsOverride"
+				enabled:	trendsDf.currentValue == "satterthwaite" | trendsDf.currentValue == "kenwardRoger"
+				name:		"trendsDfEstimated"
 				label:		qsTr("Force df estimation")
 			}
 		}
@@ -272,7 +272,7 @@ Form {
 
 			CheckBox
 			{
-				name:	"trendsCompare"
+				name:	"trendsComparison"
 				id:		trendsCompare
 				label:	qsTr("Compare trends to:")
 			}
@@ -280,7 +280,7 @@ Form {
 			DoubleField
 			{
 				enabled:	trendsCompare.checked
-				name:		"trendsCompareTo"
+				name:		"trendsComparisonWith"
 			}
 		}
 
@@ -293,7 +293,7 @@ Form {
 
 		DropDown
 		{
-			name:	"trendsAdjustment"
+			name:	"trendsPAdjustment"
 			label:	qsTr("P-value adjustment")
 			values:
 			[

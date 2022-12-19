@@ -39,8 +39,8 @@ Section
 
 	CheckBox
 	{
-		enabled:	method.currentValue == "PB" | method.currentValue == "LRT"
-		name:		"test_intercept"
+		enabled:	testMethod.currentValue == "parametricBootstrap" | testMethod.currentValue == "likelihoodRatioTest"
+		name:		"interceptTest"
 		label:		qsTr("Test intercept")
 	}
 
@@ -48,25 +48,25 @@ Section
 	{
 		DropDown
 		{
-			name:	"method"
-			label:	qsTr("Test model terms")
-			id:		method
+			name:	"testMethod"
+			label:	qsTr("Test method")
+			id:		testMethod
 			values: allMethodOptions ?
 			[
-				{ label: "Satterthwaite",					value: "S"},
-				{ label: "Kenward-Roger",					value: "KR"},
-				{ label: qsTr("Likelihood ratio tests"),	value: "LRT"},
-				{ label: qsTr("Parametric bootstrap"),		value: "PB"}
+				{ label: "Satterthwaite",					value: "satterthwaite"},
+				{ label: "Kenward-Roger",					value: "kenwardRoger"},
+				{ label: qsTr("Likelihood ratio tests"),	value: "likelihoodRatioTest"},
+				{ label: qsTr("Parametric bootstrap"),		value: "parametricBootstrap"}
 			] :
 			[
-				{ label: qsTr("Likelihood ratio tests"),	value: "LRT"},
-				{ label: qsTr("Parametric bootstrap"),		value: "PB"}
+				{ label: qsTr("Likelihood ratio tests"),	value: "likelihoodRatioTest"},
+				{ label: qsTr("Parametric bootstrap"),		value: "parametricBootstrap"}
 			]
 		}
 
 		IntegerField
 		{
-			enabled:		method.currentValue == "PB"
+			enabled:		testMethod.currentValue == "parametricBootstrap"
 			name:			"bootstrapSamples"
 			label:			qsTr("No. samples")
 			defaultValue:	500
@@ -79,25 +79,25 @@ Section
 	{
 		CheckBox
 		{
-			name:	"fitStats"
+			name:	"modelSummary"
 			label:	qsTr("Model summary")
 		}
 
 		CheckBox
 		{
-			name:	"showFE"
+			name:	"fixedEffectEstimate"
 			label:	qsTr("Fixed effects estimates")
 		}
 
 		CheckBox
 		{
-			name:	"showRE"
+			name:	"varianceCorrelationEstimate"
 			label:	qsTr("Variance/correlation estimates")
 		}
 
 		CheckBox
 		{
-			name:	"showREEstimates"
+			name:	"randomEffectEstimate"
 			label:	qsTr("Random effects estimates")
 		}
 	}
@@ -106,7 +106,7 @@ Section
 
 	CheckBox
 	{
-		name:	"pvalVS"
+		name:	"vovkSellke"
 		label:	qsTr("Vovk-Sellke maximum p-ratio")
 	}
 
