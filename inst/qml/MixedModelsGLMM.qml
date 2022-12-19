@@ -51,7 +51,7 @@ Form {
 		{
 			visible:			family.currentText == "Binomial (aggregated)"
 			onVisibleChanged:	if (!visible && count > 0) itemDoubleClicked(0);
-			name:				"dependentVariableAggregation"
+			name:				"dependentAggregation"
 			title:				qsTr("Number of trials")
 			singleVariable:		true
 			allowedColumns:		["scale","ordinal"]

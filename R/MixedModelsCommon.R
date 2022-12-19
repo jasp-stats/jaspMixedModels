@@ -1089,15 +1089,6 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     return()
   }
 
-  # select geom
-  if (options$plotBackgroundElement %in% c("jitter", "violin", "boxplot", "count"))
-    geomPackage <- "ggplot2"
-  else if (options$plotBackgroundElement == "beeswarm")
-    geomPackage <- "ggbeeswarm"
-  else if (options$plotBackgroundElement == "boxjitter")
-    geomPackage <- "ggpol"
-
-
   # select mapping
   mapping <- c("color", "shape", "linetype", "fill")[c(options$plotLevelsByColor, options$plotLevelsByShape, options$plotLevelsByLinetype, options$plotLevelsByFill)]
 
@@ -1146,7 +1137,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       trace       = if (length(options$plotSeparateLines) != 0) unlist(options$plotSeparateLines),
       panel       = if (length(options$plotSeparatePlots) != 0) unlist(options$plotSeparatePlots),
       id          = options$plotBackgroundData,
-      data_geom   = getFromNamespace(options$plotBackgroundElement, geomPackage),
+      data_geom   = .mmGetPlotElementFun(options[["plotBackgroundElement"]]),
       mapping     = mapping,
       error       = options$plotsCItestMethod,
       error_level = options$plotCiLevel,
@@ -1224,7 +1215,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       panel       = if (length(options$plotSeparatePlots) != 0)
         unlist(options$plotSeparatePlots),
       id          = options$plotBackgroundData,
-      data_geom   = getFromNamespace(options$plotBackgroundElement, geomPackage),
+      data_geom   = .mmGetPlotElementFun(options[["plotBackgroundElement"]]),
       error       = options$plotsCItestMethod,
       error_level = options$plotCiLevel,
       return      = "data"
@@ -1279,6 +1270,18 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   }
 
   return()
+}
+
+.mmGetPlotElementFun <- function(element = c("jitter", "violin", "boxplot", "count", "beeswarm", "boxjitter"), prefix = "geom_") {
+  element <- match.arg(element)
+  fromPkg <- switch(element,
+                    beeswarm  = "ggbeeswarm",
+                    boxjitter = "ggpol",
+                    "ggplot2")
+  element <- paste0(prefix, element)
+  fun <- try(utils::getFromNamespace(element, fromPkg))
+  if(isTryError(fun)) .quitAnalysis(gettextf("Cannot find function: %s", element))
+  return(fun)
 }
 .mmMarginalMeans <- function(jaspResults, dataset, options, type = "LMM") {
 
