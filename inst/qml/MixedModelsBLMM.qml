@@ -26,7 +26,7 @@ Form {
 
 	Formula
 	{
-		lhs: "dependentVariable"
+		lhs: "dependent"
 		rhs: ["fixedEffects", {randomEffects: "randomEffects"}]
 	}
 
@@ -41,7 +41,7 @@ Form {
 
 		AssignedVariablesList
 		{
-			name:				"dependentVariable"
+			name:				"dependent"
 			title:				qsTr("Dependent variable")
 			allowedColumns:		["scale"]
 			singleVariable:		true
@@ -93,21 +93,21 @@ Form {
 			AssignedVariablesList
 			{
 				id:		marginalMeans
-				name:	"marginalMeans"
+				name:	"marginalMeansTerms"
 				title:	qsTr("Selected variables")
 			}
 		}
 
 		CIField
 		{
-			name:	"marginalMeansCIwidth"
+			name:	"marginalMeansCiLevel"
 			label:	qsTr("Confidence interval")
 		}
 
 		DoubleField
 		{
 			id:				marginalMeansSD
-			name:			"marginalMeansSD"
+			name:			"marginalMeansSd"
 			label:			qsTr("SD factor covariates")
 			defaultValue: 	1
 			min:			0
@@ -125,8 +125,8 @@ Form {
 		{
 			Layout.columnSpan:	2
 			visible:			marginalMeansContrast.checked
-			name:				"Contrasts"
-			source:				"marginalMeans"
+			name:				"contrasts"
+			source:				"marginalMeansTerms"
 			scaleFactor:		marginalMeansSD.value
 		}
 	}
@@ -150,7 +150,7 @@ Form {
 			AssignedVariablesList
 			{
 				singleVariable:	true
-				name:			"trendsTrend"
+				name:			"trendsTrendVariable"
 				title:			qsTr("Trend variable")
 			}
 		}
@@ -176,14 +176,14 @@ Form {
 
 		CIField
 		{
-			name:	"trendsCIwidth"
+			name:	"trendsCiLevel"
 			label:	qsTr("Confidence interval")
 		}
 
 		DoubleField
 		{ 
 			id:				trendsSD
-			name:			"trendsSD"
+			name:			"trendsSd"
 			label:			qsTr("SD factor covariates")
 			defaultValue:	1
 			min:			0

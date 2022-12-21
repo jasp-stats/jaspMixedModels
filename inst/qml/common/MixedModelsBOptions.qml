@@ -30,7 +30,7 @@ Section
 
 		IntegerField
 		{
-			name:			"warmup"
+			name:			"mcmcBurnin"
 			id:				warmup
 			label:			qsTr("Burnin")
 			defaultValue:	2000
@@ -39,15 +39,15 @@ Section
 
 		IntegerField
 		{
-			name:			"iteration"
-			label:			qsTr("Iterations")
+			name:			"mcmcSamples"
+			label:			qsTr("Samples")
 			defaultValue:	4000
 			min:			parseInt(warmup.value) + 100
 		}
 
 		IntegerField
 		{
-			name:			"chains"
+			name:			"mcmcChains"
 			label:			qsTr("Chains")
 			defaultValue:	3
 			min:			1
@@ -55,7 +55,7 @@ Section
 
 		DoubleField
 		{
-			name:			"adapt_delta"
+			name:			"mcmcAdaptDelta"
 			label:			qsTr("Adapt delta")
 			defaultValue:	0.80
 			min:			0.5
@@ -64,7 +64,7 @@ Section
 
 		IntegerField
 		{
-			name:			"max_treedepth"
+			name:			"mcmcMaxTreedepth"
 			label:			qsTr("Maximum treedepth")
 			defaultValue:	10
 			min:			5
@@ -76,35 +76,35 @@ Section
 
 		RadioButtonGroup
 		{
-			name:		"show"
+			name:		"estimateType"
 			title:		qsTr("Show")
-			RadioButton { value: "deviation";	label: qsTr("Differences from intercept"); checked: true}
-			RadioButton { value: "mmeans";		label: qsTr("Marginal means") }
+			RadioButton { value: "deviation";		label: qsTr("Differences from intercept"); checked: true}
+			RadioButton { value: "marginalMeans";	label: qsTr("Marginal means") }
 		}
 
 		Group
 		{
 			CheckBox
 			{
-				name:	"fitStats"
+				name:	"modelSummary"
 				label:	qsTr("Model summary")
 			}
 
 			CheckBox
 			{
-				name:	"showFE"
+				name:	"fixedEffectEstimate"
 				label:	qsTr("Fixed effects estimates")
 			}
 
 			CheckBox
 			{
-				name:	"showRE"
+				name:	"varianceCorrelationEstimate"
 				label:	qsTr("Variance/correlation estimates")
 			}
 
 			CheckBox
 			{
-				name:	"showREEstimates"
+				name:	"randomEffectEstimate"
 				label:	qsTr("Random effects estimates")
 			}
 		}
@@ -114,7 +114,7 @@ Section
 
 	CIField
 	{
-		name:	"summaryCI"
+		name:	"ciLevel"
 		label:	qsTr("Credible interval")
 	}
 }

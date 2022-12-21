@@ -1,12 +1,12 @@
 context("Generalized Linear Mixed Models")
 
 
-### binomial + logit, default, all selected output using LRT method
+### bernoulli + logit, default, all selected output using LRT testMethod
 {
   skip_on_os("mac")   # problems with precision outside of windows
   skip_on_os("linux") # problems with precision outside of windows
   options <- jaspTools::analysisOptions("MixedModelsGLMM")
-  options$Contrasts <- list(list(isContrast = FALSE, levels = c("1", "2", "3", "4",
+  options$contrasts <- list(list(isContrast = FALSE, levels = c("1", "2", "3", "4",
                                                                 "5", "6"), name = "cA", values = c("1", "2", "1", "2", "1", "2"
                                                                 )), list(isContrast = FALSE, levels = c("1", "2", "3", "4", "5",
                                                                                                         "6"), name = "y_beta", values = c("-1", "-1", "0", "0", "1",
@@ -16,56 +16,56 @@ context("Generalized Linear Mixed Models")
                                                                                                                                                                                                                                                                               "4", "5", "6"), name = "Contrast 2", values = c("1", "-1", "0",
                                                                                                                                                                                                                                                                                                                               "0", "0", "0")))
   options$bootstrapSamples <- 500
-  options$dependentVariable <- "Variable5"
-  options$fitStats <- TRUE
+  options$dependent <- "Variable5"
+  options$modelSummary <- TRUE
   options$fixedEffects <- list(list(components = "Variable1"), list(components = "Variable7"),
                                list(components = c("Variable1", "Variable7"
                                )))
   options$fixedVariables <- c("Variable1", "Variable7")
-  options$marginalMeans <- list(list(variable = "Variable1"), list(variable = "Variable7"))
+  options$marginalMeansTerms <- list(list(variable = "Variable1"), list(variable = "Variable7"))
   options$marginalMeansContrast <- TRUE
-  options$method <- "LRT"
-  options$plotAlpha <- 0.7
+  options$testMethod <- "likelihoodRatioTest"
+  options$plotTransparency <- 0.7
   options$plotDodge <- 0.3
-  options$plotGeomWidth <- 1
+  options$plotElementWidth <- 1
   options$plotJitterHeight <- 0
   options$plotJitterWidth <- 0.1
   options$plotLegendPosition <- "none"
-  options$plotRelativeSize <- 1
+  options$plotRelativeSizeData <- 1
   options$plotRelativeSizeText <- 1.5
-  options$plotsAgregatedOver <- "Variable0"
-  options$plotsBackgroundColor <- "darkgrey"
-  options$plotsCImethod <- "model"
-  options$plotsCIwidth <- 0.95
-  options$plotsEstimatesTable <- TRUE
-  options$plotsGeom <- "geom_jitter"
-  options$plotsMappingColor <- FALSE
-  options$plotsMappingFill <- FALSE
-  options$plotsMappingLineType <- TRUE
-  options$plotsMappingShape <- TRUE
-  options$plotsPanel <- list()
-  options$plotsTheme <- "JASP"
-  options$plotsTrace <- list()
-  options$plotsX <- list(list(variable = "Variable1"))
-  options$pvalVS <- FALSE
+  options$plotBackgroundData <- "Variable0"
+  options$plotBackgroundColor <- "darkgrey"
+  options$plotCiType <- "model"
+  options$plotCiLevel <- 0.95
+  options$plotEstimatesTable <- TRUE
+  options$plotBackgroundElement <- "jitter"
+  options$plotLevelsByColor <- FALSE
+  options$plotLevelsByFill <- FALSE
+  options$plotLevelsByLinetype <- TRUE
+  options$plotLevelsByShape <- TRUE
+  options$plotSeparatePlots <- list()
+  options$plotTheme <- "jasp"
+  options$plotSeparateLines <- list()
+  options$plotHorizontalAxis <- list(list(variable = "Variable1"))
+  options$vovkSellke <- FALSE
   options$randomEffects <- list(
     list(correlations = TRUE,
          randomComponents = list(list(randomSlopes = TRUE, value = "Variable1")),
          value = "Variable0"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$showREEstimates <- FALSE
+  options$randomEffectEstimate <- FALSE
   options$randomVariables <- "Variable0"
   options$seed <- 1
   options$setSeed <- FALSE
-  options$showFE <- TRUE
-  options$showRE <- TRUE
-  options$test_intercept <- FALSE
-  options$trendsCompare <- TRUE
+  options$fixedEffectEstimate <- TRUE
+  options$varianceCorrelationEstimate <- TRUE
+  options$interceptTest <- FALSE
+  options$trendsComparison <- TRUE
   options$trendsContrast <- TRUE
   options$trendsContrasts <- list(list(isContrast = FALSE, levels = c("1", "2"), name = "cA",
                                        values = c("1", "2")), list(isContrast = TRUE, levels = c("1",
                                                                                                  "2"), name = "Contrast 1", values = c("-1", "1")))
-  options$trendsTrend <- list(list(variable = "Variable7"))
+  options$trendsTrendVariable <- list(list(variable = "Variable7"))
   options$trendsVariables <- list(list(variable = "Variable1"))
   options$type <- "3"
   options$link <- "logit"
@@ -382,7 +382,7 @@ context("Generalized Linear Mixed Models")
   })
 
   test_that("Fit statistics table results match", {
-    table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_fitStats"]][["data"]]
+    table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_modelSummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list(385.217480459902, 411.143957782495, 351.863795191825, 7, -185.608740229951
                                    ))
@@ -404,10 +404,10 @@ context("Generalized Linear Mixed Models")
   })
 }
 
-### binomial + probit, type II with LRT, no random slopes, custom options
+### bernoulli + probit, type II with LRT, no random slopes, custom options
 {
   options <- jaspTools::analysisOptions("MixedModelsGLMM")
-  options$Contrasts <- list(list(isContrast = FALSE, levels = c("2", "3", "4", "5",
+  options$contrasts <- list(list(isContrast = FALSE, levels = c("2", "3", "4", "5",
                                                                 "6", "7"), name = "contNormal", values = c("-1.11", "0", "1.11",
                                                                                                            "-1.11", "0", "1.11")), list(isContrast = FALSE, levels = c("2",
                                                                                                                                                                        "3", "4", "5", "6", "7"), name = "facGender", values = c("f",
@@ -417,57 +417,57 @@ context("Generalized Linear Mixed Models")
                                                                                                                                                                                                                                                                                                                                                                                                                        "3", "4", "5", "6", "7"), name = "Contrast 2", values = c("0",
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  "1", "-1", "0", "0", "0")))
   options$bootstrapSamples <- 500
-  options$dependentVariable <- "contBinom"
-  options$fitStats <- TRUE
+  options$dependent <- "contBinom"
+  options$modelSummary <- TRUE
   options$fixedEffects <- list(list(components = "contNormal"), list(components = "facGender"),
                                list(components = c("contNormal", "facGender")))
   options$fixedVariables <- c("contNormal", "facGender")
   options$link <- "probit"
-  options$marginalMeans <- list(list(variable = "contNormal"), list(variable = "facGender"))
-  options$marginalMeansAdjustment <- "mvt"
-  options$marginalMeansCompare <- TRUE
+  options$marginalMeansTerms <- list(list(variable = "contNormal"), list(variable = "facGender"))
+  options$marginalMeansPAdjustment <- "mvt"
+  options$marginalMeansComparison <- TRUE
   options$marginalMeansContrast <- TRUE
   options$marginalMeansResponse <- FALSE
-  options$marginalMeansSD <- 1.11
-  options$method <- "LRT"
-  options$plotAlpha <- 0.7
+  options$marginalMeansSd <- 1.11
+  options$testMethod <- "likelihoodRatioTest"
+  options$plotTransparency <- 0.7
   options$plotDodge <- 0.3
-  options$plotGeomWidth <- 1
+  options$plotElementWidth <- 1
   options$plotJitterHeight <- 0
   options$plotJitterWidth <- 0.1
   options$plotLegendPosition <- "right"
-  options$plotRelativeSize <- 1
+  options$plotRelativeSizeData <- 1
   options$plotRelativeSizeText <- 1.5
-  options$plotsAgregatedOver <- "facFive"
-  options$plotsBackgroundColor <- "darkgrey"
-  options$plotsCImethod <- "model"
-  options$plotsCIwidth <- 0.95
-  options$plotsEstimatesTable <- TRUE
-  options$plotsGeom <- "geom_violin"
-  options$plotsMappingColor <- FALSE
-  options$plotsMappingFill <- TRUE
-  options$plotsMappingLineType <- TRUE
-  options$plotsMappingShape <- TRUE
-  options$plotsPanel <- list()
-  options$plotsTheme <- "JASP"
-  options$plotsTrace <- list()
-  options$plotsX <- list(list(variable = "facGender"))
-  options$pvalVS <- FALSE
+  options$plotBackgroundData <- "facFive"
+  options$plotBackgroundColor <- "darkgrey"
+  options$plotCiType <- "model"
+  options$plotCiLevel <- 0.95
+  options$plotEstimatesTable <- TRUE
+  options$plotBackgroundElement <- "violin"
+  options$plotLevelsByColor <- FALSE
+  options$plotLevelsByFill <- TRUE
+  options$plotLevelsByLinetype <- TRUE
+  options$plotLevelsByShape <- TRUE
+  options$plotSeparatePlots <- list()
+  options$plotTheme <- "jasp"
+  options$plotSeparateLines <- list()
+  options$plotHorizontalAxis <- list(list(variable = "facGender"))
+  options$vovkSellke <- FALSE
   options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(list(randomSlopes = FALSE,
                                                                                        value = "contNormal"), list(randomSlopes = FALSE, value = "facGender"),
                                                                                   list(randomSlopes = FALSE, value = c("contNormal", "facGender"
                                                                                   ))), value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$showREEstimates <- FALSE
+  options$randomEffectEstimate <- FALSE
   options$randomVariables <- "facFive"
   options$seed <- 1
   options$setSeed <- FALSE
-  options$showFE <- TRUE
-  options$showRE <- TRUE
-  options$test_intercept <- FALSE
+  options$fixedEffectEstimate <- TRUE
+  options$varianceCorrelationEstimate <- TRUE
+  options$interceptTest <- FALSE
   options$trendsContrasts <- list(list(isContrast = TRUE, levels = list(), name = "Contrast 1",
                                        values = list()))
-  options$trendsTrend <- list()
+  options$trendsTrendVariable <- list()
   options$type <- "2"
   set.seed(1)
   results <- jaspTools::runAnalysis("MixedModelsGLMM", "debug", options)
@@ -547,7 +547,7 @@ context("Generalized Linear Mixed Models")
   })
 
   test_that("Fit statistics table results match", {
-    table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_fitStats"]][["data"]]
+    table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_modelSummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list(143.384651734201, 156.410502664141, 133.384651734201, 5, -66.6923258671005
                                    ))
@@ -563,64 +563,64 @@ context("Generalized Linear Mixed Models")
 ### gamma + log, parametric bootsrap, no correlation
 {
   options <- jaspTools::analysisOptions("MixedModelsGLMM")
-  options$Contrasts <- list(list(isContrast = FALSE, levels = c("2", "3"), name = "facGender",
+  options$contrasts <- list(list(isContrast = FALSE, levels = c("2", "3"), name = "facGender",
                                  values = c("f", "m")), list(isContrast = TRUE, levels = c("2",
                                                                                            "3"), name = "Contrast 1", values = c("1", "0")), list(isContrast = TRUE,
                                                                                                                                                   levels = c("2", "3"), name = "Contrast 2", values = c("0",
                                                                                                                                                                                                         "0")))
   options$bootstrapSamples <- 10
-  options$dependentVariable <- "contGamma"
-  options$family <- "Gamma"
-  options$fitStats <- FALSE
+  options$dependent <- "contGamma"
+  options$family <- "gamma"
+  options$modelSummary <- FALSE
   options$fixedEffects <- list(list(components = "facGender"), list(components = "contBinom"),
                                list(components = c("facGender", "contBinom")))
   options$fixedVariables <- c("facGender", "contBinom")
   options$link <- "log"
-  options$marginalMeans <- list(list(variable = "facGender"))
-  options$marginalMeansAdjustment <- "mvt"
-  options$marginalMeansCompare <- TRUE
+  options$marginalMeansTerms <- list(list(variable = "facGender"))
+  options$marginalMeansPAdjustment <- "mvt"
+  options$marginalMeansComparison <- TRUE
   options$marginalMeansContrast <- TRUE
   options$marginalMeansResponse <- FALSE
-  options$marginalMeansSD <- 1.11
-  options$method <- "PB"
-  options$plotAlpha <- 0.7
+  options$marginalMeansSd <- 1.11
+  options$testMethod <- "parametricBootstrap"
+  options$plotTransparency <- 0.7
   options$plotDodge <- 0.3
-  options$plotGeomWidth <- 1
+  options$plotElementWidth <- 1
   options$plotJitterHeight <- 0
   options$plotJitterWidth <- 0.1
   options$plotLegendPosition <- "right"
-  options$plotRelativeSize <- 1
+  options$plotRelativeSizeData <- 1
   options$plotRelativeSizeText <- 1.5
-  options$plotsAgregatedOver <- "facFive"
-  options$plotsBackgroundColor <- "darkgrey"
-  options$plotsCImethod <- "model"
-  options$plotsCIwidth <- 0.95
-  options$plotsEstimatesTable <- TRUE
-  options$plotsGeom <- "geom_boxjitter"
-  options$plotsMappingColor <- FALSE
-  options$plotsMappingFill <- TRUE
-  options$plotsMappingLineType <- TRUE
-  options$plotsMappingShape <- TRUE
-  options$plotsPanel <- list()
-  options$plotsTheme <- "JASP"
-  options$plotsTrace <- list()
-  options$plotsX <- list(list(variable = "facGender"))
-  options$pvalVS <- FALSE
+  options$plotBackgroundData <- "facFive"
+  options$plotBackgroundColor <- "darkgrey"
+  options$plotCiType <- "model"
+  options$plotCiLevel <- 0.95
+  options$plotEstimatesTable <- TRUE
+  options$plotBackgroundElement <- "boxjitter"
+  options$plotLevelsByColor <- FALSE
+  options$plotLevelsByFill <- TRUE
+  options$plotLevelsByLinetype <- TRUE
+  options$plotLevelsByShape <- TRUE
+  options$plotSeparatePlots <- list()
+  options$plotTheme <- "jasp"
+  options$plotSeparateLines <- list()
+  options$plotHorizontalAxis <- list(list(variable = "facGender"))
+  options$vovkSellke <- FALSE
   options$randomEffects <- list(list(correlations = FALSE, randomComponents = list(list(
     randomSlopes = TRUE, value = "facGender"), list(randomSlopes = FALSE,
                                                     value = "contBinom"), list(randomSlopes = FALSE, value = c("facGender",
                                                                                                                "contBinom"))), value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$showREEstimates <- FALSE
+  options$randomEffectEstimate <- FALSE
   options$randomVariables <- "facFive"
   options$seed <- 1
   options$setSeed <- FALSE
-  options$showFE <- TRUE
-  options$showRE <- TRUE
-  options$test_intercept <- FALSE
+  options$fixedEffectEstimate <- TRUE
+  options$varianceCorrelationEstimate <- TRUE
+  options$interceptTest <- FALSE
   options$trendsContrasts <- list(list(isContrast = TRUE, levels = list(), name = "Contrast 1",
                                        values = list()))
-  options$trendsTrend <- list()
+  options$trendsTrendVariable <- list()
   options$type <- "2"
   set.seed(1)
   results <- jaspTools::runAnalysis("MixedModelsGLMM", "debug", options)
@@ -705,53 +705,53 @@ context("Generalized Linear Mixed Models")
 ### poisson + log, type II parametric bootsrap
 {
   options <- jaspTools::analysisOptions("MixedModelsGLMM")
-  options$Contrasts <- list(list(isContrast = FALSE, levels = c("2", "3"), name = "facGender",
+  options$contrasts <- list(list(isContrast = FALSE, levels = c("2", "3"), name = "facGender",
                                  values = c("f", "m")), list(isContrast = TRUE, levels = c("2",
                                                                                            "3"), name = "Contrast 1", values = c("0", "0")))
   options$bootstrapSamples <- 10
-  options$dependentVariable <- "facFifty"
+  options$dependent <- "facFifty"
   options$family <- "poisson"
-  options$fitStats <- FALSE
+  options$modelSummary <- FALSE
   options$fixedEffects <- list(list(components = "facGender"))
   options$fixedVariables <- "facGender"
   options$link <- "log"
-  options$marginalMeans <- list(list(variable = "facGender"))
-  options$method <- "PB"
-  options$plotAlpha <- 0.7
+  options$marginalMeansTerms <- list(list(variable = "facGender"))
+  options$testMethod <- "parametricBootstrap"
+  options$plotTransparency <- 0.7
   options$plotDodge <- 0.3
-  options$plotGeomWidth <- 1
+  options$plotElementWidth <- 1
   options$plotJitterHeight <- 0
   options$plotJitterWidth <- 0.1
   options$plotLegendPosition <- "top"
-  options$plotRelativeSize <- 1
+  options$plotRelativeSizeData <- 1
   options$plotRelativeSizeText <- 1.5
-  options$plotsAgregatedOver <- "facFive"
-  options$plotsBackgroundColor <- "darkgrey"
-  options$plotsCImethod <- "model"
-  options$plotsCIwidth <- 0.95
-  options$plotsEstimatesTable <- FALSE
-  options$plotsGeom <- "geom_boxplot"
-  options$plotsMappingColor <- FALSE
-  options$plotsMappingFill <- FALSE
-  options$plotsMappingLineType <- TRUE
-  options$plotsMappingShape <- TRUE
-  options$plotsPanel <- list()
-  options$plotsTheme <- "JASP"
-  options$plotsTrace <- list()
-  options$plotsX <- list(list(variable = "facGender"))
-  options$pvalVS <- FALSE
+  options$plotBackgroundData <- "facFive"
+  options$plotBackgroundColor <- "darkgrey"
+  options$plotCiType <- "model"
+  options$plotCiLevel <- 0.95
+  options$plotEstimatesTable <- FALSE
+  options$plotBackgroundElement <- "boxplot"
+  options$plotLevelsByColor <- FALSE
+  options$plotLevelsByFill <- FALSE
+  options$plotLevelsByLinetype <- TRUE
+  options$plotLevelsByShape <- TRUE
+  options$plotSeparatePlots <- list()
+  options$plotTheme <- "jasp"
+  options$plotSeparateLines <- list()
+  options$plotHorizontalAxis <- list(list(variable = "facGender"))
+  options$vovkSellke <- FALSE
   options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(list(randomSlopes = TRUE,
                                                                                        value = "facGender")), value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$showREEstimates <- FALSE
+  options$randomEffectEstimate <- FALSE
   options$randomVariables <- "facFive"
   options$seed <- 1
   options$setSeed <- FALSE
-  options$showFE <- TRUE
-  options$showRE <- TRUE
-  options$test_intercept <- FALSE
+  options$fixedEffectEstimate <- TRUE
+  options$varianceCorrelationEstimate <- TRUE
+  options$interceptTest <- FALSE
   options$trendsContrasts <- list()
-  options$trendsTrend <- list()
+  options$trendsTrendVariable <- list()
   options$type <- "2"
   set.seed(1)
   results <- jaspTools::runAnalysis("MixedModelsGLMM", "debug", options)
@@ -810,55 +810,55 @@ context("Generalized Linear Mixed Models")
 ### aggregated binomial
 {
   options <- jaspTools::analysisOptions("MixedModelsGLMM")
-  options$Contrasts <- list(list(isContrast = FALSE, levels = c("2", "3"), name = "cA",
+  options$contrasts <- list(list(isContrast = FALSE, levels = c("2", "3"), name = "cA",
                                  values = c("1", "2")), list(isContrast = TRUE, levels = c("2",
                                                                                            "3"), name = "Contrast 1", values = c("-1", "1")))
   options$bootstrapSamples <- 500
-  options$dependentVariable <- "binom_mean"
-  options$dependentVariableAggregation <- "rep"
-  options$family <- "binomialAgg"
-  options$fitStats <- TRUE
+  options$dependent <- "binom_mean"
+  options$dependentAggregation <- "rep"
+  options$family <- "binomial"
+  options$modelSummary <- TRUE
   options$fixedEffects <- list(list(components = "cA"), list(components = "cB"), list(components = c("cA",
                                                                                                      "cB")))
   options$fixedVariables <- c("cA", "cB")
-  options$marginalMeans <- list(list(variable = "cA"))
+  options$marginalMeansTerms <- list(list(variable = "cA"))
   options$marginalMeansContrast <- TRUE
-  options$method <- "LRT"
-  options$plotAlpha <- 0.7
+  options$testMethod <- "likelihoodRatioTest"
+  options$plotTransparency <- 0.7
   options$plotDodge <- 0.3
-  options$plotGeomWidth <- 1
+  options$plotElementWidth <- 1
   options$plotJitterHeight <- 0
   options$plotJitterWidth <- 0.1
   options$plotLegendPosition <- "none"
-  options$plotRelativeSize <- 1
+  options$plotRelativeSizeData <- 1
   options$plotRelativeSizeText <- 1.5
-  options$plotsAgregatedOver <- "id"
-  options$plotsBackgroundColor <- "darkgrey"
-  options$plotsCImethod <- "model"
-  options$plotsCIwidth <- 0.95
-  options$plotsEstimatesTable <- FALSE
-  options$plotsGeom <- "geom_jitter"
-  options$plotsMappingColor <- FALSE
-  options$plotsMappingFill <- FALSE
-  options$plotsMappingLineType <- TRUE
-  options$plotsMappingShape <- TRUE
-  options$plotsPanel <- list()
-  options$plotsTheme <- "JASP"
-  options$plotsTrace <- list(list(variable = "cB"))
-  options$plotsX <- list(list(variable = "cA"))
-  options$pvalVS <- FALSE
+  options$plotBackgroundData <- "id"
+  options$plotBackgroundColor <- "darkgrey"
+  options$plotCiType <- "model"
+  options$plotCiLevel <- 0.95
+  options$plotEstimatesTable <- FALSE
+  options$plotBackgroundElement <- "jitter"
+  options$plotLevelsByColor <- FALSE
+  options$plotLevelsByFill <- FALSE
+  options$plotLevelsByLinetype <- TRUE
+  options$plotLevelsByShape <- TRUE
+  options$plotSeparatePlots <- list()
+  options$plotTheme <- "jasp"
+  options$plotSeparateLines <- list(list(variable = "cB"))
+  options$plotHorizontalAxis <- list(list(variable = "cA"))
+  options$vovkSellke <- FALSE
   options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(list(randomSlopes = TRUE, value = "cA")), value = "id"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
-  options$showREEstimates <- FALSE
+  options$randomEffectEstimate <- FALSE
   options$randomVariables <- "id"
   options$seed <- 1
   options$setSeed <- FALSE
-  options$showFE <- TRUE
-  options$showRE <- TRUE
-  options$test_intercept <- FALSE
+  options$fixedEffectEstimate <- TRUE
+  options$varianceCorrelationEstimate <- TRUE
+  options$interceptTest <- FALSE
   options$trendsContrasts <- list(list(isContrast = TRUE, levels = list(), name = "Contrast 1",
                                        values = list()))
-  options$trendsTrend <- list()
+  options$trendsTrendVariable <- list()
   options$type <- "3"
   options$link <- "logit"
   set.seed(1)
@@ -948,7 +948,7 @@ context("Generalized Linear Mixed Models")
   })
 
   test_that("Fit statistics table results match", {
-    table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_fitStats"]][["data"]]
+    table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_modelSummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list(202.867152034655, 217.52756397021, 64.2564473172443, 7, -94.4335760173276
                                    ))

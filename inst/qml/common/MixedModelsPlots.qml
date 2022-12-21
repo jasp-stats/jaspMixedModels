@@ -40,20 +40,20 @@ Section
 
 		AssignedVariablesList
 		{
-			name:	"plotsX"
+			name:	"plotHorizontalAxis"
 			title:	qsTr("Horizontal axis")
 		}
 
 		AssignedVariablesList
 		{
-			name:	"plotsTrace"
+			name:	"plotSeparateLines"
 			id:		plotsTrace
 			title:	qsTr("Separate lines")
 		}
 
 		AssignedVariablesList
 		{
-			name:	"plotsPanel"
+			name:	"plotSeparatePlots"
 			title:	qsTr("Separate plots")
 		}
 	}
@@ -64,14 +64,14 @@ Section
 
 		AvailableVariablesList
 		{
-			name:	"plotsRandom"
+			name:	"plotRandomVariables"
 			title:	qsTr("Random effects grouping factors")
 			source:	"randomVariables"
 		}
 
 		AssignedVariablesList
 		{
-			name:	"plotsAgregatedOver"
+			name:	"plotBackgroundData"
 			title:	qsTr("Background data show")
 			addAvailableVariablesToAssigned: true
 		}
@@ -81,7 +81,7 @@ Section
 	{
 		DropDown
 		{
-			name:	"plotsCImethod"
+			name:	"plotCiType"
 			id:		plotsCImethod
 			label:	qsTr("Confidence interval method")
 			values: if (analysisType == "frequentist"){
@@ -105,7 +105,7 @@ Section
 		CIField
 		{
 			enabled:	plotsCImethod.currentValue != "none"
-			name:		"plotsCIwidth"
+			name:		"plotCiLevel"
 			label:		qsTr("Confidence interval")
 		}
 	}
@@ -117,31 +117,31 @@ Section
 
 		CheckBox
 		{
-			name:		"plotsMappingColor"
+			name:		"plotLevelsByColor"
 			label:		qsTr("Color")
 			checked:	false
 		}
 
 		CheckBox
 		{
-			name:		"plotsMappingShape"
+			name:		"plotLevelsByShape"
 			label:		qsTr("Shape")
 			checked:	true
 		}
 
 		CheckBox
 		{
-			name:		"plotsMappingLineType"
+			name:		"plotLevelsByLinetype"
 			label:		qsTr("Linetype")
 			checked:	true
 		}
 
 		CheckBox
 		{
-			name:		"plotsMappingFill"
+			name:		"plotLevelsByFill"
 			label:		qsTr("Fill")
 			checked:	false
-			enabled:	plotsGeom.currentValue != "geom_jitter"
+			enabled:	plotsGeom.currentValue != "jitter"
 			onEnabledChanged:  checked = false
 		}
 	}
@@ -152,23 +152,23 @@ Section
 
 		DropDown
 		{
-			name:	"plotsGeom"
-			label:	qsTr("Background geom")
+			name:	"plotBackgroundElement"
+			label:	qsTr("Background element")
 			id:		plotsGeom
 			values:
 			[
-				{ label: qsTr("Jitter"),			value: "geom_jitter"},
-			//	{ label: qsTr("Beeswarm"),			value: "geom_beeswarm"}, # enable once the package loading is changed
-				{ label: qsTr("Violin"),			value: "geom_violin"},
-				{ label: qsTr("Boxplot"),			value: "geom_boxplot"},
-				{ label: qsTr("Boxjitter"),			value: "geom_boxjitter"},
-				{ label: qsTr("Count"),				value: "geom_count"}
+				{ label: qsTr("Jitter"),			value: "jitter"},
+			//	{ label: qsTr("Beeswarm"),			value: "beeswarm"}, # enable once the package loading is changed
+				{ label: qsTr("Violin"),			value: "violin"},
+				{ label: qsTr("Boxplot"),			value: "boxplot"},
+				{ label: qsTr("Boxjitter"),			value: "boxjitter"},
+				{ label: qsTr("Count"),				value: "count"}
 			]
 		}
 
 		DoubleField
 		{
-			name:			"plotAlpha"
+			name:			"plotTransparency"
 			label:			qsTr("Transparency")
 			defaultValue:	.7
 			min:			0
@@ -178,7 +178,7 @@ Section
 
 		DoubleField
 		{
-			visible:		plotsGeom.currentValue == "geom_jitter" || plotsGeom.currentValue == "geom_boxjitter"
+			visible:		plotsGeom.currentValue == "jitter" || plotsGeom.currentValue == "boxjitter"
 			name:			"plotJitterWidth"
 			label:			qsTr("Jitter width")
 			defaultValue:	0.1
@@ -187,7 +187,7 @@ Section
 
 		DoubleField
 		{
-			visible:		plotsGeom.currentValue == "geom_jitter" | plotsGeom.currentValue == "geom_boxjitter"
+			visible:		plotsGeom.currentValue == "jitter" | plotsGeom.currentValue == "boxjitter"
 			name:			"plotJitterHeight"
 			label:			qsTr("Jitter height")
 			defaultValue:	0
@@ -196,9 +196,9 @@ Section
 
 		DoubleField
 		{
-			visible:		plotsGeom.currentValue == "geom_violin" | plotsGeom.currentValue == "geom_boxplot" | plotsGeom.currentValue == "geom_boxjitter"
-			name:			"plotGeomWidth"
-			label:			qsTr("Geom width")
+			visible:		plotsGeom.currentValue == "violin" | plotsGeom.currentValue == "boxplot" | plotsGeom.currentValue == "boxjitter"
+			name:			"plotElementWidth"
+			label:			qsTr("Element width")
 			defaultValue:	1
 			min:			0
 			inclusive:		JASP.None
@@ -220,17 +220,17 @@ Section
 
 		DropDown
 		{
-			name:	"plotsTheme"
+			name:	"plotTheme"
 			id:		plotsTheme
 			label:	qsTr("Theme")
 			values:
 			[
-				{ label: "JASP",					value: "JASP"},
-				{ label: qsTr("White background"),	value: "theme_bw"},
-				{ label: qsTr("Light"),				value: "theme_light"},
-				{ label: qsTr("Minimal")	,		value: "theme_minimal"},
-				{ label: "APA",						value: "theme_apa"},
-				{ label: "pubr",					value: "theme_pubr"}
+				{ label: "JASP",					value: "jasp"},
+				{ label: qsTr("White background"),	value: "whiteBackground"},
+				{ label: qsTr("Light"),				value: "light"},
+				{ label: qsTr("Minimal")	,		value: "minimal"},
+				{ label: "APA",						value: "apa"},
+				{ label: "pubr",					value: "pubr"}
 			]
 		}
 
@@ -250,9 +250,9 @@ Section
 
 		DropDown
 		{
-			name:	"plotsBackgroundColor"
+			name:	"plotBackgroundColor"
 			label:	qsTr("Border color")
-			enabled:plotsGeom.currentValue != "geom_jitter"
+			enabled:plotsGeom.currentValue != "jitter"
 			values:
 			[
 				{ label: qsTr("Dark grey"),			value: "darkgrey"},
@@ -267,7 +267,7 @@ Section
 
 		DoubleField
 		{
-			enabled:		plotsTheme.currentValue != "JASP"
+			enabled:		plotsTheme.currentValue != "jasp"
 			name:			"plotRelativeSizeText"
 			label:			qsTr("Relative size text")
 			defaultValue:	1.5
@@ -277,7 +277,7 @@ Section
 
 		DoubleField
 		{
-			name:			"plotRelativeSize"
+			name:			"plotRelativeSizeData"
 			label:			qsTr("Relative size foreground data")
 			defaultValue:	1
 			min:			0
@@ -286,7 +286,7 @@ Section
 
 		CheckBox
 		{
-			name:	"plotsEstimatesTable"
+			name:	"plotEstimatesTable"
 			label:	qsTr("Estimates table")
 		}
 	}

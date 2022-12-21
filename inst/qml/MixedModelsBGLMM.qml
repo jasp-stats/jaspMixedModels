@@ -26,7 +26,7 @@ Form {
 
 	Formula
 	{
-		lhs: "dependentVariable"
+		lhs: "dependent"
 		rhs: ["fixedEffects", {randomEffects: "randomEffects"}]
 	}
 
@@ -41,7 +41,7 @@ Form {
 
 		AssignedVariablesList
 		{
-			name:				"dependentVariable"
+			name:				"dependent"
 			title:				qsTr("Dependent variable")
 			allowedColumns:		["scale","ordinal", "nominal"]
 			singleVariable:		true
@@ -51,7 +51,7 @@ Form {
 		{
 			visible:			family.currentText == "Binomial (aggregated)"
 			onVisibleChanged:	if (!visible && count > 0) itemDoubleClicked(0);
-			name:				"dependentVariableAggregation"
+			name:				"dependentAggregation"
 			title:				qsTr("Number of trials")
 			singleVariable:		true
 			allowedColumns:		["scale", "ordinal"]
@@ -85,37 +85,37 @@ Form {
 			indexDefaultValue:	0
 			values:
 			[
-				{ label: qsTr("Binomial"),				value: "binomial"},
-				{ label: qsTr("Binomial (aggregated)"),	value: "binomialAgg"},
+				{ label: qsTr("Binomial"),				value: "bernoulli"},
+				{ label: qsTr("Binomial (aggregated)"),	value: "binomial"},
 				{ label: qsTr("Gaussian"),				value: "gaussian"},
-				{ label: qsTr("Gamma"),					value: "Gamma"},
-				{ label: qsTr("Inverse Gaussian"),		value: "inverse.gaussian"},
+				{ label: qsTr("Gamma"),					value: "gamma"},
+				{ label: qsTr("Inverse Gaussian"),		value: "inverseGaussian"},
 				{ label: qsTr("Poisson"),				value: "poisson"},
-				{ label: qsTr("Negative Binomial"),		value: "neg_binomial_2"},
-				{ label: qsTr("Beta"),					value: "betar"}
+				{ label: qsTr("Negative Binomial"),		value: "negativeBinomial"},
+				{ label: qsTr("Beta"),					value: "beta"}
 			]
 
 			property var familyMap: {
-				"binomial":					["logit", "probit", "cauchit", "cloglog", "log"],
-				"binomialAgg":     			["logit", "probit", "cauchit", "cloglog", "log"],
+				"bernoulli":				["logit", "probit", "cauchit", "cloglog", "log"],
+				"binomial":     			["logit", "probit", "cauchit", "cloglog", "log"],
 				"gaussian":					["identity", "log", "inverse"],
-				"Gamma":					["identity", "log", "inverse"],
-				"inverse.gaussian":			["identity", "log", "inverse"],
+				"gamma":					["identity", "log", "inverse"],
+				"inverseGaussian":			["identity", "log", "inverse"],
 				"poisson":					["identity", "log", "sqrt"],
-				"neg_binomial_2":			["identity", "log", "sqrt"],
-				"betar":					["logit", "probit", "cauchit", "cloglog", "log"]
+				"negativeBinomial":			["identity", "log", "sqrt"],
+				"beta":						["logit", "probit", "cauchit", "cloglog", "log"]
 			}
 
 			property var familyDefault:
 			{
+				"bernoulli":		"logit",
 				"binomial":			"logit",
-				"binomialAgg":		"logit",
 				"gaussian":			"identity",
-				"Gamma":			"log",
-				"inverse.gaussian":	"log",
+				"gamma":			"log",
+				"inverseGaussian":	"log",
 				"poisson":			"log",
-				"neg_binomial_2":	"log",
-				"betar":			"logit"
+				"negativeBinomial":	"log",
+				"beta":				"logit"
 			}
 
 			onCurrentValueChanged:
@@ -235,21 +235,21 @@ Form {
 			AssignedVariablesList
 			{
 				id:		marginalMeans
-				name:	"marginalMeans"
+				name:	"marginalMeansTerms"
 				title:	qsTr("Selected variables")
 			}
 		}
 
 		CIField
 		{
-			name:	"marginalMeansCIwidth"
+			name:	"marginalMeansCiLevel"
 			label:	qsTr("Confidence interval")
 		}
 
 		DoubleField
 		{
 			id:				marginalMeansSD
-			name:			"marginalMeansSD"
+			name:			"marginalMeansSd"
 			label:			qsTr("SD factor covariates")
 			defaultValue: 	1
 			min:			0
@@ -274,8 +274,8 @@ Form {
 		{
 			Layout.columnSpan:	2
 			visible:			marginalMeansContrast.checked
-			name:				"Contrasts"
-			source:				"marginalMeans"
+			name:				"contrasts"
+			source:				"marginalMeansTerms"
 			scaleFactor:		marginalMeansSD.value
 		}
 	}
@@ -299,7 +299,7 @@ Form {
 			AssignedVariablesList
 			{
 				singleVariable:	true
-				name:			"trendsTrend"
+				name:			"trendsTrendVariable"
 				title:			qsTr("Trend variable")
 			}
 		}
@@ -325,14 +325,14 @@ Form {
 
 		CIField
 		{
-			name:	"trendsCIwidth"
+			name:	"trendsCiLevel"
 			label:	qsTr("Confidence interval")
 		}
 
 		DoubleField
 		{ 
 			id:				trendsSD
-			name:			"trendsSD"
+			name:			"trendsSd"
 			label:			qsTr("SD factor covariates")
 			defaultValue:	1
 			min:			0

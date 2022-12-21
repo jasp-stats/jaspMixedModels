@@ -93,28 +93,28 @@
 
 .mmMessageGLMMtype      <- function(family, link) {
   family <- switch(family,
-                   "binomial"         = gettext("binomial"),
-                   "binomialAgg"      = gettext("binomial"),
-                   "gaussian"         = gettext("gaussian"),
-                   "Gamma"            = gettext("gamma"),
-                   "inverse.gaussian" = gettext("inverse gaussian"),
-                   "poisson"          = gettext("poisson"),
-                   "neg_binomial_2"   = gettext("negative binomial"),
-                   "betar"            = gettext("beta"),
+                   "bernoulli"         = gettext("binomial"),
+                   "binomial"          = gettext("binomial"),
+                   "gaussian"          = gettext("gaussian"),
+                   "gamma"             = gettext("gamma"),
+                   "inverseGaussian"   = gettext("inverseGaussian"),
+                   "poisson"           = gettext("poisson"),
+                   "negativeBinomial"  = gettext("negative binomial"),
+                   "beta"              = gettext("beta"),
   )
   gettextf("Generalized linear mixed model with %1$s family and %2$s link function.",
            family,
            link)
 }
 
-.mmMessageTermTest      <- function(method) {
-  method <- switch(method,
-                   "S"   = gettext("Satterthwaite"),
-                   "KR"  = gettext("Kenward-Roger"),
-                   "LRT" = gettext("likelihood ratio tests"),
-                   "PB"  = gettext("parametric bootstrap")
+.mmMessageTermTest      <- function(testMethod) {
+  testMethod <- switch(testMethod,
+                   "satterthwaite"   = gettext("Satterthwaite"),
+                   "kenwardRoger"  = gettext("Kenward-Roger"),
+                   "likelihoodRatioTest" = gettext("likelihood ratio tests"),
+                   "parametricBootstrap"  = gettext("parametric bootstrap")
   )
-  gettextf("Model terms tested with %s method.",method)
+  gettextf("Model terms tested with %s testMethod.",testMethod)
 }
 
 .messagePvalAdjustment  <- function(adjustment) {

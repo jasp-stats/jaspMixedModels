@@ -30,7 +30,7 @@ Section
 
 		AvailableVariablesList
 		{
-			name:	"availableModelComponentsDiagnostics"
+			name:	"mcmcDiagnosticsAvailableTerms"
 			title:	qsTr("Model terms")
 			source:	"fixedEffects"
 		}
@@ -38,32 +38,32 @@ Section
 		AssignedVariablesList
 		{
 			singleVariable:	true
-			name:			"samplingVariable1"
-			title:			samplingPlot.currentValue == "stan_scat" ? qsTr("Horizontal axis") : qsTr("Plotted term")
+			name:			"mcmcDiagnosticsHorizontal"
+			title:			mcmcDiagnosticsType.currentValue == "scatterplot" ? qsTr("Horizontal axis") : qsTr("Plotted term")
 		}
 
 		AssignedVariablesList
 		{
 			singleVariable:	true
-			name:			"samplingVariable2"
+			name:			"mcmcDiagnosticsVertical"
 			title:			qsTr("Vertical axis")
-			visible:		samplingPlot.currentValue == "stan_scat"
+			visible:		mcmcDiagnosticsType.currentValue == "scatterplot"
 			onVisibleChanged: if (!visible && count > 0) itemDoubleClicked(0)
 		}
 	}
 
 	DropDown
 	{
-		name:	"samplingPlot"
-		id:		samplingPlot
+		name:	"mcmcDiagnosticsType"
+		id:		mcmcDiagnosticsType
 		label:	qsTr("Plot type")
 		values:
 		[
-			{ label: qsTr("Traceplot"),			value: "stan_trace"},
-			{ label: qsTr("Scatterplot"),		value: "stan_scat"},
-			{ label: qsTr("Histogram"),			value: "stan_hist"},
-			{ label: qsTr("Density"),			value: "stan_dens"},
-			{ label: qsTr("Autocorrelations"),	value: "stan_ac"}
+			{ label: qsTr("Traceplot"),			value: "traceplot"},
+			{ label: qsTr("Scatterplot"),		value: "scatterplot"},
+			{ label: qsTr("Histogram"),			value: "histogram"},
+			{ label: qsTr("Density"),			value: "density"},
+			{ label: qsTr("Autocorrelations"),	value: "autocorrelation"}
 		]
 	}
 }
