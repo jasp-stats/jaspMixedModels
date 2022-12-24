@@ -20,10 +20,6 @@ msgctxt "MixedModelsBOptions|"
 msgid "Chains"
 msgstr "Cadeas"
 
-msgctxt "MixedModelsBOptions|"
-msgid "Iterations"
-msgstr "Iteracións"
-
 msgctxt "MixedModelsModel|"
 msgid "Random effects"
 msgstr "Efectos aleatorios"
@@ -51,10 +47,6 @@ msgstr "Probar a constante"
 msgctxt "MixedModelsBOptions|"
 msgid "Fixed effects estimates"
 msgstr "Estimacións de efectos fixos"
-
-msgctxt "MixedModelsOptions|"
-msgid "Test model terms"
-msgstr "Probar os elementos do modelo"
 
 msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
@@ -345,10 +337,6 @@ msgid "Legend position"
 msgstr "Posición da lenda"
 
 msgctxt "MixedModelsPlots|"
-msgid "Background geom"
-msgstr "Xeometría de fondo"
-
-msgctxt "MixedModelsPlots|"
 msgid "Estimates table"
 msgstr "Táboa de estimacións"
 
@@ -367,10 +355,6 @@ msgstr "Método do intervalo de confianza"
 msgctxt "MixedModelsPlots|"
 msgid "Light grey"
 msgstr "Gris claro"
-
-msgctxt "MixedModelsPlots|"
-msgid "Geom width"
-msgstr "Largo xeom"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Model terms"
@@ -816,3 +800,19 @@ msgstr "Intervalo de confianza"
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
 msgstr "DP das covariantes dos factores"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Samples"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Test method"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Background element"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Element width"
+msgstr ""

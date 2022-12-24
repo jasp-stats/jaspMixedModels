@@ -48,10 +48,6 @@ msgid "Burnin"
 msgstr "Burnin"
 
 msgctxt "MixedModelsBOptions|"
-msgid "Iterations"
-msgstr "迭代次数"
-
-msgctxt "MixedModelsBOptions|"
 msgid "Chains"
 msgstr "链"
 
@@ -176,10 +172,6 @@ msgid "Test intercept"
 msgstr "检验截距"
 
 msgctxt "MixedModelsOptions|"
-msgid "Test model terms"
-msgstr "检验模型项"
-
-msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
 msgstr "似然比检验"
 
@@ -284,10 +276,6 @@ msgid "Fill"
 msgstr "填充"
 
 msgctxt "MixedModelsPlots|"
-msgid "Background geom"
-msgstr "背景图形"
-
-msgctxt "MixedModelsPlots|"
 msgid "Jitter"
 msgstr "抖动点"
 
@@ -318,10 +306,6 @@ msgstr "抖动宽度"
 msgctxt "MixedModelsPlots|"
 msgid "Jitter height"
 msgstr "抖动高度"
-
-msgctxt "MixedModelsPlots|"
-msgid "Geom width"
-msgstr "背景图宽度"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dodge"
@@ -815,3 +799,19 @@ msgstr "置信区间"
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
 msgstr "SD 因子协变量"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Samples"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Test method"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Background element"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Element width"
+msgstr ""

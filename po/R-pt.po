@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2022-11-30 10:34\n"
+"POT-Creation-Date: 2022-12-24 02:50\n"
 "PO-Revision-Date: 2022-08-29 00:25+0000\n"
 "Last-Translator: Laura Durans <lauraadurans@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
@@ -229,6 +229,9 @@ msgstr "%s%% IC"
 msgid "Upper"
 msgstr "Superior"
 
+msgid "Cannot find function: %s"
+msgstr ""
+
 msgid "Estimated Marginal Means"
 msgstr "Médias marginais estimadas"
 
@@ -250,7 +253,8 @@ msgstr "Tendências estimadas"
 msgid "%s (slope)"
 msgstr "%s (inclinação)"
 
-msgid "Contrasts"
+#, fuzzy
+msgid "contrasts"
 msgstr "Contrastes"
 
 msgid "Odds Ratio"
@@ -447,7 +451,8 @@ msgstr "gaussian"
 msgid "gamma"
 msgstr "gamma"
 
-msgid "inverse gaussian"
+#, fuzzy
+msgid "inverseGaussian"
 msgstr "gaussiana inversa"
 
 msgid "poisson"
@@ -474,7 +479,8 @@ msgstr "Testes de razão de verossimilhança"
 msgid "parametric bootstrap"
 msgstr "Bootstrap paramétrico"
 
-msgid "Model terms tested with %s method."
+#, fuzzy
+msgid "Model terms tested with %s testMethod."
 msgstr "Termos do modelo testados com o método %s."
 
 msgid "P-values are not adjusted."

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.0\n"
-"POT-Creation-Date: 2022-11-30 10:34\n"
+"POT-Creation-Date: 2022-12-24 02:50\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -182,6 +182,9 @@ msgstr ""
 msgid "Upper"
 msgstr ""
 
+msgid "Cannot find function: %s"
+msgstr ""
+
 msgid "Estimated Marginal Means"
 msgstr ""
 
@@ -203,7 +206,7 @@ msgstr ""
 msgid "%s (slope)"
 msgstr ""
 
-msgid "Contrasts"
+msgid "contrasts"
 msgstr ""
 
 msgid "Odds Ratio"
@@ -317,7 +320,7 @@ msgstr ""
 msgid "gamma"
 msgstr ""
 
-msgid "inverse gaussian"
+msgid "inverseGaussian"
 msgstr ""
 
 msgid "poisson"
@@ -344,7 +347,7 @@ msgstr ""
 msgid "parametric bootstrap"
 msgstr ""
 
-msgid "Model terms tested with %s method."
+msgid "Model terms tested with %s testMethod."
 msgstr ""
 
 msgid "P-values are not adjusted."

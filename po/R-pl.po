@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.0\n"
-"POT-Creation-Date: 2022-11-30 10:34\n"
+"POT-Creation-Date: 2022-12-24 02:50\n"
 "PO-Revision-Date: 2022-12-15 11:47+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
@@ -202,6 +202,9 @@ msgstr "%s%% PU"
 msgid "Upper"
 msgstr "Górny"
 
+msgid "Cannot find function: %s"
+msgstr ""
+
 msgid "Estimated Marginal Means"
 msgstr "Oszacowane średnie brzegowe"
 
@@ -223,7 +226,7 @@ msgstr ""
 msgid "%s (slope)"
 msgstr ""
 
-msgid "Contrasts"
+msgid "contrasts"
 msgstr ""
 
 msgid "Odds Ratio"
@@ -376,7 +379,7 @@ msgstr ""
 msgid "gamma"
 msgstr ""
 
-msgid "inverse gaussian"
+msgid "inverseGaussian"
 msgstr ""
 
 msgid "poisson"
@@ -403,7 +406,7 @@ msgstr ""
 msgid "parametric bootstrap"
 msgstr ""
 
-msgid "Model terms tested with %s method."
+msgid "Model terms tested with %s testMethod."
 msgstr ""
 
 msgid "P-values are not adjusted."

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2022-11-30 10:34\n"
+"POT-Creation-Date: 2022-12-24 02:50\n"
 "PO-Revision-Date: 2022-06-29 08:59+0000\n"
 "Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
@@ -219,6 +219,9 @@ msgstr "%s%% CI"
 msgid "Upper"
 msgstr "上"
 
+msgid "Cannot find function: %s"
+msgstr ""
+
 msgid "Estimated Marginal Means"
 msgstr "推定周辺平均"
 
@@ -240,7 +243,8 @@ msgstr "推定されたトレンド"
 msgid "%s (slope)"
 msgstr "%s (スロープ)"
 
-msgid "Contrasts"
+#, fuzzy
+msgid "contrasts"
 msgstr "対比"
 
 msgid "Odds Ratio"
@@ -428,7 +432,8 @@ msgstr "正規"
 msgid "gamma"
 msgstr "ガンマ"
 
-msgid "inverse gaussian"
+#, fuzzy
+msgid "inverseGaussian"
 msgstr "逆正規"
 
 msgid "poisson"
@@ -455,7 +460,8 @@ msgstr "尤度比検定"
 msgid "parametric bootstrap"
 msgstr "パラメトリックブートストラップ"
 
-msgid "Model terms tested with %s method."
+#, fuzzy
+msgid "Model terms tested with %s testMethod."
 msgstr "モデル項は %s 法で検証されます。"
 
 msgid "P-values are not adjusted."

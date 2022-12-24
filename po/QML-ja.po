@@ -44,10 +44,6 @@ msgid "Burnin"
 msgstr "バーンイン"
 
 msgctxt "MixedModelsBOptions|"
-msgid "Iterations"
-msgstr "イテレーション"
-
-msgctxt "MixedModelsBOptions|"
 msgid "Chains"
 msgstr "チェイン"
 
@@ -172,10 +168,6 @@ msgid "Test intercept"
 msgstr "切片の検定"
 
 msgctxt "MixedModelsOptions|"
-msgid "Test model terms"
-msgstr "モデル項の検定"
-
-msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
 msgstr "尤度比検定"
 
@@ -280,10 +272,6 @@ msgid "Fill"
 msgstr "塗りつぶし"
 
 msgctxt "MixedModelsPlots|"
-msgid "Background geom"
-msgstr "背景ジオメトリ"
-
-msgctxt "MixedModelsPlots|"
 msgid "Jitter"
 msgstr "ジッター"
 
@@ -314,10 +302,6 @@ msgstr "ジッター幅"
 msgctxt "MixedModelsPlots|"
 msgid "Jitter height"
 msgstr "ジッターの高さ"
-
-msgctxt "MixedModelsPlots|"
-msgid "Geom width"
-msgstr "ジオメトリ幅"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dodge"
@@ -817,3 +801,19 @@ msgstr "信頼区間"
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
 msgstr "SD要因共分散"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Samples"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Test method"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Background element"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Element width"
+msgstr ""

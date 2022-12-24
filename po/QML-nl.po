@@ -45,10 +45,6 @@ msgid "Burnin"
 msgstr "Opwarming"
 
 msgctxt "MixedModelsBOptions|"
-msgid "Iterations"
-msgstr "Iteraties"
-
-msgctxt "MixedModelsBOptions|"
 msgid "Chains"
 msgstr "Ketens"
 
@@ -173,10 +169,6 @@ msgid "Test intercept"
 msgstr "Toets intercept"
 
 msgctxt "MixedModelsOptions|"
-msgid "Test model terms"
-msgstr "Toets modeltermen"
-
-msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
 msgstr "Waarschijnlijkheidsratio toetsen"
 
@@ -281,10 +273,6 @@ msgid "Fill"
 msgstr "Vul"
 
 msgctxt "MixedModelsPlots|"
-msgid "Background geom"
-msgstr "Achtergrond geom"
-
-msgctxt "MixedModelsPlots|"
 msgid "Jitter"
 msgstr "Jitter"
 
@@ -315,10 +303,6 @@ msgstr "Jitter breedte"
 msgctxt "MixedModelsPlots|"
 msgid "Jitter height"
 msgstr "Jitter hoogte"
-
-msgctxt "MixedModelsPlots|"
-msgid "Geom width"
-msgstr "Geom breedte"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dodge"
@@ -817,3 +801,19 @@ msgstr "Betrouwbaarheidsinterval"
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
 msgstr "SF factor covariaten"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Samples"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Test method"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Background element"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Element width"
+msgstr ""

@@ -45,10 +45,6 @@ msgid "Burnin"
 msgstr "Pré treino"
 
 msgctxt "MixedModelsBOptions|"
-msgid "Iterations"
-msgstr "Interações"
-
-msgctxt "MixedModelsBOptions|"
 msgid "Chains"
 msgstr "Correntes"
 
@@ -173,10 +169,6 @@ msgid "Test intercept"
 msgstr "Intercepto do teste"
 
 msgctxt "MixedModelsOptions|"
-msgid "Test model terms"
-msgstr "Termos do modelo de teste"
-
-msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
 msgstr "Testes de razão de verossimilhança"
 
@@ -281,10 +273,6 @@ msgid "Fill"
 msgstr "Preencher"
 
 msgctxt "MixedModelsPlots|"
-msgid "Background geom"
-msgstr "Geom de fundo"
-
-msgctxt "MixedModelsPlots|"
 msgid "Jitter"
 msgstr "Jitter"
 
@@ -315,10 +303,6 @@ msgstr "Largura do jitter"
 msgctxt "MixedModelsPlots|"
 msgid "Jitter height"
 msgstr "Altura do jitter"
-
-msgctxt "MixedModelsPlots|"
-msgid "Geom width"
-msgstr "Largura geom"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dodge"
@@ -817,3 +801,19 @@ msgstr ""
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
 msgstr "Covariáveis do fator SD"
+
+msgctxt "MixedModelsBOptions|"
+msgid "Samples"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Test method"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Background element"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Element width"
+msgstr ""
