@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2022-12-24 02:50\n"
-"PO-Revision-Date: 2022-12-13 19:47+0000\n"
+"PO-Revision-Date: 2022-12-25 18:49+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/de/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n==0 ? 0 : n==1 ? 0 : 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.15.1-dev\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -223,7 +223,7 @@ msgid "Upper"
 msgstr "Obergrenze"
 
 msgid "Cannot find function: %s"
-msgstr ""
+msgstr "Kann Funktion nicht finden: %s"
 
 msgid "Estimated Marginal Means"
 msgstr "Geschätzte Randmittelwerte"
@@ -246,7 +246,6 @@ msgstr "Geschätzte Trends"
 msgid "%s (slope)"
 msgstr "%s (Steigung)"
 
-#, fuzzy
 msgid "contrasts"
 msgstr "Kontraste"
 
@@ -444,7 +443,6 @@ msgstr "Gaußsch"
 msgid "gamma"
 msgstr "Gamma"
 
-#, fuzzy
 msgid "inverseGaussian"
 msgstr "Inverse Gaußsche"
 
@@ -474,9 +472,8 @@ msgstr "Test der Wahrscheinlichkeits-Verhältnisse"
 msgid "parametric bootstrap"
 msgstr "Parametrischer Bootstrap"
 
-#, fuzzy
 msgid "Model terms tested with %s testMethod."
-msgstr "Modellterme getestet mit %s-Methode."
+msgstr "Modellterme getestet mit %s-Testmethode."
 
 msgid "P-values are not adjusted."
 msgstr "P-Werte sind nicht korrigiert."
