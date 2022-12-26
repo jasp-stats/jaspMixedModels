@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "POT-Creation-Date: 2022-12-24 02:50\n"
-"PO-Revision-Date: 2022-12-18 14:17+0000\n"
+"PO-Revision-Date: 2022-12-26 17:53+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/gl/>\n"
@@ -227,7 +227,7 @@ msgid "Upper"
 msgstr "Superior"
 
 msgid "Cannot find function: %s"
-msgstr ""
+msgstr "Non pode atoparse a función: %s"
 
 msgid "Estimated Marginal Means"
 msgstr "Medias Marxinais Estimadas"
@@ -250,7 +250,6 @@ msgstr "Tendencias Estimadas"
 msgid "%s (slope)"
 msgstr "%s (pendente)"
 
-#, fuzzy
 msgid "contrasts"
 msgstr "Contrastes"
 
@@ -449,7 +448,6 @@ msgstr "Normal"
 msgid "gamma"
 msgstr "Gamma"
 
-#, fuzzy
 msgid "inverseGaussian"
 msgstr "Normal Inversa"
 
@@ -478,7 +476,6 @@ msgstr "Probas da proporción de verosimilitudes"
 msgid "parametric bootstrap"
 msgstr "Bootstrap paramétrico"
 
-#, fuzzy
 msgid "Model terms tested with %s testMethod."
 msgstr "Elementos do modelo probados co método %s."
 
