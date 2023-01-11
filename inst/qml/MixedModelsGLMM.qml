@@ -57,7 +57,7 @@ Form {
 
 			onEnabledChanged: if (!enabled && count > 0) itemDoubleClicked(0)
 			
-			property bool active:	family.currentText == "Binomial (aggregated)"
+			property bool active:	family.currentValue == "binomial"
 			onActiveChanged:		if (!active && count > 0) itemDoubleClicked(0)
 		}
 
