@@ -47,8 +47,10 @@ Section
 			singleVariable:	true
 			name:			"mcmcDiagnosticsVertical"
 			title:			qsTr("Vertical axis")
-			visible:		mcmcDiagnosticsType.currentValue == "scatterplot"
-			onVisibleChanged: if (!visible && count > 0) itemDoubleClicked(0)
+			visible:		active
+			
+			propety bool active:	mcmcDiagnosticsType.currentValue == "scatterplot"
+			onActiveChanged:		if (!active && count > 0) itemDoubleClicked(0)
 		}
 	}
 

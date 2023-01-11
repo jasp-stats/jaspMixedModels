@@ -49,14 +49,16 @@ Form {
 
 		AssignedVariablesList
 		{
-			visible:			family.currentText == "Binomial (aggregated)"
-			onVisibleChanged:	if (!visible && count > 0) itemDoubleClicked(0);
+			visible:			active
 			name:				"dependentAggregation"
 			title:				qsTr("Number of trials")
 			singleVariable:		true
 			allowedColumns:		["scale","ordinal"]
 
 			onEnabledChanged: if (!enabled && count > 0) itemDoubleClicked(0)
+			
+			property bool active:	family.currentText == "Binomial (aggregated)"
+			onActiveChanged:		if (!active && count > 0) itemDoubleClicked(0)
 		}
 
 		AssignedVariablesList
