@@ -49,7 +49,7 @@ Section
 			title:			qsTr("Vertical axis")
 			visible:		active
 			
-			propety bool active:	mcmcDiagnosticsType.currentValue == "scatterplot"
+			property bool active:	mcmcDiagnosticsType.currentValue == "scatterplot"
 			onActiveChanged:		if (!active && count > 0) itemDoubleClicked(0)
 		}
 	}
