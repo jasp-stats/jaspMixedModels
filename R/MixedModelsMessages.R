@@ -72,7 +72,7 @@
   sprintf(
     ngettext(
       length(terms),
-      "Lower order random effects terms need to be specified in presence of the higher order random effects terms. Therefore, the following random effects term was added to the '%1$s' random effects grouping factor: '%s2$.'",
+      "Lower order random effects terms need to be specified in presence of the higher order random effects terms. Therefore, the following random effects term was added to the '%1$s' random effects grouping factor: '%2$s.'",
       "Lower order random effects terms need to be specified in presence of the higher order random effects terms. Therefore, the following random effects terms were added to the '%1$s' random effects grouping factor: '%2$s.'"
     ),
     grouping,
