@@ -224,6 +224,8 @@
     return(gettext("The optimizer failed to find a solution due to invalid starting values. (JASP currently does not support specifying different starting values.)"))
   else if (grepl("Downdated VtV is not positive definite", error))
     return(gettext("The optimizer failed to find a solution. Probably due to scaling issues quasi-separation in the data. Try rescaling or removing some of the predictors."))
+  else if (grepl("did not converge in (maxit) iterations", error))
+    return(gettext("The optimizer failed to find a solution in the specified number of iterations. (JASP currently does not support modifying the optimizer settings.)"))
   else
     return(error)
 }
