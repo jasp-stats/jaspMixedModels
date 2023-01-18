@@ -2697,7 +2697,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   base <- ggplot2::ggplot(plotData$samp,ggplot2::aes_string(x = "mcmcSamples", y = "value", color = "chain"))
 
   graph <- base + ggplot2::geom_path() + ggplot2::scale_color_manual(values = clrs) +
-    ggplot2::labs(x = "", y = levels(plotData$samp$parameter))
+    ggplot2::labs(x = NULL, y = levels(plotData$samp$parameter))
   graph <- graph + ggplot2::scale_x_continuous(
     breaks = jaspGraphs::getPrettyAxisBreaks(c(1,max(plotData$samp$mcmcSamples))))
 
