@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.0\n"
 "POT-Creation-Date: 2022-12-24 02:50\n"
-"PO-Revision-Date: 2023-04-13 17:11+0000\n"
+"PO-Revision-Date: 2023-04-14 19:50+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/pl/>\n"
@@ -59,70 +59,70 @@ msgid ""
 msgstr ""
 
 msgid "ANOVA Summary"
-msgstr ""
+msgstr "Podsumowanie testu ANOVA"
 
 msgid "Effect"
-msgstr ""
+msgstr "Efekt"
 
 msgid "df"
 msgstr "df"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "ChiSq"
-msgstr ""
+msgstr "Chi-kwadrat"
 
 msgid "p"
 msgstr "p"
 
 msgid "p (bootstrap)"
-msgstr ""
+msgstr "p (bootstrap)"
 
 msgid "VS-MPR"
-msgstr ""
+msgstr "VS-MPR"
 
 msgid "VS-MPR (bootstrap)"
-msgstr ""
+msgstr "VS-MPR (bootstrap)"
 
 msgid "Intercept"
-msgstr ""
+msgstr "Wyraz wolny"
 
 msgid "Warning:"
-msgstr ""
+msgstr "Ostrzeżenie:"
 
 msgid "Note:"
-msgstr ""
+msgstr "Uwaga:"
 
 msgid "III"
-msgstr ""
+msgstr "III"
 
 msgid "II"
-msgstr ""
+msgstr "II"
 
 msgid "Fit statistics"
-msgstr ""
+msgstr "Statystyki dopasowania"
 
 msgid "Deviance"
-msgstr ""
+msgstr "Odchylanie"
 
 msgid "Deviance (REML)"
-msgstr ""
+msgstr "Odchylenie (REML)"
 
 msgid "log Lik."
 msgstr ""
 
 msgid "AIC"
-msgstr ""
+msgstr "AIC"
 
 msgid "BIC"
-msgstr ""
+msgstr "BIC"
 
 msgid "Sample sizes"
 msgstr "Wielkość próby"
 
 msgid "Observations"
-msgstr ""
+msgstr "Obserwacje"
 
 msgid "Levels of RE grouping factors"
 msgstr ""
@@ -134,7 +134,7 @@ msgid "%s: Variance Estimates"
 msgstr ""
 
 msgid "Term"
-msgstr ""
+msgstr "Składniki"
 
 msgid "Std. Deviation"
 msgstr "Odchylenie std."
@@ -149,16 +149,16 @@ msgid "Residual Variance Estimates"
 msgstr ""
 
 msgid "Random Effect Estimates"
-msgstr ""
+msgstr "Oszacowania efektów losowych"
 
 msgid "%s: Random Effect Estimates"
-msgstr ""
+msgstr "%s: oszacowania efektów losowych"
 
 msgid "Fixed Effects Estimates"
-msgstr ""
+msgstr "Oszacowania efektów stałych"
 
 msgid "Estimate"
-msgstr ""
+msgstr "Oszacowanie"
 
 msgid "SE"
 msgstr "SE"
@@ -167,7 +167,7 @@ msgid "t"
 msgstr "t"
 
 msgid "Plot"
-msgstr ""
+msgstr "Wykres"
 
 msgid ""
 "At least one random effects grouping factor needs to be selected in field "
@@ -185,10 +185,10 @@ msgid ""
 msgstr ""
 
 msgid "Estimated Means"
-msgstr ""
+msgstr "Oszacowane średnie"
 
 msgid "Estimated Means and Confidence Intervals"
-msgstr ""
+msgstr "Oszacowane średnie i przedziały ufności"
 
 msgid "Mean"
 msgstr "Średnia"
@@ -203,22 +203,22 @@ msgid "Upper"
 msgstr "Górny"
 
 msgid "Cannot find function: %s"
-msgstr ""
+msgstr "Nie można znaleźć funkcji: %s"
 
 msgid "Estimated Marginal Means"
 msgstr "Oszacowane średnie brzegowe"
 
 msgid "Row"
-msgstr ""
+msgstr "Wiersz"
 
 msgid "z"
 msgstr "z"
 
 msgid "Median"
-msgstr ""
+msgstr "Mediana"
 
 msgid "%s%% HPD"
-msgstr ""
+msgstr "%s%% HPD"
 
 msgid "Estimated Trends"
 msgstr ""
@@ -227,13 +227,13 @@ msgid "%s (slope)"
 msgstr ""
 
 msgid "contrasts"
-msgstr ""
+msgstr "kontrasty"
 
 msgid "Odds Ratio"
-msgstr ""
+msgstr "Iloraz szans"
 
 msgid "Ratio"
-msgstr ""
+msgstr "Stosunek"
 
 msgid ""
 "The specified combination of factors does not produce an estimable model. A "
@@ -245,24 +245,26 @@ msgid ""
 "Please, report the following error message at JASP GitHub https://github.com/"
 "jasp-stats/jasp-issues:"
 msgstr ""
+"Prosimy zgłosić następujący komunikat o błędzie na GitHub'ie projektu JASP: "
+"https://github.com/jasp-stats/jasp-issues:"
 
 msgid "Fit Statistics"
-msgstr ""
+msgstr "Miary dopasowania"
 
 msgid "WAIC"
-msgstr ""
+msgstr "WAIC"
 
 msgid "SE (WAIC)"
-msgstr ""
+msgstr "SE (WAIC)"
 
 msgid "LOO"
-msgstr ""
+msgstr "LOO"
 
 msgid "SE (LOO)"
-msgstr ""
+msgstr "SE (LOO)"
 
 msgid "Model summary"
-msgstr ""
+msgstr "Podsumowanie modelu"
 
 msgid "%s (differences from intercept)"
 msgstr ""
@@ -271,13 +273,13 @@ msgid "%s (trend)"
 msgstr ""
 
 msgid "%s (marginal means)"
-msgstr ""
+msgstr "%s (średnie brzegowe)"
 
 msgid "Level"
-msgstr ""
+msgstr "Poziom"
 
 msgid "R-hat"
-msgstr ""
+msgstr "R-hat"
 
 msgid "ESS (bulk)"
 msgstr ""
@@ -294,7 +296,7 @@ msgid "Sampling diagnostics"
 msgstr ""
 
 msgid "Avg. autocorrelation"
-msgstr ""
+msgstr "Średnia autokorelacja"
 
 msgid ""
 "The following variables are a linear combination of each other, please, "
@@ -330,6 +332,10 @@ msgid ""
 "em> log(<em>p</em>)) for <em>p</em> %3$s .37 (Sellke, Bayarri, & Berger, "
 "2001)."
 msgstr ""
+"Maksymalna wartość <em>p</em> Vovka-Sellkego: Na podstawie dwustronnej "
+"wartości <em>p</em> maksymalne możliwe szanse na korzyść H%1$s nad H%2$s "
+"wynoszą 1/(-e <em>p</em> log(<em>p</em>)) dla <em>p</em> %3$s .37 (Sellke, "
+"Bayarri i Berger, 2001)."
 
 msgid ""
 "Numerical problems with the maximum-likelihood estimate (e.g., gradients too "
@@ -353,7 +359,7 @@ msgid "Results are not on the response scale and might be misleading."
 msgstr ""
 
 msgid "Type %s Sum of Squares"
-msgstr ""
+msgstr "Suma kwadratów typu %s"
 
 msgid ""
 "This analysis requires at least one random effects grouping factor to run."
@@ -371,82 +377,82 @@ msgid "Results are averaged over the levels of: %s."
 msgstr ""
 
 msgid "binomial"
-msgstr ""
+msgstr "dwumianowy"
 
 msgid "gaussian"
-msgstr ""
+msgstr "Gaussa"
 
 msgid "gamma"
-msgstr ""
+msgstr "gamma"
 
 msgid "inverseGaussian"
-msgstr ""
+msgstr "odwrotny Gaussa"
 
 msgid "poisson"
-msgstr ""
+msgstr "Poisson"
 
 msgid "negative binomial"
-msgstr ""
+msgstr "ujemny dwumianowy"
 
 msgid "beta"
-msgstr ""
+msgstr "beta"
 
 msgid "Generalized linear mixed model with %1$s family and %2$s link function."
 msgstr ""
 
 msgid "Satterthwaite"
-msgstr ""
+msgstr "Satterthwaite"
 
 msgid "Kenward-Roger"
-msgstr ""
+msgstr "Kenward-Roger"
 
 msgid "likelihood ratio tests"
-msgstr ""
+msgstr "testy wskaźnika wiarygodności"
 
 msgid "parametric bootstrap"
-msgstr ""
+msgstr "bootstrap parametryczny"
 
 msgid "Model terms tested with %s testMethod."
 msgstr ""
 
 msgid "P-values are not adjusted."
-msgstr ""
+msgstr "Wartości p nie zostały skorygowane."
 
 msgid "Holm"
-msgstr ""
+msgstr "Holm"
 
 msgid "Homel"
-msgstr ""
+msgstr "Homel"
 
 msgid "Hochberg"
-msgstr ""
+msgstr "Hochberg"
 
 msgid "Multivariate-t"
-msgstr ""
+msgstr "Wielowymiarowe t"
 
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgid "Benjamini-Hochberg"
-msgstr ""
+msgstr "Benjamini-Hochberg"
 
 msgid "Benjamini-Yekutieli"
-msgstr ""
+msgstr "Benjamini-Yekutieli"
 
 msgid "Scheffé"
 msgstr "Scheffé"
 
 msgid "Sidak"
-msgstr ""
+msgstr "Sidak"
 
 msgid "Dunnett"
 msgstr "Dunnett"
 
 msgid "Bonferroni"
-msgstr ""
+msgstr "Bonferroni"
 
 msgid "P-values are adjusted using %s adjustment."
-msgstr ""
+msgstr "Wartości P zostały skorygowane za pomocą korekty %s."
 
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; The "
