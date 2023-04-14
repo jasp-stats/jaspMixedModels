@@ -2682,23 +2682,22 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 # modified rstan plotting functions
 .rstanPlotHist  <- function(plotData) {
 
+  #thm       <- rstan:::rstanvis_hist_theme()
   dots      <- rstan:::.add_aesthetics(list(), c("fill", "color"))
-  thm       <- rstan:::rstanvis_hist_theme()
   base      <- ggplot2::ggplot(plotData$samp, ggplot2::aes_string(x = "value"))
   graph     <- base + do.call(ggplot2::geom_histogram, dots) +
-    thm + ggplot2::xlab(unique(plotData$samp$parameter))
+    ggplot2::xlab(unique(plotData$samp$parameter))
 
   return(graph)
 }
 .rstanPlotTrace <- function(plotData) {
 
-  thm  <- rstan:::rstanvis_theme()
+  #thm  <- rstan:::rstanvis_theme()
   clrs <- rep_len(rstan:::rstanvis_aes_ops("chain_colors"), plotData$nchains)
   base <- ggplot2::ggplot(plotData$samp,ggplot2::aes_string(x = "mcmcSamples", y = "value", color = "chain"))
 
   graph <- base + ggplot2::geom_path() + ggplot2::scale_color_manual(values = clrs) +
-    ggplot2::labs(x = "", y = levels(plotData$samp$parameter)) + thm
-
+    ggplot2::labs(x = NULL, y = levels(plotData$samp$parameter))
   graph <- graph + ggplot2::scale_x_continuous(
     breaks = jaspGraphs::getPrettyAxisBreaks(c(1,max(plotData$samp$mcmcSamples))))
 
@@ -2707,7 +2706,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 .rstanPlotDens  <- function(plotData, separate_chains = TRUE) {
 
   clrs <- rep_len(rstan:::rstanvis_aes_ops("chain_colors"), plotData$nchains)
-  thm  <- rstan:::rstanvis_hist_theme()
+  #thm  <- rstan:::rstanvis_hist_theme()
   base <- ggplot2::ggplot(plotData$samp, ggplot2::aes_string(x = "value"))
 
   if (!separate_chains) {
@@ -2717,7 +2716,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     dots <- rstan:::.add_aesthetics(list(), c("color", "alpha"))
     dots$mapping <- ggplot2::aes_string(fill = "chain")
     graph <- base + do.call(ggplot2::geom_density, dots) +
-      ggplot2::scale_fill_manual(values = clrs) + thm
+      ggplot2::scale_fill_manual(values = clrs)
   }
 
   graph <- graph + ggplot2::xlab(unique(plotData$samp$parameter))
@@ -2726,7 +2725,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 }
 .rstanPlotScat  <- function(plotData) {
 
-  thm  <- rstan:::rstanvis_theme()
+  #thm  <- rstan:::rstanvis_theme()
   dots <- rstan:::.add_aesthetics(list(), c("fill", "pt_color", "pt_size", "alpha", "shape"))
 
   p1    <- plotData$samp$parameter == levels(plotData$samp$parameter)[1]
@@ -2735,10 +2734,9 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   val2  <- plotData$samp[p2, "value"]
   df    <- data.frame(x = val1, y = val2)
   base  <- ggplot2::ggplot(df, ggplot2::aes_string("x", "y"))
-  graph <- base + do.call(ggplot2::geom_point, dots) + ggplot2::labs(
-    x = levels(plotData$samp$parameter)[1],
-    y = levels(plotData$samp$parameter)[2]
-  ) + thm
+  graph <- base + do.call(ggplot2::geom_point, dots) +
+    ggplot2::scale_x_continuous(name = levels(plotData$samp$parameter)[1], breaks = jaspGraphs::getPrettyAxisBreaks(range(df$val1))) +
+    ggplot2::scale_y_continuous(name = levels(plotData$samp$parameter)[2], breaks = jaspGraphs::getPrettyAxisBreaks(range(df$val2)))
 
   return(graph)
 }
