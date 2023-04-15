@@ -1,10 +1,16 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-04-14 18:51+0000\n"
+"Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/pl/>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.17-dev\n"
 "X-Language: pl\n"
 "X-Qt-Contexts: true\n"
 
@@ -18,11 +24,11 @@ msgstr "Klasyczne"
 
 msgctxt "Description|"
 msgid "Linear Mixed Models"
-msgstr ""
+msgstr "Liniowe modele mieszane"
 
 msgctxt "Description|"
 msgid "Generalized Linear Mixed Models"
-msgstr ""
+msgstr "Uogólnione liniowe modele mieszane"
 
 msgctxt "Description|"
 msgid "Bayesian"
@@ -30,11 +36,11 @@ msgstr "Bayesowskie"
 
 msgctxt "Description|"
 msgid "Bayesian Linear Mixed Models"
-msgstr ""
+msgstr "Bayesowskie liniowe modele mieszane"
 
 msgctxt "Description|"
 msgid "Bayesian Generalized Linear Mixed Models"
-msgstr ""
+msgstr "Bayesowskie uogólnione liniowe modele mieszane"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Options"
@@ -42,19 +48,19 @@ msgstr "Opcje"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Burnin"
-msgstr ""
+msgstr "Burn-in"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Chains"
-msgstr ""
+msgstr "Łańcuchy"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Adapt delta"
-msgstr ""
+msgstr "Dostosuj deltę"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Maximum treedepth"
-msgstr ""
+msgstr "Maksymalna głębokość drzewa"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Show"
@@ -98,7 +104,7 @@ msgstr "Oś pozioma"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plotted term"
-msgstr ""
+msgstr "Wykresy składników modelu"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Vertical axis"
@@ -134,7 +140,7 @@ msgstr "Model"
 
 msgctxt "MixedModelsModel|"
 msgid "Model components"
-msgstr ""
+msgstr "Składniki modelu"
 
 msgctxt "MixedModelsModel|"
 msgid "Fixed effects"
@@ -166,7 +172,7 @@ msgstr "III"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test intercept"
-msgstr ""
+msgstr "Wyraz wolny"
 
 msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
@@ -202,7 +208,7 @@ msgstr "Wykresy"
 
 msgctxt "MixedModelsPlots|"
 msgid "Model factors"
-msgstr ""
+msgstr "Czynniki modelu"
 
 msgctxt "MixedModelsPlots|"
 msgid "Horizontal axis"
@@ -242,11 +248,11 @@ msgstr "Średnia"
 
 msgctxt "MixedModelsPlots|"
 msgid "Within"
-msgstr ""
+msgstr "W ramach"
 
 msgctxt "MixedModelsPlots|"
 msgid "Between"
-msgstr ""
+msgstr "Między"
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval"
@@ -386,7 +392,7 @@ msgstr "Liczba powtórzeń"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Zmienne efektów stałych"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Random effects grouping factors"
@@ -394,7 +400,7 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Family"
-msgstr ""
+msgstr "Rodzina"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
@@ -406,7 +412,7 @@ msgstr "Dwumianowy (zagregowany)"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "Gaussa"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gamma"
@@ -414,24 +420,24 @@ msgstr "Gamma"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse Gaussian"
-msgstr ""
+msgstr "Odwrotna Gaussa"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Poisson"
 msgstr "Poisson"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Negative Binomial"
-msgstr ""
+msgstr "Ujemny dwumianowy"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Beta"
 msgstr "Beta"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Logit"
@@ -439,7 +445,7 @@ msgstr "Logit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "Probit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Cauchit"
@@ -447,11 +453,12 @@ msgstr "Cauchit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Complementary LogLog"
-msgstr ""
+msgstr "CLogLog"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Identity"
-msgstr ""
+msgstr "Tożsamość"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Log"
@@ -503,11 +510,11 @@ msgstr "Zmienna zależna"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Zmienne efektów stałych"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Czynniki grupujące efektów losowych"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated marginal means"
@@ -555,15 +562,15 @@ msgstr "Liczba powtórzeń"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Zmienne efektów stałych"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Czynniki grupujące efektów losowych"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Family"
-msgstr ""
+msgstr "Rodzina"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
@@ -575,7 +582,7 @@ msgstr "Dwumianowy (zagregowany)"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "Gaussa"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gamma"
@@ -583,15 +590,16 @@ msgstr "Gamma"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse Gaussian"
-msgstr ""
+msgstr "Odwrotny Gaussa"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Poisson"
 msgstr "Poisson"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Logit"
@@ -599,7 +607,7 @@ msgstr "Logit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "Probit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Cauchit"
@@ -607,11 +615,12 @@ msgstr "Cauchit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Complementary LogLog"
-msgstr ""
+msgstr "CLogLog"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Identity"
-msgstr ""
+msgstr "Tożsamość"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Log"
@@ -663,7 +672,7 @@ msgstr "Dostosowanie wartości p"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Multivariate-t"
-msgstr ""
+msgstr "Wielowymiarowe t"
 
 msgctxt "MixedModelsGLMM|"
 msgid "None"
@@ -683,7 +692,7 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Compare trends to:"
-msgstr ""
+msgstr "Porównaj trendy z:"
 
 msgctxt "MixedModelsLMM|"
 msgid "Dependent variable"
@@ -691,11 +700,11 @@ msgstr "Zmienna zależna"
 
 msgctxt "MixedModelsLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Zmienne efektów stałych"
 
 msgctxt "MixedModelsLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Czynniki grupujące efektów losowych"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated marginal means"
@@ -743,7 +752,7 @@ msgstr "Dostosowanie wartości p"
 
 msgctxt "MixedModelsLMM|"
 msgid "Multivariate-t"
-msgstr ""
+msgstr "Wielowymiarowe t"
 
 msgctxt "MixedModelsLMM|"
 msgid "None"
@@ -763,11 +772,11 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
-msgstr ""
+msgstr "Porównaj trendy z:"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means with random effects"
-msgstr ""
+msgstr "Oceń różnicę między wieloma średnimi z efektami losowymi"
 
 msgctxt "MixedModelsPlots|"
 msgid "White background"
@@ -804,16 +813,16 @@ msgstr ""
 
 msgctxt "MixedModelsBOptions|"
 msgid "Samples"
-msgstr ""
+msgstr "Próbki"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test method"
-msgstr ""
+msgstr "Metoda testowania"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background element"
-msgstr ""
+msgstr "Element tła"
 
 msgctxt "MixedModelsPlots|"
 msgid "Element width"
-msgstr ""
+msgstr "Szerokość elementu"
