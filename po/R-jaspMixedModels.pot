@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.1\n"
-"POT-Creation-Date: 2023-02-11 02:54\n"
+"POT-Creation-Date: 2023-04-15 02:48\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -411,6 +411,9 @@ msgid "The optimizer failed to find a solution due to invalid starting values. (
 msgstr ""
 
 msgid "The optimizer failed to find a solution. Probably due to scaling issues quasi-separation in the data. Try rescaling or removing some of the predictors."
+msgstr ""
+
+msgid "The optimizer failed to find a solution in the specified number of iterations. (JASP currently does not support modifying the optimizer settings.)"
 msgstr ""
 
 msgid        "The following variable is used as a random effects grouping factor: %s."
