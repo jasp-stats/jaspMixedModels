@@ -52,7 +52,7 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 - Sum of Squares: There are different types of the sum of squares. The choice of the type is important when there are multiple factors and when the data are unbalanced. In an unbalanced design, the different levels of the independent variable do not contain an equal number of observations (e.g., one group contains more observations than another group). In this scenario, the sum of squares type can influence the results. 
   - Type II: Hierarchical/partially sequential sum of squares. It is the reduction of error when each factor is added to the model that includes all the other factors, except the factors where the added factor is a part of, such as interactions containing that factor. Langsrud (2003) advises to apply this type for an ANOVA with unbalanced data.
   - Type III: Partial sum of squares. It is the reduction of error when each factor is added to the model that includes all the other factors, including interactions with this factor. This type is often selected, because it takes interactions into account (Langsrud, 2003). This type is selected by default and recommended for designs in which the imbalance is not a consequence of imbalance in the population, but random.
-- Test model terms: Methods for obtaining p-values for the ANOVA summary.
+- Test method: Methods for obtaining p-values for the ANOVA summary.
   - No. samples: Number of samples for the parametric bootstrap.
 - Repeatability: Gives the option to set a seed for your analysis. Setting a seed will exclude random processes influencing an analysis. Affects only parametric bootstrap and jitter in plots.
 - Test intercept: Whether the model intercept should be tested.
