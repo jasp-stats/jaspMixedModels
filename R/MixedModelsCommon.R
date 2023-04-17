@@ -27,7 +27,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 .mmRunAnalysis   <- function(jaspResults, dataset, options, type) {
   .setOptions()
 
-  
+
   if (.mmReady(options, type))
     dataset <- .mmReadData(jaspResults, dataset, options, type)
 
@@ -387,7 +387,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         if (tempHasIntercept)    "1" else "0",
         if (length(reTerms) > 0) "+" else "",
         paste0(reTerms, collapse = "+"),
-        ifelse(tempRe$correlation || reTerms == "", "|", "||"),
+        if (tempRe[["correlations"]] || length(reTerms) == 0) "|" else "||",
         tempRe$value,
         ")"
       )
@@ -874,7 +874,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   if (is.list(model$full_model))
     tempRow <- list(
       std      = sigma(model$full_model[[length(model$full_model)]]),
-      var      = sqrt(sigma(model$full_model[[length(model$full_model)]]))
+      var      = sigma(model$full_model[[length(model$full_model)]])^2
     )
   else
     tempRow <- list(
