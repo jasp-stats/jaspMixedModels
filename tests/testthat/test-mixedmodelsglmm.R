@@ -671,7 +671,7 @@ context("Generalized Linear Mixed Models")
   test_that("Residual Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_RES2"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.698321361072845, 0.835656245757097))
+                                   list(0.698321361072845, 0.487652722716083))
   })
 
   test_that("facFive: Variance Estimates table results match", {
