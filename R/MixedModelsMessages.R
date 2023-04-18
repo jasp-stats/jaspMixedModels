@@ -209,7 +209,7 @@
 
 .mmMessageFitType       <- function(REML) {
   if (REML) {
-    return(gettext("The model was fitted using restricted maximum likelihood. Please note that models with different fixed effects cannot be compared when REML is used. To use ML, switch 'Test model terms' to 'Likelihood ratio tests'."))
+    return(gettext("The model was fitted using restricted maximum likelihood. Please note that models with different fixed effects cannot be compared when REML is used. To use ML, switch 'Test method' to 'Likelihood ratio tests'."))
   } else {
     return(gettext("The model was fitted using maximum likelihood."))
   }
