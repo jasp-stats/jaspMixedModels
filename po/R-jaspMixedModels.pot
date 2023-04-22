@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: jaspMixedModels 0.17.1\n"
-"POT-Creation-Date: 2023-04-15 02:48\n"
+"Project-Id-Version: jaspMixedModels 0.17.2\n"
+"POT-Creation-Date: 2023-04-22 02:48\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -395,7 +395,7 @@ msgstr ""
 msgid "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f < %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
 
-msgid "The model was fitted using restricted maximum likelihood. Please note that models with different fixed effects cannot be compared when REML is used. To use ML, switch 'Test model terms' to 'Likelihood ratio tests'."
+msgid "The model was fitted using restricted maximum likelihood. Please note that models with different fixed effects cannot be compared when REML is used. To use ML, switch 'Test method' to 'Likelihood ratio tests'."
 msgstr ""
 
 msgid "The model was fitted using maximum likelihood."
