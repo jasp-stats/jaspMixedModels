@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-04-26 19:50+0000\n"
+"PO-Revision-Date: 2023-04-29 02:45+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/pl/>\n"
@@ -68,7 +68,7 @@ msgstr "Pokaż"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Differences from intercept"
-msgstr ""
+msgstr "Różnice względem wyrazu wolnego"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Marginal means"
@@ -222,14 +222,13 @@ msgctxt "MixedModelsPlots|"
 msgid "Separate plots"
 msgstr "Oddzielne wykresy"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Random effects grouping factors"
-msgstr "Czynniki grupujące efektów losowych"
+msgstr "Czynniki grupujące efekty losowe"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background data show"
-msgstr ""
+msgstr "Dane w tle"
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval method"
@@ -313,7 +312,7 @@ msgstr "Wysokość jednostki szumu"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dodge"
-msgstr ""
+msgstr "Dodge"
 
 msgctxt "MixedModelsPlots|"
 msgid "Theme"
@@ -377,7 +376,7 @@ msgstr "Względna wielkość tekstu"
 
 msgctxt "MixedModelsPlots|"
 msgid "Relative size foreground data"
-msgstr ""
+msgstr "Rozmiar danych na pierwszym planie"
 
 msgctxt "MixedModelsPlots|"
 msgid "Estimates table"
@@ -395,14 +394,13 @@ msgctxt "MixedModelsBGLMM|"
 msgid "Fixed effects variables"
 msgstr "Zmienne efektów stałych"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Random effects grouping factors"
-msgstr "Czynniki grupujące efektów losowych"
+msgstr "Czynniki grupujące efekty losowe"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Family"
-msgstr "Rodzina"
+msgstr "Typ"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
@@ -494,7 +492,7 @@ msgstr "Określ kontrasty"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Oszacowane trendy/nachylenia"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Continous variables"
@@ -534,7 +532,7 @@ msgstr "Przedział ufności"
 
 msgctxt "MixedModelsBLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SD factor covariates"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Specify contrasts"
@@ -542,7 +540,7 @@ msgstr "Określ kontrasty"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Oszacowane trendy/nachylenia"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Continous variables"
@@ -570,7 +568,7 @@ msgstr "Czynniki grupujące efektów losowych"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Family"
-msgstr "Rodzina"
+msgstr "Typ"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
@@ -650,7 +648,7 @@ msgstr "Przedział ufności"
 
 msgctxt "MixedModelsGLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SD factor covariates"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Compare marginal means to:"
@@ -678,7 +676,7 @@ msgstr "Brak"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Oszacowane trendy/nachylenia"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Continous variables"
@@ -722,7 +720,7 @@ msgstr "Przedział ufności"
 
 msgctxt "MixedModelsLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SD factor covariates"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimate df"
@@ -734,7 +732,7 @@ msgstr "Asymptotyczne"
 
 msgctxt "MixedModelsLMM|"
 msgid "Force df estimation"
-msgstr ""
+msgstr "Oszacowanie df mocy"
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare marginal means to:"
@@ -758,7 +756,7 @@ msgstr "Brak"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Oszacowane trendy/nachylenia"
 
 msgctxt "MixedModelsLMM|"
 msgid "Continous variables"
@@ -807,7 +805,7 @@ msgstr "Przedział ufności"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SD factor covariates"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Samples"
