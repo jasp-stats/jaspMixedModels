@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-05-05 22:07+0000\n"
+"Last-Translator: Josée Turcotte <jturcotte@laurentienne.ca>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18-dev\n"
 "X-Language: fr\n"
 "X-Qt-Contexts: true\n"
 
@@ -22,35 +28,38 @@ msgstr "Classique"
 
 msgctxt "Description|"
 msgid "Linear Mixed Models"
-msgstr ""
+msgstr "Modèles linéaires généralisés"
 
 msgctxt "Description|"
 msgid "Generalized Linear Mixed Models"
-msgstr ""
+msgstr "Modèles linéaires généralisés à effets mixtes"
 
 msgctxt "Description|"
 msgid "Bayesian"
 msgstr "Bayésien"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Bayesian Linear Mixed Models"
-msgstr ""
+msgstr "Modèles Bayésiens linéaires à effets mixtes"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Bayesian Generalized Linear Mixed Models"
-msgstr ""
+msgstr "Modèles Bayésiens linéaires généralisés à effets mixtes"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Options"
-msgstr ""
+msgstr "Options"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Burnin"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Chains"
-msgstr ""
+msgstr "Chaînes"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Adapt delta"
@@ -62,43 +71,44 @@ msgstr ""
 
 msgctxt "MixedModelsBOptions|"
 msgid "Show"
-msgstr ""
+msgstr "Montrer"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Differences from intercept"
-msgstr ""
+msgstr "Différences à l'intercept"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "Moyennes marginales"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Model summary"
-msgstr ""
+msgstr "Sommaire du modèle"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Fixed effects estimates"
-msgstr ""
+msgstr "Estimés des effets fixes"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Variance/correlation estimates"
-msgstr ""
+msgstr "Estimés de la variance/corrélation"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Intervalle de crédibilité"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "MCMC diagnostics"
-msgstr ""
+msgstr "Diagnostiques MCMC"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Model terms"
-msgstr ""
+msgstr "Termes du modèle"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Axe horizontal"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plotted term"
@@ -106,11 +116,11 @@ msgstr ""
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Vertical axis"
-msgstr ""
+msgstr "Axe vertical"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plot type"
-msgstr ""
+msgstr "Type de graphique"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Traceplot"
@@ -118,55 +128,56 @@ msgstr ""
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Scatterplot"
-msgstr ""
+msgstr "Nuage de points"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Histogram"
-msgstr ""
+msgstr "Histogramme"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Density"
-msgstr ""
+msgstr "Densité"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Autocorrelations"
-msgstr ""
+msgstr "Autocorrélations"
 
 msgctxt "MixedModelsModel|"
 msgid "Model"
-msgstr ""
+msgstr "Modèle"
 
 msgctxt "MixedModelsModel|"
 msgid "Model components"
-msgstr ""
+msgstr "Composantes du modèle"
 
 msgctxt "MixedModelsModel|"
 msgid "Fixed effects"
-msgstr ""
+msgstr "Effets fixes"
 
 msgctxt "MixedModelsModel|"
 msgid "Random effects"
-msgstr ""
+msgstr "Effets aléatoires"
 
 msgctxt "MixedModelsModel|"
 msgid "Correlations"
-msgstr ""
+msgstr "Corrélations"
 
 msgctxt "MixedModelsOptions|"
 msgid "Options"
-msgstr ""
+msgstr "Options"
 
 msgctxt "MixedModelsOptions|"
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgctxt "MixedModelsOptions|"
 msgid "II"
-msgstr ""
+msgstr "II"
 
 msgctxt "MixedModelsOptions|"
 msgid "III"
-msgstr ""
+msgstr "III"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test intercept"
@@ -178,47 +189,47 @@ msgstr ""
 
 msgctxt "MixedModelsOptions|"
 msgid "Parametric bootstrap"
-msgstr ""
+msgstr "Bootstrap paramétrique"
 
 msgctxt "MixedModelsOptions|"
 msgid "No. samples"
-msgstr ""
+msgstr "Nbre d'échantillons"
 
 msgctxt "MixedModelsOptions|"
 msgid "Model summary"
-msgstr ""
+msgstr "Sommaire du modèle"
 
 msgctxt "MixedModelsOptions|"
 msgid "Fixed effects estimates"
-msgstr ""
+msgstr "Estimés des effets fixes"
 
 msgctxt "MixedModelsOptions|"
 msgid "Variance/correlation estimates"
-msgstr ""
+msgstr "Estimés de la variance/corrélation"
 
 msgctxt "MixedModelsOptions|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Ratio p maximal de Vovk-Sellke"
 
 msgctxt "MixedModelsPlots|"
 msgid "Plots"
-msgstr ""
+msgstr "Graphiques"
 
 msgctxt "MixedModelsPlots|"
 msgid "Model factors"
-msgstr ""
+msgstr "Facteurs du modèle"
 
 msgctxt "MixedModelsPlots|"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "Axe horizontal"
 
 msgctxt "MixedModelsPlots|"
 msgid "Separate lines"
-msgstr ""
+msgstr "Lignes séparées"
 
 msgctxt "MixedModelsPlots|"
 msgid "Separate plots"
-msgstr ""
+msgstr "Graphiques séparés"
 
 msgctxt "MixedModelsPlots|"
 msgid "Random effects grouping factors"
