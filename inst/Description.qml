@@ -7,7 +7,7 @@ Description
 	title		: qsTr("Mixed Models")
 	description	: qsTr("Evaluate the difference between multiple means with random effects")
 	icon		: "MixedModels_classical.svg"
-	version		: "0.17.1"
+	version		: "0.17.2"
 	author		: "JASP Team"
 	maintainer	: "JASP Team <info@jasp-stats.org>"
 	website		: "jasp-stats.org"
