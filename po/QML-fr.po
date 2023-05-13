@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-05-08 08:52+0000\n"
+"Last-Translator: Josée Turcotte <jturcotte@laurentienne.ca>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/fr/>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18-dev\n"
 "X-Language: fr\n"
 "X-Qt-Contexts: true\n"
 
@@ -179,7 +185,7 @@ msgstr ""
 
 msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
-msgstr ""
+msgstr "Tests du rapport de vraisemblance"
 
 msgctxt "MixedModelsOptions|"
 msgid "Parametric bootstrap"
@@ -235,32 +241,31 @@ msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval method"
-msgstr ""
+msgstr "Méthode d'intervalle de confiance"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Model"
 msgstr "Modèle"
 
 msgctxt "MixedModelsPlots|"
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 msgctxt "MixedModelsPlots|"
 msgid "Mean"
-msgstr ""
+msgstr "Moyenne"
 
 msgctxt "MixedModelsPlots|"
 msgid "Within"
-msgstr ""
+msgstr "Intra"
 
 msgctxt "MixedModelsPlots|"
 msgid "Between"
-msgstr ""
+msgstr "Inter"
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Intervalle de confiance"
 
 msgctxt "MixedModelsPlots|"
 msgid "Distinguish factor levels"
@@ -268,19 +273,19 @@ msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Color"
-msgstr ""
+msgstr "Couleur"
 
 msgctxt "MixedModelsPlots|"
 msgid "Shape"
-msgstr ""
+msgstr "Forme"
 
 msgctxt "MixedModelsPlots|"
 msgid "Linetype"
-msgstr ""
+msgstr "Type de ligne"
 
 msgctxt "MixedModelsPlots|"
 msgid "Fill"
-msgstr ""
+msgstr "Remplissage"
 
 msgctxt "MixedModelsPlots|"
 msgid "Jitter"
@@ -292,7 +297,7 @@ msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Boxplot"
-msgstr ""
+msgstr "Boîte à moustache"
 
 msgctxt "MixedModelsPlots|"
 msgid "Boxjitter"
@@ -304,7 +309,7 @@ msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Transparency"
-msgstr ""
+msgstr "Transparence"
 
 msgctxt "MixedModelsPlots|"
 msgid "Jitter width"
@@ -320,71 +325,71 @@ msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Theme"
-msgstr ""
+msgstr "Thème"
 
 msgctxt "MixedModelsPlots|"
 msgid "White background"
-msgstr ""
+msgstr "Fond blanc"
 
 msgctxt "MixedModelsPlots|"
 msgid "Light"
-msgstr ""
+msgstr "Éclairage"
 
 msgctxt "MixedModelsPlots|"
 msgid "Minimal"
-msgstr ""
+msgstr "Minimal"
 
 msgctxt "MixedModelsPlots|"
 msgid "Legend position"
-msgstr ""
+msgstr "Position de la légende"
 
 msgctxt "MixedModelsPlots|"
 msgid "Bottom"
-msgstr ""
+msgstr "En Bas"
 
 msgctxt "MixedModelsPlots|"
 msgid "Right"
-msgstr ""
+msgstr "À droite"
 
 msgctxt "MixedModelsPlots|"
 msgid "Top"
-msgstr ""
+msgstr "En haut"
 
 msgctxt "MixedModelsPlots|"
 msgid "Left"
-msgstr ""
+msgstr "À gauche"
 
 msgctxt "MixedModelsPlots|"
 msgid "Border color"
-msgstr ""
+msgstr "Couleur des bordures"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dark grey"
-msgstr ""
+msgstr "Gris foncé"
 
 msgctxt "MixedModelsPlots|"
 msgid "Black"
-msgstr ""
+msgstr "Noir"
 
 msgctxt "MixedModelsPlots|"
 msgid "Light grey"
-msgstr ""
+msgstr "Gris clair"
 
 msgctxt "MixedModelsPlots|"
 msgid "Blue"
-msgstr ""
+msgstr "Bleu"
 
 msgctxt "MixedModelsPlots|"
 msgid "Red"
-msgstr ""
+msgstr "Rouge"
 
 msgctxt "MixedModelsPlots|"
 msgid "Violet"
-msgstr ""
+msgstr "Violet"
 
 msgctxt "MixedModelsPlots|"
 msgid "Relative size text"
-msgstr ""
+msgstr "Taille relative du texte"
 
 msgctxt "MixedModelsPlots|"
 msgid "Relative size foreground data"
@@ -392,19 +397,19 @@ msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Estimates table"
-msgstr ""
+msgstr "Table d'estimations"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Variable dépendante"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Number of trials"
-msgstr ""
+msgstr "Nombre d'essais"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Variables d'effets fixes"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Random effects grouping factors"
@@ -412,11 +417,11 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Family"
-msgstr ""
+msgstr "Famille"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
-msgstr ""
+msgstr "Binomial"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial (aggregated)"
@@ -424,11 +429,11 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "Gaussian"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gamma"
-msgstr ""
+msgstr "Gamma"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse Gaussian"
@@ -436,7 +441,7 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Poisson"
-msgstr ""
+msgstr "Poisson"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Negative Binomial"
@@ -444,23 +449,24 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Beta"
-msgstr ""
+msgstr "Bêta"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Link"
-msgstr ""
+msgstr "Lien"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Logit"
-msgstr ""
+msgstr "Logit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "Probit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Cauchit"
-msgstr ""
+msgstr "Cauchit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Complementary LogLog"
@@ -472,11 +478,11 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Log"
-msgstr ""
+msgstr "Log"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Sqrt"
-msgstr ""
+msgstr "Racine carrée"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse"
@@ -484,23 +490,24 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Moyennes marginales estimées"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "Variables modèles"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "Variables sélectionnées"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Response scale"
-msgstr ""
+msgstr "Échelle de la réponse"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Spécifier les contrastes"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Estimated trends/conditional slopes"
@@ -508,7 +515,7 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "Variables continues"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Trend variable"
@@ -516,11 +523,11 @@ msgstr ""
 
 msgctxt "MixedModelsBLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Variable dépendante"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Variables à effets fixes"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Random effects grouping factors"
@@ -528,19 +535,19 @@ msgstr ""
 
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Moyennes marginales estimées"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "Variables modèles"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "Variables sélectionnées"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Intervalle de confiance"
 
 msgctxt "MixedModelsBLMM|"
 msgid "SD factor covariates"
@@ -548,7 +555,7 @@ msgstr ""
 
 msgctxt "MixedModelsBLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Spécifier les contrastes"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated trends/conditional slopes"
@@ -556,7 +563,7 @@ msgstr ""
 
 msgctxt "MixedModelsBLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "Variables continues"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Trend variable"
@@ -564,15 +571,15 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Variable dépendante"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Number of trials"
-msgstr ""
+msgstr "Nombre d'essais"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Variables à effets fixes"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Random effects grouping factors"
@@ -580,11 +587,11 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Family"
-msgstr ""
+msgstr "Famille"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
-msgstr ""
+msgstr "Binomial"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial (aggregated)"
@@ -592,11 +599,11 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "Gaussian"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gamma"
-msgstr ""
+msgstr "Gamma"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse Gaussian"
@@ -604,23 +611,23 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Poisson"
-msgstr ""
+msgstr "Poisson"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Link"
-msgstr ""
+msgstr "Lien"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Logit"
-msgstr ""
+msgstr "Logit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "Probit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Cauchit"
-msgstr ""
+msgstr "Cauchit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Complementary LogLog"
@@ -632,11 +639,11 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Log"
-msgstr ""
+msgstr "Log"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Sqrt"
-msgstr ""
+msgstr "Racine carrée"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse"
@@ -644,19 +651,19 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Moyennes marginales estimées"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "Variables modèles"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "Variables sélectionnées"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Intervalle de confiance"
 
 msgctxt "MixedModelsGLMM|"
 msgid "SD factor covariates"
@@ -664,27 +671,27 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Compare marginal means to:"
-msgstr ""
+msgstr "Compare les moyennes marginales à :"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Response scale"
-msgstr ""
+msgstr "Échelle de la réponse"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Spécifier les contrastes"
 
 msgctxt "MixedModelsGLMM|"
 msgid "P-value adjustment"
-msgstr ""
+msgstr "Ajustement de la valeur p"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Multivariate-t"
-msgstr ""
+msgstr "t multivarié"
 
 msgctxt "MixedModelsGLMM|"
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated trends/conditional slopes"
@@ -692,7 +699,7 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "Variables continues"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Trend variable"
@@ -704,11 +711,11 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Variable dépendante"
 
 msgctxt "MixedModelsLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Variables d'effets fixes"
 
 msgctxt "MixedModelsLMM|"
 msgid "Random effects grouping factors"
@@ -716,19 +723,19 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Moyennes marginales estimées"
 
 msgctxt "MixedModelsLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "Variables modèles"
 
 msgctxt "MixedModelsLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "Variables sélectionnées"
 
 msgctxt "MixedModelsLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Intervalle de confiance"
 
 msgctxt "MixedModelsLMM|"
 msgid "SD factor covariates"
@@ -740,7 +747,7 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Asymptotic"
-msgstr ""
+msgstr "Asymptotique"
 
 msgctxt "MixedModelsLMM|"
 msgid "Force df estimation"
@@ -748,23 +755,23 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare marginal means to:"
-msgstr ""
+msgstr "Comparer les moyennes marginales avec :"
 
 msgctxt "MixedModelsLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Spécifier les contrastes"
 
 msgctxt "MixedModelsLMM|"
 msgid "P-value adjustment"
-msgstr ""
+msgstr "Ajustement de la valeur p"
 
 msgctxt "MixedModelsLMM|"
 msgid "Multivariate-t"
-msgstr ""
+msgstr "t multivarié"
 
 msgctxt "MixedModelsLMM|"
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated trends/conditional slopes"
@@ -772,7 +779,7 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "Variables continues"
 
 msgctxt "MixedModelsLMM|"
 msgid "Trend variable"
@@ -784,24 +791,24 @@ msgstr ""
 
 msgctxt "MixedModelsBOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "Estimations des effets aléatoires"
 
 #, qt-format
 msgctxt "MixedModelsModel|"
 msgid "Random components (%1)"
-msgstr ""
+msgstr "Composantes aléatoires (%1)"
 
 msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "Estimations des effets aléatoires"
 
 msgctxt "MixedModelsModel|"
 msgid "Intercept"
-msgstr ""
+msgstr "Intercept"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Intervalle de confiance"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
@@ -809,16 +816,17 @@ msgstr ""
 
 msgctxt "MixedModelsBOptions|"
 msgid "Samples"
-msgstr ""
+msgstr "Échantillons"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Test method"
-msgstr ""
+msgstr "Méthode du test"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background element"
-msgstr ""
+msgstr "Élément d'arrière-plan"
 
 msgctxt "MixedModelsPlots|"
 msgid "Element width"
-msgstr ""
+msgstr "Largeur de l'élément"

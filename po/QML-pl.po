@@ -1,10 +1,16 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2023-05-12 15:52+0000\n"
+"Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/pl/>\n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18-dev\n"
 "X-Language: pl\n"
 "X-Qt-Contexts: true\n"
 
@@ -218,7 +224,7 @@ msgstr "Oddzielne wykresy"
 
 msgctxt "MixedModelsPlots|"
 msgid "Random effects grouping factors"
-msgstr "Czynniki grupujące efekty losowe"
+msgstr "Czynniki efektów losowych"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background data show"
@@ -246,7 +252,7 @@ msgstr "W ramach"
 
 msgctxt "MixedModelsPlots|"
 msgid "Between"
-msgstr "Między"
+msgstr "Pomiędzy"
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval"
@@ -290,7 +296,7 @@ msgstr "Wykres pudełkowy z szumem"
 
 msgctxt "MixedModelsPlots|"
 msgid "Count"
-msgstr "Liczebność"
+msgstr "Liczebności"
 
 msgctxt "MixedModelsPlots|"
 msgid "Transparency"
@@ -390,7 +396,7 @@ msgstr "Zmienne efektów stałych"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Random effects grouping factors"
-msgstr "Czynniki grupujące efekty losowe"
+msgstr "Czynniki efektów losowych"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Family"
@@ -506,7 +512,7 @@ msgstr "Zmienne efektów stałych"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Random effects grouping factors"
-msgstr "Czynniki grupujące efektów losowych"
+msgstr "Czynniki efektów losowych"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated marginal means"
@@ -526,7 +532,7 @@ msgstr "Przedział ufności"
 
 msgctxt "MixedModelsBLMM|"
 msgid "SD factor covariates"
-msgstr "SD factor covariates"
+msgstr "Odch. stand. współzm."
 
 msgctxt "MixedModelsBLMM|"
 msgid "Specify contrasts"
@@ -558,7 +564,7 @@ msgstr "Zmienne efektów stałych"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Random effects grouping factors"
-msgstr "Czynniki grupujące efektów losowych"
+msgstr "Czynniki efektów losowych"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Family"
@@ -566,7 +572,7 @@ msgstr "Typ"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
-msgstr "Dwumian"
+msgstr "Dwumianowy"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial (aggregated)"
@@ -642,7 +648,7 @@ msgstr "Przedział ufności"
 
 msgctxt "MixedModelsGLMM|"
 msgid "SD factor covariates"
-msgstr "SD factor covariates"
+msgstr "Odch. stand. współzm."
 
 msgctxt "MixedModelsGLMM|"
 msgid "Compare marginal means to:"
@@ -694,7 +700,7 @@ msgstr "Zmienne efektów stałych"
 
 msgctxt "MixedModelsLMM|"
 msgid "Random effects grouping factors"
-msgstr "Czynniki grupujące efektów losowych"
+msgstr "Czynniki efektów losowych"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated marginal means"
@@ -714,7 +720,7 @@ msgstr "Przedział ufności"
 
 msgctxt "MixedModelsLMM|"
 msgid "SD factor covariates"
-msgstr "SD factor covariates"
+msgstr "Odch. stand. współzm."
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimate df"
@@ -799,7 +805,7 @@ msgstr "Przedział ufności"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
-msgstr "SD factor covariates"
+msgstr "Odch. stand. współzm."
 
 msgctxt "MixedModelsBOptions|"
 msgid "Samples"
