@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2023-04-22 02:48\n"
+"POT-Creation-Date: 2023-09-02 02:47\n"
 "PO-Revision-Date: 2023-04-21 17:51+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
@@ -573,6 +573,9 @@ msgid ""
 msgstr ""
 "開始値が不適切なため、最適化法が解を見つけられませんでした。(JASPは現在、異な"
 "る開始値の指定をサポートしていません)。"
+
+msgid "The model formula is probably too long. Try shortening variable names."
+msgstr ""
 
 msgid "The following variable is used as a random effects grouping factor: %s."
 msgid_plural ""

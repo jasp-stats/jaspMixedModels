@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2023-04-22 02:48\n"
+"POT-Creation-Date: 2023-09-02 02:47\n"
 "PO-Revision-Date: 2023-04-22 23:57+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
@@ -591,6 +591,9 @@ msgstr ""
 "Fallou o optimizador procurando unha solución no número indicado de "
 "iteracións. (Actualmente JASP non admite modificar a configuración do "
 "optimizador.)"
+
+msgid "The model formula is probably too long. Try shortening variable names."
+msgstr ""
 
 msgid "The following variable is used as a random effects grouping factor: %s."
 msgid_plural ""
