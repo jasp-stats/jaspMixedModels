@@ -323,9 +323,9 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     tempVarsRem  <- sapply(tempVarsRem, function(x) paste(unlist(x), collapse = "*"))
 
     # check whether the random intercept is specified, and remove it from the list of slopes
-    tempHasIntercept <- any(tempVars == gettext("Intercept"))
-    tempVars         <- tempVars[tempVars != gettext("Intercept")]
-    tempVarsRem      <- tempVarsRem[tempVarsRem != gettext("Intercept")]
+    tempHasIntercept <- any(tempVars == "Intercept")
+    tempVars         <- tempVars[tempVars != "Intercept"]
+    tempVarsRem      <- tempVarsRem[tempVarsRem != "Intercept"]
 
     ### test sensibility of random slopes
     # main effect check #1
@@ -633,7 +633,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   for (i in 1:nrow(model$anova_table)) {
 
     if (rownames(model$anova_table)[i] == "(Intercept)")
-      effectName <- gettext("Intercept")
+      effectName <- "Intercept"
     else
       effectName <- jaspBase::gsubInteractionSymbol(rownames(model$anova_table)[i])
 
@@ -2332,7 +2332,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
     } else if (names(modelSummary)[i] == "(Intercept)") {
 
-      varName   <- gettext("Intercept")
+      varName   <- "Intercept"
       tableName <- varName
 
     } else {
@@ -2355,7 +2355,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     tempTable <- createJaspTable(title = tableName)
     STANOVAsummary[[paste0("summary_", i)]] <- tempTable
 
-    if (varName != gettext("Intercept") && nrow(tempSummary) > 1)
+    if (varName != "Intercept" && nrow(tempSummary) > 1)
       tempTable$addColumnInfo(name = "level",  title = gettext("Level"), type = "string")
 
     tempTable$addColumnInfo(name = "estimate", title = gettext("Estimate"),   type = "number")
@@ -2395,7 +2395,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         ess_tail   = tempSummary$ess_tail[j]
       )
 
-      if (varName != gettext("Intercept") && nrow(tempSummary) > 1) {
+      if (varName != "Intercept" && nrow(tempSummary) > 1) {
 
         varName <- paste(unlist(strsplit(as.character(tempSummary$Variable[j]), ",")), collapse = jaspBase::interactionSymbol)
         varName <- gsub(" ", "", varName, fixed = TRUE)
@@ -2505,7 +2505,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   for (i in 1:length(plotData)) {
 
     if (names(plotData)[i] == "Intercept") {
-      varName <- gettext("Intercept")
+      varName <- "Intercept"
     } else {
       varName <- strsplit(as.character(pars), ":")
       varName <- sapply(varName, function(x) paste(unlist(strsplit(x, ",")), collapse = ":"))
@@ -2551,7 +2551,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 .mmVariableNames      <- function(varName, variables) {
 
   if (varName == "(Intercept)")
-    return(gettext("Intercept"))
+    return("Intercept")
 
   for (vn in variables) {
     inf <- regexpr(vn, varName, fixed = TRUE)
