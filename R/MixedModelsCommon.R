@@ -323,9 +323,9 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     tempVarsRem  <- sapply(tempVarsRem, function(x) paste(unlist(x), collapse = "*"))
 
     # check whether the random intercept is specified, and remove it from the list of slopes
-    tempHasIntercept <- any(tempVars == "Intercept")
-    tempVars         <- tempVars[tempVars != "Intercept"]
-    tempVarsRem      <- tempVarsRem[tempVarsRem != "Intercept"]
+    tempHasIntercept <- any(tempVars == gettext("Intercept"))
+    tempVars         <- tempVars[tempVars != gettext("Intercept")]
+    tempVarsRem      <- tempVarsRem[tempVarsRem != gettext("Intercept")]
 
     ### test sensibility of random slopes
     # main effect check #1
@@ -2355,7 +2355,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     tempTable <- createJaspTable(title = tableName)
     STANOVAsummary[[paste0("summary_", i)]] <- tempTable
 
-    if (varName != "Intercept" && nrow(tempSummary) > 1)
+    if (varName != gettext("Intercept") && nrow(tempSummary) > 1)
       tempTable$addColumnInfo(name = "level",  title = gettext("Level"), type = "string")
 
     tempTable$addColumnInfo(name = "estimate", title = gettext("Estimate"),   type = "number")
@@ -2395,7 +2395,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         ess_tail   = tempSummary$ess_tail[j]
       )
 
-      if (varName != "Intercept" && nrow(tempSummary) > 1) {
+      if (varName != gettext("Intercept") && nrow(tempSummary) > 1) {
 
         varName <- paste(unlist(strsplit(as.character(tempSummary$Variable[j]), ",")), collapse = jaspBase::interactionSymbol)
         varName <- gsub(" ", "", varName, fixed = TRUE)
