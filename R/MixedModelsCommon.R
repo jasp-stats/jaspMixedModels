@@ -633,7 +633,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   for (i in 1:nrow(model$anova_table)) {
 
     if (rownames(model$anova_table)[i] == "(Intercept)")
-      effectName <- gettext("Intercept")
+      effectName <- "Intercept"
     else
       effectName <- jaspBase::gsubInteractionSymbol(rownames(model$anova_table)[i])
 
@@ -2332,7 +2332,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
     } else if (names(modelSummary)[i] == "(Intercept)") {
 
-      varName   <- gettext("Intercept")
+      varName   <- "Intercept"
       tableName <- varName
 
     } else {
@@ -2505,7 +2505,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   for (i in 1:length(plotData)) {
 
     if (names(plotData)[i] == "Intercept") {
-      varName <- gettext("Intercept")
+      varName <- "Intercept"
     } else {
       varName <- strsplit(as.character(pars), ":")
       varName <- sapply(varName, function(x) paste(unlist(strsplit(x, ",")), collapse = ":"))
@@ -2551,7 +2551,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 .mmVariableNames      <- function(varName, variables) {
 
   if (varName == "(Intercept)")
-    return(gettext("Intercept"))
+    return("Intercept")
 
   for (vn in variables) {
     inf <- regexpr(vn, varName, fixed = TRUE)
