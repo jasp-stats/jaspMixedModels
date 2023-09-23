@@ -152,10 +152,6 @@ msgctxt "MixedModelsModel|"
 msgid "Random effects"
 msgstr ""
 
-msgctxt "MixedModelsModel|"
-msgid "Intercept"
-msgstr ""
-
 #, qt-format
 msgctxt "MixedModelsModel|"
 msgid "Random components (%1)"

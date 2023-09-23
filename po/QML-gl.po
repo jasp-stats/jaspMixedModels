@@ -789,10 +789,6 @@ msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
 msgstr "Estimacións de efectos aleatorios"
 
-msgctxt "MixedModelsModel|"
-msgid "Intercept"
-msgstr "Constante"
-
 msgctxt "MixedModelsBGLMM|"
 msgid "Confidence interval"
 msgstr "Intervalo de confianza"

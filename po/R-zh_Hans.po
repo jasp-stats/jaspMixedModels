@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.2\n"
-"POT-Creation-Date: 2023-09-02 02:47\n"
+"POT-Creation-Date: 2023-09-23 02:46\n"
 "PO-Revision-Date: 2023-09-21 13:32+0000\n"
 "Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -83,9 +83,6 @@ msgstr ""
 
 msgid "VS-MPR (bootstrap)"
 msgstr ""
-
-msgid "Intercept"
-msgstr "截距"
 
 msgid "Warning:"
 msgstr ""
@@ -593,3 +590,6 @@ msgid_plural ""
 "parameter (k) of the generalized Pareto distribution higher than 0.5."
 msgstr[0] ""
 msgstr[1] ""
+
+#~ msgid "Intercept"
+#~ msgstr "截距"

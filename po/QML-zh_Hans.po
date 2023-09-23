@@ -788,10 +788,6 @@ msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
 msgstr "随机效应估计"
 
-msgctxt "MixedModelsModel|"
-msgid "Intercept"
-msgstr "截距"
-
 msgctxt "MixedModelsBGLMM|"
 msgid "Confidence interval"
 msgstr "置信区间"

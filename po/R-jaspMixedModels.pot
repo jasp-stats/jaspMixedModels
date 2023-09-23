@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.18.1\n"
-"POT-Creation-Date: 2023-09-21 13:42\n"
+"POT-Creation-Date: 2023-09-23 02:46\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,9 +69,6 @@ msgid "VS-MPR"
 msgstr ""
 
 msgid "VS-MPR (bootstrap)"
-msgstr ""
-
-msgid "Intercept"
 msgstr ""
 
 msgid "Warning:"

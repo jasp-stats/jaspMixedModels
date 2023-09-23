@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2023-09-02 02:47\n"
+"POT-Creation-Date: 2023-09-23 02:46\n"
 "PO-Revision-Date: 2023-09-02 09:39+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
@@ -101,9 +101,6 @@ msgstr "VS-MPR"
 
 msgid "VS-MPR (bootstrap)"
 msgstr "VS-MPR (bootstrap)"
-
-msgid "Intercept"
-msgstr "Constante"
 
 msgid "Warning:"
 msgstr "Aviso:"
@@ -747,3 +744,6 @@ msgstr[0] ""
 msgstr[1] ""
 "Estimación LOO pouco fiable -- Había %1.0f observacións con parámetro de "
 "forma (k) da distribución xeneralizada de Pareto, maior que 0.5."
+
+#~ msgid "Intercept"
+#~ msgstr "Constante"
