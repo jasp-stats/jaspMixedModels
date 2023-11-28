@@ -14,6 +14,8 @@ The analysis uses orthonormal contrasts such that the marginal prior on all fixe
 
 The analysis uses a long data format.
 
+The prior distributions are weakly informative and should be well-behaved in parameter estimation settings. The module uses the default prior distribution settings of the rstanarm R package which defines normal(location = 0, scale = 2.5) prior distributions on scaled and centered model coefficients. 
+
 ### Input
 
 #### Assignment Box
