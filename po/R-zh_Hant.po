@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.18.0\n"
 "POT-Creation-Date: 2023-09-23 02:46\n"
-"PO-Revision-Date: 2023-10-01 04:59+0000\n"
-"Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
+"PO-Revision-Date: 2023-12-16 02:45+0000\n"
+"Last-Translator: Ginger Shu-Ying Yeh <gingershuying@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "jasp/jaspmixedmodels-r/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.3\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -64,7 +64,7 @@ msgid "Effect"
 msgstr ""
 
 msgid "df"
-msgstr ""
+msgstr "自由度"
 
 msgid "F"
 msgstr ""
@@ -73,7 +73,7 @@ msgid "ChiSq"
 msgstr ""
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "p (bootstrap)"
 msgstr ""
@@ -109,10 +109,10 @@ msgid "log Lik."
 msgstr ""
 
 msgid "AIC"
-msgstr ""
+msgstr "AIC"
 
 msgid "BIC"
-msgstr ""
+msgstr "BIC"
 
 msgid "Sample sizes"
 msgstr ""
@@ -136,7 +136,7 @@ msgid "Std. Deviation"
 msgstr "標準差"
 
 msgid "Variance"
-msgstr ""
+msgstr "變異數"
 
 msgid "%s: Correlation Estimates"
 msgstr ""
@@ -154,13 +154,13 @@ msgid "Fixed Effects Estimates"
 msgstr ""
 
 msgid "Estimate"
-msgstr ""
+msgstr "估計"
 
 msgid "SE"
-msgstr ""
+msgstr "標準誤"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Plot"
 msgstr ""
@@ -187,16 +187,16 @@ msgid "Estimated Means and Confidence Intervals"
 msgstr ""
 
 msgid "Mean"
-msgstr ""
+msgstr "平均數"
 
 msgid "Lower"
-msgstr ""
+msgstr "下界"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% 信賴區間"
 
 msgid "Upper"
-msgstr ""
+msgstr "上界"
 
 msgid "Cannot find function: %s"
 msgstr ""
@@ -270,7 +270,7 @@ msgid "%s (marginal means)"
 msgstr ""
 
 msgid "Level"
-msgstr ""
+msgstr "水準"
 
 msgid "R-hat"
 msgstr ""
@@ -421,7 +421,7 @@ msgid "Multivariate-t"
 msgstr ""
 
 msgid "Tukey"
-msgstr ""
+msgstr "Tukey"
 
 msgid "Benjamini-Hochberg"
 msgstr ""
