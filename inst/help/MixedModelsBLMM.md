@@ -53,7 +53,7 @@ Press the button to run the analysis. Model relevant changes in the settings wil
 - Burnin: Number of iterations reserved for burnin.
 - Iterations: Total number of iterations.
 - Chains: Number of chains.
-- Adapt delta: Average targer proposal acceptance of each step. Increasing `Adapt delta` results in better-behaved chains, but also longer fitting times.
+- Adapt delta: Average target proposal acceptance of each step. Increasing `Adapt delta` results in better-behaved chains, but also longer fitting times.
 - Maximum treedepth: The cap for number of trees evaluated during each iteration. Prevents excessively long execution times.
 - Show: What should be the default output.
   - Differences from intercept: A table for each fixed effects term will be created in the default output and it will show the differences from the grand mean for each of the terms' levels (or one standard deviation distance for continuous terms). This option is selected by default.
