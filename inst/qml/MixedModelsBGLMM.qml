@@ -105,7 +105,7 @@ Form {
 				"inverseGaussian":			["identity", "log", "inverse"],
 				"poisson":					["identity", "log", "sqrt"],
 				"negativeBinomial":			["identity", "log", "sqrt"],
-				"beta":						["logit", "probit", "cauchit", "cloglog", "log"]
+				"beta":						["logit", "probit", "cauchit", "cloglog"]
 			}
 
 			property var familyDefault:
