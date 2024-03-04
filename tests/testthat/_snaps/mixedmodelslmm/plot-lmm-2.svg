@@ -79,22 +79,22 @@
 <text x='535.02' y='510.38' text-anchor='middle' style='font-size: 16.50px; fill: #4D4D4D; font-family: sans;' textLength='9.18px' lengthAdjust='spacingAndGlyphs'>1</text>
 <text x='385.44' y='527.90' text-anchor='middle' style='font-size: 16.50px; font-family: sans;' textLength='77.97px' lengthAdjust='spacingAndGlyphs'>contBinom</text>
 <text transform='translate(16.83,258.44) rotate(-90)' text-anchor='middle' style='font-size: 16.50px; font-family: sans;' textLength='84.38px' lengthAdjust='spacingAndGlyphs'>contNormal</text>
-<rect x='232.97' y='542.28' width='304.95' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<text x='238.45' y='562.08' style='font-size: 16.50px; font-family: sans;' textLength='82.55px' lengthAdjust='spacingAndGlyphs'>facExperim</text>
-<rect x='329.21' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='329.92' y='548.47' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #A9A9A9; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8766D; fill-opacity: 0.70;' />
-<circle cx='337.85' cy='556.40' r='1.95' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
-<line x1='330.94' y1='556.40' x2='344.77' y2='556.40' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<circle cx='337.85' cy='556.40' r='1.95' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
-<line x1='330.94' y1='556.40' x2='344.77' y2='556.40' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<rect x='412.46' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
-<rect x='413.17' y='548.47' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #A9A9A9; stroke-dasharray: 2.85,2.85; stroke-linecap: butt; stroke-linejoin: miter; fill: #00BFC4; fill-opacity: 0.70;' />
-<polygon points='421.10,553.36 423.73,557.92 418.47,557.92 ' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
-<line x1='414.19' y1='556.40' x2='428.01' y2='556.40' style='stroke-width: 1.07; stroke-dasharray: 2.85,2.85; stroke-linecap: butt;' />
-<polygon points='421.10,553.36 423.73,557.92 418.47,557.92 ' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
-<line x1='414.19' y1='556.40' x2='428.01' y2='556.40' style='stroke-width: 1.07; stroke-dasharray: 2.85,2.85; stroke-linecap: butt;' />
+<rect x='238.45' y='542.28' width='293.99' height='28.24' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<text x='243.93' y='562.08' style='font-size: 16.50px; font-family: sans;' textLength='82.55px' lengthAdjust='spacingAndGlyphs'>facExperim</text>
+<rect x='331.95' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<rect x='332.66' y='548.47' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #A9A9A9; stroke-linecap: butt; stroke-linejoin: miter; fill: #F8766D; fill-opacity: 0.70;' />
+<circle cx='340.59' cy='556.40' r='1.95' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
+<line x1='333.68' y1='556.40' x2='347.51' y2='556.40' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<circle cx='340.59' cy='556.40' r='1.95' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
+<line x1='333.68' y1='556.40' x2='347.51' y2='556.40' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<rect x='409.72' y='547.76' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
+<rect x='410.43' y='548.47' width='15.86' height='15.86' style='stroke-width: 1.07; stroke: #A9A9A9; stroke-dasharray: 2.85,2.85; stroke-linecap: butt; stroke-linejoin: miter; fill: #00BFC4; fill-opacity: 0.70;' />
+<polygon points='418.36,553.36 420.99,557.92 415.73,557.92 ' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
+<line x1='411.45' y1='556.40' x2='425.27' y2='556.40' style='stroke-width: 1.07; stroke-dasharray: 2.85,2.85; stroke-linecap: butt;' />
+<polygon points='418.36,553.36 420.99,557.92 415.73,557.92 ' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
+<line x1='411.45' y1='556.40' x2='425.27' y2='556.40' style='stroke-width: 1.07; stroke-dasharray: 2.85,2.85; stroke-linecap: butt;' />
 <text x='354.71' y='562.08' style='font-size: 16.50px; font-family: sans;' textLength='49.53px' lengthAdjust='spacingAndGlyphs'>control</text>
-<text x='437.96' y='562.08' style='font-size: 16.50px; font-family: sans;' textLength='94.48px' lengthAdjust='spacingAndGlyphs'>experimental</text>
+<text x='432.48' y='562.08' style='font-size: 16.50px; font-family: sans;' textLength='94.48px' lengthAdjust='spacingAndGlyphs'>experimental</text>
 <text x='56.36' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='62.35px' lengthAdjust='spacingAndGlyphs'>plot-lmm-2</text>
 </g>
 </svg>
