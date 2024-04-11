@@ -454,11 +454,9 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   added <- NULL
   if (length(terms) > 1 && length(removed) >= 1) {
-    splitTerms  <- sapply(terms, strsplit, "\\*")
-    splitTerms  <- sapply(splitTerms, function(x) trimws(x, which = c("both")))
 
-    splitRemoved <- sapply(removed, strsplit, "\\*")
-    splitRemoved <- sapply(splitRemoved, function(x) trimws(x, which = c("both")))
+    splitTerms   <- lapply(terms,   function(x) trimws(unlist(strsplit(x, "\\*")), which = c("both")))
+    splitRemoved <- lapply(removed, function(x) trimws(unlist(strsplit(x, "\\*")), which = c("both")))
 
     termsToRemove <- rep(NA, length(splitTerms))
 
