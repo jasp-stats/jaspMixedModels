@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-04-06 02:45+0000\n"
+"PO-Revision-Date: 2024-04-07 21:10+0000\n"
 "Last-Translator: robachowyk <kaya.robach@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/fr/>\n"
@@ -71,10 +71,9 @@ msgctxt "MixedModelsBOptions|"
 msgid "Show"
 msgstr "Montrer"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Differences from intercept"
-msgstr "Différences à l'intercept"
+msgstr "Différences par rapport à l'intercept"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Marginal means"
