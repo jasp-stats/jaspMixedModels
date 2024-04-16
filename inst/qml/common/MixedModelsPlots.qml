@@ -35,7 +35,7 @@ Section
 		{
 			name:	"availableModelComponentsPlot"
 			title:	qsTr("Model factors")
-			source:	[ { name: "fixedEffects", use: "type=ordinal|nominal|nominalText"} ]
+			source:	[ { name: "fixedEffects", use: "type=ordinal|nominal"} ]
 		}
 
 		AssignedVariablesList

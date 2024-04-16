@@ -51,7 +51,7 @@ Form {
 		{
 			name:				"fixedVariables"
 			title:				qsTr("Fixed effects variables")
-			allowedColumns:		["ordinal", "nominal","scale","nominalText"]
+			allowedColumns:		["ordinal", "nominal","scale"]
 			itemType:			"fixedFactors"
 		}
 
@@ -59,7 +59,7 @@ Form {
 		{
 			name:				"randomVariables"
 			title:				qsTr("Random effects grouping factors")
-			allowedColumns:		["ordinal", "nominal","nominalText"]
+			allowedColumns:		["ordinal", "nominal"]
 		}
 	}
 
