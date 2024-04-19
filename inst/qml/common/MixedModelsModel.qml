@@ -42,6 +42,14 @@ Section
 			title:			qsTr("Fixed effects")
 			listViewType:	JASP.Interaction
 		}
+
+		CheckBox
+		{
+			label:		qsTr("Include intercept")
+			name:		"includeIntercept"
+			checked:	true
+		}
+	
 	}
 
 	ComponentsList

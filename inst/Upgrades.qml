@@ -13,7 +13,7 @@ Upgrades
 		ChangeJS
 		{
 			name:		"plotsTheme"
-			jsFunction:	function(options) 
+			jsFunction:	function(options)
 			{
 				switch(options["plotsTheme"])
 				{
@@ -41,7 +41,7 @@ Upgrades
 		ChangeJS
 		{
 			name:		"plotsTheme"
-			jsFunction:	function(options) 
+			jsFunction:	function(options)
 			{
 				switch(options["plotsTheme"])
 				{
@@ -62,7 +62,7 @@ Upgrades
 		ChangeJS
 		{
 			name:		"plotsTheme"
-			jsFunction:	function(options) 
+			jsFunction:	function(options)
 			{
 				switch(options["plotsTheme"])
 				{
@@ -89,7 +89,7 @@ Upgrades
 		ChangeJS
 		{
 			name:		"plotsTheme"
-			jsFunction:	function(options) 
+			jsFunction:	function(options)
 			{
 				switch(options["plotsTheme"])
 				{
@@ -109,7 +109,7 @@ Upgrades
 		toVersion:		"0.17.0"
 
 		ChangeRename { from: "dependentVariable";	to: "dependent"	}
-		
+
 		// MixedModelOptions.qml
 		ChangeRename { from: "test_intercept";	to: "interceptTest"	}
 		ChangeRename { from: "method";			to: "testMethod"	}
@@ -358,7 +358,7 @@ Upgrades
 		ChangeJS
 		{
 			name:	"mcmcDiagnosticsType"
-			jsFunction:	function(options) 
+			jsFunction:	function(options)
 			{
 				switch(options["mcmcDiagnosticsType"])
 				{
@@ -481,7 +481,7 @@ Upgrades
 		ChangeJS
 		{
 			name:	"mcmcDiagnosticsType"
-			jsFunction:	function(options) 
+			jsFunction:	function(options)
 			{
 				switch(options["mcmcDiagnosticsType"])
 				{
@@ -551,14 +551,15 @@ Upgrades
 		ChangeRename { from: "trendsSD";				to: "trendsSd"				}
 	}
 
-	
+
 	Upgrade
 	{
 		functionName: 	"MixedModelsLMM"
 		fromVersion:	"0.18.3"
 		toVersion:		"0.19.0"
 
-		ChangeSetValue	 { name: "factorContrast";	jsonValue: "Sum"}
+		ChangeSetValue	 { name: "factorContrast";  	jsonValue: "sum"}
+		ChangeSetValue	 { name: "includeIntercept";	jsonValue: true}
 	}
 
 	Upgrade
@@ -567,8 +568,26 @@ Upgrades
 		fromVersion:	"0.18.3"
 		toVersion:		"0.19.0"
 
-		ChangeSetValue	 { name: "factorContrast";	jsonValue: "Sum"}
+		ChangeSetValue	 { name: "factorContrast";	jsonValue: "sum"}
+		ChangeSetValue	 { name: "includeIntercept";	jsonValue: true}
+	}
 
+	Upgrade
+	{
+		functionName: 	"MixedModelsBLMM"
+		fromVersion:	"0.18.3"
+		toVersion:		"0.19.0"
+
+		ChangeSetValue	 { name: "includeIntercept";	jsonValue: true}
+	}
+
+	Upgrade
+	{
+		functionName: 	"MixedModelsBGLMM"
+		fromVersion:	"0.18.3"
+		toVersion:		"0.19.0"
+
+		ChangeSetValue	 { name: "includeIntercept";	jsonValue: true}
 	}
 
 }

@@ -19,8 +19,8 @@
 .mmMessageInterpretability          <- function(contrast) {
   switch(
     contrast,
-    "Sum"       = gettext("The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated with sum contrast coding. Consequently, the estimates cannot be directly mapped to factor levels. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences."),
-    "Treatment" = gettext("The intercept corresponds to the mean in the default factor category (factor level parameters are estimated with treatment contrast coding). Consequently, the estimates cannot be easily interepreted in the presence of interactions. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences.")
+    "sum"       = gettext("The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated with sum contrast coding. Consequently, the estimates cannot be directly mapped to factor levels. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences."),
+    "treatment" = gettext("The intercept corresponds to the mean in the default factor category (factor level parameters are estimated with treatment contrast coding). Consequently, the estimates cannot be easily interepreted in the presence of interactions. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences.")
   )
 }
 .mmMessageInterpretabilityBayesian  <- function()       gettext("The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated with orthonormal coding proposed by Rouder et al. (2012). Consequently, the estimates cannot be directly mapped to factor levels. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences.")

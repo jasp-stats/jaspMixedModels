@@ -70,8 +70,8 @@ Section
 			label:	qsTr("Factor contrast")
 			values: 
 			[
-				{ label: qsTr("Sum"),		value: "Sum"},
-				{ label: qsTr("Treatment"),	value: "Treatment"}
+				{ label: qsTr("Sum"),		value: "sum"},
+				{ label: qsTr("Treatment"),	value: "treatment"}
 			]
 		}
 
