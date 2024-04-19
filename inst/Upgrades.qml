@@ -428,8 +428,6 @@ Upgrades
 		ChangeRename { from: "trendsSD";				to: "trendsSd"				}
 	}
 
-
-
 	Upgrade
 	{
 		functionName:	"MixedModelsBGLMM"
@@ -552,4 +550,25 @@ Upgrades
 		ChangeRename { from: "trendsCIwidth";			to: "trendsCiLevel"			}
 		ChangeRename { from: "trendsSD";				to: "trendsSd"				}
 	}
+
+	
+	Upgrade
+	{
+		functionName: 	"MixedModelsLMM"
+		fromVersion:	"0.18.3"
+		toVersion:		"0.19.0"
+
+		ChangeSetValue	 { from: "factorContrast";	to: "Sum"}
+	}
+
+	Upgrade
+	{
+		functionName: 	"MixedModelsGLMM"
+		fromVersion:	"0.18.3"
+		toVersion:		"0.19.0"
+
+		ChangeSetValue	 { from: "factorContrast";	to: "Sum"}
+
+	}
+
 }
