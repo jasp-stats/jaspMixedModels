@@ -432,6 +432,20 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   return(terms)
 }
+.mmSetContrasts  <- function(dataset, options) {
+
+  for (i in seq_along(options[["fixedVariables"]])) {
+    if (is.factor(dataset[[options[["fixedVariables"]][i]]])) {
+      contrasts(dataset[[options[["fixedVariables"]][i]]]) <- switch(
+        options$factorContrast,
+        "Sum"       = contr.sum,
+        "Treatment" = contr.treatment
+      )
+    }
+  }
+
+  return(dataset)
+}
 
 .mmGetTestIntercept <- function(options) {
    out <- if (options[["testMethod"]] %in% c("likelihoodRatioTest", "parametricBootstrap")) options[["interceptTest"]] else FALSE
@@ -487,11 +501,13 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   }
 
   dependencies <- c(.mmSwichDependencies(type), seedDependencies)
-
   mmModel$dependOn(dependencies)
 
-
+  # specify model formula
   modelFormula <- .mmModelFormula(options, dataset)
+
+  # specify contrasts
+  dataset <- .mmSetContrasts(dataset, options)
 
   if (type == "LMM") {
     model <- try(
@@ -502,7 +518,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         method          = .mmGetTestMethod(options),
         test_intercept  = .mmGetTestIntercept(options),
         args_test       = list(nsim = options$bootstrapSamples),
-        check_contrasts = TRUE
+        check_contrasts = FALSE
       ))
   } else if (type == "GLMM") {
     # needs to be avaluated in the global environment
@@ -521,7 +537,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
           method          = .mmGetTestMethod(options),
           test_intercept  = .mmGetTestIntercept(options),
           args_test       = list(nsim = options$bootstrapSamples),
-          check_contrasts = TRUE,
+          check_contrasts = FALSE,
           family          = glmmFamily,
           weights         = glmmWeight
         ))
@@ -534,7 +550,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
           method          = .mmGetTestMethod(options),
           test_intercept  = .mmGetTestIntercept(options),
           args_test       = list(nsim = options$bootstrapSamples),
-          check_contrasts = TRUE,
+          check_contrasts = FALSE,
           #start           = start,
           family          = glmmFamily
       ))
@@ -828,7 +844,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       REvar$addRows(tempRow)
     }
 
-    REvar$addFootnote(.mmMessageInterpretability())
+    REvar$addFootnote(.mmMessageInterpretability(options[["factorContrast"]]))
 
     REsummary[[paste0("VE", gi)]] <- REvar
 
@@ -856,7 +872,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         REcor$addRows(tempRow)
       }
 
-      REcor$addFootnote(.mmMessageInterpretability())
+      REcor$addFootnote(.mmMessageInterpretability(options[["factorContrast"]]))
 
       REsummary[[paste0("CE", gi)]] <- REcor
 
@@ -1014,7 +1030,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   }
 
   # add warning messages
-  FEsummary$addFootnote(.mmMessageInterpretability())
+  FEsummary$addFootnote(.mmMessageInterpretability(options[["factorContrast"]]))
 
   return()
 }
@@ -2788,6 +2804,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     "randomEffects",
     "randomVariables",
     "testMethod",
+    "factorContrast",
     "bootstrapSamples",
     "interceptTest",
     "type"

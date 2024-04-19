@@ -10,7 +10,7 @@ Linear Mixed Models allow you to model a linear relationship between one or more
 - Homoscedasticity: The error variance of each predictor is constant across all values of that predictor.
 - Normality of errors: The errors are normally distributed with mean zero.
 
-The analysis uses sum contrast encoding for categorical (nominal and ordinal) predictors (R uses dummy encoding by default). This scheme is used for better interpretability of models with interactions. However, the fixed and random effects estimates will differ from those obtained from R with default settings. We advise using the 'Estimated marginal means' section for obtaining mean estimates at individual factor levels. For comparing the mean estimates, use the contrasts option.
+The analysis uses sum contrast encoding for categorical (nominal and ordinal) predictors (R uses dummy encoding by default). This scheme is used for better interpretability of models with interactions. However, the fixed and random effects estimates will differ from those obtained from R with default settings. We advise using the 'Estimated marginal means' section for obtaining mean estimates at individual factor levels. For comparing the mean estimates, use the contrasts option. To change the contrast enconding for the analysis use `Factor contrast` dropdown in the Options section.
 
 The analysis uses a long data format.
 
@@ -47,6 +47,7 @@ Press the button to run the analysis. Model relevant changes in the settings wil
   - Type III: Partial sum of squares. It is the reduction of error when each factor is added to the model that includes all the other factors, including interactions with this factor. This type is often selected, because it takes interactions into account (Langsrud, 2003). This type is selected by default and recommended for designs in which the imbalance is not a consequence of imbalance in the population, but random.
 - Test method: Methods for obtaining p-values for the ANOVA summary. Note that `Kenward-Roger` approximation for degrees of freedom can be very RAM and time consuming with larger datasets and complicated random effects structures.
   - No. samples: Number of samples for the parametric bootstrap.
+- Factor contrast: Specifies factor encoding for categorical variables.   
 - Repeatability: Gives the option to set a seed for your analysis. Setting a seed will exclude random processes influencing an analysis. Affects only parametric bootstrap and jitter in plots.
 - Test intercept: Whether the model intercept should be tested. Available only if the `likelihood ratio test` or `parametric bootstrap` is selected in the `Model terms test`.
 - Fixed effects estimates: Shows the estimated fixed effect coefficients.
