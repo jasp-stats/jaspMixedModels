@@ -558,7 +558,7 @@ Upgrades
 		fromVersion:	"0.18.3"
 		toVersion:		"0.19.0"
 
-		ChangeSetValue	 { from: "factorContrast";	to: "Sum"}
+		ChangeSetValue	 { name: "factorContrast";	jsonValue: "Sum"}
 	}
 
 	Upgrade
@@ -567,7 +567,7 @@ Upgrades
 		fromVersion:	"0.18.3"
 		toVersion:		"0.19.0"
 
-		ChangeSetValue	 { from: "factorContrast";	to: "Sum"}
+		ChangeSetValue	 { name: "factorContrast";	jsonValue: "Sum"}
 
 	}
 
