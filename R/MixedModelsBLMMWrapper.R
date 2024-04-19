@@ -28,6 +28,7 @@ MixedModelsBLMM <- function(
           fixedEffectEstimate = FALSE,
           fixedEffects = list(),
           fixedVariables = list(),
+          includeIntercept = TRUE,
           marginalMeansCiLevel = 0.95,
           marginalMeansContrast = FALSE,
           marginalMeansSd = 1,

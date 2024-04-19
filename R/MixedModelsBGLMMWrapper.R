@@ -30,6 +30,7 @@ MixedModelsBGLMM <- function(
           fixedEffectEstimate = FALSE,
           fixedEffects = list(),
           fixedVariables = list(),
+          includeIntercept = TRUE,
           link = "logit",
           marginalMeansCiLevel = 0.95,
           marginalMeansContrast = FALSE,
