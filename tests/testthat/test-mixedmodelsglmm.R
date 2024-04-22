@@ -22,7 +22,7 @@ context("Generalized Linear Mixed Models")
                                list(components = "Variable7"),
                                list(components = c("Variable1", "Variable7")))
   options$includeIntercept <- TRUE
-  options$includeIntercept <- TRUE
+  options$factorContrast <- "sum"
   options$fixedVariables <- c("Variable1", "Variable7")
   options$marginalMeansTerms <- list(list(variable = "Variable1"), list(variable = "Variable7"))
   options$marginalMeansContrast <- TRUE
@@ -425,6 +425,7 @@ context("Generalized Linear Mixed Models")
                                list(components = "facGender"),
                                list(components = c("contNormal", "facGender")))
   options$includeIntercept <- TRUE
+  options$factorContrast <- "sum"
   options$fixedVariables <- c("contNormal", "facGender")
   options$link <- "probit"
   options$marginalMeansTerms <- list(list(variable = "contNormal"), list(variable = "facGender"))
@@ -580,6 +581,7 @@ context("Generalized Linear Mixed Models")
                                list(components = "contBinom"),
                                list(components = c("facGender", "contBinom")))
   options$includeIntercept <- TRUE
+  options$factorContrast <- "sum"
   options$fixedVariables <- c("facGender", "contBinom")
   options$link <- "log"
   options$marginalMeansTerms <- list(list(variable = "facGender"))
@@ -720,6 +722,7 @@ context("Generalized Linear Mixed Models")
   options$modelSummary <- FALSE
   options$fixedEffects <- list(list(components = "facGender"))
   options$includeIntercept <- TRUE
+  options$factorContrast <- "sum"
   options$fixedVariables <- "facGender"
   options$link <- "log"
   options$marginalMeansTerms <- list(list(variable = "facGender"))
@@ -829,6 +832,7 @@ context("Generalized Linear Mixed Models")
                                list(components = "cB"),
                                list(components = c("cA", "cB")))
   options$includeIntercept <- TRUE
+  options$factorContrast <- "sum"
   options$fixedVariables <- c("cA", "cB")
   options$marginalMeansTerms <- list(list(variable = "cA"))
   options$marginalMeansContrast <- TRUE

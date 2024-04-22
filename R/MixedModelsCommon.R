@@ -471,7 +471,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   ))
 }
 .isInterceptML      <- function(options) {
-  return(length(options$fixedEffects) == 1 && options$includeIntercept && options$testMethod %in% c("likelihoodRatioTest", "parametricBootstrap"))
+  return(length(options$fixedEffects) == 0 && options$includeIntercept && options$testMethod %in% c("likelihoodRatioTest", "parametricBootstrap"))
 }
 .mmGetTestIntercept <- function(options) {
    out <- if (options[["testMethod"]] %in% c("likelihoodRatioTest", "parametricBootstrap")) options[["interceptTest"]] else FALSE
@@ -1201,9 +1201,11 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   if (options$plotBackgroundColor != "none" && options$plotBackgroundElement != "jitter" && "color" %in% mapping)
     data_arg$color <- options$plotBackgroundColor
 
-  # fixing afex issues with bootstrap and LRT type II SS - hopefully removeable in the future
-  if (type %in% c("LMM", "GLMM") && options$testMethod %in% c("likelihoodRatioTest", "parametricBootstrap") && options$type == 2)
+  # deal with type II SS
+  if (is.list(model$full_model))
     model <- model$full_model[[length(model$full_model)]]
+  else
+    model <- model$full_model
 
   .setSeedJASP(options)
   p <- try(
@@ -1545,6 +1547,11 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     return()
 
   model <- jaspResults[["mmModel"]]$object$model
+  # deal with type II SS
+  if (is.list(model$full_model))
+    model <- model$full_model[[length(model$full_model)]]
+  else
+    model <- model$full_model
 
   # deal with continuous predictors
   at <- NULL

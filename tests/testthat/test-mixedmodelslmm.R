@@ -35,6 +35,7 @@ context("Linear Mixed Models")
                                list(components = c("Variable2", "Variable7")),
                                list(components = c("Variable1", "Variable2", "Variable7")))
   options$includeIntercept <- TRUE
+  options$factorContrast <- "sum"
   options$fixedVariables <- c("Variable1", "Variable2", "Variable7")
   options$marginalMeansTerms <- list(list(variable = "Variable1"), list(variable = "Variable2"),
                                 list(variable = "Variable7"))
@@ -788,6 +789,7 @@ context("Linear Mixed Models")
   options$modelSummary <- FALSE
   options$fixedEffects <- list(list(components = "facGender"))
   options$includeIntercept <- TRUE
+  options$factorContrast <- "sum"
   options$fixedVariables <- "facGender"
   options$marginalMeansTerms <- list(list(variable = "facGender"))
   options$testMethod <- "likelihoodRatioTest"
@@ -883,6 +885,7 @@ context("Linear Mixed Models")
   options$modelSummary <- FALSE
   options$fixedEffects <- list(list(components = "facGender"))
   options$includeIntercept <- TRUE
+  options$factorContrast <- "sum"
   options$fixedVariables <- "facGender"
   options$marginalMeansTerms <- list(list(variable = "facGender"))
   options$testMethod <- "parametricBootstrap"
@@ -989,6 +992,7 @@ context("Linear Mixed Models")
                                list(components = "debMiss30"),
                                list(components = c("facGender", "debMiss30")))
   options$includeIntercept <- TRUE
+  options$factorContrast <- "sum"
   options$fixedVariables <- c("facGender", "debMiss30")
   options$testMethod <- "satterthwaite"
   options$plotTransparency <- 0.7

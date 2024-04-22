@@ -12,6 +12,7 @@ options$fixedEffects <- list(list(components="task"),
                              list(components="stimulus"),
                              list(components=c("task", "stimulus")))
 options$includeIntercept <- TRUE
+options$factorContrast <- "sum"
 options$fixedVariables <- c("task", "stimulus")
 options$testMethod <- "satterthwaite"
 
