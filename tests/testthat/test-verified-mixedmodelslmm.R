@@ -1,6 +1,6 @@
 context("Linear Mixed Models -- Verification project")
 
-## Testing standard LMM --- 
+## Testing standard LMM ---
 
 options <- jaspTools::analysisOptions("MixedModelsLMM")
 options$contrasts <- list(list(isContrast=TRUE, levels=list(), name="Contrast 1", values=list()))
@@ -11,6 +11,7 @@ options$modelSummary <- TRUE
 options$fixedEffects <- list(list(components="task"),
                              list(components="stimulus"),
                              list(components=c("task", "stimulus")))
+options$includeIntercept <- TRUE
 options$fixedVariables <- c("task", "stimulus")
 options$testMethod <- "satterthwaite"
 

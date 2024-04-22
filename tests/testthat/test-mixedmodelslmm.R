@@ -27,12 +27,14 @@ context("Linear Mixed Models")
   options$bootstrapSamples <- 500
   options$dependent <- "Variable4"
   options$modelSummary <- TRUE
-  options$fixedEffects <- list(list(components = "Variable1"), list(components = "Variable2"),
-                               list(components = c("Variable1", "Variable2"
-                               )), list(components = "Variable7"), list(components = c("Variable1",
-                                                                                                    "Variable7")), list(components = c("Variable2",
-                                                                                                                                                    "Variable7")), list(components = c("Variable1",
-                                                                                                                                                                                                    "Variable2", "Variable7")))
+  options$fixedEffects <- list(list(components = "Variable1"),
+                               list(components = "Variable2"),
+                               list(components = c("Variable1", "Variable2")),
+                               list(components = "Variable7"),
+                               list(components = c("Variable1", "Variable7")),
+                               list(components = c("Variable2", "Variable7")),
+                               list(components = c("Variable1", "Variable2", "Variable7")))
+  options$includeIntercept <- TRUE
   options$fixedVariables <- c("Variable1", "Variable2", "Variable7")
   options$marginalMeansTerms <- list(list(variable = "Variable1"), list(variable = "Variable2"),
                                 list(variable = "Variable7"))
@@ -785,6 +787,7 @@ context("Linear Mixed Models")
   options$dependent <- "contNormal"
   options$modelSummary <- FALSE
   options$fixedEffects <- list(list(components = "facGender"))
+  options$includeIntercept <- TRUE
   options$fixedVariables <- "facGender"
   options$marginalMeansTerms <- list(list(variable = "facGender"))
   options$testMethod <- "likelihoodRatioTest"
@@ -879,6 +882,7 @@ context("Linear Mixed Models")
   options$dependent <- "contNormal"
   options$modelSummary <- FALSE
   options$fixedEffects <- list(list(components = "facGender"))
+  options$includeIntercept <- TRUE
   options$fixedVariables <- "facGender"
   options$marginalMeansTerms <- list(list(variable = "facGender"))
   options$testMethod <- "parametricBootstrap"
@@ -981,8 +985,10 @@ context("Linear Mixed Models")
   options$bootstrapSamples <- 100
   options$dependent <- "contNormal"
   options$modelSummary <- TRUE
-  options$fixedEffects <- list(list(components = "facGender"), list(components = "debMiss30"),
+  options$fixedEffects <- list(list(components = "facGender"),
+                               list(components = "debMiss30"),
                                list(components = c("facGender", "debMiss30")))
+  options$includeIntercept <- TRUE
   options$fixedVariables <- c("facGender", "debMiss30")
   options$testMethod <- "satterthwaite"
   options$plotTransparency <- 0.7

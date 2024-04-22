@@ -18,9 +18,11 @@ context("Generalized Linear Mixed Models")
   options$bootstrapSamples <- 500
   options$dependent <- "Variable5"
   options$modelSummary <- TRUE
-  options$fixedEffects <- list(list(components = "Variable1"), list(components = "Variable7"),
-                               list(components = c("Variable1", "Variable7"
-                               )))
+  options$fixedEffects <- list(list(components = "Variable1"),
+                               list(components = "Variable7"),
+                               list(components = c("Variable1", "Variable7")))
+  options$includeIntercept <- TRUE
+  options$includeIntercept <- TRUE
   options$fixedVariables <- c("Variable1", "Variable7")
   options$marginalMeansTerms <- list(list(variable = "Variable1"), list(variable = "Variable7"))
   options$marginalMeansContrast <- TRUE
@@ -419,8 +421,10 @@ context("Generalized Linear Mixed Models")
   options$bootstrapSamples <- 500
   options$dependent <- "contBinom"
   options$modelSummary <- TRUE
-  options$fixedEffects <- list(list(components = "contNormal"), list(components = "facGender"),
+  options$fixedEffects <- list(list(components = "contNormal"),
+                               list(components = "facGender"),
                                list(components = c("contNormal", "facGender")))
+  options$includeIntercept <- TRUE
   options$fixedVariables <- c("contNormal", "facGender")
   options$link <- "probit"
   options$marginalMeansTerms <- list(list(variable = "contNormal"), list(variable = "facGender"))
@@ -572,8 +576,10 @@ context("Generalized Linear Mixed Models")
   options$dependent <- "contGamma"
   options$family <- "gamma"
   options$modelSummary <- FALSE
-  options$fixedEffects <- list(list(components = "facGender"), list(components = "contBinom"),
+  options$fixedEffects <- list(list(components = "facGender"),
+                               list(components = "contBinom"),
                                list(components = c("facGender", "contBinom")))
+  options$includeIntercept <- TRUE
   options$fixedVariables <- c("facGender", "contBinom")
   options$link <- "log"
   options$marginalMeansTerms <- list(list(variable = "facGender"))
@@ -713,6 +719,7 @@ context("Generalized Linear Mixed Models")
   options$family <- "poisson"
   options$modelSummary <- FALSE
   options$fixedEffects <- list(list(components = "facGender"))
+  options$includeIntercept <- TRUE
   options$fixedVariables <- "facGender"
   options$link <- "log"
   options$marginalMeansTerms <- list(list(variable = "facGender"))
@@ -818,8 +825,10 @@ context("Generalized Linear Mixed Models")
   options$dependentAggregation <- "rep"
   options$family <- "binomial"
   options$modelSummary <- TRUE
-  options$fixedEffects <- list(list(components = "cA"), list(components = "cB"), list(components = c("cA",
-                                                                                                     "cB")))
+  options$fixedEffects <- list(list(components = "cA"),
+                               list(components = "cB"),
+                               list(components = c("cA", "cB")))
+  options$includeIntercept <- TRUE
   options$fixedVariables <- c("cA", "cB")
   options$marginalMeansTerms <- list(list(variable = "cA"))
   options$marginalMeansContrast <- TRUE
