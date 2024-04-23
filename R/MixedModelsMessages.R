@@ -16,7 +16,13 @@
 #
 
 #No need for gettext on next line as they are wider than even my big ass screen anyway
-.mmMessageInterpretability          <- function()       gettext("The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated with sum contrast coding. Consequently, the estimates cannot be directly mapped to factor levels. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences.")
+.mmMessageInterpretability          <- function(contrast) {
+  switch(
+    contrast,
+    "sum"       = gettext("The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated with sum contrast coding. Consequently, the estimates cannot be directly mapped to factor levels. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences."),
+    "treatment" = gettext("The intercept corresponds to the mean in the default factor category (factor level parameters are estimated with treatment contrast coding). Consequently, the estimates cannot be easily interepreted in the presence of interactions. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences.")
+  )
+}
 .mmMessageInterpretabilityBayesian  <- function()       gettext("The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated with orthonormal coding proposed by Rouder et al. (2012). Consequently, the estimates cannot be directly mapped to factor levels. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences.")
 .mmMessageSingularFit               <- function()       gettext("Model fit is singular. Specified random effects parameters (random intercepts and random slopes) cannot be estimated from the available data. Carefully reduce the random effects structure, but this practice might inflate the reported p-value, and invalidates the analysis.")
 .mmMessageVovkSellke                <- function()       gettextf("Vovk-Sellke Maximum <em>p</em>-Ratio: Based on a two-sided <em>p</em>-value, the maximum possible odds in favor of H%1$s over H%2$s equals 1/(-e <em>p</em> log(<em>p</em>)) for <em>p</em> %3$s .37 (Sellke, Bayarri, & Berger, 2001).","\u2081","\u2080","\u2264")

@@ -47,9 +47,9 @@
 <line x1='361.21' y1='267.75' x2='492.52' y2='267.75' style='stroke-width: 2.13; stroke: #A9A9A9; stroke-dasharray: 5.69,5.69; stroke-linecap: butt; stroke-linejoin: miter;' />
 <circle cx='229.90' cy='343.60' r='1.95' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
 <polygon points='492.52,285.81 495.15,290.37 489.89,290.37 ' style='stroke-width: 0.71; stroke: none; fill: #000000;' />
-<polyline points='229.90,268.10 229.90,268.10 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<polyline points='229.90,268.10 229.90,404.63 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
-<polyline points='229.90,404.63 229.90,404.63 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='229.90,268.12 229.90,268.12 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='229.90,268.12 229.90,404.62 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
+<polyline points='229.90,404.62 229.90,404.62 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='492.52,141.42 492.52,141.42 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='492.52,141.42 492.52,394.51 ' style='stroke-width: 1.07; stroke-linecap: butt;' />
 <polyline points='492.52,394.51 492.52,394.51 ' style='stroke-width: 1.07; stroke-linecap: butt;' />

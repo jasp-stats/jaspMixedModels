@@ -64,6 +64,17 @@ Section
 			]
 		}
 
+		DropDown
+		{
+			name:	"factorContrast"
+			label:	qsTr("Factor contrast")
+			values: 
+			[
+				{ label: qsTr("Sum"),		value: "sum"},
+				{ label: qsTr("Treatment"),	value: "treatment"}
+			]
+		}
+
 		IntegerField
 		{
 			enabled:		testMethod.currentValue == "parametricBootstrap"

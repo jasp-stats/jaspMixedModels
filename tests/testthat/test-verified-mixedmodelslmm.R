@@ -1,6 +1,6 @@
 context("Linear Mixed Models -- Verification project")
 
-## Testing standard LMM --- 
+## Testing standard LMM ---
 
 options <- jaspTools::analysisOptions("MixedModelsLMM")
 options$contrasts <- list(list(isContrast=TRUE, levels=list(), name="Contrast 1", values=list()))
@@ -11,6 +11,8 @@ options$modelSummary <- TRUE
 options$fixedEffects <- list(list(components="task"),
                              list(components="stimulus"),
                              list(components=c("task", "stimulus")))
+options$includeIntercept <- TRUE
+options$factorContrast <- "sum"
 options$fixedVariables <- c("task", "stimulus")
 options$testMethod <- "satterthwaite"
 
@@ -40,7 +42,8 @@ options$plotHorizontalAxis <- list()
 
 options$vovkSellke <- FALSE
 
-randomComponents <- list(list(randomSlopes=FALSE, value="task"),
+randomComponents <- list(list(randomSlopes=TRUE, value="Intercept"),
+                         list(randomSlopes=FALSE, value="task"),
                          list(randomSlopes=TRUE, value="stimulus"),
                          list(randomSlopes=FALSE, value=c("task", "stimulus"))
 )
@@ -51,6 +54,7 @@ options$randomVariables <- "id"
 options$seed <- 1
 options$setSeed <- FALSE
 options$fixedEffectEstimate <- TRUE
+options$randomEffectEstimate <- FALSE
 options$varianceCorrelationEstimate <- FALSE
 options$interceptTest <- FALSE
 options$trendsTrendVariable <- list()

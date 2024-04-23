@@ -108,7 +108,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       dataset <- readDataSetToEnd(
         columns.as.numeric = options$dependent,
         columns = c(
-          options$fixedVariables,
+          if(length(options$fixedVariables) > 0) options$fixedVariables,
           options$randomVariables
         )
       )
@@ -117,7 +117,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         dataset <- readDataSetToEnd(
           columns.as.numeric = c(options$dependent, options$dependentAggregation),
           columns = c(
-            options$fixedVariables,
+            if(length(options$fixedVariables) > 0) options$fixedVariables,
             options$randomVariables
           )
         )
@@ -125,7 +125,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         dataset <- readDataSetToEnd(
           columns.as.numeric = options$dependent,
           columns = c(
-            options$fixedVariables,
+            if(length(options$fixedVariables) > 0) options$fixedVariables,
             options$randomVariables
           )
         )
@@ -259,7 +259,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
     if (options$dependent       == "" ||
         length(options$randomVariables) == 0  ||
-        length(options$fixedEffects)    == 0)
+        (length(options$fixedEffects)   == 0 && !options$includeIntercept))
       return(FALSE)
 
 
@@ -268,15 +268,15 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     if (options$family == "binomial") {
       if (options$dependent            == "" ||
           options$dependentAggregation == "" ||
-          length(options$randomVariables)      == 0  ||
-          length(options$fixedEffects)         == 0)
+          length(options$randomVariables) == 0  ||
+          (length(options$fixedEffects)   == 0 && !options$includeIntercept))
         return(FALSE)
 
     }else {
 
       if (options$dependent       == "" ||
           length(options$randomVariables) == 0  ||
-          length(options$fixedEffects)    == 0)
+          (length(options$fixedEffects)   == 0 && !options$includeIntercept))
         return(FALSE)
 
     }
@@ -290,11 +290,13 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   feTerms  <-  sapply(options[["fixedEffects"]], function(x) paste(unlist(x), collapse = "*"))
   # simplify the terms
   feTerms  <- .mmSimplifyTerms(feTerms)
+  # intercept
+  if (options$includeIntercept)
+    feTerms <- c("1", feTerms)
+  else
+    feTerms <- c("0", feTerms)
   # create the FE formula
   fixedEffects <- paste0(feTerms, collapse = "+")
-
-  if (fixedEffects == "")
-    fixedEffects <- 1
 
   # random effects
   randomEffects <- NULL
@@ -432,7 +434,52 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   return(terms)
 }
+.mmSetContrasts  <- function(dataset, options) {
 
+  for (i in seq_along(options[["fixedVariables"]])) {
+    if (is.factor(dataset[[options[["fixedVariables"]][i]]])) {
+      contrasts(dataset[[options[["fixedVariables"]][i]]]) <- switch(
+        options$factorContrast,
+        "sum"       = contr.sum,
+        "treatment" = contr.treatment
+      )
+    } else if (is.character(dataset[[options[["fixedVariables"]][i]]])) {
+      dataset[[options[["fixedVariables"]][i]]] <- factor(dataset[[options[["fixedVariables"]][i]]])
+      contrasts(dataset[[options[["fixedVariables"]][i]]]) <- switch(
+        options$factorContrast,
+        "sum"       = contr.sum,
+        "treatment" = contr.treatment
+      )
+    }
+  }
+
+  return(dataset)
+}
+.mixedInterceptML   <- function(formula, dataset, type, family = NULL) {
+  # this is a simple function to fit a mixed-effects model with a fixed intercept only
+  # because afex does not allow those models for GLMMs (or LMMs with LRT/PB)
+  if (type == "LMM") {
+    fit <- lmerTest::lmer(
+      formula         = formula,
+      data            = dataset,
+      REML            = FALSE
+    )
+  } else if (type == "GLMM") {
+    fit <- lme4::glmer(
+      formula         = formula,
+      data            = dataset,
+      family          = family
+    )
+  }
+
+  return(list(
+    anova_table = data.frame(),
+    full_model  = fit
+  ))
+}
+.isInterceptML      <- function(options) {
+  return(length(options$fixedEffects) == 0 && options$includeIntercept && options$testMethod %in% c("likelihoodRatioTest", "parametricBootstrap"))
+}
 .mmGetTestIntercept <- function(options) {
    out <- if (options[["testMethod"]] %in% c("likelihoodRatioTest", "parametricBootstrap")) options[["interceptTest"]] else FALSE
    return(out)
@@ -454,11 +501,9 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
   added <- NULL
   if (length(terms) > 1 && length(removed) >= 1) {
-    splitTerms  <- sapply(terms, strsplit, "\\*")
-    splitTerms  <- sapply(splitTerms, function(x) trimws(x, which = c("both")))
 
-    splitRemoved <- sapply(removed, strsplit, "\\*")
-    splitRemoved <- sapply(splitRemoved, function(x) trimws(x, which = c("both")))
+    splitTerms   <- lapply(terms,   function(x) trimws(unlist(strsplit(x, "\\*")), which = c("both")))
+    splitRemoved <- lapply(removed, function(x) trimws(unlist(strsplit(x, "\\*")), which = c("both")))
 
     termsToRemove <- rep(NA, length(splitTerms))
 
@@ -489,31 +534,45 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   }
 
   dependencies <- c(.mmSwichDependencies(type), seedDependencies)
-
   mmModel$dependOn(dependencies)
 
-
+  # specify model formula
   modelFormula <- .mmModelFormula(options, dataset)
 
+  # specify contrasts
+  dataset <- .mmSetContrasts(dataset, options)
+
   if (type == "LMM") {
-    model <- try(
-      afex::mixed(
-        formula         = as.formula(modelFormula$modelFormula),
-        data            = dataset,
-        type            = options$type,
-        method          = .mmGetTestMethod(options),
-        test_intercept  = .mmGetTestIntercept(options),
-        args_test       = list(nsim = options$bootstrapSamples),
-        check_contrasts = TRUE
-      ))
+    if (.isInterceptML(options))
+      model <- try(
+        .mixedInterceptML(
+          formula         = as.formula(modelFormula$modelFormula),
+          data            = dataset,
+          type            = "LMM"
+        ))
+    else
+      model <- try(
+        afex::mixed(
+          formula         = as.formula(modelFormula$modelFormula),
+          data            = dataset,
+          type            = options$type,
+          method          = .mmGetTestMethod(options),
+          test_intercept  = .mmGetTestIntercept(options),
+          args_test       = list(nsim = options$bootstrapSamples),
+          check_contrasts = FALSE
+        ))
   } else if (type == "GLMM") {
-    # needs to be avaluated in the global environment
+    # needs to be evaluated in the global environment
     glmmLink   <<- options$link
     glmmFamily <<- .mmGetRFamily(options[["family"]])
     glmmFamily <<- eval(call(glmmFamily, glmmLink))
 
     # I wish there was a better way to do this
     if (options$family == "binomial") {
+
+      if (.isInterceptML(options))
+        .quitAnalysis(gettext("Mixed-effects models with a fixed intercept only are not supported for aggregated binomial family."))
+
       glmmWeight <<- dataset[, options$dependentAggregation]
       model <- try(
         afex::mixed(
@@ -523,23 +582,32 @@ gettextf <- function(fmt, ..., domain = NULL)  {
           method          = .mmGetTestMethod(options),
           test_intercept  = .mmGetTestIntercept(options),
           args_test       = list(nsim = options$bootstrapSamples),
-          check_contrasts = TRUE,
+          check_contrasts = FALSE,
           family          = glmmFamily,
           weights         = glmmWeight
         ))
     } else {
-      model <- try(
-        afex::mixed(
-          formula         = as.formula(modelFormula$modelFormula),
-          data            = dataset,
-          type            = options$type,
-          method          = .mmGetTestMethod(options),
-          test_intercept  = .mmGetTestIntercept(options),
-          args_test       = list(nsim = options$bootstrapSamples),
-          check_contrasts = TRUE,
-          #start           = start,
-          family          = glmmFamily
-      ))
+      if (.isInterceptML(options))
+        model <- try(
+          .mixedInterceptML(
+            formula         = as.formula(modelFormula$modelFormula),
+            data            = dataset,
+            family          = glmmFamily,
+            type            = "GLMM"
+          ))
+      else
+        model <- try(
+          afex::mixed(
+            formula         = as.formula(modelFormula$modelFormula),
+            data            = dataset,
+            type            = options$type,
+            method          = .mmGetTestMethod(options),
+            test_intercept  = .mmGetTestIntercept(options),
+            args_test       = list(nsim = options$bootstrapSamples),
+            check_contrasts = FALSE,
+            #start           = start,
+            family          = glmmFamily
+        ))
     }
   }
 
@@ -630,33 +698,35 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   }
 
 
-  for (i in 1:nrow(model$anova_table)) {
+  if (nrow(model$anova_table) > 0) {
+    for (i in 1:nrow(model$anova_table)) {
 
-    if (rownames(model$anova_table)[i] == "(Intercept)")
-      effectName <- "Intercept"
-    else
-      effectName <- jaspBase::gsubInteractionSymbol(rownames(model$anova_table)[i])
+      if (rownames(model$anova_table)[i] == "(Intercept)")
+        effectName <- "Intercept"
+      else
+        effectName <- jaspBase::gsubInteractionSymbol(rownames(model$anova_table)[i])
 
-    tempRow <- list(effect = effectName, df = afex::nice(model)$df[i])
+      tempRow <- list(effect = effectName, df = afex::nice(model)$df[i])
 
-    if (options$testMethod %in% c("satterthwaite", "kenwardRoger")) {
-      tempRow$stat   = model$anova_table$`F`[i]
-      tempRow$pval   = model$anova_table$`Pr(>F)`[i]
-    } else if (options$testMethod == "parametricBootstrap") {
-      tempRow$stat     = model$anova_table$Chisq[i]
-      tempRow$pval     = model$anova_table$`Pr(>Chisq)`[i]
-      tempRow$pvalBoot = model$anova_table$`Pr(>PB)`[i]
-    } else if (options$testMethod == "likelihoodRatioTest") {
-      tempRow$stat     = model$anova_table$Chisq[i]
-      tempRow$pval     = model$anova_table$`Pr(>Chisq)`[i]
+      if (options$testMethod %in% c("satterthwaite", "kenwardRoger")) {
+        tempRow$stat   = model$anova_table$`F`[i]
+        tempRow$pval   = model$anova_table$`Pr(>F)`[i]
+      } else if (options$testMethod == "parametricBootstrap") {
+        tempRow$stat     = model$anova_table$Chisq[i]
+        tempRow$pval     = model$anova_table$`Pr(>Chisq)`[i]
+        tempRow$pvalBoot = model$anova_table$`Pr(>PB)`[i]
+      } else if (options$testMethod == "likelihoodRatioTest") {
+        tempRow$stat     = model$anova_table$Chisq[i]
+        tempRow$pval     = model$anova_table$`Pr(>Chisq)`[i]
+      }
+      if (options$vovkSellke) {
+        tempRow$vovkSellke <- VovkSellkeMPR(tempRow$pval)
+        if (options$testMethod == "parametricBootstrap")
+          tempRow$pvalBootVS <- VovkSellkeMPR(tempRow$pvalBoot)
+      }
+
+      ANOVAsummary$addRows(tempRow)
     }
-    if (options$vovkSellke) {
-      tempRow$vovkSellke <- VovkSellkeMPR(tempRow$pval)
-      if (options$testMethod == "parametricBootstrap")
-        tempRow$pvalBootVS <- VovkSellkeMPR(tempRow$pvalBoot)
-    }
-
-    ANOVAsummary$addRows(tempRow)
   }
 
   # add message about (lack of) random effect grouping factors
@@ -830,7 +900,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       REvar$addRows(tempRow)
     }
 
-    REvar$addFootnote(.mmMessageInterpretability())
+    REvar$addFootnote(.mmMessageInterpretability(options[["factorContrast"]]))
 
     REsummary[[paste0("VE", gi)]] <- REvar
 
@@ -858,7 +928,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         REcor$addRows(tempRow)
       }
 
-      REcor$addFootnote(.mmMessageInterpretability())
+      REcor$addFootnote(.mmMessageInterpretability(options[["factorContrast"]]))
 
       REsummary[[paste0("CE", gi)]] <- REcor
 
@@ -1016,7 +1086,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   }
 
   # add warning messages
-  FEsummary$addFootnote(.mmMessageInterpretability())
+  FEsummary$addFootnote(.mmMessageInterpretability(options[["factorContrast"]]))
 
   return()
 }
@@ -1138,9 +1208,11 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   if (options$plotBackgroundColor != "none" && options$plotBackgroundElement != "jitter" && "color" %in% mapping)
     data_arg$color <- options$plotBackgroundColor
 
-  # fixing afex issues with bootstrap and LRT type II SS - hopefully removeable in the future
-  if (type %in% c("LMM", "GLMM") && options$testMethod %in% c("likelihoodRatioTest", "parametricBootstrap") && options$type == 2)
+  # deal with type II SS
+  if (is.list(model$full_model))
     model <- model$full_model[[length(model$full_model)]]
+  else
+    model <- model$full_model
 
   .setSeedJASP(options)
   p <- try(
@@ -1482,6 +1554,11 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     return()
 
   model <- jaspResults[["mmModel"]]$object$model
+  # deal with type II SS
+  if (is.list(model$full_model))
+    model <- model$full_model[[length(model$full_model)]]
+  else
+    model <- model$full_model
 
   # deal with continuous predictors
   at <- NULL
@@ -1954,7 +2031,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       return(readDataSetToEnd(
         columns = c(
           options$dependent,
-          options$fixedVariables,
+          if(length(options$fixedVariables) > 0) options$fixedVariables,
           options$randomVariables
         )
       ))
@@ -1964,7 +2041,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       return(readDataSetToEnd(
         columns = c(
           options$dependent,
-          options$fixedVariables,
+          if(length(options$fixedVariables) > 0) options$fixedVariables,
           options$randomVariables,
           options$dependentAggregation
         )
@@ -2270,7 +2347,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     probs = c(.5 - options$ciLevel / 2, .5 + options$ciLevel / 2)
   )$summary
   namesSummary <- rownames(modelSummary)
-  feSummary    <- modelSummary[!grepl("b[", namesSummary, fixed = T) & !namesSummary %in% c("mean_PPD", "log-posterior") & namesSummary != "sigma" & !grepl("Sigma[", namesSummary, fixed = TRUE), ]
+  feSummary    <- modelSummary[!grepl("b[", namesSummary, fixed = T) & !namesSummary %in% c("mean_PPD", "log-posterior") & namesSummary != "sigma" & !grepl("Sigma[", namesSummary, fixed = TRUE),,drop = FALSE]
 
   for (i in 1:nrow(feSummary)) {
 
@@ -2286,6 +2363,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
     FEsummary$addRows(tempRow)
   }
+
 
   # add warning messages
   FEsummary$addFootnote(.mmMessageInterpretabilityBayesian())
@@ -2787,9 +2865,11 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   c(
     "dependent",
     "fixedEffects",
+    "includeIntercept",
     "randomEffects",
     "randomVariables",
     "testMethod",
+    "factorContrast",
     "bootstrapSamples",
     "interceptTest",
     "type"
@@ -2804,6 +2884,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   c(
     "dependent",
     "fixedEffects",
+    "includeIntercept",
     "randomEffects",
     "randomVariables",
     "mcmcBurnin",
