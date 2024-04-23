@@ -524,16 +524,19 @@ context("Linear Mixed Models")
   options$modelSummary <- FALSE
   options$fixedEffects <- list(list(components = "contGamma"), list(components = "contBinom"),
                                list(components = "facExperim"), list(components = "facGender"),
-                               list(components = c("contGamma", "contBinom")), list(components = c("contGamma",
-                                                                                                   "facExperim")), list(components = c("contGamma", "facGender"
-                                                                                                   )), list(components = c("contBinom", "facExperim")), list(
-                                                                                                     components = c("contBinom", "facGender")), list(components = c("facExperim",
-                                                                                                                                                                    "facGender")), list(components = c("contGamma", "contBinom",
-                                                                                                                                                                                                       "facExperim")), list(components = c("contGamma", "contBinom",
-                                                                                                                                                                                                                                           "facGender")), list(components = c("contGamma", "facExperim",
-                                                                                                                                                                                                                                                                              "facGender")), list(components = c("contBinom", "facExperim",
-                                                                                                                                                                                                                                                                                                                 "facGender")), list(components = c("contGamma", "contBinom",
-                                                                                                                                                                                                                                                                                                                                                    "facExperim", "facGender")))
+                               list(components = c("contGamma", "contBinom")),
+                               list(components = c("contGamma", "facExperim")),
+                               list(components = c("contGamma", "facGender")),
+                               list(components = c("contBinom", "facExperim")),
+                               list(components = c("contBinom", "facGender")),
+                               list(components = c("facExperim", "facGender")),
+                               list(components = c("contGamma", "contBinom", "facExperim")),
+                               list(components = c("contGamma", "contBinom", "facGender")),
+                               list(components = c("contGamma", "facExperim", "facGender")),
+                               list(components = c("contBinom", "facExperim", "facGender")),
+                               list(components = c("contGamma", "contBinom", "facExperim", "facGender")))
+  options$includeIntercept <- TRUE
+  options$factorContrast <- "sum"
   options$fixedVariables <- c("contGamma", "contBinom", "facExperim", "facGender")
   options$marginalMeansTerms <- list(list(variable = "contGamma"), list(variable = "contBinom"))
   options$marginalMeansPAdjustment <- "none"
