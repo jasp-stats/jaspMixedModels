@@ -300,50 +300,49 @@ context("Generalized Linear Mixed Models")
   test_that("ANOVA Summary table results match", {
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, "Variable1", 0.991431110310274, 0.000115341522132439,
-                                        1, "Variable7", 0.0187024090268013, 5.5291293975402,
-                                        1, "Variable1 * Variable7", 0.528941241360197,
-                                        0.396425180671656))
+                                   list(1, "Variable1", 0.991431100095283, 0.0001153417971409, 1, "Variable7",
+                                        0.0187024090194103, 5.52912939823165, 1, "Variable1<unicode><unicode><unicode>Variable7",
+                                        0.528941241000858, 0.396425181363099))
   })
 
   test_that("Estimated Marginal Means table results match", {
     table <- results[["results"]][["EMMsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, 0.134346556802761, 0.67652383770998, 0.526183737888348, 1,
-                                        0.0706787455965348, 0.797518041707991, 2, 0.134346556802761,
-                                        0.69011092243408, 0.554830167102361, 2, 0.0633327309411707,
-                                        0.799162734177566, 1, 0.527784183943333, 0.480761679421012,
-                                        0.361860167156993, 3, 0.0624478828648797, 0.601882963941413,
-                                        2, 0.527784183943333, 0.53867235970251, 0.42358850327857, 4,
-                                        0.0587113133535949, 0.649776596822529, 1, 0.921221811083906,
-                                        0.290733387690386, 0.18337394770297, 5, 0.0633183229066969,
-                                        0.428004870734426, 2, 0.921221811083906, 0.379742835505894,
-                                        0.249891357979305, 6, 0.0731325823318734, 0.529443894029675
+                                   list(1, 0.134346556802761, 0.67652441946339, 0.526200705374444, 1,
+                                        0.0706713772323912, 0.797507910077546, 2, 0.134346556802761,
+                                        0.690097553733996, 0.554821377821813, 2, 0.0633312981191573,
+                                        0.799148378891918, 1, 0.527784183943333, 0.480762130522145,
+                                        0.361876774141483, 3, 0.0624389577258609, 0.601866597179011,
+                                        2, 0.527784183943333, 0.538669559336265, 0.423592363725772,
+                                        4, 0.0587079310508572, 0.649767869856607, 1, 0.921221811083906,
+                                        0.290733584783489, 0.183383579119308, 5, 0.0633116820952347,
+                                        0.427989593112089, 2, 0.921221811083906, 0.379752250861563,
+                                        0.249903562970398, 6, 0.0731302644993081, 0.529447590192747
                                    ))
   })
 
   test_that("Estimated Means and Confidence Intervals table results match", {
     table <- results[["results"]][["EstimatesTable"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, 0.361876751924427, 0.480762130159797, 0.601866619537568, 2,
-                                        0.423592336486101, 0.538669561398906, 0.649767899022927))
+                                   list(1, 0.361876774141483, 0.480762130522145, 0.601866597179011, 2,
+                                        0.423592363725772, 0.538669559336265, 0.649767869856607))
   })
 
   test_that("Fixed Effects Estimates table results match", {
     table <- results[["results"]][["FEsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1.01106122765053, 0.188839599518509, 0.769441496298305, 1.31401962659231,
-                                        "Intercept", 0.00502102303020506, 0.991424451282335, 0.467156068404197,
-                                        0.0107480633770998, "Variable1", -2.50110341020927, 0.020909057993528,
-                                        1.0829056765128, -2.30962258713372, "Variable7", 0.430041837637733,
-                                        0.528796818804144, 0.682775431438356, 0.629843749257049, "Variable1<unicode><unicode><unicode>Variable7"
+                                   list(1.01114713477693, 0.188751395675504, 0.769353382613811, 1.31428178211377,
+                                        "Intercept", 0.0049380649488768, 0.991565197089033, 0.46710426273995,
+                                        0.010571654644963, "Variable1", -2.50123798054357, 0.0208966035659629,
+                                        1.08285853494975, -2.30984740833173, "Variable7", 0.430174244274536,
+                                        0.528653207583655, 0.682747723082131, 0.630063242587757, "Variable1<unicode><unicode><unicode>Variable7"
                                    ))
   })
 
   test_that("Variable0: Correlation Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE1"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, "Intercept", -0.860771955950036, 1, "Variable1"))
+                                   list(1, "Intercept", -0.860597398092285, 1, "Variable1"))
   })
 
   test_that("Residual Variance Estimates table results match", {
@@ -355,25 +354,25 @@ context("Generalized Linear Mixed Models")
   test_that("Variable0: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE1"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.889740285563077, 0.791637775753866, "Intercept", 0.470774253218648,
-                                        0.221628397493575, "Variable1"))
+                                   list(0.889188913907964, 0.790656924616825, "Intercept", 0.470404903303557,
+                                        0.221280773052028, "Variable1"))
   })
 
-  test_that("Contrasts table results match", {
+  test_that("contrasts table results match", {
     table <- results[["results"]][["contrastsMeans"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list("Contrast 1", "<unicode>", 0.209349243013068, 0.0542447089338265,
-                                        0.0163178097117556, 0.0791364205172574, 2.64542219176333, 0.364453777092309,
-                                        "Contrast 2", "<unicode>", -0.0135870847241, -0.183616518752097,
-                                        0.875543473656909, 0.0867513053143668, -0.156621098378445, 0.156442349303897
+                                   list("Contrast 1", "<unicode>", 0.209335423211852, 0.0542554560233471,
+                                        0.0163060254993088, 0.0791238861590089, 2.64566660428138, 0.364415390400356,
+                                        "Contrast 2", "<unicode>", -0.0135731342706064, -0.183581119886834,
+                                        0.875654660762392, 0.0867403620460521, -0.156480027872147, 0.156434851345621
                                    ))
   })
 
-  test_that("Contrasts table results match", {
+  test_that("contrasts table results match", {
     table <- results[["results"]][["contrastsTrends"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list("Contrast 1", "<unicode>", 0.430041837637736, -0.908173417510247,
-                                        0.528796818804144, 0.68277543143836, 0.629843749257049, 1.76825709278572
+                                   list("Contrast 1", "<unicode>", 0.430174244274538, -0.907986703493173,
+                                        0.528653207583655, 0.682747723082136, 0.630063242587757, 1.76833519204225
                                    ))
   })
 
@@ -386,7 +385,7 @@ context("Generalized Linear Mixed Models")
   test_that("Fit statistics table results match", {
     table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_modelSummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(385.217480459902, 411.143957782495, 351.863795191825, 7, -185.608740229951
+                                   list(385.21748045921, 411.143957781804, 351.86379518625, 7, -185.608740229605
                                    ))
   })
 
@@ -399,10 +398,10 @@ context("Generalized Linear Mixed Models")
   test_that("Estimated Trends table results match", {
     table <- results[["results"]][["trendsSummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, -3.02563297019471, 1, 2.11504846723923e-05, 0.487035172662708,
-                                        -2.07106157257155, -4.25238604688177, -1.1164901749484, 2, -2.58929883077479,
-                                        2, 0.000694440451293459, 0.483824755618408, -1.64101973493382,
-                                        -3.39176471620664, -0.692740639092845))
+                                   list(1, -3.02559865497385, 1, 2.11347174630263e-05, 0.487016560627671,
+                                        -2.07106373626905, -4.2525530006615, -1.11652881756424, 2, -2.58914867004793,
+                                        2, 0.000694942309736545, 0.483814593295167, -1.64088949199451,
+                                        -3.39156675870136, -0.692630313941086))
   })
 }
 
@@ -458,10 +457,11 @@ context("Generalized Linear Mixed Models")
   options$plotSeparateLines <- list()
   options$plotHorizontalAxis <- list(list(variable = "facGender"))
   options$vovkSellke <- FALSE
-  options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(list(randomSlopes = FALSE,
-                                                                                       value = "contNormal"), list(randomSlopes = FALSE, value = "facGender"),
-                                                                                  list(randomSlopes = FALSE, value = c("contNormal", "facGender"
-                                                                                  ))), value = "facFive"))
+  options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(
+    list(randomSlopes = FALSE, value = "contNormal"),
+    list(randomSlopes = FALSE, value = "facGender"),
+    list(randomSlopes = FALSE, value = c("contNormal", "facGender"))),
+    value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
   options$randomEffectEstimate <- FALSE
   options$randomVariables <- "facFive"
@@ -482,44 +482,44 @@ context("Generalized Linear Mixed Models")
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
                                    list(1, "contNormal", 0.609594107923892, 0.260766411860686, 1, "facGender",
-                                        0.284327625868667, 1.14628764586072, 1, "contNormal * facGender",
+                                        0.284327625868667, 1.14628764586072, 1, "contNormal<unicode><unicode><unicode>facGender",
                                         0.334577761935427, 0.931098042304626))
   })
 
   test_that("Estimated Marginal Means table results match", {
     table <- results[["results"]][["EMMsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(-1.36358769374441, 0.149244029378276, "f", -0.359295949541209,
-                                        1, 0.565155076572514, 0.259463940628901, 0.575201428824872,
-                                        0.657784008297761, -0.18874858754, -0.102631617037894, "f",
-                                        -0.467214155012724, 2, 0.581127433486909, 0.186014917034502,
-                                        -0.551738638352634, 0.261950920936935, 0.98609051866441, -0.354507263454064,
-                                        "f", -1.02655222752204, 3, 0.301186963824939, 0.342886384325926,
-                                        -1.03389134027874, 0.31753770061391, -1.36358769374441, -0.407989734747062,
-                                        "m", -0.980583087733028, 4, 0.162554222112434, 0.292144834039049,
-                                        -1.39653242915988, 0.164603618238905, -0.18874858754, -0.366884673848823,
-                                        "m", -0.730935587943824, 5, 0.0482431558411855, 0.185743675376991,
-                                        -1.9752202765676, -0.00283375975382183, 0.98609051866441, -0.325779612950584,
-                                        "m", -0.787241229561193, 6, 0.166455730892536, 0.235443926648938,
-                                        -1.3836823807154, 0.135682003660025))
+                                   list(-1.36358769374441, 0.149244029378276, "f", -0.359295948223524,
+                                        1, 0.56515507556465, 0.259463939956601, 0.575201430315285, 0.657784006980076,
+                                        -0.18874858754, -0.102631617037894, "f", -0.467214151818054,
+                                        2, 0.58112743017407, 0.186014915404539, -0.551738643187265,
+                                        0.261950917742266, 0.98609051866441, -0.354507263454064, "f",
+                                        -1.02655222283236, 3, 0.301186960451724, 0.342886381933189,
+                                        -1.03389134749346, 0.317537695924233, -1.36358769374441, -0.407989734747062,
+                                        "m", -0.980583088901367, 4, 0.162554222969888, 0.292144834635151,
+                                        -1.39653242631034, 0.164603619407244, -0.18874858754, -0.366884673848823,
+                                        "m", -0.730935585846312, 5, 0.0482431545502667, 0.185743674306812,
+                                        -1.97522028794801, -0.00283376185133349, 0.98609051866441, -0.325779612950584,
+                                        "m", -0.787241225976078, 6, 0.166455727599482, 0.235443924819764,
+                                        -1.38368239146528, 0.13568200007491))
   })
 
   test_that("Estimated Means and Confidence Intervals table results match", {
     table <- results[["results"]][["EstimatesTable"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list("f", 0.320173333674467, 0.459127674282166, 0.603320359683825,
-                                        "m", 0.232409248646226, 0.356852521999701, 0.49886949493473
+                                   list("f", 0.320173334817175, 0.459127674282166, 0.603320358452321,
+                                        "m", 0.232409249286845, 0.356852521999701, 0.498869494097947
                                    ))
   })
 
   test_that("Fixed Effects Estimates table results match", {
     table <- results[["results"]][["FEsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(-0.251689251201327, 0.0627285967943076, 0.135236071846752, -1.86111033664552,
-                                        "Intercept", -0.0897018938188371, 0.491183326203148, 0.130299610105594,
-                                        -0.688427952671103, "contNormal", 0.108591520764834, 0.421987737684679,
-                                        0.135236068683755, 0.802977503130257, "facGender (1)", -0.124689715284057,
-                                        0.338594418466376, 0.130299610691309, -0.956946184432264, "contNormal * facGender (1)"
+                                   list(-0.251689251201327, 0.0627285923928148, 0.135236069581482, -1.86111036782004,
+                                        "Intercept", -0.0897018938188372, 0.491183326978422, 0.130299610338678,
+                                        -0.68842795143962, "contNormal", 0.108591520764834, 0.421987737774077,
+                                        0.135236068709804, 0.80297750297559, "facGender (1)", -0.124689715284057,
+                                        0.338594416327209, 0.130299610114261, -0.956946188670218, "contNormal<unicode><unicode><unicode>facGender (1)"
                                    ))
   })
 
@@ -535,13 +535,13 @@ context("Generalized Linear Mixed Models")
                                    list(0, 0, "Intercept"))
   })
 
-  test_that("Contrasts table results match", {
+  test_that("contrasts table results match", {
     table <- results[["results"]][["contrastsMeans"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list("Contrast 1", "<unicode>", 0.25187564641617, -0.219514049003776,
-                                        0.294980047829034, 0.24050936605887, 1.04725920051911, 0.723265341836116,
-                                        "Contrast 2", "<unicode>", 0.25187564641617, -0.219514049003776,
-                                        0.294980047829034, 0.24050936605887, 1.04725920051911, 0.723265341836116
+                                   list("Contrast 1", "<unicode>", 0.25187564641617, -0.219514047420873,
+                                        0.294980046207553, 0.240509365251252, 1.04725920403575, 0.723265340253213,
+                                        "Contrast 2", "<unicode>", 0.25187564641617, -0.219514047420873,
+                                        0.294980046207553, 0.240509365251252, 1.04725920403575, 0.723265340253213
                                    ))
   })
 
@@ -615,9 +615,10 @@ context("Generalized Linear Mixed Models")
   options$plotHorizontalAxis <- list(list(variable = "facGender"))
   options$vovkSellke <- FALSE
   options$randomEffects <- list(list(correlations = FALSE, randomComponents = list(list(
-    randomSlopes = TRUE, value = "facGender"), list(randomSlopes = FALSE,
-                                                    value = "contBinom"), list(randomSlopes = FALSE, value = c("facGender",
-                                                                                                               "contBinom"))), value = "facFive"))
+    randomSlopes = TRUE, value = "facGender"),
+    list(randomSlopes = FALSE, value = "contBinom"),
+    list(randomSlopes = FALSE, value = c("facGender", "contBinom"))),
+    value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
   options$randomEffectEstimate <- FALSE
   options$randomVariables <- "facFive"
@@ -639,67 +640,67 @@ context("Generalized Linear Mixed Models")
     jaspTools::expect_equal_tables(table,
                                    list(1, "facGender", 0.447004500743224, 0.272727272727273, 0.578236212970523,
                                         1, "contBinom", 0.377291093565023, 0.636363636363636, 0.77950982853497,
-                                        1, "facGender<unicode><unicode><unicode>contBinom", 0.547514203966411,
-                                        0.363636363636364, 0.361789255927476))
+                                        1, "facGender<unicode><unicode><unicode>contBinom", 0.547514203844492,
+                                        0.272727272727273, 0.361789256147745))
   })
 
   test_that("Estimated Marginal Means table results match", {
     table <- results[["results"]][["EMMsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.587430349612986, "f", 0.374549906678813, 1, 6.35907081922447e-08,
-                                        0.108614466701096, 5.408398783834, 0.800310792547159, 0.746196683562162,
-                                        "m", 0.413131329216369, 2, 1.12785900324191e-05, 0.169934425822602,
-                                        4.39108603186226, 1.07926203790796))
+                                   list(0.587430344676266, "f", 0.37458694201089, 1, 6.32574573837542e-08,
+                                        0.108595568257508, 5.40933993994414, 0.800273747341642, 0.746196682539556,
+                                        "m", 0.413133378648097, 2, 1.12771879979508e-05, 0.169933379653208,
+                                        4.39111305890791, 1.07925998643101))
   })
 
   test_that("Estimated Means and Confidence Intervals table results match", {
     table <- results[["results"]][["EstimatesTable"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list("f", 1.45433668005698, 1.79935874673052, 2.22623271752231, "m",
-                                        1.51154352272584, 2.1089636876888, 2.94250729080506))
+                                   list("f", 1.45439054289628, 1.79935873784759, 2.22615024780132, "m",
+                                        1.51154662053427, 2.10896368553216, 2.9425012543254))
   })
 
   test_that("Fixed Effects Estimates table results match", {
     table <- results[["results"]][["FEsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.728064599434742, 6.69718693318382e-09, 0.125564170667767, 5.79834673826773,
-                                        "Intercept", -0.0356589646204568, 0.749571272929608, 0.111711894088311,
-                                        -0.319204726689778, "facGender (1)", -0.122502165694335, 0.407153741126262,
-                                        0.147786549919433, -0.828912818934593, "contBinom", -0.0874484047082629,
-                                        0.547831413604434, 0.145501717060467, -0.601012871015956, "facGender (1) * contBinom"
+                                   list(0.728064594347703, 6.66648936521263e-09, 0.125547485528779, 5.79911729240334,
+                                        "Intercept", -0.0356589672364708, 0.749565019225593, 0.111709015978617,
+                                        -0.319212974208782, "facGender (1)", -0.122502161479584, 0.407130511821325,
+                                        0.14777922655215, -0.828953868129454, "contBinom", -0.0874484033903483,
+                                        0.547831173835027, 0.145501627716119, -0.601013231006354, "facGender (1)<unicode><unicode><unicode>contBinom"
                                    ))
   })
 
   test_that("facFive.1: Correlation Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE2"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, "facGender (f)", 0.820565738951668, 1, "facGender (m)"))
+                                   list(1, "facGender (f)", 0.820565921340386, 1, "facGender (m)"))
   })
 
   test_that("Residual Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_RES2"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.698321361072845, 0.487652722716083))
+                                   list(0.69832135980351, 0.487652721557823))
   })
 
   test_that("facFive: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE1"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.0625128879590991, 0.00390786116098688, "Intercept"))
+                                   list(0.06251298006749, 0.0039078726769184, "Intercept"))
   })
 
   test_that("facFive.1: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE2"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.0273978028639619, 0.00075063960177252, "facGender (f)", 0.22325212826067,
-                                        0.0498415127729185, "facGender (m)"))
+                                   list(0.0273977073255754, 0.000750634366697887, "facGender (f)", 0.223252099074577,
+                                        0.0498414997412049, "facGender (m)"))
   })
 
-  test_that("Contrasts table results match", {
+  test_that("contrasts table results match", {
     table <- results[["results"]][["contrastsMeans"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list("Contrast 1", "<unicode>", 0.587430349477886, 0.374525863416816,
-                                        6.38078821001402e-08, 0.108626733827985, 5.40778801660469, 0.800334835538956
+                                   list("Contrast 1", "<unicode>", 0.587430344676266, 0.37458694201089,
+                                        6.32574573837542e-08, 0.108595568257508, 5.40933993994414, 0.800273747341642
                                    ))
   })
 
@@ -750,8 +751,8 @@ context("Generalized Linear Mixed Models")
   options$plotSeparateLines <- list()
   options$plotHorizontalAxis <- list(list(variable = "facGender"))
   options$vovkSellke <- FALSE
-  options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(list(randomSlopes = TRUE,
-                                                                                       value = "facGender")), value = "facFive"))
+  options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(
+    list(randomSlopes = TRUE, value = "facGender")), value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
   options$randomEffectEstimate <- FALSE
   options$randomVariables <- "facFive"
@@ -770,30 +771,30 @@ context("Generalized Linear Mixed Models")
   test_that("ANOVA Summary table results match", {
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, "facGender", 0.323811589802939, 0.363636363636364, 0.973488924968706
+                                   list(1, "facGender", 0.323811589816613, 0.363636363636364, 0.973488924913681
                                    ))
   })
 
   test_that("Estimated Marginal Means table results match", {
     table <- results[["results"]][["EMMsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(26.9632681754783, "f", 23.4528371326651, 1.91888487591472, 30.9991420905817,
-                                        23.882309468471, "m", 21.3136490705777, 1.38654373724911, 26.7605375156136
+                                   list(26.9632681863974, "f", 23.4528367885457, 1.91888508411733, 30.9991425705339,
+                                        23.8823095639431, "m", 21.3136484431691, 1.38654415019449, 26.7605385173184
                                    ))
   })
 
   test_that("Fixed Effects Estimates table results match", {
     table <- results[["results"]][["FEsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(3.23380674854069, 0, 0.0282089155369933, 114.637755014009, "Intercept",
-                                        0.0606687532825319, 0.299679366705061, 0.0584972634725293, 1.0371212203973,
+                                   list(3.23380675074198, 0, 0.0282088980895584, 114.637825996436, "Intercept",
+                                        0.0606687514862075, 0.299679559121684, 0.0584972850308832, 1.037120807473,
                                         "facGender (1)"))
   })
 
   test_that("facFive: Correlation Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE1"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, "Intercept", 0.413199610716051, 1, "facGender (1)"))
+                                   list(1, "Intercept", 0.413199633101234, 1, "facGender (1)"))
   })
 
   test_that("Residual Variance Estimates table results match", {
@@ -805,10 +806,9 @@ context("Generalized Linear Mixed Models")
   test_that("facFive: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE1"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.0442623696713281, 0.00195915736892131, "Intercept", 0.122872211562862,
-                                        0.0150975803743487, "facGender (1)"))
+                                   list(0.0442623073281687, 0.00195915185001325, "Intercept", 0.12287221532645,
+                                        0.0150975812992296, "facGender (1)"))
   })
-
 
   test_that("Plot matches", {
     plotName <- results[["results"]][["plots"]][["data"]]
@@ -903,34 +903,34 @@ context("Generalized Linear Mixed Models")
   test_that("ANOVA Summary table results match", {
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, "cA", 0.768666971055732, 0.0865059874772953, 1, "cB", 0.479800725027522,
-                                        0.499316216168296, 1, "cA<unicode><unicode><unicode><unicode><unicode><unicode><unicode><unicode><unicode>cB",
-                                        0.859034817019825, 0.0315428035947605))
+                                   list(1, "cA", 0.768666936589639, 0.0865060140104958, 1, "cB", 0.479800713357095,
+                                        0.499316242701497, 1, "cA<unicode><unicode><unicode>cB", 0.859034758351994,
+                                        0.031542830127961))
   })
 
   test_that("Estimated Marginal Means table results match", {
     table <- results[["results"]][["EMMsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, 0.521558042523778, 0.411147553886665, 1, 0.0567205498043352,
-                                        0.629901624165877, 2, 0.543531863291393, 0.424298027374906,
-                                        2, 0.0607265112015399, 0.657977200280289))
+                                   list(1, 0.521557923880247, 0.411147513780645, 1, 0.0567205115241829,
+                                        0.629901441101518, 2, 0.543531352735364, 0.424297968083058,
+                                        2, 0.0607262923153063, 0.657976328706945))
   })
 
   test_that("Fixed Effects Estimates table results match", {
     table <- results[["results"]][["FEsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.661197092527489, 0.526013638136273, 1.04272830341346, 0.634102949313838,
-                                        "Intercept", 0.194535294506755, 0.768564562595151, 0.661115692535244,
-                                        0.294253028181424, "cA", -0.331597597608778, 0.480863226667421,
-                                        0.470408016647494, -0.704914852370096, "cB", -0.0531257634658857,
-                                        0.858959035240921, 0.298964179851677, -0.177699427042539, "cA<unicode><unicode><unicode>cB"
+                                   list(0.661227504395588, 0.525989206215448, 1.04271469794619, 0.634140389214797,
+                                        "Intercept", 0.194514831494138, 0.768585189821104, 0.661106803176433,
+                                        0.294226032101847, "cA", -0.331612250089613, 0.480839156002498,
+                                        0.470402992765527, -0.704953529610952, "cB", -0.053116323141788,
+                                        0.858982330488374, 0.298960955867488, -0.177669766233057, "cA<unicode><unicode><unicode>cB"
                                    ))
   })
 
   test_that("id: Correlation Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE1"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1, "Intercept", -0.717602519023855, 1, "cA"))
+                                   list(1, "Intercept", -0.717633169548817, 1, "cA"))
   })
 
   test_that("Residual Variance Estimates table results match", {
@@ -942,15 +942,15 @@ context("Generalized Linear Mixed Models")
   test_that("id: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE1"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.672274843452683, 0.45195346513933, "Intercept", 0.386000767561186,
-                                        0.148996592557825, "cA"))
+                                   list(0.672328111728483, 0.452025089820388, "Intercept", 0.385999853393285,
+                                        0.148995886819638, "cA"))
   })
 
-  test_that("Contrasts table results match", {
+  test_that("contrasts table results match", {
     table <- results[["results"]][["contrastsMeans"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list("Contrast 1", "<unicode>", 0.0219738207676144, -0.110026942716096,
-                                        0.744220036888953, 0.0673485658537178, 0.326270062162006, 0.153974584251325
+                                   list("Contrast 1", "<unicode>", 0.021973428855117, -0.110026385038528,
+                                        0.744222663598295, 0.0673480813600878, 0.326266590099759, 0.153973242748762
                                    ))
   })
 
@@ -963,7 +963,7 @@ context("Generalized Linear Mixed Models")
   test_that("Fit statistics table results match", {
     table <- results[["results"]][["fitSummary"]][["collection"]][["fitSummary_modelSummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(202.867152034655, 217.52756397021, 64.2564473172443, 7, -94.4335760173276
+                                   list(202.867152008122, 217.527563943677, 64.2562363767916, 7, -94.433576004061
                                    ))
   })
 

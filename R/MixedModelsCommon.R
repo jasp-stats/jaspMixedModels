@@ -443,6 +443,13 @@ gettextf <- function(fmt, ..., domain = NULL)  {
         "sum"       = contr.sum,
         "treatment" = contr.treatment
       )
+    } else if (is.character(dataset[[options[["fixedVariables"]][i]]])) {
+      dataset[[options[["fixedVariables"]][i]]] <- factor(dataset[[options[["fixedVariables"]][i]]])
+      contrasts(dataset[[options[["fixedVariables"]][i]]]) <- switch(
+        options$factorContrast,
+        "sum"       = contr.sum,
+        "treatment" = contr.treatment
+      )
     }
   }
 

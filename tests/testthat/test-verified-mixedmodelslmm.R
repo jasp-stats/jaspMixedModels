@@ -42,7 +42,8 @@ options$plotHorizontalAxis <- list()
 
 options$vovkSellke <- FALSE
 
-randomComponents <- list(list(randomSlopes=FALSE, value="task"),
+randomComponents <- list(list(randomSlopes=TRUE, value="Intercept"),
+                         list(randomSlopes=FALSE, value="task"),
                          list(randomSlopes=TRUE, value="stimulus"),
                          list(randomSlopes=FALSE, value=c("task", "stimulus"))
 )
@@ -53,6 +54,7 @@ options$randomVariables <- "id"
 options$seed <- 1
 options$setSeed <- FALSE
 options$fixedEffectEstimate <- TRUE
+options$randomEffectEstimate <- FALSE
 options$varianceCorrelationEstimate <- FALSE
 options$interceptTest <- FALSE
 options$trendsTrendVariable <- list()
