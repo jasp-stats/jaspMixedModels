@@ -811,3 +811,19 @@ msgstr ""
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
 msgstr ""
+
+msgctxt "MixedModelsModel|"
+msgid "Include intercept"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Factor contrast"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Sum"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Treatment"
+msgstr ""

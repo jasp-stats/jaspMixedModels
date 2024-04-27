@@ -817,3 +817,19 @@ msgstr "Élément d'arrière-plan"
 msgctxt "MixedModelsPlots|"
 msgid "Element width"
 msgstr "Largeur de l'élément"
+
+msgctxt "MixedModelsModel|"
+msgid "Include intercept"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Factor contrast"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Sum"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Treatment"
+msgstr ""
