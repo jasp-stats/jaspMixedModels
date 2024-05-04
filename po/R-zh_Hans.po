@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.2\n"
 "POT-Creation-Date: 2024-04-27 02:46\n"
-"PO-Revision-Date: 2023-09-21 13:32+0000\n"
-"Last-Translator: JASP Stats <b.boutin@uva.nl>\n"
+"PO-Revision-Date: 2024-04-30 07:08+0000\n"
+"Last-Translator: Cochrane <cunyikang@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "jasp/jaspmixedmodels-r/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.5.2\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -69,37 +69,37 @@ msgid "Effect"
 msgstr ""
 
 msgid "df"
-msgstr ""
+msgstr "df"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "ChiSq"
-msgstr ""
+msgstr "卡方"
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "p (bootstrap)"
-msgstr ""
+msgstr "p (bootstrap)"
 
 msgid "VS-MPR"
-msgstr ""
+msgstr "VS-MPR"
 
 msgid "VS-MPR (bootstrap)"
-msgstr ""
+msgstr "VS-MPR (bootstrap)"
 
 msgid "Warning:"
-msgstr ""
+msgstr "警告："
 
 msgid "Note:"
-msgstr ""
+msgstr "注："
 
 msgid "III"
-msgstr ""
+msgstr "III"
 
 msgid "II"
-msgstr ""
+msgstr "II"
 
 msgid "Fit statistics"
 msgstr ""
@@ -114,16 +114,16 @@ msgid "log Lik."
 msgstr ""
 
 msgid "AIC"
-msgstr ""
+msgstr "AIC"
 
 msgid "BIC"
-msgstr ""
+msgstr "BIC"
 
 msgid "Sample sizes"
-msgstr ""
+msgstr "样本量"
 
 msgid "Observations"
-msgstr ""
+msgstr "观测值"
 
 msgid "Levels of RE grouping factors"
 msgstr ""
@@ -132,7 +132,7 @@ msgid "Variance/Correlation Estimates"
 msgstr ""
 
 msgid "%s: Variance Estimates"
-msgstr ""
+msgstr "%s：方差估计"
 
 msgid "Term"
 msgstr ""
@@ -159,16 +159,16 @@ msgid "Fixed Effects Estimates"
 msgstr ""
 
 msgid "Estimate"
-msgstr ""
+msgstr "估计"
 
 msgid "SE"
-msgstr ""
+msgstr "SE"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Plot"
-msgstr ""
+msgstr "绘图"
 
 msgid ""
 "At least one random effects grouping factor needs to be selected in field "
@@ -183,7 +183,7 @@ msgstr ""
 msgid ""
 "Violin geom requires that the random effects grouping factors has at least 3 "
 "levels."
-msgstr ""
+msgstr "小提琴图要求随机效应的分组因子至少有3个水平。"
 
 msgid "Estimated Means"
 msgstr ""
