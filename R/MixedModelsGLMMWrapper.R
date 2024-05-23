@@ -19,7 +19,7 @@
 
 MixedModelsGLMM <- function(
           data = NULL,
-          version = "0.18.2",
+          version = "0.19",
           formula = NULL,
           bootstrapSamples = 500,
           contrasts = list(),
@@ -30,8 +30,8 @@ MixedModelsGLMM <- function(
           fixedEffectEstimate = FALSE,
           fixedEffects = list(),
           fixedVariables = list(),
-          interceptTest = FALSE,
           includeIntercept = TRUE,
+          interceptTest = FALSE,
           link = "logit",
           marginalMeansCiLevel = 0.95,
           marginalMeansComparison = FALSE,
@@ -101,7 +101,7 @@ MixedModelsGLMM <- function(
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
 
-   optionsWithFormula <- c("contrasts", "dependent", "dependentAggregation", "family", "fixedEffects", "fixedVariables", "marginalMeansPAdjustment", "marginalMeansTerms", "plotBackgroundColor", "plotBackgroundData", "plotBackgroundElement", "plotCiType", "plotHorizontalAxis", "plotLegendPosition", "plotSeparateLines", "plotSeparatePlots", "plotTheme", "randomEffects", "randomVariables", "testMethod", "trendsContrasts", "trendsPAdjustment", "trendsTrendVariable", "trendsVariables")
+   optionsWithFormula <- c("contrasts", "dependent", "dependentAggregation", "factorContrast", "family", "fixedEffects", "fixedVariables", "marginalMeansPAdjustment", "marginalMeansTerms", "plotBackgroundColor", "plotBackgroundData", "plotBackgroundElement", "plotCiType", "plotHorizontalAxis", "plotLegendPosition", "plotSeparateLines", "plotSeparatePlots", "plotTheme", "randomEffects", "randomVariables", "testMethod", "trendsContrasts", "trendsPAdjustment", "trendsTrendVariable", "trendsVariables")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
