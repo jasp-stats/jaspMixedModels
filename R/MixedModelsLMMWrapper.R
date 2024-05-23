@@ -19,7 +19,7 @@
 
 MixedModelsLMM <- function(
           data = NULL,
-          version = "0.18.2",
+          version = "0.19",
           formula = NULL,
           bootstrapSamples = 500,
           contrasts = list(),
@@ -101,7 +101,7 @@ MixedModelsLMM <- function(
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
 
-   optionsWithFormula <- c("contrasts", "dependent", "fixedEffects", "fixedVariables", "marginalMeansDf", "marginalMeansPAdjustment", "marginalMeansTerms", "plotBackgroundColor", "plotBackgroundData", "plotBackgroundElement", "plotCiType", "plotHorizontalAxis", "plotLegendPosition", "plotSeparateLines", "plotSeparatePlots", "plotTheme", "randomEffects", "randomVariables", "testMethod", "trendsContrasts", "trendsDf", "trendsPAdjustment", "trendsTrendVariable", "trendsVariables")
+   optionsWithFormula <- c("contrasts", "dependent", "factorContrast", "fixedEffects", "fixedVariables", "marginalMeansDf", "marginalMeansPAdjustment", "marginalMeansTerms", "plotBackgroundColor", "plotBackgroundData", "plotBackgroundElement", "plotCiType", "plotHorizontalAxis", "plotLegendPosition", "plotSeparateLines", "plotSeparatePlots", "plotTheme", "randomEffects", "randomVariables", "testMethod", "trendsContrasts", "trendsDf", "trendsPAdjustment", "trendsTrendVariable", "trendsVariables")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 

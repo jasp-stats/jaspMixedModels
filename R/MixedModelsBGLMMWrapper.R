@@ -19,7 +19,7 @@
 
 MixedModelsBGLMM <- function(
           data = NULL,
-          version = "0.18.2",
+          version = "0.19",
           formula = NULL,
           ciLevel = 0.95,
           contrasts = list(),
