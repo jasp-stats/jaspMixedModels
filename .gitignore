@@ -50,3 +50,4 @@ Thumbs.db
 
 # some local files
 do-not-share
+_processedLockFile.lock
