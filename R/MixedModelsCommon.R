@@ -122,7 +122,7 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       dataset <- readDataSetToEnd(
         columns.as.numeric = c(
           if (options[["dependent.types"]] == "scale") options[["dependent"]],
-          if (length(options[["dependentAggregation"]]) > 0) options[["dependentAggregation"]],
+          if (options[["dependentAggregation"]] != "") options[["dependentAggregation"]],
           if (length(fixedVariablesScale) > 0) fixedVariablesScale
         ),
         columns.as.factor = c(
