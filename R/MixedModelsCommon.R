@@ -103,46 +103,38 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 ### common mixed-models functions
 .mmReadData      <- function(jaspResults, dataset, options, type = "LMM") {
 
+  fixedVariablesNominal <- options[["fixedVariables"]][options[["fixedVariables.types"]] == "nominal"]
+  fixedVariablesScale   <- options[["fixedVariables"]][options[["fixedVariables.types"]] == "scale"]
+
   if (is.null(dataset)) {
     if (type %in% c("LMM","BLMM")) {
       dataset <- readDataSetToEnd(
-        columns.as.numeric = options$dependent,
-        columns = c(
-          if(length(options$fixedVariables) > 0) options$fixedVariables,
-          options$randomVariables
+        columns.as.numeric = c(
+          options[["dependent"]],
+          if (length(fixedVariablesScale) > 0) fixedVariablesScale
+        ),
+        columns.as.factor = c(
+          options$randomVariables,
+          if (length(fixedVariablesNominal) > 0) fixedVariablesNominal
         )
       )
     } else if (type %in% c("GLMM","BGLMM")) {
-      if (options$family == "binomial") {
-        dataset <- readDataSetToEnd(
-          columns.as.numeric = c(options$dependent, options$dependentAggregation),
-          columns = c(
-            if(length(options$fixedVariables) > 0) options$fixedVariables,
-            options$randomVariables
-          )
+      dataset <- readDataSetToEnd(
+        columns.as.numeric = c(
+          if (options[["dependent.types"]] == "scale") options[["dependent"]],
+          if (options[["dependentAggregation"]] != "") options[["dependentAggregation"]],
+          if (length(fixedVariablesScale) > 0) fixedVariablesScale
+        ),
+        columns.as.factor = c(
+          if (options[["dependent.types"]] == "nominal") options[["dependent"]],
+          options$randomVariables,
+          if (length(fixedVariablesNominal) > 0) fixedVariablesNominal
         )
-      } else  if (options$dependentAggregation == "") {
-        dataset <- readDataSetToEnd(
-          columns.as.numeric = options$dependent,
-          columns = c(
-            if(length(options$fixedVariables) > 0) options$fixedVariables,
-            options$randomVariables
-          )
-        )
-      }
+      )
     }
   }
 
   dataset <- data.frame(dataset)
-
-  # check and use only the variables that actually used for modeling
-  usedVariables <- c(
-    options$dependent,
-    if (type %in% c("GLMM", "BGLMM")) if (options$dependentAggregation != "") options$dependentAggregation,
-    unique(unlist(options$fixedEffects)),
-    if (length(options$randomVariables) != 0) options$randomVariables
-  )
-  dataset <- dataset[, usedVariables]
 
   # omit NAs/NaN/Infs and store the number of omitted observations
   allRows <- nrow(dataset)
@@ -307,14 +299,14 @@ gettextf <- function(fmt, ..., domain = NULL)  {
   for (tempRe in options[["randomEffects"]]) {
 
     # unlist selected random effects
-    tempVars <- sapply(tempRe$randomComponents, function(x) {
+    tempVars <- sapply(tempRe[["randomComponents"]][["value"]], function(x) {
       if (x$randomSlopes)
-        return(unlist(x$value))
+        return(unlist(x[["value"]]))
       else
         return(NA)
     })
-    tempVarsRem <- sapply(tempRe$randomComponents, function(x) {
-      if (x$randomSlopes)
+    tempVarsRem <- sapply(tempRe[["randomComponents"]][["value"]], function(x) {
+      if (x[["randomSlopes"]])
         return(NA)
       else
         return(unlist(x$value))
@@ -379,9 +371,9 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       .quitAnalysis(gettextf(
         "At least one random effect needs to be specified for the '%1$s' random effect grouping factors.%2$s",
         tempRe$value,
-        if(length(meToRemove) + length(teToRemove) > 0) gettextf(
+        if (length(meToRemove) + length(teToRemove) > 0) gettextf(
         " Note that the following random effects were removed because they could not be estimated from the data: %1$s.",
-        paste0("'", c(meToRemove, teToRemove), "'", collapse = ", "))))
+        paste0("'", c(meToRemove, teToRemove), "'", collapse = ", ")) else ""))
 
     newRe <-
       paste0(
@@ -2011,45 +2003,6 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 
 
 # specific Bayesian
-.mmReadDataB      <- function(dataset, options, type = "BLMM") {
-
-  if (!is.null(dataset))
-    return(dataset)
-
-  if (type == "LMM") {
-
-    return(
-      readDataSetToEnd(
-        columns.as.numeric = options$dependent,
-        columns.as.factor  = c(options$fixedVariables, options$randomVariables)
-      )
-    )
-
-  } else if (type == "GLMM") {
-    if (options$dependentAggregation == "") {
-
-      return(readDataSetToEnd(
-        columns = c(
-          options$dependent,
-          if(length(options$fixedVariables) > 0) options$fixedVariables,
-          options$randomVariables
-        )
-      ))
-
-    } else {
-
-      return(readDataSetToEnd(
-        columns = c(
-          options$dependent,
-          if(length(options$fixedVariables) > 0) options$fixedVariables,
-          options$randomVariables,
-          options$dependentAggregation
-        )
-      ))
-
-    }
-  }
-}
 .mmFitModelB      <- function(jaspResults, dataset, options, type = "BLMM") {
 
   # hopefully fixing the random errors
@@ -2864,7 +2817,10 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 .mmDependenciesLMM   <-
   c(
     "dependent",
+    "dependent.types",
     "fixedEffects",
+    "fixedVariables",
+    "fixedVariables.types",
     "includeIntercept",
     "randomEffects",
     "randomVariables",
@@ -2883,7 +2839,9 @@ gettextf <- function(fmt, ..., domain = NULL)  {
 .mmDependenciesBLMM  <-
   c(
     "dependent",
+    "dependent.types",
     "fixedEffects",
+    "fixedVariables.types",
     "includeIntercept",
     "randomEffects",
     "randomVariables",

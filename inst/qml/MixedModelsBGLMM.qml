@@ -33,6 +33,7 @@ Form {
 	VariablesForm
 	{
 		preferredHeight: 350
+		removeInvisibles: true
 
 		AvailableVariablesList
 		{
@@ -43,7 +44,7 @@ Form {
 		{
 			name:				"dependent"
 			title:				qsTr("Dependent variable")
-			allowedColumns:		["scale","ordinal", "nominal"]
+			allowedColumns:		["scale", "nominal"]
 			singleVariable:		true
 		}
 
@@ -53,7 +54,7 @@ Form {
 			name:				"dependentAggregation"
 			title:				qsTr("Number of trials")
 			singleVariable:		true
-			allowedColumns:		["scale", "ordinal"]
+			allowedColumns:		["scale"]
 
 			onEnabledChanged: if (!enabled && count > 0) itemDoubleClicked(0)
 			
@@ -65,15 +66,14 @@ Form {
 		{
 			name:				"fixedVariables"
 			title:				qsTr("Fixed effects variables")
-			allowedColumns:		["ordinal", "nominal","scale"]
-			itemType:			"fixedFactors"
+			allowedColumns:		["nominal", "scale"]
 		}
 		
 		AssignedVariablesList
 		{
 			name:				"randomVariables"
 			title:				qsTr("Random effects grouping factors")
-			allowedColumns:		["ordinal", "nominal"]
+			allowedColumns:		["nominal"]
 		}
 	}
 
