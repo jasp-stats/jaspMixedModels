@@ -371,9 +371,9 @@ gettextf <- function(fmt, ..., domain = NULL)  {
       .quitAnalysis(gettextf(
         "At least one random effect needs to be specified for the '%1$s' random effect grouping factors.%2$s",
         tempRe$value,
-        if(length(meToRemove) + length(teToRemove) > 0) gettextf(
+        if (length(meToRemove) + length(teToRemove) > 0) gettextf(
         " Note that the following random effects were removed because they could not be estimated from the data: %1$s.",
-        paste0("'", c(meToRemove, teToRemove), "'", collapse = ", "))))
+        paste0("'", c(meToRemove, teToRemove), "'", collapse = ", ")) else ""))
 
     newRe <-
       paste0(
