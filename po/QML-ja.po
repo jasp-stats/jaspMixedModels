@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2024-06-18 15:09+0000\n"
+"Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/ja/>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.6-dev\n"
 "X-Language: ja\n"
 "X-Qt-Contexts: true\n"
 
@@ -777,55 +783,53 @@ msgstr "境界線の色"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "変量効果の推定値"
 
 #, qt-format
 msgctxt "MixedModelsModel|"
 msgid "Random components (%1)"
-msgstr ""
+msgstr "変量成分 (%1)"
 
 msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "変量効果の推定値"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Confidence interval"
 msgstr "信頼区間"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
 msgstr "SD要因共分散"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Samples"
-msgstr ""
+msgstr "サンプル"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test method"
-msgstr ""
+msgstr "検定方法"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background element"
-msgstr ""
+msgstr "背景要素"
 
 msgctxt "MixedModelsPlots|"
 msgid "Element width"
-msgstr ""
+msgstr "要素の幅"
 
 msgctxt "MixedModelsModel|"
 msgid "Include intercept"
-msgstr ""
+msgstr "切片を含む"
 
 msgctxt "MixedModelsOptions|"
 msgid "Factor contrast"
-msgstr ""
+msgstr "要因対比"
 
 msgctxt "MixedModelsOptions|"
 msgid "Sum"
-msgstr ""
+msgstr "総和"
 
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
-msgstr ""
+msgstr "処置"
