@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "POT-Creation-Date: 2024-04-27 02:46\n"
-"PO-Revision-Date: 2023-04-21 17:51+0000\n"
+"PO-Revision-Date: 2024-06-20 17:09+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/ja/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.6-rc\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -44,33 +44,30 @@ msgstr "%s は、従属変数に含まれる数字が0と1だけである必要�
 msgid "%s requires that the number of trials variable is an integer."
 msgstr "%s は試行回数の変数が整数である必要があります。"
 
-#, fuzzy
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
-msgstr "%s では、従属変数が試行回数の中で成功の割合である必要があります。"
+msgstr "%s は試行回数より成功回数が少ないことを要求します."
 
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
 msgstr "%s は、従属変数が 0 より大きく、1 より小さい必要があります。"
 
-#, fuzzy
 msgid ""
 "%s requires that the dependent variable is either the number or proportion "
 "of successes out of the number of trials."
-msgstr "%s では、従属変数が試行回数の中で成功の割合である必要があります。"
+msgstr "%s は、従属変数が試行回数のうち成功した回数か割合であることを必要とします."
 
-#, fuzzy
 msgid ""
 "At least one random effect needs to be specified for the '%1$s' random "
 "effect grouping factors.%2$s"
-msgstr ""
-"'背景データ表示' の領域で少なくとも 1 つのランダム効果のグループ化係数を選択"
-"する必要があります。"
+msgstr "'1$s' の変量効果群要因には、少なくとも 1 "
+"つの変量効果を指定する必要があります. %2$s"
 
 msgid ""
 "Mixed-effects models with a fixed intercept only are not supported for "
 "aggregated binomial family."
-msgstr ""
+msgstr "固定切片のみの混合効果モデルは、集計された二項分布ファミリーではサポートされ"
+"ていません."
 
 msgid "ANOVA Summary"
 msgstr "ANOVAの要約"
@@ -159,13 +156,11 @@ msgstr "%s:相関関係の推定値"
 msgid "Residual Variance Estimates"
 msgstr "残差分散の推定"
 
-#, fuzzy
 msgid "Random Effect Estimates"
-msgstr "固定効果の推定値"
+msgstr "変量効果の推定値"
 
-#, fuzzy
 msgid "%s: Random Effect Estimates"
-msgstr "固定効果の推定値"
+msgstr "%s: 変量効果の推定値"
 
 msgid "Fixed Effects Estimates"
 msgstr "固定効果の推定値"
@@ -222,7 +217,7 @@ msgid "Upper"
 msgstr "上限"
 
 msgid "Cannot find function: %s"
-msgstr ""
+msgstr "関数を見つけることができません: %s"
 
 msgid "Estimated Marginal Means"
 msgstr "推定周辺平均"
@@ -245,7 +240,6 @@ msgstr "推定されたトレンド"
 msgid "%s (slope)"
 msgstr "%s (スロープ)"
 
-#, fuzzy
 msgid "contrasts"
 msgstr "対比"
 
@@ -341,7 +335,6 @@ msgstr ""
 "ため、推定値を水準に直接対応させることができません。各要因の水準/デザインセル"
 "またはそれらの差の推定値を得るために、推定限界平均を使用します。"
 
-#, fuzzy
 msgid ""
 "The intercept corresponds to the mean in the default factor category (factor "
 "level parameters are estimated with treatment contrast coding). "
@@ -349,10 +342,10 @@ msgid ""
 "interactions. Use estimated marginal means for obtaining estimates for each "
 "factor level/design cell or their differences."
 msgstr ""
-"切片は（重み付けされていない）全体平均に一致しています；k個の水準を持つ各因子"
-"に対して、k - 1個のパラメータがsum contrast codingによって推定されます。その"
-"ため、推定値を水準に直接対応させることができません。各要因の水準/デザインセル"
-"またはそれらの差の推定値を得るために、推定限界平均を使用します。"
+"切片は、デフォルトの要因カテゴリの平均に対応します（要因レベルのパラメータは"
+"治療効果対比符号化を用いて推定されます）。その結果、交互作用が存在する場合、"
+"推定値を簡単に解釈することはできません。各要因レベル/デザインセルまたはその差"
+"分の推定値を得るためには、推定された周辺平均を使用してください."
 
 msgid ""
 "The intercept corresponds to the (unweighted) grand mean; for each factor "
@@ -436,7 +429,7 @@ msgid "P-values correspond to test of null hypothesis against %s."
 msgstr "P値は、%sに対する帰無仮説の検定に対応しています。"
 
 msgid "Results are averaged over the levels of: %s."
-msgstr "結果は次の水準で平均化されています: %s"
+msgstr "結果は次の水準で平均化されています: %s."
 
 msgid "binomial"
 msgstr "二項"
@@ -447,7 +440,6 @@ msgstr "正規"
 msgid "gamma"
 msgstr "ガンマ"
 
-#, fuzzy
 msgid "inverseGaussian"
 msgstr "逆正規"
 
@@ -475,9 +467,8 @@ msgstr "尤度比検定"
 msgid "parametric bootstrap"
 msgstr "パラメトリックブートストラップ"
 
-#, fuzzy
 msgid "Model terms tested with %s testMethod."
-msgstr "モデル項は %s 法で検証されます。"
+msgstr "モデル項は %s 検定法で検証されます."
 
 msgid "P-values are not adjusted."
 msgstr "P値は調整されていません。"
@@ -536,7 +527,6 @@ msgstr ""
 "す。推定精度を上げるには、オプションで「反復回数」や「デルタを適応」を増やし"
 "てください。"
 
-#, fuzzy
 msgid ""
 "The model was fitted using restricted maximum likelihood. Please note that "
 "models with different fixed effects cannot be compared when REML is used. To "
@@ -544,7 +534,7 @@ msgid ""
 msgstr ""
 "モデルは制限付き最尤法を用いてフィッティングしました。REMLを使用した場合、異"
 "なる固定効果を持つモデルは比較できないことに注意してください。MLを使用するに"
-"は、「モデル項の検定」を「尤度比検定」に切り替えてください。"
+"は、「検定方法」を「尤度比検定」に切り替えてください."
 
 msgid "The model was fitted using maximum likelihood."
 msgstr "モデルは最尤法を用いてフィッティングされました。"
@@ -580,17 +570,15 @@ msgstr ""
 "準分離していることが原因です。予測変数の一部を削除するか、スケールを変更して"
 "みてください。"
 
-#, fuzzy
 msgid ""
 "The optimizer failed to find a solution in the specified number of "
 "iterations. (JASP currently does not support modifying the optimizer "
 "settings.)"
-msgstr ""
-"開始値が不適切なため、最適化法が解を見つけられませんでした。(JASPは現在、異な"
-"る開始値の指定をサポートしていません)。"
+msgstr "最適化は、指定された反復回数で解を見つけることができませんでした。(JASPは現在"
+"、最適化設定の変更をサポートしていません)"
 
 msgid "The model formula is probably too long. Try shortening variable names."
-msgstr ""
+msgstr "モデル式が長すぎるかもしれません. 変数名を短くしてみてください."
 
 msgid "The following variable is used as a random effects grouping factor: %s."
 msgid_plural ""
@@ -623,7 +611,6 @@ msgstr[0] ""
 "ランダム効果グルーピング係数 '%3$s' のランダムな傾き '%4$s'を推定するには観測"
 "が少なすぎます。"
 
-#, fuzzy
 msgid ""
 "Lower order random effects terms need to be specified in presence of the "
 "higher order random effects terms. Therefore, the following random effects "
@@ -633,9 +620,8 @@ msgid_plural ""
 "higher order random effects terms. Therefore, the following random effects "
 "terms were added to the '%1$s' random effects grouping factor: '%2$s.'"
 msgstr[0] ""
-"低次の変量効果項は、高次の変量効果項がある場合に指定する必要があります。した"
-"がって、次の変量効果項が「%1$s」変量効果グループ化変数に追加されています。: "
-"'%2$s'"
+"低次の変量効果項は、高次の変量効果項の存在下で指定する必要があります。したが"
+"って、次の変量効果項が変量効果グループ要因 '%1$s' に追加されました: '%2$s.'"
 
 msgid "%i observation was removed due to missing values."
 msgid_plural "%i observations were removed due to missing values."
