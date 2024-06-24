@@ -60,7 +60,7 @@ msgstr "%s は、従属変数が試行回数のうち成功した回数か割合
 msgid ""
 "At least one random effect needs to be specified for the '%1$s' random "
 "effect grouping factors.%2$s"
-msgstr "'1$s' の変量効果群要因には、少なくとも 1 "
+msgstr "'%1$s' の変量効果群要因には、少なくとも 1 "
 "つの変量効果を指定する必要があります. %2$s"
 
 msgid ""
