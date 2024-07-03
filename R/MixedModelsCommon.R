@@ -15,11 +15,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# This is a temporary fix
-# TODO: remove it when R will solve this problem!
-gettextf <- function(fmt, ..., domain = NULL)  {
-  return(sprintf(gettext(fmt, domain = domain), ...))
-}
 
 # TODO: Expose priors specification to users in Bxxx?
 # TODO: Add 3rd level random effects grouping factors ;) (not that difficult actually)
@@ -1201,10 +1196,12 @@ gettextf <- function(fmt, ..., domain = NULL)  {
     data_arg$color <- options$plotBackgroundColor
 
   # deal with type II SS
-  if (is.list(model$full_model))
-    model <- model$full_model[[length(model$full_model)]]
-  else
-    model <- model$full_model
+  if (type %in% c("LMN", "GLMM")) {
+    if (is.list(model$full_model))
+      model <- model$full_model[[length(model$full_model)]]
+    else
+      model <- model$full_model
+  }
 
   .setSeedJASP(options)
   p <- try(
