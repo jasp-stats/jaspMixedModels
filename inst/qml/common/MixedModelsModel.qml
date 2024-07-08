@@ -50,7 +50,6 @@ Section
 			name:		"includeIntercept"
 			checked:	true
 		}
-	
 	}
 
 	ComponentsList
@@ -81,7 +80,7 @@ Section
 				source			: [{values: randomEffects.alwaysAvailable}, "fixedEffects"]
 				listViewType	: JASP.AssignedVariables
 				preferredHeight	: 120 * preferencesModel.uiScale
-				preferredWidth	: randomEffects.width - 2 * jaspTheme.contentMargin
+				preferredWidth	: randomEffects.availableWidth
 				draggable		: false
 				optionKey		: "value"
 				interactionHighOrderCheckBox: "randomSlopes"
