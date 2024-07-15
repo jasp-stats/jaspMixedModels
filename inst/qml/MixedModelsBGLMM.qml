@@ -45,6 +45,7 @@ Form {
 			name:				"dependent"
 			title:				qsTr("Dependent variable")
 			allowedColumns:		["scale", "nominal"]
+			allowTypeChange:	true
 			singleVariable:		true
 		}
 
@@ -67,6 +68,7 @@ Form {
 			name:				"fixedVariables"
 			title:				qsTr("Fixed effects variables")
 			allowedColumns:		["nominal", "scale"]
+			allowTypeChange:	true
 		}
 		
 		AssignedVariablesList
