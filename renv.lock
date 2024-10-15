@@ -226,7 +226,7 @@
     },
     "data.table": {
       "Package": "data.table",
-      "Version": "1.16.0",
+      "Version": "1.16.2",
       "Source": "Repository"
     },
     "desc": {
@@ -261,7 +261,7 @@
     },
     "emmeans": {
       "Package": "emmeans",
-      "Version": "1.10.4",
+      "Version": "1.10.5",
       "Source": "Repository"
     },
     "estimability": {
@@ -271,7 +271,7 @@
     },
     "evaluate": {
       "Package": "evaluate",
-      "Version": "1.0.0",
+      "Version": "1.0.1",
       "Source": "Repository"
     },
     "fansi": {
