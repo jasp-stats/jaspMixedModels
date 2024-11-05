@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013-2022 University of Amsterdam
+# Copyright (C) 2013-2024 University of Amsterdam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,33 +17,31 @@
 
 # This is a generated file. Don't change it
 
-MixedModelsGLMM <- function(
+MixedModelsLMM <- function(
           data = NULL,
-          version = "0.19",
+          version = "0.19.2",
           formula = NULL,
           bootstrapSamples = 500,
           contrasts = list(),
-          dependent = "",
-          dependentAggregation = "",
+          dependent = list(types = list(), value = ""),
           factorContrast = "sum",
-          family = "bernoulli",
           fixedEffectEstimate = FALSE,
-          fixedEffects = list(),
-          fixedVariables = list(),
+          fixedEffects = list(optionKey = "components", types = list(), value = list()),
+          fixedVariables = list(types = list(), value = NULL),
           includeIntercept = TRUE,
           interceptTest = FALSE,
-          link = "logit",
           marginalMeansCiLevel = 0.95,
           marginalMeansComparison = FALSE,
           marginalMeansComparisonWith = 0,
           marginalMeansContrast = FALSE,
+          marginalMeansDf = "asymptotic",
+          marginalMeansDfEstimated = FALSE,
           marginalMeansPAdjustment = "holm",
-          marginalMeansResponse = TRUE,
           marginalMeansSd = 1,
-          marginalMeansTerms = list(),
+          marginalMeansTerms = list(optionKey = "variable", types = list(), value = list()),
           modelSummary = FALSE,
           plotBackgroundColor = "darkgrey",
-          plotBackgroundData = list(),
+          plotBackgroundData = list(types = list(), value = NULL),
           plotBackgroundElement = "jitter",
           plotCiLevel = 0.95,
           plotCiType = "model",
@@ -51,7 +49,7 @@ MixedModelsGLMM <- function(
           plotElementWidth = 1,
           plotEstimatesTable = FALSE,
           plotHeight = 320,
-          plotHorizontalAxis = list(),
+          plotHorizontalAxis = list(optionKey = "variable", types = list(), value = list()),
           plotJitterHeight = 0,
           plotJitterWidth = 0.1,
           plotLegendPosition = "none",
@@ -61,31 +59,33 @@ MixedModelsGLMM <- function(
           plotLevelsByShape = TRUE,
           plotRelativeSizeData = 1,
           plotRelativeSizeText = 1.5,
-          plotSeparateLines = list(),
-          plotSeparatePlots = list(),
+          plotSeparateLines = list(optionKey = "variable", types = list(), value = list()),
+          plotSeparatePlots = list(optionKey = "variable", types = list(), value = list()),
           plotTheme = "jasp",
           plotTransparency = 0.7,
           plotWidth = 480,
           randomEffectEstimate = FALSE,
           randomEffects = list(),
-          randomVariables = list(),
+          randomVariables = list(types = list(), value = NULL),
           seed = 1,
           setSeed = FALSE,
-          testMethod = "likelihoodRatioTest",
+          testMethod = "satterthwaite",
           trendsCiLevel = 0.95,
           trendsComparison = FALSE,
           trendsComparisonWith = 0,
           trendsContrast = FALSE,
           trendsContrasts = list(),
+          trendsDf = "asymptotic",
+          trendsDfEstimated = FALSE,
           trendsPAdjustment = "holm",
           trendsSd = 1,
-          trendsTrendVariable = list(),
-          trendsVariables = list(),
+          trendsTrendVariable = list(optionKey = "variable", types = list(), value = list()),
+          trendsVariables = list(optionKey = "variable", types = list(), value = list()),
           type = "3",
           varianceCorrelationEstimate = FALSE,
           vovkSellke = FALSE) {
 
-   defaultArgCalls <- formals(jaspMixedModels::MixedModelsGLMM)
+   defaultArgCalls <- formals(jaspMixedModels::MixedModelsLMM)
    defaultArgs <- lapply(defaultArgCalls, eval)
    options <- as.list(match.call())[-1L]
    options <- lapply(options, eval)
@@ -101,9 +101,9 @@ MixedModelsGLMM <- function(
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
 
-   optionsWithFormula <- c("contrasts", "dependent", "dependentAggregation", "factorContrast", "family", "fixedEffects", "fixedVariables", "marginalMeansPAdjustment", "marginalMeansTerms", "plotBackgroundColor", "plotBackgroundData", "plotBackgroundElement", "plotCiType", "plotHorizontalAxis", "plotLegendPosition", "plotSeparateLines", "plotSeparatePlots", "plotTheme", "randomEffects", "randomVariables", "testMethod", "trendsContrasts", "trendsPAdjustment", "trendsTrendVariable", "trendsVariables")
+   optionsWithFormula <- c("contrasts", "dependent", "factorContrast", "fixedEffects", "fixedVariables", "marginalMeansDf", "marginalMeansPAdjustment", "marginalMeansTerms", "plotBackgroundColor", "plotBackgroundData", "plotBackgroundElement", "plotCiType", "plotHorizontalAxis", "plotLegendPosition", "plotSeparateLines", "plotSeparatePlots", "plotTheme", "randomEffects", "randomVariables", "testMethod", "trendsContrasts", "trendsDf", "trendsPAdjustment", "trendsTrendVariable", "trendsVariables")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspMixedModels::MixedModelsGLMM", data, options, version))
+   return(jaspBase::runWrappedAnalysis("jaspMixedModels::MixedModelsLMM", data, options, version))
 }

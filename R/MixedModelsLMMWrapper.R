@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013-2022 University of Amsterdam
+# Copyright (C) 2013-2024 University of Amsterdam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,15 +19,15 @@
 
 MixedModelsLMM <- function(
           data = NULL,
-          version = "0.19",
+          version = "0.19.2",
           formula = NULL,
           bootstrapSamples = 500,
           contrasts = list(),
-          dependent = "",
+          dependent = list(types = list(), value = ""),
           factorContrast = "sum",
           fixedEffectEstimate = FALSE,
-          fixedEffects = list(),
-          fixedVariables = list(),
+          fixedEffects = list(optionKey = "components", types = list(), value = list()),
+          fixedVariables = list(types = list(), value = NULL),
           includeIntercept = TRUE,
           interceptTest = FALSE,
           marginalMeansCiLevel = 0.95,
@@ -38,10 +38,10 @@ MixedModelsLMM <- function(
           marginalMeansDfEstimated = FALSE,
           marginalMeansPAdjustment = "holm",
           marginalMeansSd = 1,
-          marginalMeansTerms = list(),
+          marginalMeansTerms = list(optionKey = "variable", types = list(), value = list()),
           modelSummary = FALSE,
           plotBackgroundColor = "darkgrey",
-          plotBackgroundData = list(),
+          plotBackgroundData = list(types = list(), value = NULL),
           plotBackgroundElement = "jitter",
           plotCiLevel = 0.95,
           plotCiType = "model",
@@ -49,7 +49,7 @@ MixedModelsLMM <- function(
           plotElementWidth = 1,
           plotEstimatesTable = FALSE,
           plotHeight = 320,
-          plotHorizontalAxis = list(),
+          plotHorizontalAxis = list(optionKey = "variable", types = list(), value = list()),
           plotJitterHeight = 0,
           plotJitterWidth = 0.1,
           plotLegendPosition = "none",
@@ -59,14 +59,14 @@ MixedModelsLMM <- function(
           plotLevelsByShape = TRUE,
           plotRelativeSizeData = 1,
           plotRelativeSizeText = 1.5,
-          plotSeparateLines = list(),
-          plotSeparatePlots = list(),
+          plotSeparateLines = list(optionKey = "variable", types = list(), value = list()),
+          plotSeparatePlots = list(optionKey = "variable", types = list(), value = list()),
           plotTheme = "jasp",
           plotTransparency = 0.7,
           plotWidth = 480,
           randomEffectEstimate = FALSE,
           randomEffects = list(),
-          randomVariables = list(),
+          randomVariables = list(types = list(), value = NULL),
           seed = 1,
           setSeed = FALSE,
           testMethod = "satterthwaite",
@@ -79,8 +79,8 @@ MixedModelsLMM <- function(
           trendsDfEstimated = FALSE,
           trendsPAdjustment = "holm",
           trendsSd = 1,
-          trendsTrendVariable = list(),
-          trendsVariables = list(),
+          trendsTrendVariable = list(optionKey = "variable", types = list(), value = list()),
+          trendsVariables = list(optionKey = "variable", types = list(), value = list()),
           type = "3",
           varianceCorrelationEstimate = FALSE,
           vovkSellke = FALSE) {
