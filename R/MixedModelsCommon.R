@@ -20,14 +20,11 @@
 # TODO: Add 3rd level random effects grouping factors ;) (not that difficult actually)
 
 .mmRunAnalysis   <- function(jaspResults, dataset, options, type) {
+
   .setOptions()
 
-
   if (.mmReady(options, type))
-    dataset <- .mmReadData(jaspResults, dataset, options, type)
-
-  if (.mmReady(options, type))
-    dataset <- .mmCheckData(dataset, options, type)
+    dataset <- .mmCheckData(jaspResults, dataset, options, type)
 
   # fit the model
   if (.mmReady(options, type)) {
@@ -96,40 +93,7 @@
 }
 
 ### common mixed-models functions
-.mmReadData      <- function(jaspResults, dataset, options, type = "LMM") {
-
-  fixedVariablesNominal <- options[["fixedVariables"]][options[["fixedVariables.types"]] == "nominal"]
-  fixedVariablesScale   <- options[["fixedVariables"]][options[["fixedVariables.types"]] == "scale"]
-
-  if (is.null(dataset)) {
-    if (type %in% c("LMM","BLMM")) {
-      dataset <- readDataSetToEnd(
-        columns.as.numeric = c(
-          options[["dependent"]],
-          if (length(fixedVariablesScale) > 0) fixedVariablesScale
-        ),
-        columns.as.factor = c(
-          options$randomVariables,
-          if (length(fixedVariablesNominal) > 0) fixedVariablesNominal
-        )
-      )
-    } else if (type %in% c("GLMM","BGLMM")) {
-      dataset <- readDataSetToEnd(
-        columns.as.numeric = c(
-          if (options[["dependent.types"]] == "scale") options[["dependent"]],
-          if (options[["dependentAggregation"]] != "") options[["dependentAggregation"]],
-          if (length(fixedVariablesScale) > 0) fixedVariablesScale
-        ),
-        columns.as.factor = c(
-          if (options[["dependent.types"]] == "nominal") options[["dependent"]],
-          options$randomVariables,
-          if (length(fixedVariablesNominal) > 0) fixedVariablesNominal
-        )
-      )
-    }
-  }
-
-  dataset <- data.frame(dataset)
+.mmCheckData     <- function(jaspResults, dataset, options, type = "LMM") {
 
   # omit NAs/NaN/Infs and store the number of omitted observations
   allRows <- nrow(dataset)
@@ -140,10 +104,7 @@
   nMissing$object <- allRows - nrow(dataset)
   jaspResults[["nMissing"]] <- nMissing
 
-  return(dataset)
-}
-.mmCheckData     <- function(dataset, options, type = "LMM") {
-
+  # check the data set
   if (nrow(dataset) < length(options$fixedEffects))
     .quitAnalysis("The dataset contains fewer observations than predictors (after excluding NAs/NaN/Inf).")
 
@@ -294,13 +255,13 @@
   for (tempRe in options[["randomEffects"]]) {
 
     # unlist selected random effects
-    tempVars <- sapply(tempRe[["randomComponents"]][["value"]], function(x) {
+    tempVars <- sapply(tempRe[["randomComponents"]], function(x) {
       if (x$randomSlopes)
         return(unlist(x[["value"]]))
       else
         return(NA)
     })
-    tempVarsRem <- sapply(tempRe[["randomComponents"]][["value"]], function(x) {
+    tempVarsRem <- sapply(tempRe[["randomComponents"]], function(x) {
       if (x[["randomSlopes"]])
         return(NA)
       else
