@@ -17,31 +17,33 @@
 
 # This is a generated file. Don't change it
 
-MixedModelsLMM <- function(
+MixedModelsGLMM <- function(
           data = NULL,
           version = "0.19.2",
           formula = NULL,
           bootstrapSamples = 500,
           contrasts = list(),
           dependent = list(types = list(), value = ""),
+          dependentAggregation = list(types = list(), value = ""),
           factorContrast = "sum",
+          family = "bernoulli",
           fixedEffectEstimate = FALSE,
           fixedEffects = list(optionKey = "components", types = list(), value = list()),
-          fixedVariables = list(types = list(), value = NULL),
+          fixedVariables = list(types = list(), value = list()),
           includeIntercept = TRUE,
           interceptTest = FALSE,
+          link = "logit",
           marginalMeansCiLevel = 0.95,
           marginalMeansComparison = FALSE,
           marginalMeansComparisonWith = 0,
           marginalMeansContrast = FALSE,
-          marginalMeansDf = "asymptotic",
-          marginalMeansDfEstimated = FALSE,
           marginalMeansPAdjustment = "holm",
+          marginalMeansResponse = TRUE,
           marginalMeansSd = 1,
           marginalMeansTerms = list(optionKey = "variable", types = list(), value = list()),
           modelSummary = FALSE,
           plotBackgroundColor = "darkgrey",
-          plotBackgroundData = list(types = list(), value = NULL),
+          plotBackgroundData = list(types = list(), value = list()),
           plotBackgroundElement = "jitter",
           plotCiLevel = 0.95,
           plotCiType = "model",
@@ -66,17 +68,15 @@ MixedModelsLMM <- function(
           plotWidth = 480,
           randomEffectEstimate = FALSE,
           randomEffects = list(),
-          randomVariables = list(types = list(), value = NULL),
+          randomVariables = list(types = list(), value = list()),
           seed = 1,
           setSeed = FALSE,
-          testMethod = "satterthwaite",
+          testMethod = "likelihoodRatioTest",
           trendsCiLevel = 0.95,
           trendsComparison = FALSE,
           trendsComparisonWith = 0,
           trendsContrast = FALSE,
           trendsContrasts = list(),
-          trendsDf = "asymptotic",
-          trendsDfEstimated = FALSE,
           trendsPAdjustment = "holm",
           trendsSd = 1,
           trendsTrendVariable = list(optionKey = "variable", types = list(), value = list()),
@@ -85,7 +85,7 @@ MixedModelsLMM <- function(
           varianceCorrelationEstimate = FALSE,
           vovkSellke = FALSE) {
 
-   defaultArgCalls <- formals(jaspMixedModels::MixedModelsLMM)
+   defaultArgCalls <- formals(jaspMixedModels::MixedModelsGLMM)
    defaultArgs <- lapply(defaultArgCalls, eval)
    options <- as.list(match.call())[-1L]
    options <- lapply(options, eval)
@@ -101,9 +101,9 @@ MixedModelsLMM <- function(
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
 
-   optionsWithFormula <- c("contrasts", "dependent", "factorContrast", "fixedEffects", "fixedVariables", "marginalMeansDf", "marginalMeansPAdjustment", "marginalMeansTerms", "plotBackgroundColor", "plotBackgroundData", "plotBackgroundElement", "plotCiType", "plotHorizontalAxis", "plotLegendPosition", "plotSeparateLines", "plotSeparatePlots", "plotTheme", "randomEffects", "randomVariables", "testMethod", "trendsContrasts", "trendsDf", "trendsPAdjustment", "trendsTrendVariable", "trendsVariables")
+   optionsWithFormula <- c("contrasts", "dependent", "dependentAggregation", "factorContrast", "family", "fixedEffects", "fixedVariables", "marginalMeansPAdjustment", "marginalMeansTerms", "plotBackgroundColor", "plotBackgroundData", "plotBackgroundElement", "plotCiType", "plotHorizontalAxis", "plotLegendPosition", "plotSeparateLines", "plotSeparatePlots", "plotTheme", "randomEffects", "randomVariables", "testMethod", "trendsContrasts", "trendsPAdjustment", "trendsTrendVariable", "trendsVariables")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspMixedModels::MixedModelsLMM", data, options, version))
+   return(jaspBase::runWrappedAnalysis("jaspMixedModels::MixedModelsGLMM", data, options, version))
 }
