@@ -209,7 +209,10 @@ Form {
 		}
 	}
 
-	MM.MixedModelsModel {}
+	MM.MixedModelsModel
+	{
+		analysisType: "Bayesian"
+	}
 
 	MM.MixedModelsBOptions {}
 
