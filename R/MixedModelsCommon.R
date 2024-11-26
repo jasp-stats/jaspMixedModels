@@ -1504,11 +1504,15 @@
     return()
 
   model <- jaspResults[["mmModel"]]$object$model
-  # deal with type II SS
-  if (is.list(model$full_model))
-    model <- model$full_model[[length(model$full_model)]]
-  else
-    model <- model$full_model
+
+  if (type %in% c("LMN", "GLMM")) {
+    # deal with type II SS
+    if (is.list(model$full_model))
+      model <- model$full_model[[length(model$full_model)]]
+    else
+      model <- model$full_model
+  }
+
 
   # deal with continuous predictors
   at <- NULL
