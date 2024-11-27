@@ -159,25 +159,28 @@
 
     if (options$family %in% c("gamma", "inverseGaussian")) {
 
-      if (any(dataset[, options$dependent] <= 0))
+      if (options$dependent.type != "scale" || any(dataset[, options$dependent] <= 0))
         .quitAnalysis(gettextf("%s requires that the dependent variable is positive.",familyText))
 
     } else if (options$family %in% c("negativeBinomial", "poisson")) {
 
-      if (any(dataset[, options$dependent] < 0 | any(!.is.wholenumber(dataset[, options$dependent]))))
+      if (options$dependent.type != "scale" || any(dataset[, options$dependent] < 0 | any(!.is.wholenumber(dataset[, options$dependent]))))
         .quitAnalysis(gettextf("%s requires that the dependent variable is an integer.",familyText))
 
     } else if (options$family == "bernoulli") {
 
-      if (any(!dataset[, options$dependent] %in% c(0, 1)))
+      if (!options$dependent.type %in% c("scale", "nominal") || any(!dataset[, options$dependent] %in% c(0, 1)))
         .quitAnalysis(gettextf("%s requires that the dependent variable contains only 0 and 1.",familyText))
 
     } else if (options$family == "binomial") {
 
-      if (any(dataset[, options$dependentAggregation] < 0) || any(!.is.wholenumber(dataset[, options$dependentAggregation])))
+      if (options$dependentAggregation.type != "scale" || any(dataset[, options$dependentAggregation] < 0) || any(!.is.wholenumber(dataset[, options$dependentAggregation])))
         .quitAnalysis(gettextf("%s requires that the number of trials variable is an integer.",familyText))
 
       # if the user supplies the number of successes, transform them into the corresponding proportion
+      if (options$dependent.type != "scale")
+        .quitAnalysis(gettextf("%s requires that the number or proportion of successes is an integer.",familyText))
+
       if (all(.is.wholenumber(dataset[, options$dependent]))){
         if(any(dataset[, options$dependent] > dataset[, options$dependentAggregation]))
           .quitAnalysis(gettextf("%s requires that the number of successes is lower that the number of trials.",familyText))
@@ -193,8 +196,13 @@
 
     } else if (options$family == "beta") {
 
-      if (any(dataset[, options$dependent] <= 0 | dataset[, options$dependent] >= 1))
+      if (options$dependent.type != "scale" || any(dataset[, options$dependent] <= 0 | dataset[, options$dependent] >= 1))
         .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",familyText))
+
+    } else if (options$family == "gaussian") {
+
+      if (options$dependent.type != "scale")
+        .quitAnalysis(gettextf("%s requires that the dependent variable is continuous.",familyText))
 
     }
   }
