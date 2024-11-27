@@ -2426,13 +2426,18 @@
     divIterations <- rstan::get_num_divergent(model$stanfit)
     lowBmfi       <- rstan::get_low_bfmi_chains(model$stanfit)
     maxTreedepth  <- rstan::get_num_max_treedepth(model$stanfit)
-    minESS        <- min(rstan::summary(model$stanfit)$summary[, "n_eff"])
+
+    if (any(is.nan(rstan::summary(model$stanfit)$summary[, "n_eff"])))
+      minESS <- NaN
+    else
+      minESS <- min(rstan::summary(model$stanfit)$summary[, "n_eff"])
 
     if (any(is.infinite(rstan::summary(model$stanfit)$summary[, "Rhat"])))
-      maxRhat     <- Inf
+      maxRhat <- Inf
+    else if (any(is.nan(rstan::summary(model$stanfit)$summary[, "Rhat"])))
+      maxRhat <- NaN
     else
-      maxRhat     <- max(rstan::summary(model$stanfit)$summary[, "Rhat"])
-
+      maxRhat <- max(rstan::summary(model$stanfit)$summary[, "Rhat"])
 
     if (divIterations != 0)
       tempTable$addFootnote(.mmMessageDivergentIter(divIterations), symbol = gettext("Warning:"))
@@ -2443,10 +2448,10 @@
     if (maxTreedepth != 0)
       tempTable$addFootnote(.mmMessageMaxTreedepth(maxTreedepth))
 
-    if (maxRhat > 1.01)
+    if (is.nan(maxRhat) || maxRhat > 1.01)
       tempTable$addFootnote(.mmMessageMaxRhat(maxRhat), symbol = gettext("Warning:"))
 
-    if (minESS < 100 * options$mcmcChains || is.nan(minESS))
+    if (is.nan(minESS) || minESS < 100 * options$mcmcChains)
       tempTable$addFootnote(.mmMessageMinESS(minESS, 100 * options$mcmcChains), symbol = gettext("Warning:"))
 
 
