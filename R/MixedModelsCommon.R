@@ -159,25 +159,28 @@
 
     if (options$family %in% c("gamma", "inverseGaussian")) {
 
-      if (any(dataset[, options$dependent] <= 0))
+      if (options$dependent.type != "scale" || any(dataset[, options$dependent] <= 0))
         .quitAnalysis(gettextf("%s requires that the dependent variable is positive.",familyText))
 
     } else if (options$family %in% c("negativeBinomial", "poisson")) {
 
-      if (any(dataset[, options$dependent] < 0 | any(!.is.wholenumber(dataset[, options$dependent]))))
+      if (options$dependent.type != "scale" || any(dataset[, options$dependent] < 0 | any(!.is.wholenumber(dataset[, options$dependent]))))
         .quitAnalysis(gettextf("%s requires that the dependent variable is an integer.",familyText))
 
     } else if (options$family == "bernoulli") {
 
-      if (any(!dataset[, options$dependent] %in% c(0, 1)))
+      if (!options$dependent.type %in% c("scale", "nominal") || any(!dataset[, options$dependent] %in% c(0, 1)))
         .quitAnalysis(gettextf("%s requires that the dependent variable contains only 0 and 1.",familyText))
 
     } else if (options$family == "binomial") {
 
-      if (any(dataset[, options$dependentAggregation] < 0) || any(!.is.wholenumber(dataset[, options$dependentAggregation])))
+      if (options$dependentAggregation.type != "scale" || any(dataset[, options$dependentAggregation] < 0) || any(!.is.wholenumber(dataset[, options$dependentAggregation])))
         .quitAnalysis(gettextf("%s requires that the number of trials variable is an integer.",familyText))
 
       # if the user supplies the number of successes, transform them into the corresponding proportion
+      if (options$dependent.type != "scale")
+        .quitAnalysis(gettextf("%s requires that the number or proportion of successes is an integer.",familyText))
+
       if (all(.is.wholenumber(dataset[, options$dependent]))){
         if(any(dataset[, options$dependent] > dataset[, options$dependentAggregation]))
           .quitAnalysis(gettextf("%s requires that the number of successes is lower that the number of trials.",familyText))
@@ -193,8 +196,13 @@
 
     } else if (options$family == "beta") {
 
-      if (any(dataset[, options$dependent] <= 0 | dataset[, options$dependent] >= 1))
+      if (options$dependent.type != "scale" || any(dataset[, options$dependent] <= 0 | dataset[, options$dependent] >= 1))
         .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",familyText))
+
+    } else if (options$family == "gaussian") {
+
+      if (options$dependent.type != "scale")
+        .quitAnalysis(gettextf("%s requires that the dependent variable is continuous.",familyText))
 
     }
   }
@@ -1504,11 +1512,15 @@
     return()
 
   model <- jaspResults[["mmModel"]]$object$model
-  # deal with type II SS
-  if (is.list(model$full_model))
-    model <- model$full_model[[length(model$full_model)]]
-  else
-    model <- model$full_model
+
+  if (type %in% c("LMN", "GLMM")) {
+    # deal with type II SS
+    if (is.list(model$full_model))
+      model <- model$full_model[[length(model$full_model)]]
+    else
+      model <- model$full_model
+  }
+
 
   # deal with continuous predictors
   at <- NULL
@@ -2414,13 +2426,18 @@
     divIterations <- rstan::get_num_divergent(model$stanfit)
     lowBmfi       <- rstan::get_low_bfmi_chains(model$stanfit)
     maxTreedepth  <- rstan::get_num_max_treedepth(model$stanfit)
-    minESS        <- min(rstan::summary(model$stanfit)$summary[, "n_eff"])
+
+    if (any(is.nan(rstan::summary(model$stanfit)$summary[, "n_eff"])))
+      minESS <- NaN
+    else
+      minESS <- min(rstan::summary(model$stanfit)$summary[, "n_eff"])
 
     if (any(is.infinite(rstan::summary(model$stanfit)$summary[, "Rhat"])))
-      maxRhat     <- Inf
+      maxRhat <- Inf
+    else if (any(is.nan(rstan::summary(model$stanfit)$summary[, "Rhat"])))
+      maxRhat <- NaN
     else
-      maxRhat     <- max(rstan::summary(model$stanfit)$summary[, "Rhat"])
-
+      maxRhat <- max(rstan::summary(model$stanfit)$summary[, "Rhat"])
 
     if (divIterations != 0)
       tempTable$addFootnote(.mmMessageDivergentIter(divIterations), symbol = gettext("Warning:"))
@@ -2431,10 +2448,10 @@
     if (maxTreedepth != 0)
       tempTable$addFootnote(.mmMessageMaxTreedepth(maxTreedepth))
 
-    if (maxRhat > 1.01)
+    if (is.nan(maxRhat) || maxRhat > 1.01)
       tempTable$addFootnote(.mmMessageMaxRhat(maxRhat), symbol = gettext("Warning:"))
 
-    if (minESS < 100 * options$mcmcChains || is.nan(minESS))
+    if (is.nan(minESS) || minESS < 100 * options$mcmcChains)
       tempTable$addFootnote(.mmMessageMinESS(minESS, 100 * options$mcmcChains), symbol = gettext("Warning:"))
 
 

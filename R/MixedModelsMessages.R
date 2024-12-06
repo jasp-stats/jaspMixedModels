@@ -177,18 +177,24 @@
 }
 
 .mmMessageMaxRhat       <- function(Rhat) {
-  gettextf(
-    "Inference possibly unreliable -- MCMC chains might not have converged; The largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', or 'Adapt delta' in the Options section.",
-    Rhat
-  )
+  if (is.nan(Rhat))
+    return(gettext("Inference possibly unreliable -- MCMC chains might not have converged; R-hat cannot be computed for all parameters due too few distinct samples. Please re-scale the variables or increase 'Iterations', or 'Adapt delta' in the Options section."))
+  else
+    return(gettextf(
+      "Inference possibly unreliable -- MCMC chains might not have converged; The largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', or 'Adapt delta' in the Options section.",
+      Rhat
+    ))
 }
 
 .mmMessageMinESS        <- function(ESS, treshold) {
-  gettextf(
-    "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f < %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section.",
-    ESS,
-    treshold
-  )
+  if (is.nan(ESS))
+    return(gettext("Inference possibly unreliable -- MCMC chains might not have converged; Effective Sample Size (ESS) cannot be computed for all parameters due too few distinct samples. Please re-scale the variables or increase 'Iterations', or 'Adapt delta' in the Options section."))
+  else
+    gettextf(
+      "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f < %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section.",
+      ESS,
+      treshold
+    )
 }
 
 .mmMessageBadWAIC       <- function(n_bad) {

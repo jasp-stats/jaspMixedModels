@@ -24,6 +24,8 @@ Section
 {
 	title:			qsTr("Model")
 
+	property string analysisType:		"frequentist"
+
 	VariablesForm
 	{
 		preferredHeight: jaspTheme.smallDefaultVariablesFormHeight
@@ -49,6 +51,7 @@ Section
 			label:		qsTr("Include intercept")
 			name:		"includeIntercept"
 			checked:	true
+			visible:	analysisType == "frequentist" // stanova cannot summarize no-intercept models
 		}
 	}
 
