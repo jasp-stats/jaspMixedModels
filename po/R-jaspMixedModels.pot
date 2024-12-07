@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.19.2\n"
-"POT-Creation-Date: 2024-10-19 02:58\n"
+"POT-Creation-Date: 2024-12-07 03:05\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,9 @@ msgstr ""
 msgid "%s requires that the number of trials variable is an integer."
 msgstr ""
 
+msgid "%s requires that the number or proportion of successes is an integer."
+msgstr ""
+
 msgid "%s requires that the number of successes is lower that the number of trials."
 msgstr ""
 
@@ -39,6 +42,9 @@ msgid "%s requires that the dependent variable is higher than 0 and lower than 1
 msgstr ""
 
 msgid "%s requires that the dependent variable is either the number or proportion of successes out of the number of trials."
+msgstr ""
+
+msgid "%s requires that the dependent variable is continuous."
 msgstr ""
 
 msgid "At least one random effect needs to be specified for the '%1$s' random effect grouping factors.%2$s"
@@ -392,7 +398,13 @@ msgstr ""
 msgid "P-values are adjusted using %s adjustment."
 msgstr ""
 
+msgid "Inference possibly unreliable -- MCMC chains might not have converged; R-hat cannot be computed for all parameters due too few distinct samples. Please re-scale the variables or increase 'Iterations', or 'Adapt delta' in the Options section."
+msgstr ""
+
 msgid "Inference possibly unreliable -- MCMC chains might not have converged; The largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', or 'Adapt delta' in the Options section."
+msgstr ""
+
+msgid "Inference possibly unreliable -- MCMC chains might not have converged; Effective Sample Size (ESS) cannot be computed for all parameters due too few distinct samples. Please re-scale the variables or increase 'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
 
 msgid "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f < %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section."

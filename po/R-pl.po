@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.0\n"
-"POT-Creation-Date: 2024-04-27 02:46\n"
+"POT-Creation-Date: 2024-12-07 03:05\n"
 "PO-Revision-Date: 2023-09-20 11:21+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
@@ -40,6 +40,10 @@ msgstr "%s wymaga, żeby zmienna zależna zawierała wyłącznie wartości 0 i 1
 msgid "%s requires that the number of trials variable is an integer."
 msgstr ""
 
+#, fuzzy
+msgid "%s requires that the number or proportion of successes is an integer."
+msgstr "%s wymaga, żeby liczba sukcesów była mniejsza niż liczba prób."
+
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
 msgstr "%s wymaga, żeby liczba sukcesów była mniejsza niż liczba prób."
@@ -52,6 +56,10 @@ msgid ""
 "%s requires that the dependent variable is either the number or proportion "
 "of successes out of the number of trials."
 msgstr ""
+
+#, fuzzy
+msgid "%s requires that the dependent variable is continuous."
+msgstr "%s wymaga, żeby zmienna zależna była dodatnia."
 
 msgid ""
 "At least one random effect needs to be specified for the '%1$s' random "
@@ -467,9 +475,23 @@ msgid "P-values are adjusted using %s adjustment."
 msgstr "Wartości P zostały skorygowane za pomocą korekty %s."
 
 msgid ""
+"Inference possibly unreliable -- MCMC chains might not have converged; R-hat "
+"cannot be computed for all parameters due too few distinct samples. Please "
+"re-scale the variables or increase 'Iterations', or 'Adapt delta' in the "
+"Options section."
+msgstr ""
+
+msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; The "
 "largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', "
 "or 'Adapt delta' in the Options section."
+msgstr ""
+
+msgid ""
+"Inference possibly unreliable -- MCMC chains might not have converged; "
+"Effective Sample Size (ESS) cannot be computed for all parameters due too "
+"few distinct samples. Please re-scale the variables or increase "
+"'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
 
 msgid ""

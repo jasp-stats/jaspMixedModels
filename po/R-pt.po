@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2024-04-27 02:46\n"
+"POT-Creation-Date: 2024-12-07 03:05\n"
 "PO-Revision-Date: 2022-08-29 00:25+0000\n"
 "Last-Translator: Laura Durans <lauraadurans@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
@@ -50,6 +50,10 @@ msgid "%s requires that the number of trials variable is an integer."
 msgstr "%s requer que a variável do número de tentativas seja um inteiro."
 
 #, fuzzy
+msgid "%s requires that the number or proportion of successes is an integer."
+msgstr "%s requer que a variável do número de tentativas seja um inteiro."
+
+#, fuzzy
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
 msgstr ""
@@ -67,6 +71,10 @@ msgid ""
 msgstr ""
 "%s requer que a variável dependente seja a proporção de sucessos do número "
 "de tentativas."
+
+#, fuzzy
+msgid "%s requires that the dependent variable is continuous."
+msgstr "%s requer que a variável dependente seja positiva."
 
 #, fuzzy
 msgid ""
@@ -538,10 +546,32 @@ msgstr "Bonferroni"
 msgid "P-values are adjusted using %s adjustment."
 msgstr "Os valores de P estão ajustados usando o ajuste %s."
 
+#, fuzzy
+msgid ""
+"Inference possibly unreliable -- MCMC chains might not have converged; R-hat "
+"cannot be computed for all parameters due too few distinct samples. Please "
+"re-scale the variables or increase 'Iterations', or 'Adapt delta' in the "
+"Options section."
+msgstr ""
+"Inferência possivelmente não confiável -- As cadeias MCMC podem não ter "
+"convergido; O R-hat mais largo é %.3f > 1.01. Para diminuir o R-hat, por "
+"favor aumente 'Iterações', ou 'Adaptar delta' na seção Opções."
+
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; The "
 "largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', "
 "or 'Adapt delta' in the Options section."
+msgstr ""
+"Inferência possivelmente não confiável -- As cadeias MCMC podem não ter "
+"convergido; O R-hat mais largo é %.3f > 1.01. Para diminuir o R-hat, por "
+"favor aumente 'Iterações', ou 'Adaptar delta' na seção Opções."
+
+#, fuzzy
+msgid ""
+"Inference possibly unreliable -- MCMC chains might not have converged; "
+"Effective Sample Size (ESS) cannot be computed for all parameters due too "
+"few distinct samples. Please re-scale the variables or increase "
+"'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
 "Inferência possivelmente não confiável -- As cadeias MCMC podem não ter "
 "convergido; O R-hat mais largo é %.3f > 1.01. Para diminuir o R-hat, por "
