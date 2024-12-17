@@ -82,7 +82,7 @@ Section
 			label:			qsTr("No. samples")
 			defaultValue:	500
 			min:			100
-			fieldWidth:		60
+			fieldWidth:		60 * jaspTheme.uiScale
 		}
 	}
 
