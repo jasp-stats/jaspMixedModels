@@ -32,7 +32,7 @@ Form {
 
 	VariablesForm
 	{
-		preferredHeight: 350
+		preferredHeight: 350 * jaspTheme.uiScale
 		removeInvisibles: true
 
 		AvailableVariablesList
@@ -218,7 +218,7 @@ Form {
 
 		VariablesForm
 		{
-			preferredHeight:	250
+			preferredHeight:	250 * jaspTheme.uiScale
 
 			AvailableVariablesList
 			{
@@ -316,7 +316,7 @@ Form {
 
 		VariablesForm
 		{
-			preferredHeight: 100
+			preferredHeight: 100 * jaspTheme.uiScale
 
 			AvailableVariablesList
 			{
@@ -335,7 +335,7 @@ Form {
 
 		VariablesForm
 		{
-			preferredHeight: 250
+			preferredHeight: 250 * jaspTheme.uiScale
 
 			AvailableVariablesList
 			{
