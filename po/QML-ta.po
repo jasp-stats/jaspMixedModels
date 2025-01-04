@@ -1,14 +1,20 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-01-04 21:55+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10-dev\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "Mixed Models"
-msgstr ""
+msgstr "கலப்பு மாதிரிகள்"
 
 msgctxt "Description|"
 msgid "Classical"
@@ -16,11 +22,11 @@ msgstr ""
 
 msgctxt "Description|"
 msgid "Linear Mixed Models"
-msgstr ""
+msgstr "நேரியல் கலப்பு மாதிரிகள்"
 
 msgctxt "Description|"
 msgid "Generalized Linear Mixed Models"
-msgstr ""
+msgstr "பொதுவான நேரியல் கலப்பு மாதிரிகள்"
 
 msgctxt "Description|"
 msgid "Bayesian"
@@ -28,801 +34,801 @@ msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian Linear Mixed Models"
-msgstr ""
+msgstr "பேய்சியன் நேரியல் கலப்பு மாதிரிகள்"
 
 msgctxt "Description|"
 msgid "Bayesian Generalized Linear Mixed Models"
-msgstr ""
+msgstr "பேய்சியன் பொதுமைப்படுத்தப்பட்ட நேரியல் கலப்பு மாதிரிகள்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Options"
-msgstr ""
+msgstr "விருப்பங்கள்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Burnin"
-msgstr ""
+msgstr "பர்னின்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Chains"
-msgstr ""
+msgstr "சங்கிலிகள்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Adapt delta"
-msgstr ""
+msgstr "டெல்டாவை மாற்றியமைக்கவும்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Maximum treedepth"
-msgstr ""
+msgstr "அதிகபட்ச tredepth"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Show"
-msgstr ""
+msgstr "காட்டு"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Differences from intercept"
-msgstr ""
+msgstr "இடைமறிப்பிலிருந்து வேறுபாடுகள்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "விளிம்பு வழிமுறைகள்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Model summary"
-msgstr ""
+msgstr "மாதிரி சுருக்கம்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Fixed effects estimates"
-msgstr ""
+msgstr "நிலையான விளைவுகள் மதிப்பீடுகள்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Variance/correlation estimates"
-msgstr ""
+msgstr "மாறுபாடு/தொடர்பு மதிப்பீடுகள்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Credible interval"
-msgstr ""
+msgstr "நம்பகமான இடைவெளி"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "MCMC diagnostics"
-msgstr ""
+msgstr "எம்.சி.எம்.சி கண்டறிதல்"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Model terms"
-msgstr ""
+msgstr "மாதிரி விதிமுறைகள்"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "கிடைமட்ட அச்சு"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plotted term"
-msgstr ""
+msgstr "திட்டமிடப்பட்ட சொல்"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Vertical axis"
-msgstr ""
+msgstr "செங்குத்து அச்சு"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plot type"
-msgstr ""
+msgstr "சூழ்ச்சி வகை"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Traceplot"
-msgstr ""
+msgstr "TracePlot"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Scatterplot"
-msgstr ""
+msgstr "சிதறல்"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Histogram"
-msgstr ""
+msgstr "செவ்வகப்படம்"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Density"
-msgstr ""
+msgstr "அடர்த்தி"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Autocorrelations"
-msgstr ""
+msgstr "தன்னியக்க தொடர்புகள்"
 
 msgctxt "MixedModelsModel|"
 msgid "Model"
-msgstr ""
+msgstr "மாதிரியுரு"
 
 msgctxt "MixedModelsModel|"
 msgid "Model components"
-msgstr ""
+msgstr "மாதிரி கூறுகள்"
 
 msgctxt "MixedModelsModel|"
 msgid "Fixed effects"
-msgstr ""
+msgstr "நிலையான விளைவுகள்"
 
 msgctxt "MixedModelsModel|"
 msgid "Random effects"
-msgstr ""
+msgstr "சீரற்ற விளைவுகள்"
 
 msgctxt "MixedModelsModel|"
 msgid "Correlations"
-msgstr ""
+msgstr "தொடர்புகள்"
 
 msgctxt "MixedModelsOptions|"
 msgid "Options"
-msgstr ""
+msgstr "விருப்பங்கள்"
 
 msgctxt "MixedModelsOptions|"
 msgid "Type"
-msgstr ""
+msgstr "வகை"
 
 msgctxt "MixedModelsOptions|"
 msgid "II"
-msgstr ""
+msgstr "Ii"
 
 msgctxt "MixedModelsOptions|"
 msgid "III"
-msgstr ""
+msgstr "Iii"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test intercept"
-msgstr ""
+msgstr "சோதனை இடைமறிப்பு"
 
 msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
-msgstr ""
+msgstr "நிகழ்தகவு விகித சோதனைகள்"
 
 msgctxt "MixedModelsOptions|"
 msgid "Parametric bootstrap"
-msgstr ""
+msgstr "அளவுரு தொடக்கவார்"
 
 msgctxt "MixedModelsOptions|"
 msgid "No. samples"
-msgstr ""
+msgstr "இல்லை மாதிரிகள்"
 
 msgctxt "MixedModelsOptions|"
 msgid "Model summary"
-msgstr ""
+msgstr "மாதிரி சுருக்கம்"
 
 msgctxt "MixedModelsOptions|"
 msgid "Fixed effects estimates"
-msgstr ""
+msgstr "நிலையான விளைவுகள் மதிப்பீடுகள்"
 
 msgctxt "MixedModelsOptions|"
 msgid "Variance/correlation estimates"
-msgstr ""
+msgstr "மாறுபாடு/தொடர்பு மதிப்பீடுகள்"
 
 msgctxt "MixedModelsOptions|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "VOVK-SELLKE அதிகபட்ச பி-கணக்கீடு"
 
 msgctxt "MixedModelsPlots|"
 msgid "Plots"
-msgstr ""
+msgstr "அடுக்கு"
 
 msgctxt "MixedModelsPlots|"
 msgid "Model factors"
-msgstr ""
+msgstr "மாதிரி காரணிகள்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "கிடைமட்ட அச்சு"
 
 msgctxt "MixedModelsPlots|"
 msgid "Separate lines"
-msgstr ""
+msgstr "தனி கோடுகள்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Separate plots"
-msgstr ""
+msgstr "தனி அடுக்கு"
 
 msgctxt "MixedModelsPlots|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "சீரற்ற விளைவுகள் குழு காரணிகள்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background data show"
-msgstr ""
+msgstr "பின்னணி தரவு காண்பி"
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval method"
-msgstr ""
+msgstr "நம்பிக்கை இடைவெளி முறை"
 
 msgctxt "MixedModelsPlots|"
 msgid "Model"
-msgstr ""
+msgstr "மாதிரியுரு"
 
 msgctxt "MixedModelsPlots|"
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 msgctxt "MixedModelsPlots|"
 msgid "Mean"
-msgstr ""
+msgstr "இடை, சராசரி"
 
 msgctxt "MixedModelsPlots|"
 msgid "Within"
-msgstr ""
+msgstr "உள்ளே"
 
 msgctxt "MixedModelsPlots|"
 msgid "Between"
-msgstr ""
+msgstr "இடையில்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "நம்பிக்கை இடைவெளி"
 
 msgctxt "MixedModelsPlots|"
 msgid "Distinguish factor levels"
-msgstr ""
+msgstr "காரணி நிலைகளை வேறுபடுத்துங்கள்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Color"
-msgstr ""
+msgstr "நிறம்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Shape"
-msgstr ""
+msgstr "வடிவம்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Linetype"
-msgstr ""
+msgstr "லின்டைப்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Fill"
-msgstr ""
+msgstr "நிரப்பவும்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Jitter"
-msgstr ""
+msgstr "நடுக்கம்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Violin"
-msgstr ""
+msgstr "வயலின்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Boxplot"
-msgstr ""
+msgstr "பாக்ச் பிளாட்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Boxjitter"
-msgstr ""
+msgstr "பாக்ச்சிட்டர்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Count"
-msgstr ""
+msgstr "எண்ணுங்கள்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Transparency"
-msgstr ""
+msgstr "வெளிப்படைத்தன்மை"
 
 msgctxt "MixedModelsPlots|"
 msgid "Jitter width"
-msgstr ""
+msgstr "நடுக்கம் அகலம்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Jitter height"
-msgstr ""
+msgstr "நடுக்கம் உயரம்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dodge"
-msgstr ""
+msgstr "டாட்ச்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Theme"
-msgstr ""
+msgstr "கருப்பொருள்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Light"
-msgstr ""
+msgstr "ஒளி"
 
 msgctxt "MixedModelsPlots|"
 msgid "Minimal"
-msgstr ""
+msgstr "குறைந்தபட்ச"
 
 msgctxt "MixedModelsPlots|"
 msgid "Legend position"
-msgstr ""
+msgstr "புராண நிலை"
 
 msgctxt "MixedModelsPlots|"
 msgid "Bottom"
-msgstr ""
+msgstr "கீழே"
 
 msgctxt "MixedModelsPlots|"
 msgid "Right"
-msgstr ""
+msgstr "வலது"
 
 msgctxt "MixedModelsPlots|"
 msgid "Top"
-msgstr ""
+msgstr "மேலே"
 
 msgctxt "MixedModelsPlots|"
 msgid "Left"
-msgstr ""
+msgstr "இடது"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dark grey"
-msgstr ""
+msgstr "இருண்ட சாம்பல்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Black"
-msgstr ""
+msgstr "கருப்பு"
 
 msgctxt "MixedModelsPlots|"
 msgid "Light grey"
-msgstr ""
+msgstr "வெளிர் சாம்பல்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Blue"
-msgstr ""
+msgstr "நீலம்"
 
 msgctxt "MixedModelsPlots|"
 msgid "Red"
-msgstr ""
+msgstr "சிவப்பு"
 
 msgctxt "MixedModelsPlots|"
 msgid "Violet"
-msgstr ""
+msgstr "கத்தரி"
 
 msgctxt "MixedModelsPlots|"
 msgid "Relative size text"
-msgstr ""
+msgstr "உறவினர் அளவு உரை"
 
 msgctxt "MixedModelsPlots|"
 msgid "Relative size foreground data"
-msgstr ""
+msgstr "உறவினர் அளவு முன்புற தரவு"
 
 msgctxt "MixedModelsPlots|"
 msgid "Estimates table"
-msgstr ""
+msgstr "மதிப்பீடுகள் அட்டவணை"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "சார்பு மாறி"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Number of trials"
-msgstr ""
+msgstr "சோதனைகளின் எண்ணிக்கை"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "நிலையான விளைவுகள் மாறிகள்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "சீரற்ற விளைவுகள் குழு காரணிகள்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Family"
-msgstr ""
+msgstr "குடும்பம்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
-msgstr ""
+msgstr "ஈருறுப்பு"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial (aggregated)"
-msgstr ""
+msgstr "இருவரியம் (திரட்டப்பட்ட)"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "காசியன்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gamma"
-msgstr ""
+msgstr "காமா"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse Gaussian"
-msgstr ""
+msgstr "தலைகீழ் காசியன்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Poisson"
-msgstr ""
+msgstr "பாய்சன்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Negative Binomial"
-msgstr ""
+msgstr "எதிர்மறை இரும"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Beta"
-msgstr ""
+msgstr "பீட்டா"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Link"
-msgstr ""
+msgstr "இணைப்பு"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Logit"
-msgstr ""
+msgstr "உள்நுழைவு"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "ஆய்வு"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Cauchit"
-msgstr ""
+msgstr "க uch சிட்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Complementary LogLog"
-msgstr ""
+msgstr "நிரப்பு லோக்லாக்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Identity"
-msgstr ""
+msgstr "முற்றொருமை"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Log"
-msgstr ""
+msgstr "பதிவு"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Sqrt"
-msgstr ""
+msgstr "SQRT"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse"
-msgstr ""
+msgstr "தலைகீழ்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "மதிப்பிடப்பட்ட விளிம்பு வழிமுறைகள்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "மாதிரி மாறிகள்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட மாறிகள்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Response scale"
-msgstr ""
+msgstr "மறுமொழி அளவு"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "முரண்பாடுகளைக் குறிப்பிடவும்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "மதிப்பிடப்பட்ட போக்குகள்/நிபந்தனை சரிவுகள்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "தொடர்ச்சியான மாறிகள்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Trend variable"
-msgstr ""
+msgstr "போக்கு மாறி"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "சார்பு மாறி"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "நிலையான விளைவுகள் மாறிகள்"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "சீரற்ற விளைவுகள் குழு காரணிகள்"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "மதிப்பிடப்பட்ட விளிம்பு வழிமுறைகள்"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "மாதிரி மாறிகள்"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட மாறிகள்"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "நம்பிக்கை இடைவெளி"
 
 msgctxt "MixedModelsBLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "எச்டி காரணி கோவாரியட்டுகள்"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "முரண்பாடுகளைக் குறிப்பிடவும்"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "மதிப்பிடப்பட்ட போக்குகள்/நிபந்தனை சரிவுகள்"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "தொடர்ச்சியான மாறிகள்"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Trend variable"
-msgstr ""
+msgstr "போக்கு மாறி"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "சார்பு மாறி"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Number of trials"
-msgstr ""
+msgstr "சோதனைகளின் எண்ணிக்கை"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "நிலையான விளைவுகள் மாறிகள்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "சீரற்ற விளைவுகள் குழு காரணிகள்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Family"
-msgstr ""
+msgstr "குடும்பம்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
-msgstr ""
+msgstr "ஈருறுப்பு"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial (aggregated)"
-msgstr ""
+msgstr "இருவரியம் (திரட்டப்பட்ட)"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "காசியன்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gamma"
-msgstr ""
+msgstr "காமா"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse Gaussian"
-msgstr ""
+msgstr "தலைகீழ் காசியன்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Poisson"
-msgstr ""
+msgstr "பாய்சன்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Link"
-msgstr ""
+msgstr "இணைப்பு"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Logit"
-msgstr ""
+msgstr "உள்நுழைவு"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "ஆய்வு"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Cauchit"
-msgstr ""
+msgstr "க uch சிட்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Complementary LogLog"
-msgstr ""
+msgstr "நிரப்பு லோக்லாக்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Identity"
-msgstr ""
+msgstr "முற்றொருமை"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Log"
-msgstr ""
+msgstr "பதிவு"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Sqrt"
-msgstr ""
+msgstr "SQRT"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse"
-msgstr ""
+msgstr "தலைகீழ்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "மதிப்பிடப்பட்ட விளிம்பு வழிமுறைகள்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "மாதிரி மாறிகள்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட மாறிகள்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "நம்பிக்கை இடைவெளி"
 
 msgctxt "MixedModelsGLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "எச்டி காரணி கோவாரியட்டுகள்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Compare marginal means to:"
-msgstr ""
+msgstr "விளிம்பு வழிகளை ஒப்பிடுக:"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Response scale"
-msgstr ""
+msgstr "மறுமொழி அளவு"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "முரண்பாடுகளைக் குறிப்பிடவும்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "P-value adjustment"
-msgstr ""
+msgstr "பி-மதிப்பு சரிசெய்தல்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Multivariate-t"
-msgstr ""
+msgstr "பன்முக-டி"
 
 msgctxt "MixedModelsGLMM|"
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "மதிப்பிடப்பட்ட போக்குகள்/நிபந்தனை சரிவுகள்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "தொடர்ச்சியான மாறிகள்"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Trend variable"
-msgstr ""
+msgstr "போக்கு மாறி"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Compare trends to:"
-msgstr ""
+msgstr "போக்குகளை ஒப்பிடுக:"
 
 msgctxt "MixedModelsLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "சார்பு மாறி"
 
 msgctxt "MixedModelsLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "நிலையான விளைவுகள் மாறிகள்"
 
 msgctxt "MixedModelsLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "சீரற்ற விளைவுகள் குழு காரணிகள்"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "மதிப்பிடப்பட்ட விளிம்பு வழிமுறைகள்"
 
 msgctxt "MixedModelsLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "மாதிரி மாறிகள்"
 
 msgctxt "MixedModelsLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட மாறிகள்"
 
 msgctxt "MixedModelsLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "நம்பிக்கை இடைவெளி"
 
 msgctxt "MixedModelsLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "எச்டி காரணி கோவாரியட்டுகள்"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimate df"
-msgstr ""
+msgstr "மதிப்பீட்டு டி.எஃப்"
 
 msgctxt "MixedModelsLMM|"
 msgid "Asymptotic"
-msgstr ""
+msgstr "அறிகுறி"
 
 msgctxt "MixedModelsLMM|"
 msgid "Force df estimation"
-msgstr ""
+msgstr "கட்டாய டி.எஃப் மதிப்பீட்டை"
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare marginal means to:"
-msgstr ""
+msgstr "விளிம்பு வழிகளை ஒப்பிடுக:"
 
 msgctxt "MixedModelsLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "முரண்பாடுகளைக் குறிப்பிடவும்"
 
 msgctxt "MixedModelsLMM|"
 msgid "P-value adjustment"
-msgstr ""
+msgstr "பி-மதிப்பு சரிசெய்தல்"
 
 msgctxt "MixedModelsLMM|"
 msgid "Multivariate-t"
-msgstr ""
+msgstr "பன்முக-டி"
 
 msgctxt "MixedModelsLMM|"
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "மதிப்பிடப்பட்ட போக்குகள்/நிபந்தனை சரிவுகள்"
 
 msgctxt "MixedModelsLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "தொடர்ச்சியான மாறிகள்"
 
 msgctxt "MixedModelsLMM|"
 msgid "Trend variable"
-msgstr ""
+msgstr "போக்கு மாறி"
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
-msgstr ""
+msgstr "போக்குகளை ஒப்பிடுக:"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means with random effects"
-msgstr ""
+msgstr "சீரற்ற விளைவுகளுடன் பல வழிகளுக்கு இடையிலான வேறுபாட்டை மதிப்பிடுங்கள்"
 
 msgctxt "MixedModelsPlots|"
 msgid "White background"
-msgstr ""
+msgstr "வெள்ளை பின்னணி"
 
 msgctxt "MixedModelsPlots|"
 msgid "Border color"
-msgstr ""
+msgstr "எல்லை நிறம்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "சீரற்ற விளைவுகள் மதிப்பீடுகள்"
 
 #, qt-format
 msgctxt "MixedModelsModel|"
 msgid "Random components (%1)"
-msgstr ""
+msgstr "சீரற்ற கூறுகள் (%1)"
 
 msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "சீரற்ற விளைவுகள் மதிப்பீடுகள்"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "நம்பிக்கை இடைவெளி"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "எச்டி காரணி கோவாரியட்டுகள்"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Samples"
-msgstr ""
+msgstr "மாதிரிகள்"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test method"
-msgstr ""
+msgstr "சோதனை முறை"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background element"
-msgstr ""
+msgstr "பின்னணி உறுப்பு"
 
 msgctxt "MixedModelsPlots|"
 msgid "Element width"
-msgstr ""
+msgstr "உறுப்பு அகலம்"
 
 msgctxt "MixedModelsModel|"
 msgid "Include intercept"
-msgstr ""
+msgstr "இடைமறிப்பு சேர்க்கவும்"
 
 msgctxt "MixedModelsOptions|"
 msgid "Factor contrast"
-msgstr ""
+msgstr "காரணி மாறுபாடு"
 
 msgctxt "MixedModelsOptions|"
 msgid "Sum"
-msgstr ""
+msgstr "தொகை"
 
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
-msgstr ""
+msgstr "மருத்தீடு"
