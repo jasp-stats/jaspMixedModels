@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-01-10 22:00+0000\n"
+"Last-Translator: 陳寬裕 <pf.kuan.yu.chen@gmail.com>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/jasp/jaspmixedmodels-qml/zh_Hant/>\n"
+"Language: zh_Hant\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10-dev\n"
 "X-Language: zh_Hant\n"
 "X-Qt-Contexts: true\n"
 
@@ -69,11 +75,11 @@ msgstr ""
 
 msgctxt "MixedModelsBOptions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "邊際平均數"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Model summary"
-msgstr ""
+msgstr "模型摘要"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Fixed effects estimates"
@@ -194,7 +200,7 @@ msgstr ""
 
 msgctxt "MixedModelsOptions|"
 msgid "Model summary"
-msgstr ""
+msgstr "模型摘要"
 
 msgctxt "MixedModelsOptions|"
 msgid "Fixed effects estimates"
@@ -210,7 +216,7 @@ msgstr ""
 
 msgctxt "MixedModelsOptions|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Vovk-Sellke 最大 p 比率"
 
 msgctxt "MixedModelsPlots|"
 msgid "Plots"
