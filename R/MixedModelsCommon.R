@@ -2058,7 +2058,7 @@
     if (grepl("Dropping columns failed to produce full column rank design matrix", model))
       .quitAnalysis(gettext("The specified combination of factors does not produce an estimable model. A factor or combination of factors resulted in more levels than the effective sample size."))
     else
-      .quitAnalysis(paste0(gettext("Please, report the following error message at JASP GitHub https://github.com/jasp-stats/jasp-issues: "), model))
+      .quitAnalysis(paste0(gettextf("Please, report the following error message at JASP GitHub %s", "https://github.com/jasp-stats/jasp-issues: "), model))
   }
 
   object <- list(
