@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.19.2\n"
-"POT-Creation-Date: 2024-12-07 03:05\n"
+"POT-Creation-Date: 2025-03-08 02:48\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -224,7 +224,7 @@ msgstr ""
 msgid "The specified combination of factors does not produce an estimable model. A factor or combination of factors resulted in more levels than the effective sample size."
 msgstr ""
 
-msgid "Please, report the following error message at JASP GitHub https://github.com/jasp-stats/jasp-issues:"
+msgid "Please, report the following error message at JASP GitHub %s"
 msgstr ""
 
 msgid "Fit Statistics"
