@@ -3,9 +3,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Language: ru\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
@@ -18,7 +15,7 @@ msgstr ""
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr "Классический анализ"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Linear Mixed Models"
@@ -30,7 +27,7 @@ msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr "Байесовский анализ"
+msgstr ""
 
 msgctxt "Description|"
 msgid "Bayesian Linear Mixed Models"
@@ -46,6 +43,10 @@ msgstr ""
 
 msgctxt "MixedModelsBOptions|"
 msgid "Burnin"
+msgstr ""
+
+msgctxt "MixedModelsBOptions|"
+msgid "Samples"
 msgstr ""
 
 msgctxt "MixedModelsBOptions|"
@@ -74,7 +75,7 @@ msgstr ""
 
 msgctxt "MixedModelsBOptions|"
 msgid "Model summary"
-msgstr "Сводка по модели"
+msgstr ""
 
 msgctxt "MixedModelsBOptions|"
 msgid "Fixed effects estimates"
@@ -149,6 +150,10 @@ msgid "Fixed effects"
 msgstr ""
 
 msgctxt "MixedModelsModel|"
+msgid "Include intercept"
+msgstr ""
+
+msgctxt "MixedModelsModel|"
 msgid "Random effects"
 msgstr ""
 
@@ -182,6 +187,10 @@ msgid "Test intercept"
 msgstr ""
 
 msgctxt "MixedModelsOptions|"
+msgid "Test method"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
 msgstr ""
 
@@ -190,12 +199,24 @@ msgid "Parametric bootstrap"
 msgstr ""
 
 msgctxt "MixedModelsOptions|"
+msgid "Factor contrast"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Sum"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Treatment"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
 msgid "No. samples"
 msgstr ""
 
 msgctxt "MixedModelsOptions|"
 msgid "Model summary"
-msgstr "Сводка по модели"
+msgstr ""
 
 msgctxt "MixedModelsOptions|"
 msgid "Fixed effects estimates"
@@ -211,7 +232,7 @@ msgstr ""
 
 msgctxt "MixedModelsOptions|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr "Максимальное p-отношение Вовк-Селлке"
+msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Plots"
@@ -290,6 +311,10 @@ msgid "Fill"
 msgstr ""
 
 msgctxt "MixedModelsPlots|"
+msgid "Background element"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
 msgid "Jitter"
 msgstr ""
 
@@ -319,6 +344,10 @@ msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Jitter height"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Element width"
 msgstr ""
 
 msgctxt "MixedModelsPlots|"
@@ -795,36 +824,4 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
-msgstr ""
-
-msgctxt "MixedModelsBOptions|"
-msgid "Samples"
-msgstr ""
-
-msgctxt "MixedModelsOptions|"
-msgid "Test method"
-msgstr ""
-
-msgctxt "MixedModelsPlots|"
-msgid "Background element"
-msgstr ""
-
-msgctxt "MixedModelsPlots|"
-msgid "Element width"
-msgstr ""
-
-msgctxt "MixedModelsModel|"
-msgid "Include intercept"
-msgstr ""
-
-msgctxt "MixedModelsOptions|"
-msgid "Factor contrast"
-msgstr ""
-
-msgctxt "MixedModelsOptions|"
-msgid "Sum"
-msgstr ""
-
-msgctxt "MixedModelsOptions|"
-msgid "Treatment"
 msgstr ""
