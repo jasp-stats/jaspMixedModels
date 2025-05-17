@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-05-16 23:05+0000\n"
+"Last-Translator: Ertuğrul Uyar <ertugruluyar.academic@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12-dev\n"
 "X-Language: tr\n"
 "X-Qt-Contexts: true\n"
 
@@ -41,31 +47,35 @@ msgstr "Seçenekler"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Burnin"
-msgstr ""
+msgstr "Burnin"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Chains"
-msgstr ""
+msgstr "Zincirler (Diziler)"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Adapt delta"
-msgstr ""
+msgstr "Delta'yı adapte et"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Maximum treedepth"
-msgstr ""
+msgstr "Maksimum ağaç derinliği"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Show"
-msgstr ""
+msgstr "Göster"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Differences from intercept"
-msgstr ""
+msgstr "Kesenden farklılıklar"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "Aykırı ortalamalar"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Model summary"
@@ -73,19 +83,19 @@ msgstr "model özeti"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Fixed effects estimates"
-msgstr ""
+msgstr "Sabit etkilerin kestirimleri"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Variance/correlation estimates"
-msgstr ""
+msgstr "Varyans/korelasyon kestirimleri"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Credible interval"
-msgstr ""
+msgstr "Güvenilir aralık"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "MCMC diagnostics"
-msgstr ""
+msgstr "MCMC Tanılamaları"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Model terms"
@@ -95,9 +105,10 @@ msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Horizontal axis"
 msgstr "Yatay eksen"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plotted term"
-msgstr ""
+msgstr "Çizilen terim"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Vertical axis"
@@ -107,9 +118,10 @@ msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plot type"
 msgstr "Grafik türü"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Traceplot"
-msgstr ""
+msgstr "İz Grafiği"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Scatterplot"
@@ -133,701 +145,712 @@ msgstr "Model"
 
 msgctxt "MixedModelsModel|"
 msgid "Model components"
-msgstr ""
+msgstr "Model bileşenleri"
 
 msgctxt "MixedModelsModel|"
 msgid "Fixed effects"
-msgstr ""
+msgstr "Sabit etkiler"
 
 msgctxt "MixedModelsModel|"
 msgid "Random effects"
-msgstr ""
+msgstr "Rastsal etkiler"
 
 msgctxt "MixedModelsModel|"
 msgid "Correlations"
-msgstr ""
+msgstr "Korelasyonlar"
 
-#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Options"
 msgstr "Seçenekler"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Type"
-msgstr ""
+msgstr "Tip/Tür"
 
 msgctxt "MixedModelsOptions|"
 msgid "II"
-msgstr ""
+msgstr "II"
 
 msgctxt "MixedModelsOptions|"
 msgid "III"
-msgstr ""
+msgstr "III"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Test intercept"
-msgstr ""
+msgstr "Keseni test et"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
-msgstr ""
+msgstr "Olabilirlik oranı testleri"
 
 msgctxt "MixedModelsOptions|"
 msgid "Parametric bootstrap"
-msgstr ""
-
-msgctxt "MixedModelsOptions|"
-msgid "No. samples"
-msgstr ""
+msgstr "Parametrik önyükleme"
 
 #, fuzzy
 msgctxt "MixedModelsOptions|"
+msgid "No. samples"
+msgstr "Örnek yok"
+
+msgctxt "MixedModelsOptions|"
 msgid "Model summary"
-msgstr "model özeti"
+msgstr "Model özeti"
 
 msgctxt "MixedModelsOptions|"
 msgid "Fixed effects estimates"
-msgstr ""
+msgstr "Sabit etkilerin kestirimleri"
 
 msgctxt "MixedModelsOptions|"
 msgid "Variance/correlation estimates"
-msgstr ""
+msgstr "Varyans/korelasyon kestirimleri"
 
 msgctxt "MixedModelsOptions|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Vovk-Sellke maksimum p-oranı"
 
 msgctxt "MixedModelsPlots|"
 msgid "Plots"
-msgstr ""
+msgstr "Grafikler"
 
 msgctxt "MixedModelsPlots|"
 msgid "Model factors"
-msgstr ""
+msgstr "Model Faktörleri (Etmenleri)"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Horizontal axis"
 msgstr "Yatay eksen"
 
 msgctxt "MixedModelsPlots|"
 msgid "Separate lines"
-msgstr ""
+msgstr "Çizgileri ayırın"
 
 msgctxt "MixedModelsPlots|"
 msgid "Separate plots"
-msgstr ""
+msgstr "Grafikleri ayırın"
 
 msgctxt "MixedModelsPlots|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Rastgele etkileri gruplandırma faktörleri"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background data show"
-msgstr ""
+msgstr "Arka plan verileri göstermektedir ki"
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval method"
-msgstr ""
+msgstr "Güvenilirlik aralığı yöntemi"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Model"
 msgstr "Model"
 
 msgctxt "MixedModelsPlots|"
 msgid "None"
-msgstr ""
+msgstr "Hiçbiri"
 
 msgctxt "MixedModelsPlots|"
 msgid "Mean"
-msgstr ""
+msgstr "Ortalama"
 
 msgctxt "MixedModelsPlots|"
 msgid "Within"
-msgstr ""
+msgstr "İçerisinde"
 
 msgctxt "MixedModelsPlots|"
 msgid "Between"
-msgstr ""
+msgstr "Arasında"
 
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Güvenilirlik aralığı"
 
 msgctxt "MixedModelsPlots|"
 msgid "Distinguish factor levels"
-msgstr ""
+msgstr "Faktör seviyelerini ayırt edin"
 
 msgctxt "MixedModelsPlots|"
 msgid "Color"
-msgstr ""
+msgstr "Renk"
 
 msgctxt "MixedModelsPlots|"
 msgid "Shape"
-msgstr ""
+msgstr "Şekil"
 
 msgctxt "MixedModelsPlots|"
 msgid "Linetype"
-msgstr ""
+msgstr "Çizgi Tipi"
 
 msgctxt "MixedModelsPlots|"
 msgid "Fill"
-msgstr ""
+msgstr "Doldur"
 
 msgctxt "MixedModelsPlots|"
 msgid "Jitter"
-msgstr ""
+msgstr "Titreşme"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Violin"
-msgstr ""
+msgstr "Keman"
 
 msgctxt "MixedModelsPlots|"
 msgid "Boxplot"
-msgstr ""
+msgstr "Kutu Grafiği"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Boxjitter"
-msgstr ""
+msgstr "Kutu-Saçılım"
 
 msgctxt "MixedModelsPlots|"
 msgid "Count"
-msgstr ""
+msgstr "Sayı"
 
 msgctxt "MixedModelsPlots|"
 msgid "Transparency"
-msgstr ""
+msgstr "Şeffaflık"
 
 msgctxt "MixedModelsPlots|"
 msgid "Jitter width"
-msgstr ""
+msgstr "Saçılım genişliği"
 
 msgctxt "MixedModelsPlots|"
 msgid "Jitter height"
-msgstr ""
+msgstr "Saçılım yüksekliği"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Dodge"
-msgstr ""
+msgstr "Atlat (Kaçın/Kurtul)"
 
 msgctxt "MixedModelsPlots|"
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Light"
-msgstr ""
+msgstr "Açık"
 
 msgctxt "MixedModelsPlots|"
 msgid "Minimal"
-msgstr ""
+msgstr "Minimal (Asgari)"
 
 msgctxt "MixedModelsPlots|"
 msgid "Legend position"
-msgstr ""
+msgstr "Grafik Açıklaması (Gösterge) konumu"
 
 msgctxt "MixedModelsPlots|"
 msgid "Bottom"
-msgstr ""
+msgstr "Alt"
 
 msgctxt "MixedModelsPlots|"
 msgid "Right"
-msgstr ""
+msgstr "Sağ"
 
 msgctxt "MixedModelsPlots|"
 msgid "Top"
-msgstr ""
+msgstr "Üst"
 
 msgctxt "MixedModelsPlots|"
 msgid "Left"
-msgstr ""
+msgstr "Sol"
 
 msgctxt "MixedModelsPlots|"
 msgid "Dark grey"
-msgstr ""
+msgstr "Koyu gri"
 
 msgctxt "MixedModelsPlots|"
 msgid "Black"
-msgstr ""
+msgstr "Siyah"
 
 msgctxt "MixedModelsPlots|"
 msgid "Light grey"
-msgstr ""
+msgstr "Açık gri"
 
 msgctxt "MixedModelsPlots|"
 msgid "Blue"
-msgstr ""
+msgstr "Mavi"
 
 msgctxt "MixedModelsPlots|"
 msgid "Red"
-msgstr ""
+msgstr "Kırmızı"
 
 msgctxt "MixedModelsPlots|"
 msgid "Violet"
-msgstr ""
+msgstr "Menekşe"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Relative size text"
-msgstr ""
+msgstr "Göreceli büyüklükte metin"
 
 msgctxt "MixedModelsPlots|"
 msgid "Relative size foreground data"
-msgstr ""
+msgstr "Göreceli büyüklükte ön plan verisi"
 
 msgctxt "MixedModelsPlots|"
 msgid "Estimates table"
-msgstr ""
+msgstr "Kestirimler (Tahminler) Tablosu"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Bağımlı Değişken"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Number of trials"
-msgstr ""
+msgstr "Denemelerin sayısı"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Sabit etkili değişkenler"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Rastgele etkileri gruplandırma faktörleri"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Family"
-msgstr ""
+msgstr "Aile"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
-msgstr ""
+msgstr "Binom/İki Terimli"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial (aggregated)"
-msgstr ""
+msgstr "Binom/İki Terimli (birleştirilmiş)"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "Gaussian"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Gamma"
-msgstr ""
+msgstr "Gama"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse Gaussian"
-msgstr ""
+msgstr "Ters Gaussian"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Poisson"
-msgstr ""
+msgstr "Poisson"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Negative Binomial"
-msgstr ""
+msgstr "Negatif Binom"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Beta"
-msgstr ""
+msgstr "Beta"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Link"
-msgstr ""
+msgstr "Bağlantı"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Logit"
-msgstr ""
+msgstr "Logit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "Probit (Olasılık Birikimi)"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Cauchit"
-msgstr ""
+msgstr "Cauchit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Complementary LogLog"
-msgstr ""
+msgstr "Tamamlayıcı LogLog"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Identity"
-msgstr ""
+msgstr "Kimlik"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Log"
-msgstr ""
+msgstr "Günlük (Kayıt)/Log"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Sqrt"
-msgstr ""
+msgstr "Karekök"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse"
-msgstr ""
+msgstr "Ters"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Kestirilen aykırı ortalamalar"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "Model değişkenleri"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "Seçilen değişkenler"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Response scale"
-msgstr ""
+msgstr "Cevap (Yanıt) ölçeği"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Zıtlıkları (Kontrastları) belirtin"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Kestirilen eğilimler/koşullu eğimler"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "Sürekli değişkenler"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Trend variable"
-msgstr ""
+msgstr "Eğilim (Trend) değişkeni"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Bağımlı değişken"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Sabit etkili değişkenler"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Rastgele etkileri gruplandırma faktörleri"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Kestirilen aykırı ortalamalar"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "Model değişkenleri"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "Seçilen değişkenler"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Güvenilirlik aralığı"
 
 msgctxt "MixedModelsBLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SS faktör ortak değişkenleri"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Zıtlıkları (Kontrastları) belirtin"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Kestirilen eğilimler/koşullu eğimler"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "Sürekli değişkenler"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Trend variable"
-msgstr ""
+msgstr "Eğilim (Trend) değişkeni"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Bağımlı değişken"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Number of trials"
-msgstr ""
+msgstr "Denemelerin sayısı"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Sabit etkili değişkenler"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Rastgele etkileri gruplandırma faktörleri"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Family"
-msgstr ""
+msgstr "Aile"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
-msgstr ""
+msgstr "Binom"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial (aggregated)"
-msgstr ""
+msgstr "Binom (birleştirilmiş)"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "Gaussian"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Gamma"
-msgstr ""
+msgstr "Gama"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse Gaussian"
-msgstr ""
+msgstr "Ters Gaussian"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Poisson"
-msgstr ""
+msgstr "Poisson"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Link"
-msgstr ""
+msgstr "Bağlantı"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Logit"
-msgstr ""
+msgstr "Logit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "Probit (Olasılık Birikimi)"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Cauchit"
-msgstr ""
+msgstr "Cauchit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Complementary LogLog"
-msgstr ""
+msgstr "Tamamlayıcı LogLog"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Identity"
-msgstr ""
+msgstr "Kimlik"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Log"
-msgstr ""
+msgstr "Günlük (Kayıt)/Log"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Sqrt"
-msgstr ""
+msgstr "Karekök"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse"
-msgstr ""
+msgstr "Ters"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Kestirilen aykırı ortalamalar"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "Model değişkenleri"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "Seçilen değişkenler"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Güvenilirlik aralığı"
 
 msgctxt "MixedModelsGLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SS faktör ortak değişkenleri"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Compare marginal means to:"
-msgstr ""
+msgstr "Aykırı ortalamaları şununla karşılaştır:"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Response scale"
-msgstr ""
+msgstr "Cevap (Yanıt) ölçeği"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Zıtlıkları (Kontrastları) belirtin"
 
 msgctxt "MixedModelsGLMM|"
 msgid "P-value adjustment"
-msgstr ""
+msgstr "P-değeri düzeltmesi"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Multivariate-t"
-msgstr ""
+msgstr "Çok Değişkenli-t"
 
 msgctxt "MixedModelsGLMM|"
 msgid "None"
-msgstr ""
+msgstr "Hiçbiri"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Kestirilen eğilimler/koşullu eğimler"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "Sürekli değişkenler"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Trend variable"
-msgstr ""
+msgstr "Eğilim (Trend) değişkeni"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Compare trends to:"
-msgstr ""
+msgstr "Eğilimleri (Trendleri) şununla karşılaştırın:"
 
 msgctxt "MixedModelsLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Bağımlı değişken"
 
 msgctxt "MixedModelsLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "Sabit etkili değişkenler"
 
 msgctxt "MixedModelsLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "Rastgele etkileri gruplandırma faktörleri"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Kestirilen aykırı ortalamalar"
 
 msgctxt "MixedModelsLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "Model değişkenleri"
 
 msgctxt "MixedModelsLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "Seçilen değişkenler"
 
 msgctxt "MixedModelsLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Güvenilirlik aralığı"
 
 msgctxt "MixedModelsLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SS faktör ortak değişkenleri"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimate df"
-msgstr ""
+msgstr "sd'yi kestir (tahmin et)"
 
 msgctxt "MixedModelsLMM|"
 msgid "Asymptotic"
-msgstr ""
+msgstr "Asimtotik"
 
 msgctxt "MixedModelsLMM|"
 msgid "Force df estimation"
-msgstr ""
+msgstr "Sd kestirimini (tahminini) zorlayın"
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare marginal means to:"
-msgstr ""
+msgstr "Aykırı ortalamaları şununla karşılaştır:"
 
 msgctxt "MixedModelsLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Zıtlıkları (Kontrastları) belirtin"
 
 msgctxt "MixedModelsLMM|"
 msgid "P-value adjustment"
-msgstr ""
+msgstr "P-değeri düzeltmesi"
 
 msgctxt "MixedModelsLMM|"
 msgid "Multivariate-t"
-msgstr ""
+msgstr "Çok Değişkenli-t"
 
 msgctxt "MixedModelsLMM|"
 msgid "None"
-msgstr ""
+msgstr "Hiçbiri"
 
 msgctxt "MixedModelsLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Kestirilen eğilimler/koşullu eğimler"
 
 msgctxt "MixedModelsLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "Sürekli değişkenler"
 
 msgctxt "MixedModelsLMM|"
 msgid "Trend variable"
-msgstr ""
+msgstr "Eğilim (Trend) değişkeni"
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
-msgstr ""
+msgstr "Eğilimleri (Trendleri) şununla karşılaştırın:"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means with random effects"
-msgstr ""
+msgstr "Rastgele etkilerle çoklu ortalamalar arasındaki farkı değerlendirin"
 
 msgctxt "MixedModelsPlots|"
 msgid "White background"
-msgstr ""
+msgstr "Beyaz arka plan"
 
 msgctxt "MixedModelsPlots|"
 msgid "Border color"
-msgstr ""
+msgstr "Kenarlık rengi"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "Rastgele etkilerin kestirimleri"
 
 #, qt-format
 msgctxt "MixedModelsModel|"
 msgid "Random components (%1)"
-msgstr ""
+msgstr "Rastgele bileşenler (%1)"
 
 msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "Rastgele etkilerin kestirimleri"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Güvenilirlik aralığı"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SS faktör ortak değişkenleri"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Samples"
-msgstr ""
+msgstr "Örnekler"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test method"
-msgstr ""
+msgstr "Test yöntemi"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background element"
-msgstr ""
+msgstr "Arka plan öğesi"
 
 msgctxt "MixedModelsPlots|"
 msgid "Element width"
-msgstr ""
+msgstr "Öğe genişliği"
 
 msgctxt "MixedModelsModel|"
 msgid "Include intercept"
-msgstr ""
+msgstr "Keseni dahil edin"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Factor contrast"
-msgstr ""
+msgstr "Faktör zıtlığı (kontrastı)"
 
 msgctxt "MixedModelsOptions|"
 msgid "Sum"
-msgstr ""
+msgstr "Toplam"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
-msgstr ""
+msgstr "Yaklaşım"
