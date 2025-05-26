@@ -191,7 +191,7 @@
     return(gettext("Inference possibly unreliable -- MCMC chains might not have converged; Effective Sample Size (ESS) cannot be computed for all parameters due too few distinct samples. Please re-scale the variables or increase 'Iterations', or 'Adapt delta' in the Options section."))
   else
     gettextf(
-      "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f < %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section.",
+      "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %1$.2f < %2$1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section.",
       ESS,
       treshold
     )
