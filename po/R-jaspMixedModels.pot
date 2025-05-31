@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.20.0\n"
-"POT-Creation-Date: 2025-04-26 03:05\n"
+"POT-Creation-Date: 2025-05-31 03:08\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -407,7 +407,7 @@ msgstr ""
 msgid "Inference possibly unreliable -- MCMC chains might not have converged; Effective Sample Size (ESS) cannot be computed for all parameters due too few distinct samples. Please re-scale the variables or increase 'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
 
-msgid "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %.2f < %1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section."
+msgid "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %1$.2f < %2$1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
 
 msgid "The model was fitted using restricted maximum likelihood. Please note that models with different fixed effects cannot be compared when REML is used. To use ML, switch 'Test method' to 'Likelihood ratio tests'."
