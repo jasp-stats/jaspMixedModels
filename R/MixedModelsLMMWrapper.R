@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2013-2024 University of Amsterdam
+# Copyright (C) 2013-2025 University of Amsterdam
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,11 +15,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# This is a generated file. Don't change it
+# This is a generated file. Don't change it!
 
+#' Linear Mixed Models
+#'
 MixedModelsLMM <- function(
           data = NULL,
-          version = "0.19.2",
+          version = "0.95",
           formula = NULL,
           bootstrapSamples = 500,
           contrasts = list(),
@@ -94,16 +96,20 @@ MixedModelsLMM <- function(
    options[["data"]] <- NULL
    options[["version"]] <- NULL
 
+
+   if (!jaspBase::jaspResultsCalledFromJasp() && !is.null(data)) {
+      jaspBase::storeDataSet(data)
+   }
+
    if (!is.null(formula)) {
       if (!inherits(formula, "formula")) {
          formula <- as.formula(formula)
       }
       options$formula <- jaspBase::jaspFormula(formula, data)
    }
-
    optionsWithFormula <- c("contrasts", "dependent", "factorContrast", "fixedEffects", "fixedVariables", "marginalMeansDf", "marginalMeansPAdjustment", "marginalMeansTerms", "plotBackgroundColor", "plotBackgroundData", "plotBackgroundElement", "plotCiType", "plotHorizontalAxis", "plotLegendPosition", "plotSeparateLines", "plotSeparatePlots", "plotTheme", "randomEffects", "randomVariables", "testMethod", "trendsContrasts", "trendsDf", "trendsPAdjustment", "trendsTrendVariable", "trendsVariables")
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspMixedModels::MixedModelsLMM", data, options, version))
+   return(jaspBase::runWrappedAnalysis("jaspMixedModels", "MixedModelsLMM", "MixedModelsLMM.qml", options, version, FALSE))
 }
