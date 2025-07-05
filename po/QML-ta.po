@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-01-04 21:55+0000\n"
+"PO-Revision-Date: 2025-06-29 11:10+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/ta/>\n"
@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
@@ -18,7 +18,7 @@ msgstr "கலப்பு மாதிரிகள்"
 
 msgctxt "Description|"
 msgid "Classical"
-msgstr ""
+msgstr "இலக்கிய நயம் வாய்ந்த"
 
 msgctxt "Description|"
 msgid "Linear Mixed Models"
@@ -30,7 +30,7 @@ msgstr "பொதுவான நேரியல் கலப்பு மாத
 
 msgctxt "Description|"
 msgid "Bayesian"
-msgstr ""
+msgstr "பேய்சியன்"
 
 msgctxt "Description|"
 msgid "Bayesian Linear Mixed Models"
