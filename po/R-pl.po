@@ -32,7 +32,7 @@ msgid ""
 "The number of iterations must be at least 2 iterations higher than the burnin"
 msgstr ""
 "Liczba iteracji musi być co najmniej o 2 większa niż liczba odrzuceń (burn-"
-"in)."
+"in)"
 
 msgid "%s requires that the dependent variable is positive."
 msgstr "%s wymaga, żeby zmienna zależna była dodatnia."
@@ -44,10 +44,10 @@ msgid "%s requires that the dependent variable contains only 0 and 1."
 msgstr "%s wymaga, żeby zmienna zależna zawierała wyłącznie wartości 0 i 1."
 
 msgid "%s requires that the number of trials variable is an integer."
-msgstr ""
+msgstr "%s wymaga, aby zmienna liczby prób była liczbą całkowitą."
 
 msgid "%s requires that the number or proportion of successes is an integer."
-msgstr ""
+msgstr "%s wymaga, aby liczba lub proporcja sukcesów była liczbą całkowitą."
 
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
@@ -55,26 +55,31 @@ msgstr "%s wymaga, żeby liczba sukcesów była mniejsza niż liczba prób."
 
 msgid ""
 "%s requires that the dependent variable is higher than 0 and lower than 1."
-msgstr ""
+msgstr "%s wymaga, aby zmienna zależna była większa od 0 i mniejsza od 1."
 
 msgid ""
 "%s requires that the dependent variable is either the number or proportion "
 "of successes out of the number of trials."
 msgstr ""
+"%s wymaga, aby zmienna zależna była liczbą lub proporcją sukcesów z liczby "
+"powtórzeń."
 
-#, fuzzy
 msgid "%s requires that the dependent variable is continuous."
-msgstr "%s wymaga, żeby zmienna zależna była dodatnia."
+msgstr "%s wymaga, żeby zmienna zależna była ilościowa."
 
 msgid ""
 "At least one random effect needs to be specified for the '%1$s' random "
 "effect grouping factors.%2$s"
 msgstr ""
+"Przynajmniej jeden efekt losowy musi zostać określony dla czynników "
+"grupujących efektów losowych „%1\\$s”.%2\\$s"
 
 msgid ""
 "Mixed-effects models with a fixed intercept only are not supported for "
 "aggregated binomial family."
 msgstr ""
+"Modele efektów mieszanych z jedynie stałym wyrazem wolnym nie są obsługiwane "
+"dla zagregowanych analiz dwumianowych."
 
 msgid "ANOVA Summary"
 msgstr "Podsumowanie testu ANOVA"
