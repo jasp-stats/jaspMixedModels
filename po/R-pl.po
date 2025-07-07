@@ -78,8 +78,8 @@ msgid ""
 "Mixed-effects models with a fixed intercept only are not supported for "
 "aggregated binomial family."
 msgstr ""
-"Modele efektów mieszanych z jedynie stałym wyrazem wolnym nie są obsługiwane "
-"dla zagregowanych analiz dwumianowych."
+"Modele efektów mieszanych z jedynie ustalonymi wyrazami wolnymi nie są "
+"obsługiwane dla zagregowanych analiz dwumianowych."
 
 msgid "ANOVA Summary"
 msgstr "Podsumowanie testu ANOVA"
@@ -130,7 +130,7 @@ msgid "Deviance (REML)"
 msgstr "Odchylenie (REML)"
 
 msgid "log Lik."
-msgstr ""
+msgstr "log Lik."
 
 msgid "AIC"
 msgstr "AIC"
@@ -145,13 +145,13 @@ msgid "Observations"
 msgstr "Obserwacje"
 
 msgid "Levels of RE grouping factors"
-msgstr ""
+msgstr "Poziomy czynników grupujących efektów losowych"
 
 msgid "Variance/Correlation Estimates"
-msgstr ""
+msgstr "Estymatory wariancji/korelacji"
 
 msgid "%s: Variance Estimates"
-msgstr ""
+msgstr "%s: estymatory wariancji"
 
 msgid "Term"
 msgstr "Składniki"
@@ -163,10 +163,10 @@ msgid "Variance"
 msgstr "Wariancja"
 
 msgid "%s: Correlation Estimates"
-msgstr ""
+msgstr "%s: estymatory korelacji"
 
 msgid "Residual Variance Estimates"
-msgstr ""
+msgstr "Estymatory wariancji resztowej"
 
 msgid "Random Effect Estimates"
 msgstr "Oszacowania efektów losowych"
@@ -193,6 +193,8 @@ msgid ""
 "At least one random effects grouping factor needs to be selected in field "
 "'Background data show'."
 msgstr ""
+"W polu „Wyświetl dane tła” należy wybrać przynajmniej jeden czynnik "
+"grupujący efekty losowe"
 
 msgid ""
 "Factor levels need to be distinguished by at least one feature. Please, "
