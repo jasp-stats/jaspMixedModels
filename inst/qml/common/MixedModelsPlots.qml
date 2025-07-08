@@ -34,27 +34,27 @@ Section
 		AvailableVariablesList
 		{
 			name:	"availableModelComponentsPlot"
-			title:	qsTr("Model factors")
+			title:	qsTr("Model factors"); info: qsTr("Categorical or ordinal fixed effects variables that can be used for visualization.")
 			source:	[ { name: "fixedEffects", use: "type=ordinal|nominal"} ]
 		}
 
 		AssignedVariablesList
 		{
 			name:	"plotHorizontalAxis"
-			title:	qsTr("Horizontal axis")
+			title:	qsTr("Horizontal axis"); info: qsTr("Variables that will be plotted on the horizontal axis.")
 		}
 
 		AssignedVariablesList
 		{
 			name:	"plotSeparateLines"
 			id:		plotsTrace
-			title:	qsTr("Separate lines")
+			title:	qsTr("Separate lines"); info: qsTr("Variables that will be plotted inside the plot as different traces/lines.")
 		}
 
 		AssignedVariablesList
 		{
 			name:	"plotSeparatePlots"
-			title:	qsTr("Separate plots")
+			title:	qsTr("Separate plots"); info: qsTr("Variables which levels will be split across different plots.")
 		}
 	}
 
@@ -65,14 +65,14 @@ Section
 		AvailableVariablesList
 		{
 			name:	"plotRandomVariables"
-			title:	qsTr("Random effects grouping factors")
+			title:	qsTr("Random effects grouping factors"); info: qsTr("Random effect grouping factors that can be used for data aggregation of data shown in the background.")
 			source:	"randomVariables"
 		}
 
 		AssignedVariablesList
 		{
 			name:	"plotBackgroundData"
-			title:	qsTr("Background data show")
+			title:	qsTr("Background data show"); info: qsTr("The level of aggregation for the response variable. I.e., if participants are selected, the individual data points in the background are their averages across the combinations of levels of fixed effect factors selected in the Horizontal axis, Separate lines, and Separate plots.")
 			addAvailableVariablesToAssigned: true
 		}
 	}
@@ -83,11 +83,11 @@ Section
 		{
 			name:	"plotCiType"
 			id:		plotsCImethod
-			label:	qsTr("Confidence interval method")
+			label:	qsTr("Confidence interval method"); info: qsTr("Type of standard error on which the error bars will be based. Default is 'model', which plots model-based standard errors. The options are:")
 			values: if (analysisType == "frequentist"){
 				[
-					{ label: qsTr("Model"),			value: "model"},
-					{ label: qsTr("None"),			value: "none"},
+					{ label: qsTr("Model"),      	value: "model"},
+					{ label: qsTr("None"), 			value: "none"},
 					{ label: qsTr("Mean"),			value: "mean"},
 					{ label: qsTr("Within"),		value: "within"},
 					{ label: qsTr("Between"),		value: "between"}
@@ -112,7 +112,7 @@ Section
 
 	Group
 	{
-		title:		qsTr("Distinguish factor levels")
+		title:		qsTr("Distinguish factor levels"); info: qsTr("How the factor levels should be distinguished. This can be by color, shape, linetype, or fill.")
 		columns:	4
 
 		CheckBox
@@ -153,7 +153,7 @@ Section
 		DropDown
 		{
 			name:	"plotBackgroundElement"
-			label:	qsTr("Background element")
+			label:	qsTr("Background element"); info: qsTr("Type of background element to be used on the plots:")
 			id:		plotsGeom
 			values:
 			[
@@ -222,7 +222,7 @@ Section
 		{
 			name:	"plotTheme"
 			id:		plotsTheme
-			label:	qsTr("Theme")
+			label:	qsTr("Theme"); info: qsTr("Color palette to be used on the plot display:")
 			values:
 			[
 				{ label: "JASP",					value: "jasp"},
@@ -237,7 +237,7 @@ Section
 		DropDown
 		{
 			name:	"plotLegendPosition"
-			label:	qsTr("Legend position")
+			label:	qsTr("Legend position"); info: qsTr("Whether and where should the legend be plotted:")
 			values:
 			[
 				{ label: qsTr("None"),			value: "none"},
@@ -251,7 +251,7 @@ Section
 		DropDown
 		{
 			name:	"plotBackgroundColor"
-			label:	qsTr("Border color")
+			label:	qsTr("Border color"); info: qsTr("Color of the aggregated response variable:")
 			enabled:plotsGeom.currentValue != "jitter"
 			values:
 			[
@@ -287,7 +287,7 @@ Section
 		CheckBox
 		{
 			name:	"plotEstimatesTable"
-			label:	qsTr("Estimates table")
+			label:	qsTr("Estimates table"); info: qsTr("Display numerical summary of the plotted objects.")
 		}
 	}
 }
