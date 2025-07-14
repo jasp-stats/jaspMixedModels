@@ -106,7 +106,7 @@ Section
 		{
 			enabled:	plotsCImethod.currentValue != "none"
 			name:		"plotCiLevel"
-			label:		qsTr("Confidence interval")
+			label:		qsTr("Confidence interval"); info: qsTr("Width of the confidence interval. Set at 95% by default which can be changed by the user.")
 		}
 	}
 
@@ -169,7 +169,7 @@ Section
 		DoubleField
 		{
 			name:			"plotTransparency"
-			label:			qsTr("Transparency")
+			label:			qsTr("Transparency"); info: qsTr("Transparency of the geom.")
 			defaultValue:	.7
 			min:			0
 			max: 			1
@@ -180,7 +180,7 @@ Section
 		{
 			visible:		plotsGeom.currentValue == "jitter" || plotsGeom.currentValue == "boxjitter"
 			name:			"plotJitterWidth"
-			label:			qsTr("Jitter width")
+			label:			qsTr("Jitter width"); info: qsTr("Width of the jitter.")
 			defaultValue:	0.1
 			min:			0
 		}
@@ -189,7 +189,7 @@ Section
 		{
 			visible:		plotsGeom.currentValue == "jitter" | plotsGeom.currentValue == "boxjitter"
 			name:			"plotJitterHeight"
-			label:			qsTr("Jitter height")
+			label:			qsTr("Jitter height"); info: qsTr("Height of the jitter.")
 			defaultValue:	0
 			min:			0
 		}
@@ -198,7 +198,7 @@ Section
 		{
 			visible:		plotsGeom.currentValue == "violin" | plotsGeom.currentValue == "boxplot" | plotsGeom.currentValue == "boxjitter"
 			name:			"plotElementWidth"
-			label:			qsTr("Element width")
+			label:			qsTr("Element width"); info: qsTr("Width of the element.")
 			defaultValue:	1
 			min:			0
 			inclusive:		JASP.None
@@ -208,7 +208,7 @@ Section
 		{
 			visible:		plotsTrace.count != 0
 			name:			"plotDodge"
-			label:			qsTr("Dodge")
+			label:			qsTr("Dodge"); info: qsTr("Spacing between the geoms.")
 			defaultValue:	0.3
 			min:			0
 		}
@@ -269,7 +269,7 @@ Section
 		{
 			enabled:		plotsTheme.currentValue != "jasp"
 			name:			"plotRelativeSizeText"
-			label:			qsTr("Relative size text")
+			label:			qsTr("Relative size text"); info: qsTr("Relative size of the plotted text.")
 			defaultValue:	1.5
 			min:			0
 			inclusive:		JASP.None
@@ -278,7 +278,7 @@ Section
 		DoubleField
 		{
 			name:			"plotRelativeSizeData"
-			label:			qsTr("Relative size foreground data")
+			label:			qsTr("Relative size foreground data"); info: qsTr("Relative size of the foreground data (confidence interval bars, etc...).")
 			defaultValue:	1
 			min:			0
 			inclusive:		JASP.None
