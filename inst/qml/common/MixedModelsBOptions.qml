@@ -32,7 +32,7 @@ Section
 		{
 			name:			"mcmcBurnin"
 			id:				warmup
-			label:			qsTr("Burnin")
+			label:			qsTr("Burnin"); info: qsTr("Number of iterations reserved for burnin.")
 			defaultValue:	2000
 			min:			100
 		}
@@ -40,7 +40,7 @@ Section
 		IntegerField
 		{
 			name:			"mcmcSamples"
-			label:			qsTr("Samples")
+			label:			qsTr("Samples"); info: qsTr("Number of samples.")
 			defaultValue:	4000
 			min:			parseInt(warmup.value) + 100
 		}
@@ -48,7 +48,7 @@ Section
 		IntegerField
 		{
 			name:			"mcmcChains"
-			label:			qsTr("Chains")
+			label:			qsTr("Chains"); info: qsTr("Number of chains.")
 			defaultValue:	3
 			min:			1
 		}
@@ -56,7 +56,7 @@ Section
 		DoubleField
 		{
 			name:			"mcmcAdaptDelta"
-			label:			qsTr("Adapt delta")
+			label:			qsTr("Adapt delta"); info: qsTr("Average target proposal acceptance of each step. Increasing Adapt delta results in better-behaved chains, but also longer fitting times.")
 			defaultValue:	0.80
 			min:			0.5
 			max:			1
@@ -65,7 +65,7 @@ Section
 		IntegerField
 		{
 			name:			"mcmcMaxTreedepth"
-			label:			qsTr("Maximum treedepth")
+			label:			qsTr("Maximum treedepth"); info: qsTr("The cap for number of trees evaluated during each iteration. Prevents excessively long execution times.")
 			defaultValue:	10
 			min:			5
 		}
@@ -77,9 +77,9 @@ Section
 		RadioButtonGroup
 		{
 			name:		"estimateType"
-			title:		qsTr("Show")
-			RadioButton { value: "deviation";		label: qsTr("Differences from intercept"); checked: true}
-			RadioButton { value: "marginalMeans";	label: qsTr("Marginal means") }
+			title:		qsTr("Show"); info: qsTr("What should be the default output.")
+			RadioButton { value: "deviation";		label: qsTr("Differences from intercept"); info: qsTr("A table for each fixed effects term will be created in the default output and it will show the differences from the grand mean for each of the terms' levels (or one standard deviation distance for continuous terms). This option is selected by default.") ;checked: true}
+			RadioButton { value: "marginalMeans";	label: qsTr("Marginal means"); info: qsTr("A table for each fixed effects term will be created in the default output and it will show the estimated marginal mean for each of the terms' levels (or one standard deviation distance for continuous terms).") }
 		}
 
 		Group
@@ -87,25 +87,25 @@ Section
 			CheckBox
 			{
 				name:	"modelSummary"
-				label:	qsTr("Model summary")
+				label:	qsTr("Model summary"); info: qsTr("Adds an output table including relevant fit statistics.")
 			}
 
 			CheckBox
 			{
 				name:	"fixedEffectEstimate"
-				label:	qsTr("Fixed effects estimates")
+				label:	qsTr("Fixed effects estimates"); info: qsTr("Shows the estimated fixed effect coefficients.")
 			}
 
 			CheckBox
 			{
 				name:	"varianceCorrelationEstimate"
-				label:	qsTr("Variance/correlation estimates")
+				label:	qsTr("Variance/correlation estimates"); info: qsTr("Shows the estimated residual variances and variances/correlations of random effects coefficients.")
 			}
 
 			CheckBox
 			{
 				name:	"randomEffectEstimate"
-				label:	qsTr("Random effects estimates")
+				label:	qsTr("Random effects estimates"); info: qsTr("Shows the estimated random effects coefficients.")
 			}
 		}
 	}
@@ -115,6 +115,6 @@ Section
 	CIField
 	{
 		name:	"ciLevel"
-		label:	qsTr("Credible interval")
+		label:	qsTr("Credible interval"); info: qsTr("Width of the confidence interval. Set at 95% by default, which can be changed by the user.")
 	}
 }

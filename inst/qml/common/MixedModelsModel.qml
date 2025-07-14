@@ -43,7 +43,7 @@ Section
 			id:				fixedEffects
 			name:			"fixedEffects"
 			title:			qsTr("Fixed effects")
-			info: qsTr(" The independent variables in the model. By default, all the main effects of the specified independent variables and their interactions are included in the model. To include interactions, click multiple variables (e.g., by holding the ctrl/cmd button on your keyboard while clicking) and drag those into the Fixed effects box.")
+			info: qsTr("The independent variables in the model. By default, all the main effects of the specified independent variables and their interactions are included in the model. To include interactions, click multiple variables (e.g., by holding the ctrl/cmd button on your keyboard while clicking) and drag those into the Fixed effects box.")
 			listViewType:	JASP.Interaction
 			allowTypeChange:false
 			addInteractionsByDefault: false

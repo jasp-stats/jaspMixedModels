@@ -23,13 +23,13 @@ import "./common"		as MM
 
 Form {
 	info: qsTr("Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered given one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). An introduction to this model class and the concepts introduced below is provided in Singmann and Kellen (2019).") + "\n" +
-	"## " + qsTr(Assumptions) + "\n" +
+	"## " + qsTr("Assumptions") + "\n" +
 	"- " + qsTr("Continuous response variable.") + "\n" +
 	"- " + qsTr("Linearity and additivity: The response variable is linearly related to all predictors and the effects of the predictors are additive.") + "\n" +
 	"- " + qsTr("Independence of errors: The errors are uncorrelated with each other after taking the model (i.e., fixed effects and random effects structure) into account.") + "\n" +
 	"- " + qsTr("Homoscedasticity: The error variance of each predictor is constant across all values of that predictor.") + "\n" +
-	"- " + qsTr("Normality of errors: The errors are normally distributed with mean zero.") + "\n" +
-	qsTr("The analysis uses sum contrast encoding for categorical (nominal and ordinal) predictors (R uses dummy encoding by default). This scheme is used for better interpretability of models with interactions. However, the fixed and random effects estimates will differ from those obtained from R with default settings. We advise using the 'Estimated marginal means' section for obtaining mean estimates at individual factor levels. For comparing the mean estimates, use the contrasts option. To change the contrast enconding for the analysis use Factor contrast dropdown in the Options section.") + "\n" +
+	"- " + qsTr("Normality of errors: The errors are normally distributed with mean zero.") + "\n\n" +
+	qsTr("The analysis uses sum contrast encoding for categorical (nominal and ordinal) predictors (R uses dummy encoding by default). This scheme is used for better interpretability of models with interactions. However, the fixed and random effects estimates will differ from those obtained from R with default settings. We advise using the 'Estimated marginal means' section for obtaining mean estimates at individual factor levels. For comparing the mean estimates, use the contrasts option. To change the contrast encoding for the analysis use Factor contrast dropdown in the Options section.") + "\n\n" +
 	qsTr("The analysis uses a long data format.")
 
 	id: form

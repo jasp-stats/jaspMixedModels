@@ -27,8 +27,8 @@ Form {
 	"- " + qsTr("Linearity and additivity: The response variable is related to all predictors according to the link function and the effects of the predictors are additive on the linear scale.") + "\n" +
 	"- " + qsTr("Independence of errors: The errors are uncorrelated with each other after taking the model (i.e., fixed effects and random effects structure) into account.") + "\n" +
 	"- " + qsTr("Homoscedasticity: The error variance of each predictor is constant across all values of that predictor.") + "\n" +
-	"- " + qsTr("Distribution of errors: The errors are distributed according to the distributional family.") + "\n" +
-	qsTr("The analysis uses sum contrast encoding for categorical (nominal and ordinal) predictors (R uses dummy encoding by default). This scheme is used for better interpretability of models with interactions. However, the fixed and random effects estimates will differ from those obtained from R with default settings. We advise using the 'Estimated marginal means' section for obtaining mean estimates at individual factor levels. For comparing the mean estimates, use the contrasts option. To change the contrast enconding for the analysis use Factor contrast dropdown in the Options section.") + "\n" +
+	"- " + qsTr("Distribution of errors: The errors are distributed according to the distributional family.") + "\n\n" +
+	qsTr("The analysis uses sum contrast encoding for categorical (nominal and ordinal) predictors (R uses dummy encoding by default). This scheme is used for better interpretability of models with interactions. However, the fixed and random effects estimates will differ from those obtained from R with default settings. We advise using the 'Estimated marginal means' section for obtaining mean estimates at individual factor levels. For comparing the mean estimates, use the contrasts option. To change the contrast enconding for the analysis use Factor contrast dropdown in the Options section.") + "\n\n" +
 	qsTr("The analysis uses a long data format.")
 
 	id: form
@@ -62,7 +62,7 @@ Form {
 		{
 			visible:			active
 			name:				"dependentAggregation"
-			title:				qsTr("Number of trials"); info: qsTr("Number of trials, only applicable if Binomial (aggregated) family is selected.")
+			title:				qsTr("Number of trials"); info: qsTr("Number of trials, only applicable if the Binomial (aggregated) family is selected.")
 			singleVariable:		true
 			allowedColumns:		["scale"]
 
@@ -75,7 +75,7 @@ Form {
 		AssignedVariablesList
 		{
 			name:				"fixedVariables"
-			title:				qsTr("Fixed effects variables"); info: qsTr(" Variables used as the fixed effects predictors (the model terms can be specified under Model section). These are usually the variables of primary scientific interest.")
+			title:				qsTr("Fixed effects variables"); info: qsTr("Variables used as the fixed effects predictors (the model terms can be specified under Model section). These are usually the variables of primary scientific interest.")
 			allowedColumns:		["nominal", "scale"]
 			allowTypeChange:	true
 		}
@@ -247,14 +247,14 @@ Form {
 		CIField
 		{
 			name:	"marginalMeansCiLevel"
-			label:	qsTr("Confidence interval")
+			label:	qsTr("Confidence interval"); info: qsTr("Width of the confidence interval.")
 		}
 
 		DoubleField
 		{
 			id:				marginalMeansSD
 			name:			"marginalMeansSd"
-			label:			qsTr("SD factor covariates")
+			label:			qsTr("SD factor covariates"); info: qsTr("What should be the 'levels' of continuous variables (expressed in standard deviations) over which the estimated marginal means are computed.")
 			defaultValue: 	1
 			min:			0
 			enabled:		marginalMeans.columnsTypes.includes("scale")
@@ -298,12 +298,12 @@ Form {
 			label:	qsTr("P-value adjustment"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:")
 			values:
 			[
-				{ label: "Holm", info: qsTr(" This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method.")	,				value: "holm"},
+				{ label: "Holm", info: qsTr("This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method.")	,				value: "holm"},
 				{ label: qsTr("Multivariate-t"), info: qsTr("Correction that takes into account that test results might be correlated. Best suited then for multivariate models.")	,value: "mvt"},
 				{ label: "Scheffé",	info: qsTr("Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.")	,			value: "scheffe"},
-				{ label: "Tukey", info: qsTr(" Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.")	,				value: "tukey"},
+				{ label: "Tukey", info: qsTr("Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.")	,				value: "tukey"},
 				{ label: qsTr("None"), info: qsTr("No adjustment is conducted.") ,				value: "none"},
-				{ label: "Bonferroni", info: qsTr("this correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well.")	,			value: "bonferroni"},
+				{ label: "Bonferroni", info: qsTr("This correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well.")	,			value: "bonferroni"},
 				{ label: "Hommel",	info: qsTr("This correction is considered to be more powerful but less conservative than Bonferroni and Holm corrections. Recommended for a small number of tests.")	,			value: "hommel"}
 			]
 		}
@@ -330,7 +330,7 @@ Form {
 			AvailableVariablesList
 			{
 				name:	"availableModelComponentsTrends1"
-				title:	qsTr("Continous variables"); info: qsTr(" Continuous fixed effects variables that can be used for estimating the conditional slopes.")
+				title:	qsTr("Continous variables"); info: qsTr("Continuous fixed effects variables that can be used for estimating the conditional slopes.")
 				source: [ { name: "fixedEffects", use: "type=scale"} ]
 			}
 
@@ -357,21 +357,21 @@ Form {
 			{
 				id:		trendsVariables
 				name:	"trendsVariables"
-				title:	qsTr("Selected variables"); info: qsTr("ariables over which the the conditional slopes will be computed.")
+				title:	qsTr("Selected variables"); info: qsTr("Variables over which the the conditional slopes will be computed.")
 			}
 		}
 
 		CIField
 		{
 			name:	"trendsCiLevel"
-			label:	qsTr("Confidence interval")
+			label:	qsTr("Confidence interval"); info: qsTr("Width of the confidence interval.")
 		}
 
 		DoubleField
 		{ 
 			id:				trendsSD
 			name:			"trendsSd"
-			label:			qsTr("SD factor covariates")
+			label:			qsTr("SD factor covariates"); info: qsTr("What should be the 'levels' of continuous variables (expressed in standard deviations) over which the conditional slopes are computed.")
 			defaultValue:	1
 			min:			0
 			enabled:		trendsVariables.columnsTypes.includes("scale")
@@ -399,7 +399,7 @@ Form {
 		{
 			name:	"trendsContrast"
 			id:		trendsContrast
-			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated marginal means. The first column contains indices of rows corresponding to the estimated marginal means output table. Columns with variable names contain the combinations of variables level for each estimated marginal mean. Columns named Contrast x are used for specifying the contrasts. To set a contrast between two marginal means, enter -1 and 1 to the corresponding rows. Interactions can be tested by specifying differences between the changes in marginal means of one variable across levels of another variable.")
+			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated conditional slopes. The first column contains indices of rows corresponding to the estimated conditional slopes output table. Columns with variable names contain the combinations of variables level for each estimated conditional slope. Columns named Contrast x are used for specifying the contrasts. To set a contrast between two conditional slopes, enter -1 and 1 to the corresponding rows. Interactions can be tested by specifying differences between the changes in conditional slopes of one variable across levels of another variable.")
 		}
 
 		DropDown
