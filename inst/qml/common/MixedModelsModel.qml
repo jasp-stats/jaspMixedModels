@@ -44,6 +44,7 @@ Section
 			title:			qsTr("Fixed effects")
 			listViewType:	JASP.Interaction
 			allowTypeChange:false
+			addInteractionsByDefault: false
 		}
 
 		CheckBox
