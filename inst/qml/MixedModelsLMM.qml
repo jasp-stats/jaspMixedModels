@@ -22,7 +22,7 @@ import JASP.Controls
 import "./common"		as MM
 
 Form {
-	info: qsTr("Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered given one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). An introduction to this model class and the concepts introduced below is provided in Singmann and Kellen (2019).") + "\n" +
+	info: qsTr("Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered within one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). An introduction to this model class and the concepts introduced below is provided in Singmann and Kellen (2019).") + "\n" +
 	"## " + qsTr("Assumptions") + "\n" +
 	"- " + qsTr("Continuous response variable.") + "\n" +
 	"- " + qsTr("Linearity and additivity: The response variable is linearly related to all predictors and the effects of the predictors are additive.") + "\n" +
@@ -68,7 +68,7 @@ Form {
 		AssignedVariablesList
 		{
 			name:				"randomVariables"
-			title:				qsTr("Random effects grouping factors"); info: qsTr("Categorical variable(s) specifying clusters of observations (i.e., several observations per level of a random effects grouping factor). These are typically variables, such as participant or item, one wants to generalize over. Factors with very few levels should not be used as random effects grouping factors. Moreover, the number of levels of the random effects grouping factors determines the power of the test of the fixed effects. The random effect structure (i.e., random intercepts, random slopes, and correlations among random effects parameters) can be specified under Model - Random effects. The default random effects structure is the automatically determined maximal random effects structure justified by the design.")
+			title:				qsTr("Random effects grouping factors"); info: qsTr("Categorical variable(s) specifying clusters of observations (i.e., several observations per level of a random effects grouping factor). These are typically variables, such as participants or items, one wants to generalize over. Factors with very few levels (i.e., fewer than five or six levels) should not be used as random effects grouping factors as the number of levels determines the power of the test of the fixed effects tests (Westfall, Kenny, & Judd, 2014). The random effects structure (i.e., random intercepts, random slopes, and correlations among random effects parameters) can be specified under Model - Random effects. The default random effects structure is the automatically determined 'maximal random effects structure justified by the design' (Barr, Levy, Scheepers, & Tily, 2013).")
 			allowedColumns:		["nominal"]
 		}
 	}
@@ -106,14 +106,14 @@ Form {
 		CIField
 		{
 			name:	"marginalMeansCiLevel"
-			label:	qsTr("Confidence interval")
+			label:	qsTr("Confidence interval"); info: qsTr("Width of the confidence interval. Set at 95% by default, which can be changed by the user.")
 		}
 
 		DoubleField
 		{
 			id:				marginalMeansSD
 			name:			"marginalMeansSd"
-			label:			qsTr("SD factor covariates")
+			label:			qsTr("SD factor covariates"); info: qsTr("Specifies the 'levels' of continuous variables (expressed in standard deviations) over which the estimated marginal means are computed.")
 			defaultValue: 	1
 			min:			0
 			enabled:		marginalMeans.columnsTypes.includes("scale")
@@ -125,7 +125,7 @@ Form {
 			{
 				name:	"marginalMeansDf"
 				id:		marginalMeansDf
-				label:	qsTr("Estimate df"); info: qsTr("Method of estimating degrees of freedom. Note that Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets.")
+				label:	qsTr("Estimate df"); info: qsTr("Method of estimating degrees of freedom. Note that Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets. The following options are available:")
 				values:
 				[
 					{ label: qsTr("Asymptotic"),		value: "asymptotic"},
@@ -151,7 +151,7 @@ Form {
 			{
 				name:	"marginalMeansComparison"
 				id:		marginalMeansCompare
-				label:	qsTr("Compare marginal means to:"); info: qsTr("Value to which will be the estimated marginal means compared.")
+				label:	qsTr("Compare marginal means to:"); info: qsTr("Value to which the estimated marginal means will be compared.")
 			}
 
 			DoubleField
@@ -165,7 +165,7 @@ Form {
 		{
 			name:	"marginalMeansContrast"
 			id:		marginalMeansContrast
-			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated marginal means. The first column contains indices of rows corresponding to the estimated marginal means output table. Columns with variable names contain the combinations of variables level for each estimated marginal mean. Columns named Contrast x are used for specifying the contrasts. To set a contrast between two marginal means, enter -1 and 1 to the corresponding rows. Interactions can be tested by specifying differences between the changes in marginal means of one variable across levels of another variable.")
+			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated marginal means. The first column contains row indices corresponding to the estimated marginal means output table. Columns with variable names show the levels of each variable for the respective marginal mean. Columns labeled ‘Contrast x’ are used to define contrasts. To specify a contrast between two marginal means, enter -1 and 1 in the corresponding rows. Interactions can be tested by defining differences in marginal means of one variable across levels of another.")
 		}
 
 		DropDown
@@ -174,12 +174,12 @@ Form {
 			label:	qsTr("P-value adjustment"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:")
 			values:
 			[
-				{ label: "Holm", info: qsTr(" This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method.")	,				value: "holm"},
-				{ label: qsTr("Multivariate-t"), info: qsTr("Correction that takes into account that test results might be correlated. Best suited then for multivariate models.")	,value: "mvt"},
-				{ label: "Scheffé",	info: qsTr(" Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.")	,			value: "scheffe"},
-				{ label: "Tukey", info: qsTr(" Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.")	,				value: "tukey"},
-				{ label: qsTr("None"), info: qsTr(" No adjustment is conducted.") ,				value: "none"},
-				{ label: "Bonferroni", info: qsTr("this correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well.")	,			value: "bonferroni"},
+				{ label: "Holm", info: qsTr("This method is also called sequential Bonferroni, and is considered less conservative than the Bonferroni method.")	,				value: "holm"},
+				{ label: qsTr("Multivariate-t"), info: qsTr("Correction that takes into account that test results might be correlated. Best suited for multivariate models.")	,value: "mvt"},
+				{ label: "Scheffé",	info: qsTr("Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.")	,			value: "scheffe"},
+				{ label: "Tukey", info: qsTr("Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.")	,				value: "tukey"},
+				{ label: qsTr("None"), info: qsTr("No adjustment is conducted.") ,				value: "none"},
+				{ label: "Bonferroni", info: qsTr("This correction is considered conservative. The risk of Type I error is reduced, however, the statistical power decreases as well.")	,			value: "bonferroni"},
 				{ label: "Hommel",	info: qsTr("This correction is considered to be more powerful but less conservative than Bonferroni and Holm corrections. Recommended for a small number of tests.")	,			value: "hommel"}
 			]
 		}
@@ -233,21 +233,21 @@ Form {
 			{
 				id:		trendsVariables
 				name:	"trendsVariables"
-				title:	qsTr("Selected variables"); info: qsTr("Variables over which the the conditional slopes will be computed.")
+				title:	qsTr("Selected variables"); info: qsTr("Variables over which the conditional slopes will be computed.")
 			}
 		}
 
 		CIField
 		{
 			name:	"trendsCiLevel"
-			label:	qsTr("Confidence interval")
+			label:	qsTr("Confidence interval"); info: qsTr("Width of the confidence interval. Set at 95% by default, which can be changed by the user.")
 		}
 
 		DoubleField
 		{ 
 			id:				trendsSD
 			name:			"trendsSd"
-			label:			qsTr("SD factor covariates")
+			label:			qsTr("SD factor covariates"); info: qsTr("Specifies the 'levels' of continuous variables (expressed in standard deviations) over which the conditional slopes are computed.")
 			defaultValue:	1
 			min:			0
 			enabled:		trendsVariables.columnsTypes.includes("scale")
@@ -259,7 +259,7 @@ Form {
 			{
 				name:	"trendsDf"
 				id:		trendsDf
-				label:	qsTr("Estimate df"); info: qsTr(" Method of estimating degrees of freedom. Note that Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets.")
+				label:	qsTr("Estimate df"); info: qsTr("Method of estimating degrees of freedom. Note that Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets. The following options are available:")
 				values:
 				[
 					{ label: qsTr("Asymptotic"),		value: "asymptotic"},
@@ -284,7 +284,7 @@ Form {
 			{
 				name:	"trendsComparison"
 				id:		trendsCompare
-				label:	qsTr("Compare trends to:"); info: qsTr("Value to which will be the estimated conditional slopes compared.")
+				label:	qsTr("Compare trends to:"); info: qsTr("Value to which the estimated conditional slopes will be compared.")
 			}
 
 			DoubleField
@@ -298,7 +298,7 @@ Form {
 		{
 			name:	"trendsContrast"
 			id:		trendsContrast
-			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated conditional slopes. The first column contains indices of rows corresponding to the estimated conditional slopes output table. Columns with variable names contain the combinations of variables level for each estimated conditional slope. Columns named Contrast x are used for specifying the contrasts. To set a contrast between two conditional slopes, enter -1 and 1 to the corresponding rows. Interactions can be tested by specifying differences between the changes in conditional slopes of one variable across levels of another variable.")
+			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated conditional slopes. The first column contains row indices corresponding to the estimated conditional slopes output table. Columns with variable names show the levels of each variable for the respective conditional slope. Columns labeled ‘Contrast x’ are used to define contrasts. To specify a contrast between two conditional slopes, enter -1 and 1 in the corresponding rows. Interactions can be tested by defining differences in conditional slopes of one variable across levels of another.")
 		}
 
 		DropDown
@@ -307,12 +307,12 @@ Form {
 			label:	qsTr("P-value adjustment"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:")
 			values:
 			[
-				{ label: "Holm", info: qsTr(" This method is also called sequential Bonferroni, and considered less conservative than the Bonferroni method.")	,				value: "holm"},
-				{ label: qsTr("Multivariate-t"), info: qsTr("Correction that takes into account that test results might be correlated. Best suited then for multivariate models.")	,value: "mvt"},
-				{ label: "Scheffé",	info: qsTr(" Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.")	,			value: "scheffe"},
-				{ label: "Tukey", info: qsTr(" Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.")	,				value: "tukey"},
-				{ label: qsTr("None"), info: qsTr(" No adjustment is conducted.") ,				value: "none"},
-				{ label: "Bonferroni", info: qsTr("this correction is considered conservative. The risk of Type I error is reduced, however the statistical power decreases as well.")	,			value: "bonferroni"},
+				{ label: "Holm", info: qsTr("This method is also called sequential Bonferroni, and is considered less conservative than the Bonferroni method.")	,				value: "holm"},
+				{ label: qsTr("Multivariate-t"), info: qsTr("Correction that takes into account that test results might be correlated. Best suited for multivariate models.")	,value: "mvt"},
+				{ label: "Scheffé",	info: qsTr("Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.")	,			value: "scheffe"},
+				{ label: "Tukey", info: qsTr("Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.")	,				value: "tukey"},
+				{ label: qsTr("None"), info: qsTr("No adjustment is conducted.") ,				value: "none"},
+				{ label: "Bonferroni", info: qsTr("This correction is considered conservative. The risk of Type I error is reduced, however, the statistical power decreases as well.")	,			value: "bonferroni"},
 				{ label: "Hommel",	info: qsTr("This correction is considered to be more powerful but less conservative than Bonferroni and Holm corrections. Recommended for a small number of tests.")	,			value: "hommel"}
 			]
 		}

@@ -22,7 +22,7 @@ import JASP.Controls
 import "./common"		as MM
 
 Form {
-	info: qsTr("Bayesian Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered given one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). An introduction to this model class and the concepts introduced below is provided in Singmann and Kellen (2019).") + "\n" +
+	info: qsTr("Bayesian Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered within one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). An introduction to this model class and the concepts introduced below is provided in Singmann and Kellen (2019).") + "\n" +
 	"## " + qsTr("Assumptions") + "\n" +
 	"- " + qsTr("Continuous response variable.") + "\n" +
 	"- " + qsTr("Linearity and additivity: The response variable is linearly related to all predictors and the effects of the predictors are additive.") + "\n" +
@@ -69,7 +69,7 @@ Form {
 		AssignedVariablesList
 		{
 			name:				"randomVariables"
-			title:				qsTr("Random effects grouping factors"); info: qsTr("Categorical variable(s) specifying clusters of observations (i.e., several observations per level of a random effects grouping factor). These are typically variables, such as participant or item, one wants to generalize over. Factors with very few levels (i.e., less then five or six levels) should not be used as random effects grouping factors and the number of levels of the random effects grouping factors determines the power of the test of the fixed effects (Westfall, Kenny, & Judd, 2014). The random effect structure (i.e., random intercepts, random slopes, and correlations among random effects parameters) can be specified under Model - Random effects. The default random effects structure is the automatically determined 'maximal random effects structure justified by the design' (Barr, Levy, Scheepers, & Tily, 2013).")
+			title:				qsTr("Random effects grouping factors"); info: qsTr("Categorical variable(s) specifying clusters of observations (i.e., several observations per level of a random effects grouping factor). These are typically variables, such as participants or items, one wants to generalize over. Factors with very few levels (i.e., fewer than five or six levels) should not be used as random effects grouping factors as the number of levels determines the power of the test of the fixed effects tests (Westfall, Kenny, & Judd, 2014). The random effects structure (i.e., random intercepts, random slopes, and correlations among random effects parameters) can be specified under Model - Random effects. The default random effects structure is the automatically determined 'maximal random effects structure justified by the design' (Barr, Levy, Scheepers, & Tily, 2013).")
 			allowedColumns:		["nominal"]
 		}
 	}
@@ -122,7 +122,7 @@ Form {
 		{
 			id:				marginalMeansSD
 			name:			"marginalMeansSd"
-			label:			qsTr("SD factor covariates"); info: qsTr("What should be the 'levels' of continuous variables (expressed in standard deviations) for which are the estimated marginal means computed.")
+			label:			qsTr("SD factor covariates"); info: qsTr("What should be the 'levels' of continuous variables (expressed in standard deviations) for which the estimated marginal means are computed.")
 			defaultValue: 	1
 			min:			0
 			enabled:		marginalMeans.columnsTypes.includes("scale")
@@ -132,7 +132,7 @@ Form {
 		{
 			name:	"marginalMeansContrast"
 			id:		marginalMeansContrast
-			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated marginal means. The first column contains indices of rows corresponding to the estimated marginal means output table. Columns with variable names contain the combinations of variables level for each estimated marginal mean. Columns named Contrast x are used for specifying the contrasts. To set a contrast between two marginal means, enter -1 and 1 to the corresponding rows. Interactions can be tested by specifying differences between the changes in marginal means of one variable across levels of another variable.")
+			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated marginal means. The first column contains row indices corresponding to the estimated marginal means output table. Columns with variable names show the levels of each variable for the respective marginal mean. Columns labeled ‘Contrast x’ are used to define contrasts. To specify a contrast between two marginal means, enter -1 and 1 in the corresponding rows. Interactions can be tested by defining differences in marginal means of one variable across levels of another.")
 		}
 
 		CustomContrastsTableView
@@ -184,7 +184,7 @@ Form {
 			{
 				id:		trendsVariables
 				name:	"trendsVariables"
-				title:	qsTr("Selected variables"); info: qsTr("Variables over which the the conditional slopes will be computed.")
+				title:	qsTr("Selected variables"); info: qsTr("Variables over which the conditional slopes will be computed.")
 			}
 		}
 
@@ -208,7 +208,7 @@ Form {
 		{
 			name:	"trendsContrast"
 			id:		trendsContrast
-			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated conditional slopes. The first column contains indices of rows corresponding to the estimated marginal means output table. Columns with variable names contain the combinations of variables level for each estimated marginal mean. Columns named Contrast x are used for specifying the contrasts. To set a contrast between two marginal means, enter -1 and 1 to the corresponding rows. Interactions can be tested by specifying differences between the changes in marginal means of one variable across levels of another variable.")
+			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated conditional slopes. The first column contains row indices corresponding to the estimated conditional slopes output table. Columns with variable names show the levels of each variable for the respective conditional slope. Columns labeled ‘Contrast x’ are used to define contrasts. To specify a contrast between two conditional slopes, enter -1 and 1 in the corresponding rows. Interactions can be tested by defining differences in conditional slopes of one variable across levels of another.")
 		}
 
 		CustomContrastsTableView
