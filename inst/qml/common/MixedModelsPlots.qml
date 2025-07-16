@@ -54,7 +54,7 @@ Section
 		AssignedVariablesList
 		{
 			name:	"plotSeparatePlots"
-			title:	qsTr("Separate plots"); info: qsTr("Variables which levels will be split across different plots.")
+			title:	qsTr("Separate plots"); info: qsTr("Variables whose levels will be split across different plots.")
 		}
 	}
 
@@ -65,14 +65,14 @@ Section
 		AvailableVariablesList
 		{
 			name:	"plotRandomVariables"
-			title:	qsTr("Random effects grouping factors"); info: qsTr("Random effect grouping factors that can be used for data aggregation of data shown in the background.")
+			title:	qsTr("Random effects grouping factors"); info: qsTr("Random effect grouping factors that can be used for data aggregation of background data.")
 			source:	"randomVariables"
 		}
 
 		AssignedVariablesList
 		{
 			name:	"plotBackgroundData"
-			title:	qsTr("Background data show"); info: qsTr("The level of aggregation for the response variable. I.e., if participants are selected, the individual data points in the background are their averages across the combinations of levels of fixed effect factors selected in the Horizontal axis, Separate lines, and Separate plots.")
+			title:	qsTr("Background data show"); info: qsTr("The level of aggregation for the response variable. i.e., if participants are selected, the individual data points in the background are their averages across the combinations of levels of fixed effect factors selected in the Horizontal axis, Separate lines, and Separate plots.")
 			addAvailableVariablesToAssigned: true
 		}
 	}
@@ -83,7 +83,7 @@ Section
 		{
 			name:	"plotCiType"
 			id:		plotsCImethod
-			label:	qsTr("Confidence interval method"); info: qsTr("Type of standard error on which the error bars will be based. Default is 'model', which plots model-based standard errors. The options are:")
+			label:	qsTr("Confidence interval method"); info: qsTr("Type of standard error on which the error bars will be based. Default is 'model', which plots model-based standard errors. Several options are available.")
 			values: if (analysisType == "frequentist"){
 				[
 					{ label: qsTr("Model"),      	value: "model"},
@@ -106,7 +106,7 @@ Section
 		{
 			enabled:	plotsCImethod.currentValue != "none"
 			name:		"plotCiLevel"
-			label:		qsTr("Confidence interval"); info: qsTr("Width of the confidence interval. Set at 95% by default which can be changed by the user.")
+			label:		qsTr("Confidence interval"); info: qsTr("Width of the confidence interval. Set at 95% by default, which can be changed by the user.")
 		}
 	}
 
@@ -153,7 +153,7 @@ Section
 		DropDown
 		{
 			name:	"plotBackgroundElement"
-			label:	qsTr("Background element"); info: qsTr("Type of background element to be used on the plots:")
+			label:	qsTr("Background element"); info: qsTr("Type of background element to be used on the plots. Several options are available.")
 			id:		plotsGeom
 			values:
 			[
@@ -169,7 +169,7 @@ Section
 		DoubleField
 		{
 			name:			"plotTransparency"
-			label:			qsTr("Transparency"); info: qsTr("Transparency of the geom.")
+			label:			qsTr("Transparency"); info: qsTr("Transparency level of the plotted elements (geoms).")
 			defaultValue:	.7
 			min:			0
 			max: 			1
@@ -208,7 +208,7 @@ Section
 		{
 			visible:		plotsTrace.count != 0
 			name:			"plotDodge"
-			label:			qsTr("Dodge"); info: qsTr("Spacing between the geoms.")
+			label:			qsTr("Dodge"); info: qsTr("Spacing between the plotted elements (geoms).")
 			defaultValue:	0.3
 			min:			0
 		}
@@ -222,7 +222,7 @@ Section
 		{
 			name:	"plotTheme"
 			id:		plotsTheme
-			label:	qsTr("Theme"); info: qsTr("Color palette to be used on the plot display:")
+			label:	qsTr("Theme"); info: qsTr("Color palette to be used on the plot display. Several options are available.")
 			values:
 			[
 				{ label: "JASP",					value: "jasp"},
@@ -237,21 +237,21 @@ Section
 		DropDown
 		{
 			name:	"plotLegendPosition"
-			label:	qsTr("Legend position"); info: qsTr("Whether and where should the legend be plotted:")
+			label:	qsTr("Legend position"); info: qsTr("Whether and where should the legend be plotted. Several options are available.")
 			values:
 			[
-				{ label: qsTr("None"),			value: "none"},
-				{ label: qsTr("Bottom"),		value: "bottom"},
-				{ label: qsTr("Right"),			value: "right"},
-				{ label: qsTr("Top"),			value: "top"},
-				{ label: qsTr("Left"), 			value: "left"}
+				{ label: qsTr("None"),	info: qsTr("No legend is plotted.")	,	value: "none"},
+				{ label: qsTr("Bottom"), info: qsTr("The legend is plotted on the bottom.")	,	value: "bottom"},
+				{ label: qsTr("Right"),	info: qsTr("The legend is plotted on the right.")	,	value: "right"},
+				{ label: qsTr("Top"),	info: qsTr("The legend is plotted on the top.")	,	value: "top"},
+				{ label: qsTr("Left"), info: qsTr("The legend is plotted on the left.")	,		value: "left"}
 			]
 		}
 
 		DropDown
 		{
 			name:	"plotBackgroundColor"
-			label:	qsTr("Border color"); info: qsTr("Color of the aggregated response variable:")
+			label:	qsTr("Border color"); info: qsTr("Color of the aggregated response variable. Several options are available.")
 			enabled:plotsGeom.currentValue != "jitter"
 			values:
 			[
@@ -278,7 +278,7 @@ Section
 		DoubleField
 		{
 			name:			"plotRelativeSizeData"
-			label:			qsTr("Relative size foreground data"); info: qsTr("Relative size of the foreground data (confidence interval bars, etc...).")
+			label:			qsTr("Relative size foreground data"); info: qsTr("Relative size of the foreground data (confidence interval bars, etc.).")
 			defaultValue:	1
 			min:			0
 			inclusive:		JASP.None

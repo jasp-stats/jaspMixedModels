@@ -39,14 +39,14 @@ Section
 		{
 			singleVariable:	true
 			name:			"mcmcDiagnosticsHorizontal"
-			title:			mcmcDiagnosticsType.currentValue == "scatterplot" ? qsTr("Horizontal axis") : qsTr("Plotted term"); info: qsTr("Fixed effects model term which chain will be diagnosed.")
+			title:			mcmcDiagnosticsType.currentValue == "scatterplot" ? qsTr("Horizontal axis") : qsTr("Plotted term"); info: qsTr("Fixed effects model term whose chain will be diagnosed.")
 		}
 
 		AssignedVariablesList
 		{
 			singleVariable:	true
 			name:			"mcmcDiagnosticsVertical"
-			title:			qsTr("Vertical axis"); info: qsTr("Fixed effects model term which chain will be diagnosed. Only available if Plot type is Scatterplot.")
+			title:			qsTr("Vertical axis"); info: qsTr("Fixed effects model term whose chain will be diagnosed. Only available if the Plot type is Scatterplot.")
 			visible:		active
 			
 			property bool active:	mcmcDiagnosticsType.currentValue == "scatterplot"
@@ -58,14 +58,14 @@ Section
 	{
 		name:	"mcmcDiagnosticsType"
 		id:		mcmcDiagnosticsType
-		label:	qsTr("Plot type"); info: qsTr("Different types of MCMC diagnostics plots. The plotted values correspond to the fixed effect terms displayed in the default output. Those are the deviations from the estimated grand mean by default, but can be changed to estimated marginal means in the Options section.")
+		label:	qsTr("Plot type"); info: qsTr("Different types of MCMC diagnostic plots. The plotted values correspond to the fixed effect terms displayed in the default output. Those are the deviations from the estimated grand mean by default, but can be changed to estimated marginal means in the Options section.")
 		values:
 		[
 			{ label: qsTr("Traceplot"),	info: qsTr("Traceplot of the individual chains.")	,	value: "traceplot"},
 			{ label: qsTr("Scatterplot"), info: qsTr("Scatterplot of two model terms.")	,	value: "scatterplot"},
 			{ label: qsTr("Histogram"),	info: qsTr("Histogram of the posterior samples.")	,	value: "histogram"},
-			{ label: qsTr("Density"),	info: qsTr("Overlying densities of samples from each chain.")	,	value: "density"},
-			{ label: qsTr("Autocorrelations"), info: qsTr("Average autocorrelations across all chains.")	,value: "autocorrelation"}
+			{ label: qsTr("Density"),	info: qsTr("Overlaid density plots of samples from each chain.")	,	value: "density"},
+			{ label: qsTr("Autocorrelations"), info: qsTr("Average autocorrelation plots across all chains.")	,value: "autocorrelation"}
 		]
 	}
 }

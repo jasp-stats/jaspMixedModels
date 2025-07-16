@@ -125,7 +125,7 @@ Form {
 			{
 				name:	"marginalMeansDf"
 				id:		marginalMeansDf
-				label:	qsTr("Estimate df"); info: qsTr("Method of estimating degrees of freedom. Note that Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets. The following options are available:")
+				label:	qsTr("Estimate df"); info: qsTr("Method of estimating degrees of freedom. Note that Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets. There are 3 available options.")
 				values:
 				[
 					{ label: qsTr("Asymptotic"),		value: "asymptotic"},
@@ -171,7 +171,7 @@ Form {
 		DropDown
 		{
 			name:	"marginalMeansPAdjustment"
-			label:	qsTr("P-value adjustment"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:")
+			label:	qsTr("P-value adjustment"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available.")
 			values:
 			[
 				{ label: "Holm", info: qsTr("This method is also called sequential Bonferroni, and is considered less conservative than the Bonferroni method.")	,				value: "holm"},
@@ -259,7 +259,7 @@ Form {
 			{
 				name:	"trendsDf"
 				id:		trendsDf
-				label:	qsTr("Estimate df"); info: qsTr("Method of estimating degrees of freedom. Note that Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets. The following options are available:")
+				label:	qsTr("Estimate df"); info: qsTr("Method of estimating degrees of freedom. Note that Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets. There are 3 available options.")
 				values:
 				[
 					{ label: qsTr("Asymptotic"),		value: "asymptotic"},

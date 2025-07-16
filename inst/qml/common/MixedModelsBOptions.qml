@@ -40,7 +40,7 @@ Section
 		IntegerField
 		{
 			name:			"mcmcSamples"
-			label:			qsTr("Samples"); info: qsTr("Number of samples.")
+			label:			qsTr("Samples"); info: qsTr("Number of MCMC samples.")
 			defaultValue:	4000
 			min:			parseInt(warmup.value) + 100
 		}
@@ -48,7 +48,7 @@ Section
 		IntegerField
 		{
 			name:			"mcmcChains"
-			label:			qsTr("Chains"); info: qsTr("Number of chains.")
+			label:			qsTr("Chains"); info: qsTr("Number of MCMC chains.")
 			defaultValue:	3
 			min:			1
 		}
@@ -65,7 +65,7 @@ Section
 		IntegerField
 		{
 			name:			"mcmcMaxTreedepth"
-			label:			qsTr("Maximum treedepth"); info: qsTr("The cap for number of trees evaluated during each iteration. Prevents excessively long execution times.")
+			label:			qsTr("Maximum treedepth"); info: qsTr("The cap for the number of trees evaluated during each iteration. Prevents excessively long execution times.")
 			defaultValue:	10
 			min:			5
 		}
@@ -77,9 +77,9 @@ Section
 		RadioButtonGroup
 		{
 			name:		"estimateType"
-			title:		qsTr("Show"); info: qsTr("What should be the default output.")
-			RadioButton { value: "deviation";		label: qsTr("Differences from intercept"); info: qsTr("A table for each fixed effects term will be created in the default output and it will show the differences from the grand mean for each of the terms' levels (or one standard deviation distance for continuous terms). This option is selected by default.") ;checked: true}
-			RadioButton { value: "marginalMeans";	label: qsTr("Marginal means"); info: qsTr("A table for each fixed effects term will be created in the default output and it will show the estimated marginal mean for each of the terms' levels (or one standard deviation distance for continuous terms).") }
+			title:		qsTr("Show"); info: qsTr("Specifies the content of the default output table.")
+			RadioButton { value: "deviation";		label: qsTr("Differences from intercept"); info: qsTr("A table for each fixed effects terms will be created in the default output and it will show the differences from the grand mean for each of the levels of the terms(or one standard deviation distance for continuous terms). This option is selected by default.") ;checked: true}
+			RadioButton { value: "marginalMeans";	label: qsTr("Marginal means"); info: qsTr("A table for each fixed effects term will be created in the default output and it will show the estimated marginal mean for each of the levels of the terms(or one standard deviation distance for continuous terms).") }
 		}
 
 		Group
@@ -115,6 +115,6 @@ Section
 	CIField
 	{
 		name:	"ciLevel"
-		label:	qsTr("Credible interval"); info: qsTr("Width of the confidence interval. Set at 95% by default, which can be changed by the user.")
+		label:	qsTr("Credible interval"); info: qsTr("Width of the credible interval. Set at 95% by default, which can be changed by the user.")
 	}
 }

@@ -43,7 +43,7 @@ Section
 			id:				fixedEffects
 			name:			"fixedEffects"
 			title:			qsTr("Fixed effects")
-			info: qsTr("The independent variables in the model. By default, all the main effects of the specified independent variables and their interactions are included in the model. To include interactions, click multiple variables (e.g., by holding the ctrl/cmd button on your keyboard while clicking) and drag those into the Fixed effects box.")
+			info: qsTr("The independent variables in the model. By default, all the main effects of the specified independent variables and their interactions are included in the model. To include more interactions, click multiple variables (e.g., by holding the ctrl/cmd button on your keyboard while clicking) and drag those into the Fixed effects box.")
 			listViewType:	JASP.Interaction
 			allowTypeChange:false
 			addInteractionsByDefault: false
@@ -52,7 +52,7 @@ Section
 		CheckBox
 		{
 			label:		qsTr("Include intercept")
-			info: qsTr("Include the interecpt in the model")
+			info: qsTr("Include the intercept in the model.")
 			name:		"includeIntercept"
 			checked:	true
 			visible:	analysisType == "frequentist" // stanova cannot summarize no-intercept models
@@ -63,7 +63,7 @@ Section
 	{
 		id:					randomEffects
 		title:				qsTr("Random effects")
-		info: qsTr("The random effects organized by random effects grouping factors. By default, all of the random effects corresponding to the fixed effects are included and JASP internally checks and removes non-estimable random effects. That is, the default corresponds to the maximal random effects structure justified by the design. Unticking the boxes on the left of the variable names removes the random effect from corresponding random effects grouping factor.")
+		info: qsTr("The random effects organized by random effects grouping factors. By default, all of the random effects corresponding to the fixed effects are included and JASP internally checks and removes non-estimable random effects. That is, the default corresponds to the maximal random effects structure justified by the design. Unticking the boxes on the left of the variable names removes the random effect from the corresponding random effects grouping factor.")
 		name:				"randomEffects"
 		source:				"randomVariables"
 		visible:			count > 0
@@ -78,7 +78,7 @@ Section
 			{
 				width:		randomComponentsList.width
 				Label		{ text: qsTr("Random components (%1)").arg(rowValue);	width: parent.width / 2 }
-				CheckBox	{ label: qsTr("Correlations"); info: qsTr("Whether the correlations between the random effects parameters within each random effects grouping factor should be estimated.") ;name: "correlations"; checked: true; preferredWidth: parent.width / 2 }
+				CheckBox	{ label: qsTr("Correlations"); info: qsTr("Specifies whether the correlations between the random effects parameters within each random effects grouping factor should be estimated.") ;name: "correlations"; checked: true; preferredWidth: parent.width / 2 }
 			}
 
 			VariablesList
