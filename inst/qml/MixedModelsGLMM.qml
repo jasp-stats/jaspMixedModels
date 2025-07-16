@@ -94,7 +94,7 @@ Form {
 		DropDown
 		{
 			name:				"family"
-			label:				qsTr("Family"); info: qsTr("Distribution function which likelihood will be used for the dependent variable. The following options are available:")
+			label:				qsTr("Family"); info: qsTr("Distribution function which likelihood will be used for the dependent variable. Several options are available.")
 			id:					family
 			indexDefaultValue:	0
 			values:
@@ -295,7 +295,7 @@ Form {
 		DropDown
 		{
 			name:	"marginalMeansPAdjustment"
-			label:	qsTr("P-value adjustment"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:")
+			label:	qsTr("P-value adjustment"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available.")
 			values:
 			[
 				{ label: "Holm", info: qsTr("This method is also called sequential Bonferroni, and is considered less conservative than the Bonferroni method.")	,				value: "holm"},
@@ -405,7 +405,7 @@ Form {
 		DropDown
 		{
 			name:	"trendsPAdjustment"
-			label:	qsTr("P-value adjustment")
+			label:	qsTr("P-value adjustment"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available.")
 			values:
 			[
 				{ label: "Holm", info: qsTr("This method is also called sequential Bonferroni, and is considered less conservative than the Bonferroni method.")	,				value: "holm"},
