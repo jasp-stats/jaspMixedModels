@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2025-05-31 03:08\n"
-"PO-Revision-Date: 2025-08-06 03:02+0000\n"
+"PO-Revision-Date: 2025-08-07 23:01+0000\n"
 "Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/pt/>\n"
@@ -233,7 +233,7 @@ msgid "Upper"
 msgstr "Superior"
 
 msgid "Cannot find function: %s"
-msgstr ""
+msgstr "Não foi possível encontrar a função: %s"
 
 msgid "Estimated Marginal Means"
 msgstr "Médias marginais estimadas"
@@ -427,7 +427,7 @@ msgstr ""
 "forçar a estimativa, marque a opção correspondente."
 
 msgid "Results are on the response scale."
-msgstr "Preferências sobre os resultados."
+msgstr "Os resultados estão na escala de resposta."
 
 msgid "Results are not on the response scale and might be misleading."
 msgstr "Os resultados não estão na escala de resposta e podem ser enganosos."
@@ -449,7 +449,7 @@ msgstr ""
 "especificado para ser executado."
 
 msgid "P-values correspond to test of null hypothesis against %s."
-msgstr "Os valores de P correspondem ao teste de hipótese nula contra %s."
+msgstr "Os valores-p correspondem ao teste da hipótese nula em relação a %s."
 
 msgid "Results are averaged over the levels of: %s."
 msgstr "Os resultados são calculados, em média, sobre os níveis de: %s."
@@ -494,7 +494,7 @@ msgid "Model terms tested with %s testMethod."
 msgstr "Termos do modelo testados com o método %s."
 
 msgid "P-values are not adjusted."
-msgstr "Os valores de P estão são ajustados."
+msgstr "Os valores-p não estão ajustados."
 
 msgid "Holm"
 msgstr "Holm"
@@ -506,7 +506,7 @@ msgid "Hochberg"
 msgstr "Hochberg"
 
 msgid "Multivariate-t"
-msgstr "t-Multivariado"
+msgstr "T multivariado"
 
 msgid "Tukey"
 msgstr "Tukey"
@@ -530,7 +530,7 @@ msgid "Bonferroni"
 msgstr "Bonferroni"
 
 msgid "P-values are adjusted using %s adjustment."
-msgstr "Os valores de P estão ajustados usando o ajuste %s."
+msgstr "Valores-p ajustados usando o ajuste %s."
 
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; R-hat "
@@ -629,6 +629,8 @@ msgstr ""
 
 msgid "The model formula is probably too long. Try shortening variable names."
 msgstr ""
+"A fórmula do modelo é provavelmente longa demais. Tente encurtar os nomes "
+"das variáveis."
 
 msgid "The following variable is used as a random effects grouping factor: %s."
 msgid_plural ""
