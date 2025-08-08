@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-05 23:01+0000\n"
+"PO-Revision-Date: 2025-08-08 18:01+0000\n"
 "Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/pt/>\n"
@@ -332,7 +332,7 @@ msgstr "Posição da legenda"
 
 msgctxt "MixedModelsPlots|"
 msgid "Bottom"
-msgstr "Inferior"
+msgstr "Fundo"
 
 msgctxt "MixedModelsPlots|"
 msgid "Right"
@@ -340,7 +340,7 @@ msgstr "Direita"
 
 msgctxt "MixedModelsPlots|"
 msgid "Top"
-msgstr "Superior"
+msgstr "Topo"
 
 msgctxt "MixedModelsPlots|"
 msgid "Left"
@@ -784,20 +784,20 @@ msgstr "Cor da borda"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "Estimativa de efeitos aleatórios"
 
 #, qt-format
 msgctxt "MixedModelsModel|"
 msgid "Random components (%1)"
-msgstr ""
+msgstr "Componentes aleatórios (%1)"
 
 msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "Estimativas de efeitos aleatórios"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Intervalo de confiança"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
@@ -805,32 +805,32 @@ msgstr "DP dos fatores covariados"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Samples"
-msgstr ""
+msgstr "Amostras"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test method"
-msgstr ""
+msgstr "Testar método"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background element"
-msgstr ""
+msgstr "Elemento de fundo"
 
 msgctxt "MixedModelsPlots|"
 msgid "Element width"
-msgstr ""
+msgstr "Largura do elemento"
 
 msgctxt "MixedModelsModel|"
 msgid "Include intercept"
-msgstr ""
+msgstr "Incluir intercepto"
 
 msgctxt "MixedModelsOptions|"
 msgid "Factor contrast"
-msgstr ""
+msgstr "Contraste de fatores"
 
 msgctxt "MixedModelsOptions|"
 msgid "Sum"
-msgstr ""
+msgstr "Soma"
 
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
-msgstr ""
+msgstr "Tratamento"
