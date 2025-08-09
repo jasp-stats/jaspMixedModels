@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-08-09 03:12+0000\n"
+"Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-qml/pt/>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 "X-Language: pt\n"
 "X-Source-Language: American English\n"
 "X-Qt-Contexts: true\n"
@@ -326,7 +332,7 @@ msgstr "Posição da legenda"
 
 msgctxt "MixedModelsPlots|"
 msgid "Bottom"
-msgstr "Inferior"
+msgstr "Fundo"
 
 msgctxt "MixedModelsPlots|"
 msgid "Right"
@@ -334,7 +340,7 @@ msgstr "Direita"
 
 msgctxt "MixedModelsPlots|"
 msgid "Top"
-msgstr "Superior"
+msgstr "Topo"
 
 msgctxt "MixedModelsPlots|"
 msgid "Left"
@@ -522,7 +528,7 @@ msgstr "Variáveis selecionadas"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Confidence interval"
-msgstr "Intervalo de Confiança"
+msgstr "Intervalo de confiança"
 
 msgctxt "MixedModelsBLMM|"
 msgid "SD factor covariates"
@@ -638,7 +644,7 @@ msgstr "Variáveis selecionadas"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Confidence interval"
-msgstr "Intervalo de Confiança"
+msgstr "Intervalo de confiança"
 
 msgctxt "MixedModelsGLMM|"
 msgid "SD factor covariates"
@@ -710,7 +716,7 @@ msgstr "Variáveis selecionadas"
 
 msgctxt "MixedModelsLMM|"
 msgid "Confidence interval"
-msgstr "Intervalo de Confiança"
+msgstr "Intervalo de confiança"
 
 msgctxt "MixedModelsLMM|"
 msgid "SD factor covariates"
@@ -778,54 +784,53 @@ msgstr "Cor da borda"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "Estimativa de efeitos aleatórios"
 
 #, qt-format
 msgctxt "MixedModelsModel|"
 msgid "Random components (%1)"
-msgstr ""
+msgstr "Componentes aleatórios (%1)"
 
 msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
-msgstr ""
+msgstr "Estimativas de efeitos aleatórios"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "Intervalo de confiança"
 
-#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
-msgstr "Covariáveis do fator SD"
+msgstr "DP dos fatores covariados"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Samples"
-msgstr ""
+msgstr "Amostras"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test method"
-msgstr ""
+msgstr "Testar método"
 
 msgctxt "MixedModelsPlots|"
 msgid "Background element"
-msgstr ""
+msgstr "Elemento de fundo"
 
 msgctxt "MixedModelsPlots|"
 msgid "Element width"
-msgstr ""
+msgstr "Largura do elemento"
 
 msgctxt "MixedModelsModel|"
 msgid "Include intercept"
-msgstr ""
+msgstr "Incluir intercepto"
 
 msgctxt "MixedModelsOptions|"
 msgid "Factor contrast"
-msgstr ""
+msgstr "Contraste de fatores"
 
 msgctxt "MixedModelsOptions|"
 msgid "Sum"
-msgstr ""
+msgstr "Soma"
 
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
-msgstr ""
+msgstr "Tratamento"
