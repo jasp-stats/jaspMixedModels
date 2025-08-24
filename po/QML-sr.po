@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-24 15:01+0000\n"
+"PO-Revision-Date: 2025-08-25 16:01+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/sr/>\n"
@@ -440,7 +440,7 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Зависна варијабла"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Number of trials"
@@ -568,7 +568,7 @@ msgstr ""
 
 msgctxt "MixedModelsBLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Зависна варијабла"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Fixed effects variables"
@@ -616,7 +616,7 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Зависна варијабла"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Number of trials"
@@ -756,7 +756,7 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "Зависна варијабла"
 
 msgctxt "MixedModelsLMM|"
 msgid "Fixed effects variables"
