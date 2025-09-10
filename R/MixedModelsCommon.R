@@ -413,66 +413,49 @@
 }
 .mmCreateOptimizerControl <- function(type, options) {
   # Create optimizer control objects based on user settings
-  # Returns default controls if options is NULL or optimizer settings not specified
-  
-  if (is.null(options) || is.null(options$optimizerMethod) || options$optimizerMethod == "default") {
-    # Return default controls
-    if (type == "LMM") {
-      return(lme4::lmerControl())
-    } else if (type == "GLMM") {
-      return(lme4::glmerControl())
-    }
-  }
-  
+
   # Build control arguments from user options
   control_args <- list()
-  
+
   # Set optimizer method
-  if (!is.null(options$optimizerMethod) && options$optimizerMethod != "default") {
+  if (options$optimizerMethod != "default") {
     control_args$optimizer <- options$optimizerMethod
   }
-  
+
   # Set convergence checking
   if (!is.null(options$optimizerCheckConv)) {
     control_args$check.conv.singular <- options$optimizerCheckConv
     control_args$check.conv.grad <- options$optimizerCheckConv
     control_args$check.conv.hess <- options$optimizerCheckConv
   }
-  
+
   # Build optimizer control list
   optCtrl <- list()
-  
+
   if (!is.null(options$optimizerMaxIter)) {
     optCtrl$maxfun <- options$optimizerMaxIter
     optCtrl$maxit <- options$optimizerMaxIter
   }
-  
+
   if (!is.null(options$optimizerMaxFunEvals)) {
     optCtrl$maxfun <- options$optimizerMaxFunEvals
   }
-  
+
   if (!is.null(options$optimizerTolerance)) {
     optCtrl$ftol_abs <- options$optimizerTolerance
     optCtrl$xtol_abs <- options$optimizerTolerance
     optCtrl$reltol <- options$optimizerTolerance
   }
-  
+
   if (length(optCtrl) > 0) {
     control_args$optCtrl <- optCtrl
   }
-  
+
   # Create appropriate control object
   if (type == "LMM") {
     return(do.call(lme4::lmerControl, control_args))
   } else if (type == "GLMM") {
     return(do.call(lme4::glmerControl, control_args))
-  }
-  
-  # Fallback to default
-  if (type == "LMM") {
-    return(lme4::lmerControl())
-  } else {
-    return(lme4::glmerControl())
   }
 }
 
@@ -543,7 +526,8 @@
   return(added)
 }
 .mmFitModel      <- function(jaspResults, dataset, options, type = "LMM") {
-
+saveRDS(options, file = "C:/JASP-Packages/options.RDS")
+saveRDS(dataset, file = "C:/JASP-Packages/dataset.RDS")
   if (!is.null(jaspResults[["mmModel"]]))
     return()
 
@@ -567,6 +551,10 @@
   # specify contrasts
   dataset <- .mmSetContrasts(dataset, options)
 
+  # the control arguments needs to be assigned outside of the call because
+  # forwarding the call crashes afex
+  lmControl <- .mmCreateOptimizerControl(type, options)
+
   if (type == "LMM") {
     if (.isInterceptML(options))
       model <- try(
@@ -574,7 +562,8 @@
           formula         = as.formula(modelFormula$modelFormula),
           data            = dataset,
           type            = "LMM",
-          options         = options
+          options         = options,
+          control         = lmControl
         ))
     else
       model <- try(
@@ -586,7 +575,7 @@
           test_intercept  = .mmGetTestIntercept(options),
           args_test       = list(nsim = options$bootstrapSamples),
           check_contrasts = FALSE,
-          control         = .mmCreateOptimizerControl("LMM", options)
+          control         = lmControl
         ))
   } else if (type == "GLMM") {
     # needs to be evaluated in the global environment
@@ -612,7 +601,7 @@
           check_contrasts = FALSE,
           family          = glmmFamily,
           weights         = glmmWeight,
-          control         = .mmCreateOptimizerControl("GLMM", options)
+          control         = lmControl
         ))
     } else {
       if (.isInterceptML(options))
@@ -622,7 +611,8 @@
             data            = dataset,
             family          = glmmFamily,
             type            = "GLMM",
-            options         = options
+            options         = options,
+            control         = lmControl
           ))
       else
         model <- try(
@@ -636,7 +626,7 @@
             check_contrasts = FALSE,
             #start           = start,
             family          = glmmFamily,
-            control         = .mmCreateOptimizerControl("GLMM", options)
+            control         = lmControl
         ))
     }
   }
