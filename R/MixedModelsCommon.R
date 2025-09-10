@@ -418,7 +418,7 @@
   if (is.null(options) || is.null(options$optimizerMethod) || options$optimizerMethod == "default") {
     # Return default controls
     if (type == "LMM") {
-      return(lmerTest::lmerControl())
+      return(lme4::lmerControl())
     } else if (type == "GLMM") {
       return(lme4::glmerControl())
     }
@@ -463,14 +463,14 @@
   
   # Create appropriate control object
   if (type == "LMM") {
-    return(do.call(lmerTest::lmerControl, control_args))
+    return(do.call(lme4::lmerControl, control_args))
   } else if (type == "GLMM") {
     return(do.call(lme4::glmerControl, control_args))
   }
   
   # Fallback to default
   if (type == "LMM") {
-    return(lmerTest::lmerControl())
+    return(lme4::lmerControl())
   } else {
     return(lme4::glmerControl())
   }

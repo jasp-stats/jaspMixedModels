@@ -125,7 +125,7 @@ Section
 	{
 		title:		qsTr("Advanced Options")
 		expanded:	false
-		visible:	allMethodOptions  // Only show for classical models (LMM/GLMM)
+		// Show optimizer settings for all classical models (LMM and GLMM)
 
 		Group
 		{
