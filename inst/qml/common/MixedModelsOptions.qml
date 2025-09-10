@@ -121,4 +121,73 @@ Section
 		label:	qsTr("Vovk-Sellke maximum p-ratio")
 	}
 
+	Section
+	{
+		title:		qsTr("Advanced Options")
+		expanded:	false
+		visible:	allMethodOptions  // Only show for classical models (LMM/GLMM)
+
+		Group
+		{
+			title: qsTr("Optimizer Settings")
+
+			DropDown
+			{
+				name:	"optimizerMethod"
+				label:	qsTr("Optimizer")
+				info:	qsTr("Optimization algorithm used for parameter estimation")
+				values:
+				[
+					{ label: qsTr("Default"),		value: "default"},
+					{ label: "nlminb",				value: "nlminb"},
+					{ label: "BFGS",				value: "BFGS"},
+					{ label: "Nelder-Mead",			value: "Nelder_Mead"},
+					{ label: "bobyqa",				value: "bobyqa"}
+				]
+			}
+
+			IntegerField
+			{
+				name:			"optimizerMaxIter"
+				label:			qsTr("Maximum iterations")
+				info:			qsTr("Maximum number of iterations for the optimizer")
+				defaultValue:	10000
+				min:			100
+				max:			1000000
+				fieldWidth:		80 * jaspTheme.uiScale
+			}
+
+			IntegerField
+			{
+				name:			"optimizerMaxFunEvals"
+				label:			qsTr("Maximum function evaluations")
+				info:			qsTr("Maximum number of function evaluations")
+				defaultValue:	100000
+				min:			1000
+				max:			10000000
+				fieldWidth:		80 * jaspTheme.uiScale
+			}
+
+			DoubleField
+			{
+				name:			"optimizerTolerance"
+				label:			qsTr("Convergence tolerance")
+				info:			qsTr("Convergence tolerance for parameter estimates")
+				defaultValue:	1e-6
+				min:			1e-12
+				max:			1e-3
+				decimals:		12
+				fieldWidth:		100 * jaspTheme.uiScale
+			}
+
+			CheckBox
+			{
+				name:	"optimizerCheckConv"
+				label:	qsTr("Check convergence")
+				info:	qsTr("Check for convergence warnings and errors")
+				checked: true
+			}
+		}
+	}
+
 }

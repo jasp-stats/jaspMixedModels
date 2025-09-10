@@ -411,20 +411,89 @@
 
   return(dataset)
 }
-.mixedInterceptML   <- function(formula, dataset, type, family = NULL) {
+.mmCreateOptimizerControl <- function(type, options) {
+  # Create optimizer control objects based on user settings
+  # Returns default controls if options is NULL or optimizer settings not specified
+  
+  if (is.null(options) || is.null(options$optimizerMethod) || options$optimizerMethod == "default") {
+    # Return default controls
+    if (type == "LMM") {
+      return(lmerTest::lmerControl())
+    } else if (type == "GLMM") {
+      return(lme4::glmerControl())
+    }
+  }
+  
+  # Build control arguments from user options
+  control_args <- list()
+  
+  # Set optimizer method
+  if (!is.null(options$optimizerMethod) && options$optimizerMethod != "default") {
+    control_args$optimizer <- options$optimizerMethod
+  }
+  
+  # Set convergence checking
+  if (!is.null(options$optimizerCheckConv)) {
+    control_args$check.conv.singular <- options$optimizerCheckConv
+    control_args$check.conv.grad <- options$optimizerCheckConv
+    control_args$check.conv.hess <- options$optimizerCheckConv
+  }
+  
+  # Build optimizer control list
+  optCtrl <- list()
+  
+  if (!is.null(options$optimizerMaxIter)) {
+    optCtrl$maxfun <- options$optimizerMaxIter
+    optCtrl$maxit <- options$optimizerMaxIter
+  }
+  
+  if (!is.null(options$optimizerMaxFunEvals)) {
+    optCtrl$maxfun <- options$optimizerMaxFunEvals
+  }
+  
+  if (!is.null(options$optimizerTolerance)) {
+    optCtrl$ftol_abs <- options$optimizerTolerance
+    optCtrl$xtol_abs <- options$optimizerTolerance
+    optCtrl$reltol <- options$optimizerTolerance
+  }
+  
+  if (length(optCtrl) > 0) {
+    control_args$optCtrl <- optCtrl
+  }
+  
+  # Create appropriate control object
+  if (type == "LMM") {
+    return(do.call(lmerTest::lmerControl, control_args))
+  } else if (type == "GLMM") {
+    return(do.call(lme4::glmerControl, control_args))
+  }
+  
+  # Fallback to default
+  if (type == "LMM") {
+    return(lmerTest::lmerControl())
+  } else {
+    return(lme4::glmerControl())
+  }
+}
+
+.mixedInterceptML   <- function(formula, dataset, type, family = NULL, options = NULL) {
   # this is a simple function to fit a mixed-effects model with a fixed intercept only
   # because afex does not allow those models for GLMMs (or LMMs with LRT/PB)
   if (type == "LMM") {
+    control <- .mmCreateOptimizerControl(type, options)
     fit <- lmerTest::lmer(
       formula         = formula,
       data            = dataset,
-      REML            = FALSE
+      REML            = FALSE,
+      control         = control
     )
   } else if (type == "GLMM") {
+    control <- .mmCreateOptimizerControl(type, options)
     fit <- lme4::glmer(
       formula         = formula,
       data            = dataset,
-      family          = family
+      family          = family,
+      control         = control
     )
   }
 
@@ -504,7 +573,8 @@
         .mixedInterceptML(
           formula         = as.formula(modelFormula$modelFormula),
           data            = dataset,
-          type            = "LMM"
+          type            = "LMM",
+          options         = options
         ))
     else
       model <- try(
@@ -515,7 +585,8 @@
           method          = .mmGetTestMethod(options),
           test_intercept  = .mmGetTestIntercept(options),
           args_test       = list(nsim = options$bootstrapSamples),
-          check_contrasts = FALSE
+          check_contrasts = FALSE,
+          control         = .mmCreateOptimizerControl("LMM", options)
         ))
   } else if (type == "GLMM") {
     # needs to be evaluated in the global environment
@@ -540,7 +611,8 @@
           args_test       = list(nsim = options$bootstrapSamples),
           check_contrasts = FALSE,
           family          = glmmFamily,
-          weights         = glmmWeight
+          weights         = glmmWeight,
+          control         = .mmCreateOptimizerControl("GLMM", options)
         ))
     } else {
       if (.isInterceptML(options))
@@ -549,7 +621,8 @@
             formula         = as.formula(modelFormula$modelFormula),
             data            = dataset,
             family          = glmmFamily,
-            type            = "GLMM"
+            type            = "GLMM",
+            options         = options
           ))
       else
         model <- try(
@@ -562,7 +635,8 @@
             args_test       = list(nsim = options$bootstrapSamples),
             check_contrasts = FALSE,
             #start           = start,
-            family          = glmmFamily
+            family          = glmmFamily,
+            control         = .mmCreateOptimizerControl("GLMM", options)
         ))
     }
   }
