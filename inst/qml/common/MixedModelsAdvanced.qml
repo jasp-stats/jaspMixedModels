@@ -67,7 +67,7 @@ Section
 			min:			1e-12
 			max:			1e-1
 			decimals:		12
-			fieldWidth:		100 * jaspTheme.uiScale
+			fieldWidth:		80 * jaspTheme.uiScale
 			visible:		optimizerDropdown.currentValue === "Nelder_Mead"
 		}
 
@@ -80,7 +80,7 @@ Section
 			min:			1e-20
 			max:			1e-5
 			decimals:		20
-			fieldWidth:		100 * jaspTheme.uiScale
+			fieldWidth:		80 * jaspTheme.uiScale
 			visible:		optimizerDropdown.currentValue === "Nelder_Mead"
 		}
 
@@ -93,7 +93,7 @@ Section
 			min:			1e-15
 			max:			1e-3
 			decimals:		15
-			fieldWidth:		100 * jaspTheme.uiScale
+			fieldWidth:		80 * jaspTheme.uiScale
 			visible:		optimizerDropdown.currentValue === "Nelder_Mead"
 		}
 
@@ -119,7 +119,7 @@ Section
 			min:			0
 			max:			10
 			decimals:		6
-			fieldWidth:		100 * jaspTheme.uiScale
+			fieldWidth:		80 * jaspTheme.uiScale
 			visible:		optimizerDropdown.currentValue === "bobyqa"
 		}
 
@@ -132,7 +132,7 @@ Section
 			min:			0
 			max:			1
 			decimals:		10
-			fieldWidth:		100 * jaspTheme.uiScale
+			fieldWidth:		80 * jaspTheme.uiScale
 			visible:		optimizerDropdown.currentValue === "bobyqa"
 		}
 
@@ -158,7 +158,7 @@ Section
 			min:			1e-12
 			max:			1e-3
 			decimals:		12
-			fieldWidth:		100 * jaspTheme.uiScale
+			fieldWidth:		80 * jaspTheme.uiScale
 			visible:		optimizerDropdown.currentValue === "nlminb"
 		}
 
@@ -171,7 +171,7 @@ Section
 			min:			1e-20
 			max:			1e-5
 			decimals:		20
-			fieldWidth:		100 * jaspTheme.uiScale
+			fieldWidth:		80 * jaspTheme.uiScale
 			visible:		optimizerDropdown.currentValue === "nlminb"
 		}
 
@@ -209,16 +209,8 @@ Section
 			min:			1e-12
 			max:			1e-3
 			decimals:		12
-			fieldWidth:		100 * jaspTheme.uiScale
+			fieldWidth:		80 * jaspTheme.uiScale
 			visible:		optimizerDropdown.currentValue === "default" || optimizerDropdown.currentValue === "BFGS"
-		}
-
-		CheckBox
-		{
-			name:	"optimizerCheckConv"
-			label:	qsTr("Check convergence")
-			info:	qsTr("Check for convergence warnings and errors")
-			checked: true
 		}
 	}
 }

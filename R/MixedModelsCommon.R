@@ -422,13 +422,6 @@
     control_args$optimizer <- options$optimizerMethod
   }
 
-  # Set convergence checking
-  if (!is.null(options$optimizerCheckConv)) {
-    control_args$check.conv.singular <- options$optimizerCheckConv
-    control_args$check.conv.grad <- options$optimizerCheckConv
-    control_args$check.conv.hess <- options$optimizerCheckConv
-  }
-
   # Build optimizer-specific control list
   optCtrl <- list()
 
@@ -496,21 +489,20 @@
 .mixedInterceptML   <- function(formula, dataset, type, family = NULL, options = NULL) {
   # this is a simple function to fit a mixed-effects model with a fixed intercept only
   # because afex does not allow those models for GLMMs (or LMMs with LRT/PB)
+  lmControl <<- .mmCreateOptimizerControl(type, options)
+
   if (type == "LMM") {
-    control <- .mmCreateOptimizerControl(type, options)
     fit <- lmerTest::lmer(
       formula         = formula,
       data            = dataset,
       REML            = FALSE,
-      control         = control
+      control         = lmControl
     )
   } else if (type == "GLMM") {
-    control <- .mmCreateOptimizerControl(type, options)
     fit <- lme4::glmer(
       formula         = formula,
       data            = dataset,
-      family          = family,
-      control         = control
+      family          = family
     )
   }
 
@@ -585,7 +577,7 @@
 
   # the control arguments needs to be assigned outside of the call because
   # forwarding the call crashes afex
-  lmControl <- .mmCreateOptimizerControl(type, options)
+  lmControl <<- .mmCreateOptimizerControl(type, options)
 
   if (type == "LMM") {
     if (.isInterceptML(options))
