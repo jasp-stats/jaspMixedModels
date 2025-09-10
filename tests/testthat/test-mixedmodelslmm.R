@@ -1067,3 +1067,35 @@ context("Linear Mixed Models")
   })
 }
 
+### Test optimizer options
+{
+  test_that("Optimizer options can be set without errors", {
+    options <- jaspTools::analysisOptions("MixedModelsLMM")
+    options$dependent <- "Variable4"
+    options$fixedEffects <- list(list(components = "Variable1"))
+    options$randomEffects <- list(list(
+      randomComponents = list(list(randomSlopes = FALSE, value = "Variable2"))
+    ))
+    
+    # Test custom optimizer settings
+    options$optimizerMethod <- "nlminb"
+    options$optimizerMaxIter <- 5000
+    options$optimizerMaxFunEvals <- 50000
+    options$optimizerTolerance <- 1e-8
+    options$optimizerCheckConv <- TRUE
+    
+    dataset <- data.frame(
+      Variable1 = factor(rep(c("A", "B"), each = 20)),
+      Variable2 = factor(rep(1:4, each = 10)),
+      Variable4 = rnorm(40)
+    )
+    
+    # Should not error during options processing
+    results <- jaspTools::runAnalysis("MixedModelsLMM", dataset = dataset, options)
+    
+    # Basic check that analysis ran and produced some output
+    expect_true(!is.null(results))
+    expect_true(length(results$results) > 0)
+  })
+}
+

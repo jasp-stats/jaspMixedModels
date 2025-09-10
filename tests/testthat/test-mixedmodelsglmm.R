@@ -973,3 +973,38 @@ context("Generalized Linear Mixed Models")
     jaspTools::expect_equal_plots(testPlot, "plot-glmm-5")
   })
 }
+
+### Test optimizer options for GLMM
+{
+  test_that("GLMM optimizer options can be set without errors", {
+    options <- jaspTools::analysisOptions("MixedModelsGLMM")
+    options$dependent <- "dependent"
+    options$fixedEffects <- list(list(components = "factor1"))
+    options$randomEffects <- list(list(
+      randomComponents = list(list(randomSlopes = FALSE, value = "grouping"))
+    ))
+    options$family <- "binomial"
+    options$link <- "logit"
+    
+    # Test custom optimizer settings
+    options$optimizerMethod <- "bobyqa"
+    options$optimizerMaxIter <- 5000
+    options$optimizerMaxFunEvals <- 50000
+    options$optimizerTolerance <- 1e-8
+    options$optimizerCheckConv <- TRUE
+    
+    # Create simple test dataset for binomial GLMM
+    dataset <- data.frame(
+      dependent = rbinom(40, 1, 0.5),
+      factor1 = factor(rep(c("A", "B"), each = 20)),
+      grouping = factor(rep(1:4, each = 10))
+    )
+    
+    # Should not error during options processing
+    results <- jaspTools::runAnalysis("MixedModelsGLMM", dataset = dataset, options)
+    
+    # Basic check that analysis ran and produced some output
+    expect_true(!is.null(results))
+    expect_true(length(results$results) > 0)
+  })
+}
