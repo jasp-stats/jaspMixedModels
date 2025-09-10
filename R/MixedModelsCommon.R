@@ -429,22 +429,56 @@
     control_args$check.conv.hess <- options$optimizerCheckConv
   }
 
-  # Build optimizer control list
+  # Build optimizer-specific control list
   optCtrl <- list()
 
-  if (!is.null(options$optimizerMaxIter)) {
-    optCtrl$maxfun <- options$optimizerMaxIter
-    optCtrl$maxit <- options$optimizerMaxIter
-  }
-
-  if (!is.null(options$optimizerMaxFunEvals)) {
-    optCtrl$maxfun <- options$optimizerMaxFunEvals
-  }
-
-  if (!is.null(options$optimizerTolerance)) {
-    optCtrl$ftol_abs <- options$optimizerTolerance
-    optCtrl$xtol_abs <- options$optimizerTolerance
-    optCtrl$reltol <- options$optimizerTolerance
+  if (options$optimizerMethod == "Nelder_Mead") {
+    # Nelder-Mead specific options
+    if (!is.null(options$nelderMeadMaxfun) && options$nelderMeadMaxfun > 0) {
+      optCtrl$maxfun <- options$nelderMeadMaxfun
+    }
+    if (!is.null(options$nelderMeadFtolAbs) && options$nelderMeadFtolAbs > 0) {
+      optCtrl$FtolAbs <- options$nelderMeadFtolAbs
+    }
+    if (!is.null(options$nelderMeadFtolRel) && options$nelderMeadFtolRel > 0) {
+      optCtrl$FtolRel <- options$nelderMeadFtolRel
+    }
+    if (!is.null(options$nelderMeadXtolRel) && options$nelderMeadXtolRel > 0) {
+      optCtrl$XtolRel <- options$nelderMeadXtolRel
+    }
+  } else if (options$optimizerMethod == "bobyqa") {
+    # bobyqa specific options
+    if (!is.null(options$bobyqaNpt) && options$bobyqaNpt > 0) {
+      optCtrl$npt <- options$bobyqaNpt
+    }
+    if (!is.null(options$bobyqaRhobeg) && options$bobyqaRhobeg > 0) {
+      optCtrl$rhobeg <- options$bobyqaRhobeg
+    }
+    if (!is.null(options$bobyqaRhoend) && options$bobyqaRhoend > 0) {
+      optCtrl$rhoend <- options$bobyqaRhoend
+    }
+    if (!is.null(options$bobyqaMaxfun) && options$bobyqaMaxfun > 0) {
+      optCtrl$maxfun <- options$bobyqaMaxfun
+    }
+  } else if (options$optimizerMethod == "nlminb") {
+    # nlminb specific options
+    if (!is.null(options$nlminbTol) && options$nlminbTol > 0) {
+      optCtrl$tol <- options$nlminbTol
+    }
+    if (!is.null(options$nlminbRelTol) && options$nlminbRelTol > 0) {
+      optCtrl$relTol <- options$nlminbRelTol
+    }
+    if (!is.null(options$nlminbMaxit) && options$nlminbMaxit > 0) {
+      optCtrl$maxit <- options$nlminbMaxit
+    }
+  } else {
+    # Default and BFGS: use generic options
+    if (!is.null(options$optimizerMaxIter) && options$optimizerMaxIter > 0) {
+      optCtrl$maxit <- options$optimizerMaxIter
+    }
+    if (!is.null(options$optimizerTolerance) && options$optimizerTolerance > 0) {
+      optCtrl$reltol <- options$optimizerTolerance
+    }
   }
 
   if (length(optCtrl) > 0) {
@@ -526,8 +560,6 @@
   return(added)
 }
 .mmFitModel      <- function(jaspResults, dataset, options, type = "LMM") {
-saveRDS(options, file = "C:/JASP-Packages/options.RDS")
-saveRDS(dataset, file = "C:/JASP-Packages/dataset.RDS")
   if (!is.null(jaspResults[["mmModel"]]))
     return()
 
