@@ -173,7 +173,7 @@
         .quitAnalysis(gettextf("%s requires that the dependent variable contains only two levels.",familyText))
 
       # transform to 0/1 outcome
-      attr(dataset, "binomialSuccess") <- unique(dataset[[options$dependent]])[2]
+      attr(dataset, "binomialSuccess") <- sort(unique(dataset[[options$dependent]]))[2]
       dataset[[options$dependent]] <- as.numeric(dataset[[options$dependent]] == attr(dataset, "binomialSuccess"))
 
     } else if (options$family == "binomial") {
