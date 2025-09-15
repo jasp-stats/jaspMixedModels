@@ -169,8 +169,12 @@
 
     } else if (options$family == "bernoulli") {
 
-      if (!options$dependent.type %in% c("scale", "nominal") || any(!dataset[, options$dependent] %in% c(0, 1)))
-        .quitAnalysis(gettextf("%s requires that the dependent variable contains only 0 and 1.",familyText))
+      if (!options$dependent.type %in% c("scale", "nominal") || length(unique(dataset[, options$dependent])) != 2)
+        .quitAnalysis(gettextf("%s requires that the dependent variable contains only two levels.",familyText))
+
+      # transform to 0/1 outcome
+      attr(dataset, "binomialSuccess") <- sort(unique(dataset[[options$dependent]]))[2]
+      dataset[[options$dependent]] <- as.numeric(dataset[[options$dependent]] == attr(dataset, "binomialSuccess"))
 
     } else if (options$family == "binomial") {
 
@@ -726,6 +730,8 @@
   ANOVAsummary$addFootnote(.mmMessageANOVAtype(ifelse(options$type == 3, gettext("III"), gettext("II"))))
   if (type == "GLMM")
     ANOVAsummary$addFootnote(.mmMessageGLMMtype(options$family, options$link))
+  if (options$family == "bernoulli")
+    ANOVAsummary$addFootnote(gettextf("'%1$s' level coded as success.", attr(dataset, "binomialSuccess")))
 
   ANOVAsummary$addFootnote(.mmMessageTermTest(options$testMethod))
 
@@ -2475,6 +2481,8 @@
     if (type == "BGLMM")
       tempTable$addFootnote(.mmMessageGLMMtype(options$family, options$link))
 
+    if (options$family == "bernoulli")
+      tempTable$addFootnote(gettextf("'%1$s' level coded as success.", attr(dataset, "binomialSuccess")))
   }
 
   return()
