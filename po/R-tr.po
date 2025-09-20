@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.20.0\n"
-"POT-Creation-Date: 2025-05-31 03:08\n"
+"POT-Creation-Date: 2025-09-20 03:02\n"
 "PO-Revision-Date: 2025-09-15 00:02+0000\n"
 "Last-Translator: hakan dokumuş <dokumushakan@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/jasp/"
@@ -39,7 +39,8 @@ msgstr "%s, bağımlı değişkenin pozitif olmasını gerektirir."
 msgid "%s requires that the dependent variable is an integer."
 msgstr "%s, bağımlı değişkenin bir tamsayı olmasını gerektirir."
 
-msgid "%s requires that the dependent variable contains only 0 and 1."
+#, fuzzy
+msgid "%s requires that the dependent variable contains only two levels."
 msgstr "%s, bağımlı değişkenin sadece 0 ve 1 içermesini gerektirir."
 
 msgid "%s requires that the number of trials variable is an integer."
@@ -112,6 +113,9 @@ msgstr "III"
 
 msgid "II"
 msgstr "II"
+
+msgid "'%1$s' level coded as success."
+msgstr ""
 
 msgid "Fit statistics"
 msgstr ""

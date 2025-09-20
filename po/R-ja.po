@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2025-05-31 03:08\n"
+"POT-Creation-Date: 2025-09-20 03:02\n"
 "PO-Revision-Date: 2024-07-02 17:09+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
@@ -38,7 +38,8 @@ msgstr "%s は、従属変数が正である必要があります。"
 msgid "%s requires that the dependent variable is an integer."
 msgstr "%s は、従属変数が整数である必要があります。"
 
-msgid "%s requires that the dependent variable contains only 0 and 1."
+#, fuzzy
+msgid "%s requires that the dependent variable contains only two levels."
 msgstr "%s は、従属変数に含まれる数字が0と1だけである必要があります。"
 
 msgid "%s requires that the number of trials variable is an integer."
@@ -118,6 +119,9 @@ msgstr "III"
 
 msgid "II"
 msgstr "II"
+
+msgid "'%1$s' level coded as success."
+msgstr ""
 
 msgid "Fit statistics"
 msgstr "適合統計量"

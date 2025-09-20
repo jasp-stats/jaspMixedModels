@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2025-05-31 03:08\n"
+"POT-Creation-Date: 2025-09-20 03:02\n"
 "PO-Revision-Date: 2025-08-27 02:32+0000\n"
 "Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
@@ -43,14 +43,16 @@ msgstr "%s requer que a variável dependente seja positiva."
 msgid "%s requires that the dependent variable is an integer."
 msgstr "%s requer que a variável dependente seja um número inteiro."
 
-msgid "%s requires that the dependent variable contains only 0 and 1."
+#, fuzzy
+msgid "%s requires that the dependent variable contains only two levels."
 msgstr "%s requer que a variável dependente contenha apenas 0 e 1."
 
 msgid "%s requires that the number of trials variable is an integer."
 msgstr "%s requer que a variável do número de tentativas seja um inteiro."
 
 msgid "%s requires that the number or proportion of successes is an integer."
-msgstr "%s requer que o número de proporção de sucessos seja um número inteiro."
+msgstr ""
+"%s requer que o número de proporção de sucessos seja um número inteiro."
 
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
@@ -123,6 +125,9 @@ msgstr "III"
 
 msgid "II"
 msgstr "II"
+
+msgid "'%1$s' level coded as success."
+msgstr ""
 
 msgid "Fit statistics"
 msgstr "Estatísticas de ajuste"

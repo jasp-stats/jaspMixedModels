@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2025-05-31 03:08\n"
+"POT-Creation-Date: 2025-09-20 03:02\n"
 "PO-Revision-Date: 2025-05-03 03:04+0000\n"
 "Last-Translator: Koen Derks <koen-derks@hotmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/"
@@ -40,7 +40,8 @@ msgstr "%s vereist dat de afhankelijke variabele positief is."
 msgid "%s requires that the dependent variable is an integer."
 msgstr "%s vereist dat de afhankelijke variabele een geheel getal is."
 
-msgid "%s requires that the dependent variable contains only 0 and 1."
+#, fuzzy
+msgid "%s requires that the dependent variable contains only two levels."
 msgstr "%s vereist dat de afhankelijke variabele slechts 0 en 1 kan zijn."
 
 msgid "%s requires that the number of trials variable is an integer."
@@ -121,6 +122,9 @@ msgstr "III"
 
 msgid "II"
 msgstr "II"
+
+msgid "'%1$s' level coded as success."
+msgstr ""
 
 msgid "Fit statistics"
 msgstr "Pasmaten"
