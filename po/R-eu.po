@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.95.0\n"
 "POT-Creation-Date: 2025-09-20 03:02\n"
-"PO-Revision-Date: 2025-09-21 06:54+0000\n"
+"PO-Revision-Date: 2025-09-22 10:01+0000\n"
 "Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/eu/>\n"
@@ -125,6 +125,7 @@ msgstr "log Lik."
 msgid "AIC"
 msgstr "AIC"
 
+#, fuzzy
 msgid "BIC"
 msgstr "BIC"
 
@@ -207,7 +208,7 @@ msgid "Lower"
 msgstr "Behekoa"
 
 msgid "%s%% CI"
-msgstr "%s%% CI"
+msgstr "%s%% KT"
 
 msgid "Upper"
 msgstr "Goikoa"
