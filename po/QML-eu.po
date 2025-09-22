@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-21 06:54+0000\n"
+"PO-Revision-Date: 2025-09-23 14:01+0000\n"
 "Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/eu/>\n"
@@ -44,7 +44,6 @@ msgctxt "MixedModelsBOptions|"
 msgid "Options"
 msgstr "Aukerak"
 
-#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Burnin"
 msgstr "Burnin"
@@ -100,7 +99,7 @@ msgstr "Ereduaren terminoak"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Horizontal axis"
-msgstr "Ardatz horizontala:"
+msgstr "Ardatz horizontala"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plotted term"
@@ -108,7 +107,7 @@ msgstr "Marraztutako terminoa"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Vertical axis"
-msgstr "Ardatz bertikala:"
+msgstr "Ardatz bertikala"
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plot type"
@@ -213,7 +212,7 @@ msgstr "Ereduaren faktoreak"
 
 msgctxt "MixedModelsPlots|"
 msgid "Horizontal axis"
-msgstr "Ardatz horizontala:"
+msgstr "Ardatz horizontala"
 
 msgctxt "MixedModelsPlots|"
 msgid "Separate lines"
@@ -247,10 +246,9 @@ msgctxt "MixedModelsPlots|"
 msgid "Mean"
 msgstr "Batez bestekoa"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Within"
-msgstr "Barruan??"
+msgstr "Artean edo Barruan??"
 
 msgctxt "MixedModelsPlots|"
 msgid "Between"
@@ -276,10 +274,9 @@ msgctxt "MixedModelsPlots|"
 msgid "Linetype"
 msgstr "Lerro-mota"
 
-#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Fill"
-msgstr "Bete??"
+msgstr "Bete"
 
 msgctxt "MixedModelsPlots|"
 msgid "Jitter"
@@ -533,7 +530,6 @@ msgctxt "MixedModelsBLMM|"
 msgid "Confidence interval"
 msgstr "Konfiantza tartea"
 
-#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "SD factor covariates"
 msgstr "DE (SD)  faktore kobarianteak"
@@ -722,7 +718,6 @@ msgctxt "MixedModelsLMM|"
 msgid "Confidence interval"
 msgstr "Konfiantza tartea"
 
-#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "SD factor covariates"
 msgstr "DE (SD) faktorearen kobarianteak"
@@ -735,9 +730,10 @@ msgctxt "MixedModelsLMM|"
 msgid "Asymptotic"
 msgstr "Asintotikoa"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Force df estimation"
-msgstr ""
+msgstr "Eragin df-estimazioa"
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare marginal means to:"
