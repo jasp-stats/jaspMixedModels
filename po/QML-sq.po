@@ -1,24 +1,16 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-09-21 06:54+0000\n"
-"Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
-"Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
-"jaspmixedmodels-qml/sr/>\n"
-"Language: sr\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: sq\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "Mixed Models"
-msgstr "Мешовити модели"
-
-msgctxt "Description|"
-msgid "Evaluate the difference between multiple means with random effects"
 msgstr ""
 
 msgctxt "Description|"
@@ -51,10 +43,6 @@ msgstr ""
 
 msgctxt "MixedModelsBOptions|"
 msgid "Burnin"
-msgstr ""
-
-msgctxt "MixedModelsBOptions|"
-msgid "Samples"
 msgstr ""
 
 msgctxt "MixedModelsBOptions|"
@@ -94,10 +82,6 @@ msgid "Variance/correlation estimates"
 msgstr ""
 
 msgctxt "MixedModelsBOptions|"
-msgid "Random effects estimates"
-msgstr ""
-
-msgctxt "MixedModelsBOptions|"
 msgid "Credible interval"
 msgstr ""
 
@@ -131,11 +115,11 @@ msgstr ""
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Scatterplot"
-msgstr "Дијаграм расипања"
+msgstr ""
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Histogram"
-msgstr "Хистограм"
+msgstr ""
 
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Density"
@@ -158,16 +142,7 @@ msgid "Fixed effects"
 msgstr ""
 
 msgctxt "MixedModelsModel|"
-msgid "Include intercept"
-msgstr ""
-
-msgctxt "MixedModelsModel|"
 msgid "Random effects"
-msgstr ""
-
-#, qt-format
-msgctxt "MixedModelsModel|"
-msgid "Random components (%1)"
 msgstr ""
 
 msgctxt "MixedModelsModel|"
@@ -195,27 +170,11 @@ msgid "Test intercept"
 msgstr ""
 
 msgctxt "MixedModelsOptions|"
-msgid "Test method"
-msgstr ""
-
-msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
 msgstr ""
 
 msgctxt "MixedModelsOptions|"
 msgid "Parametric bootstrap"
-msgstr ""
-
-msgctxt "MixedModelsOptions|"
-msgid "Factor contrast"
-msgstr ""
-
-msgctxt "MixedModelsOptions|"
-msgid "Sum"
-msgstr ""
-
-msgctxt "MixedModelsOptions|"
-msgid "Treatment"
 msgstr ""
 
 msgctxt "MixedModelsOptions|"
@@ -232,10 +191,6 @@ msgstr ""
 
 msgctxt "MixedModelsOptions|"
 msgid "Variance/correlation estimates"
-msgstr ""
-
-msgctxt "MixedModelsOptions|"
-msgid "Random effects estimates"
 msgstr ""
 
 msgctxt "MixedModelsOptions|"
@@ -319,10 +274,6 @@ msgid "Fill"
 msgstr ""
 
 msgctxt "MixedModelsPlots|"
-msgid "Background element"
-msgstr ""
-
-msgctxt "MixedModelsPlots|"
 msgid "Jitter"
 msgstr ""
 
@@ -355,19 +306,11 @@ msgid "Jitter height"
 msgstr ""
 
 msgctxt "MixedModelsPlots|"
-msgid "Element width"
-msgstr ""
-
-msgctxt "MixedModelsPlots|"
 msgid "Dodge"
 msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Theme"
-msgstr ""
-
-msgctxt "MixedModelsPlots|"
-msgid "White background"
 msgstr ""
 
 msgctxt "MixedModelsPlots|"
@@ -396,10 +339,6 @@ msgstr ""
 
 msgctxt "MixedModelsPlots|"
 msgid "Left"
-msgstr ""
-
-msgctxt "MixedModelsPlots|"
-msgid "Border color"
 msgstr ""
 
 msgctxt "MixedModelsPlots|"
@@ -440,7 +379,7 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Dependent variable"
-msgstr "Зависна варијабла"
+msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Number of trials"
@@ -539,14 +478,6 @@ msgid "Selected variables"
 msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
-msgid "Confidence interval"
-msgstr ""
-
-msgctxt "MixedModelsBGLMM|"
-msgid "SD factor covariates"
-msgstr ""
-
-msgctxt "MixedModelsBGLMM|"
 msgid "Response scale"
 msgstr ""
 
@@ -568,7 +499,7 @@ msgstr ""
 
 msgctxt "MixedModelsBLMM|"
 msgid "Dependent variable"
-msgstr "Зависна варијабла"
+msgstr ""
 
 msgctxt "MixedModelsBLMM|"
 msgid "Fixed effects variables"
@@ -616,7 +547,7 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Dependent variable"
-msgstr "Зависна варијабла"
+msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Number of trials"
@@ -756,7 +687,7 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Dependent variable"
-msgstr "Зависна варијабла"
+msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Fixed effects variables"
@@ -832,4 +763,69 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
+msgstr ""
+
+msgctxt "Description|"
+msgid "Evaluate the difference between multiple means with random effects"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "White background"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Border color"
+msgstr ""
+
+msgctxt "MixedModelsBOptions|"
+msgid "Random effects estimates"
+msgstr ""
+
+#, qt-format
+msgctxt "MixedModelsModel|"
+msgid "Random components (%1)"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Random effects estimates"
+msgstr ""
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Confidence interval"
+msgstr ""
+
+msgctxt "MixedModelsBGLMM|"
+msgid "SD factor covariates"
+msgstr ""
+
+msgctxt "MixedModelsBOptions|"
+msgid "Samples"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Test method"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Background element"
+msgstr ""
+
+msgctxt "MixedModelsPlots|"
+msgid "Element width"
+msgstr ""
+
+msgctxt "MixedModelsModel|"
+msgid "Include intercept"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Factor contrast"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Sum"
+msgstr ""
+
+msgctxt "MixedModelsOptions|"
+msgid "Treatment"
 msgstr ""
