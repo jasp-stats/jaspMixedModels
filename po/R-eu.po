@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.95.0\n"
 "POT-Creation-Date: 2025-09-20 03:02\n"
-"PO-Revision-Date: 2025-09-23 14:01+0000\n"
-"Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
+"PO-Revision-Date: 2025-10-01 11:01+0000\n"
+"Last-Translator: Ángel Prieto <angel.prieto.fi@gmail.com>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/eu/>\n"
 "Language: eu\n"
@@ -75,16 +75,16 @@ msgid "Effect"
 msgstr "Efektua"
 
 msgid "df"
-msgstr "ag"
+msgstr "df"
 
 msgid "F"
 msgstr "F"
 
 msgid "ChiSq"
-msgstr "chi karratua"
+msgstr "ChiSq"
 
 msgid "p"
-msgstr "p"
+msgstr "or"
 
 msgid "p (bootstrap)"
 msgstr "p (bootstrapa)"
@@ -120,7 +120,7 @@ msgid "Deviance (REML)"
 msgstr "Desbideratzea (REML)"
 
 msgid "log Lik."
-msgstr "log Lik."
+msgstr "saioa hasi Lik."
 
 msgid "AIC"
 msgstr "AIC"
@@ -171,7 +171,7 @@ msgid "Estimate"
 msgstr "Estimazioa"
 
 msgid "SE"
-msgstr "EE"
+msgstr "SE"
 
 msgid "t"
 msgstr "t"
@@ -204,22 +204,22 @@ msgid "Mean"
 msgstr "Batez bestekoa"
 
 msgid "Lower"
-msgstr "Behekoa"
+msgstr "Beheko"
 
 msgid "%s%% CI"
-msgstr "%s%% KT"
+msgstr "%s%% CI"
 
 msgid "Upper"
-msgstr "Goikoa"
+msgstr "Goiko"
 
 msgid "Cannot find function: %s"
 msgstr "Ezin da funtzioa aurkitu: %s"
 
 msgid "Estimated Marginal Means"
-msgstr "Estimatutako Marjina Batez bestekoak"
+msgstr "Kalkulatutako batez besteko marjinalak"
 
 msgid "Row"
-msgstr "Errenkada"
+msgstr "Ilara"
 
 msgid "z"
 msgstr "z"
@@ -285,7 +285,7 @@ msgid "Level"
 msgstr "Maila"
 
 msgid "R-hat"
-msgstr "R-txapela  (R-hat)?"
+msgstr "R-txapela"
 
 msgid "ESS (bulk)"
 msgstr "ESS (masa)"
@@ -492,9 +492,9 @@ msgstr ""
 
 msgid "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %1$.2f < %2$1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
-"Estalpenaren zehaztasun baxua -- Lagin Eraginkorren Tamaina (EST) txikiena "
-"%1$.2f < %2$1.0f da. Zehaztasuna handitzeko, handitu 'Iterazioa' edo "
-"'Egokitu delta' Aukeren atalean."
+"Estimazio-zehaztasun txikia -- Lagin-tamaina eraginkor txikiena (ESS) %1$.2f "
+"< %2$1.0f da. Zehaztasuna handitzeko, handitu 'Iterazioen' edo 'Egokitu "
+"delta' Aukerak atalean."
 
 #, fuzzy
 msgid "The model was fitted using restricted maximum likelihood. Please note that models with different fixed effects cannot be compared when REML is used. To use ML, switch 'Test method' to 'Likelihood ratio tests'."
