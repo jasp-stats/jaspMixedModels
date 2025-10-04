@@ -2,636 +2,489 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.95.0\n"
 "POT-Creation-Date: 2025-09-20 03:02\n"
-"PO-Revision-Date: 2025-10-01 11:02+0000\n"
-"Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
-"Language-Team: Basque <https://hosted.weblate.org/projects/jasp/"
-"jaspmixedmodels-r/eu/>\n"
-"Language: eu\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
+"19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
+"1 : 2);\n"
 
 msgid "The categorical fixed effect '%s' must have fewer levels than the overall number of observations."
 msgstr ""
-"'%s' efektu finko kategorikoak behaketa kopuru osoa baino maila gutxiago "
-"izan behar ditu."
 
 msgid "The random effects grouping factor '%s' must have fewer levels than the overall number of observations."
 msgstr ""
-"'%s' efektu aleatorioen taldekatze faktoreak behaketa kopuru osoa baino "
-"maila gutxiago izan behar ditu."
 
 msgid "The number of iterations must be at least 2 iterations higher than the burnin"
 msgstr ""
-"Iterazio kopurua erredura baino gutxienez 2 iterazio handiagoa izan behar da"
 
 msgid "%s requires that the dependent variable is positive."
-msgstr "%s-k aldagai mendekoa positiboa izatea eskatzen du."
+msgstr ""
 
 msgid "%s requires that the dependent variable is an integer."
-msgstr "%s-k aldagai mendekoa zenbaki osoa izatea eskatzen du."
+msgstr ""
 
 msgid "%s requires that the dependent variable contains only two levels."
-msgstr "%s-k aldagai mendekoak bi maila baino ez ditu izan behar."
+msgstr ""
 
 msgid "%s requires that the number of trials variable is an integer."
-msgstr "%s-k saiakera kopuruaren aldagaia zenbaki osoa izatea eskatzen du."
+msgstr ""
 
 msgid "%s requires that the number or proportion of successes is an integer."
-msgstr "%s-k arrakasta kopurua edo proportzioa zenbaki osoa izatea eskatzen du."
+msgstr ""
 
 msgid "%s requires that the number of successes is lower that the number of trials."
 msgstr ""
-"%s-k arrakasta kopurua saiakera kopurua baino txikiagoa izatea eskatzen du."
 
 msgid "%s requires that the dependent variable is higher than 0 and lower than 1."
 msgstr ""
-"%s-k aldagai mendekoa 0 baino handiagoa eta 1 baino txikiagoa izatea "
-"eskatzen du."
 
 msgid "%s requires that the dependent variable is either the number or proportion of successes out of the number of trials."
 msgstr ""
-"%s-k aldagai mendekoa saiakera kopuruaren arteko arrakasta kopurua edo "
-"proportzioa izatea eskatzen du."
 
 msgid "%s requires that the dependent variable is continuous."
-msgstr "%s-k menpeko aldagai jarraitua izatea eskatzen du."
+msgstr ""
 
 msgid "At least one random effect needs to be specified for the '%1$s' random effect grouping factors.%2$s"
 msgstr ""
-"Gutxienez ausazko efektu bat zehaztu behar da '%1$s' ausazko efektuen "
-"taldekatze faktoreetarako.%2$s"
 
 msgid "Mixed-effects models with a fixed intercept only are not supported for aggregated binomial family."
 msgstr ""
-"Efektu mistoko ereduak ez dira onartzen familia binomial agregatuetarako."
 
 msgid "ANOVA Summary"
-msgstr "ANOVA laburpena"
+msgstr ""
 
 msgid "Effect"
-msgstr "Efektua"
+msgstr ""
 
 msgid "df"
-msgstr "df"
+msgstr ""
 
 msgid "F"
-msgstr "F"
+msgstr ""
 
 msgid "ChiSq"
-msgstr "ChiSq"
+msgstr ""
 
 msgid "p"
-msgstr "p"
+msgstr ""
 
 msgid "p (bootstrap)"
-msgstr "p (bootstrapa)"
+msgstr ""
 
 msgid "VS-MPR"
-msgstr "VS-MPR"
+msgstr ""
 
 msgid "VS-MPR (bootstrap)"
-msgstr "VS-MPR (bootstrapa)"
+msgstr ""
 
 msgid "Warning:"
-msgstr "Abisua:"
+msgstr ""
 
 msgid "Note:"
-msgstr "Oharra:"
+msgstr ""
 
 msgid "III"
-msgstr "III"
+msgstr ""
 
 msgid "II"
-msgstr "II"
+msgstr ""
 
 msgid "'%1$s' level coded as success."
-msgstr "'%1$s' maila arrakastatsutzat kodetua."
+msgstr ""
 
 msgid "Fit statistics"
-msgstr "Egokitu estatistikoak"
+msgstr ""
 
 msgid "Deviance"
-msgstr "Desbideratzea"
+msgstr ""
 
 msgid "Deviance (REML)"
-msgstr "Desbideratzea (REML)"
+msgstr ""
 
 msgid "log Lik."
-msgstr "saioa hasi Lik."
+msgstr ""
 
 msgid "AIC"
-msgstr "AIC"
+msgstr ""
 
 msgid "BIC"
-msgstr "BIC"
+msgstr ""
 
 msgid "Sample sizes"
-msgstr "Lagin tamainak"
+msgstr ""
 
 msgid "Observations"
-msgstr "Behaketak"
+msgstr ""
 
 msgid "Levels of RE grouping factors"
-msgstr "RE taldekatze faktoreen mailak"
+msgstr ""
 
 msgid "Variance/Correlation Estimates"
-msgstr "Aldakortasun/Korrelazio Estimazioak"
+msgstr ""
 
 msgid "%s: Variance Estimates"
-msgstr "%s: Aldakortasun Estimazioak"
+msgstr ""
 
 msgid "Term"
-msgstr "Terminoa"
+msgstr ""
 
 msgid "Std. Deviation"
-msgstr "Desbideratze Estandarra"
+msgstr ""
 
 msgid "Variance"
-msgstr "Bariantza"
+msgstr ""
 
 msgid "%s: Correlation Estimates"
-msgstr "%s: Korrelazio Estimazioak"
+msgstr ""
 
 msgid "Residual Variance Estimates"
-msgstr "Hondar Bariantzaren Estimazioak"
+msgstr ""
 
 msgid "Random Effect Estimates"
-msgstr "Ausazko Efektuen Estimazioak"
+msgstr ""
 
 msgid "%s: Random Effect Estimates"
-msgstr "%s: Ausazko Efektuen Estimazioak"
+msgstr ""
 
 msgid "Fixed Effects Estimates"
-msgstr "Efektu Finkoen Estimazioak"
+msgstr ""
 
 msgid "Estimate"
-msgstr "Estimazioa"
+msgstr ""
 
 msgid "SE"
-msgstr "SE"
+msgstr ""
 
 msgid "t"
-msgstr "t"
+msgstr ""
 
 msgid "Plot"
-msgstr "Grafikoa"
+msgstr ""
 
 msgid "At least one random effects grouping factor needs to be selected in field 'Background data show'."
 msgstr ""
-"Gutxienez ausazko efektuen taldekatze faktore bat hautatu behar da 'Atzeko "
-"planoko datuak erakusten' eremuan."
 
 msgid "Factor levels need to be distinguished by at least one feature. Please, check one of the 'Distinguish factor levels' options."
 msgstr ""
-"Faktore mailak gutxienez ezaugarri batez bereizi behar dira. Mesedez, "
-"markatu 'Faktore mailak bereizi' aukeretako bat."
 
 msgid "Violin geom requires that the random effects grouping factors has at least 3 levels."
 msgstr ""
-"Biolin geom-ek ausazko efektuen taldekatze faktoreek gutxienez 3 maila "
-"izatea eskatzen du."
 
 msgid "Estimated Means"
-msgstr "Batez besteko Estimatuak"
+msgstr ""
 
 msgid "Estimated Means and Confidence Intervals"
-msgstr "Batez besteko Estimatuak eta Konfiantza Tarteak"
+msgstr ""
 
 msgid "Mean"
-msgstr "Batez bestekoa"
+msgstr ""
 
 msgid "Lower"
-msgstr "Beheko"
+msgstr ""
 
 msgid "%s%% CI"
-msgstr "%s%% CI"
+msgstr ""
 
 msgid "Upper"
-msgstr "Goiko"
+msgstr ""
 
 msgid "Cannot find function: %s"
-msgstr "Ezin da funtzioa aurkitu: %s"
+msgstr ""
 
 msgid "Estimated Marginal Means"
-msgstr "Kalkulatutako batez besteko marjinalak"
+msgstr ""
 
 msgid "Row"
-msgstr "Ilara"
+msgstr ""
 
 msgid "z"
-msgstr "z"
+msgstr ""
 
 msgid "Median"
-msgstr "Mediana"
+msgstr ""
 
 msgid "%s%% HPD"
-msgstr "%s%% HPD"
+msgstr ""
 
 msgid "Estimated Trends"
-msgstr "Estimatutako Joerak"
+msgstr ""
 
 msgid "%s (slope)"
-msgstr "%s (malda)"
+msgstr ""
 
 msgid "contrasts"
-msgstr "kontrasteak"
+msgstr ""
 
 msgid "Odds Ratio"
-msgstr "Odds Ratioa"
+msgstr ""
 
 msgid "Ratio"
-msgstr "Ratioa"
+msgstr ""
 
 msgid "The specified combination of factors does not produce an estimable model. A factor or combination of factors resulted in more levels than the effective sample size."
 msgstr ""
-"Zehaztutako faktoreen konbinazioak ez du kalkula daitekeen eredurik sortzen. "
-"Faktore batek edo faktoreen konbinazio batek lagin-tamaina eraginkorra baino "
-"maila gehiago eman ditu."
 
 msgid "Please, report the following error message at JASP GitHub %s"
-msgstr "Mesedez, jakinarazi errore-mezu hau JASP GitHub %s-en"
+msgstr ""
 
 msgid "Fit Statistics"
-msgstr "Egokitu Estatistikoak"
+msgstr ""
 
 msgid "WAIC"
-msgstr "WAIC"
+msgstr ""
 
 msgid "SE (WAIC)"
-msgstr "EE (WAIC)"
+msgstr ""
 
 msgid "LOO"
-msgstr "LOO"
+msgstr ""
 
 msgid "SE (LOO)"
-msgstr "EE (LOO)"
+msgstr ""
 
 msgid "Model summary"
-msgstr "Ereduaren laburpena"
+msgstr ""
 
 msgid "%s (differences from intercept)"
-msgstr "%s (ebakitze-puntutik desberdintasunak)"
+msgstr ""
 
 msgid "%s (trend)"
-msgstr "%s (joera)"
+msgstr ""
 
 msgid "%s (marginal means)"
-msgstr "%s (batez besteko marjinalak)"
+msgstr ""
 
 msgid "Level"
-msgstr "Maila"
+msgstr ""
 
 msgid "R-hat"
-msgstr "R-txapela"
+msgstr ""
 
 msgid "ESS (bulk)"
-msgstr "ESS (masa)"
+msgstr ""
 
 msgid "ESS (tail)"
-msgstr "ESS (buztana)"
+msgstr ""
 
 msgid "The model could not be estimated. Please, check the options and dataset for errors."
 msgstr ""
-"Eredua ezin izan da kalkulatu. Mesedez, egiaztatu aukerak eta datu-multzoa "
-"erroreak dauden ikusteko."
 
 msgid "Sampling diagnostics"
-msgstr "Laginketa diagnostikoak"
+msgstr ""
 
 msgid "Avg. autocorrelation"
-msgstr "Batez besteko autokorrelazioa"
+msgstr ""
 
 msgid "The following variables are a linear combination of each other, please, remove one of them from the analysis: %s"
 msgstr ""
-"Hurrengo aldagaiak elkarren konbinazio lineala dira, mesedez, kendu bat "
-"analisitik: %s"
 
 msgid "The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated with sum contrast coding. Consequently, the estimates cannot be directly mapped to factor levels. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences."
 msgstr ""
-"Ebakidura-puntua batez besteko nagusi (pisurik gabekoa) da; k maila dituen "
-"faktore bakoitzerako, k - 1 parametro kalkulatzen dira batura-kontraste "
-"kodeketarekin. Ondorioz, estimazioak ezin dira zuzenean faktore mailetara "
-"mapatu. Erabili batez besteko marjinal estimatuak faktore maila/diseinu "
-"gelaxka bakoitzerako edo haien desberdintasunetarako estimazioak lortzeko."
 
 msgid "The intercept corresponds to the mean in the default factor category (factor level parameters are estimated with treatment contrast coding). Consequently, the estimates cannot be easily interepreted in the presence of interactions. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences."
 msgstr ""
-"Ebakidura-puntua faktore kategoria lehenetsiko batez bestekoari dagokio ("
-"faktore mailako parametroak tratamendu kontraste kodeketarekin kalkulatzen "
-"dira). Ondorioz, estimazioak ezin dira erraz interpretatu interakzioak "
-"daudenean. Erabili batez besteko marjinal estimatuak faktore maila/diseinu "
-"gelaxka bakoitzerako edo haien desberdintasunetarako estimazioak lortzeko."
 
 msgid "The intercept corresponds to the (unweighted) grand mean; for each factor with k levels, k - 1 parameters are estimated with orthonormal coding proposed by Rouder et al. (2012). Consequently, the estimates cannot be directly mapped to factor levels. Use estimated marginal means for obtaining estimates for each factor level/design cell or their differences."
 msgstr ""
-"Ebakidura-puntua batez besteko nagusi (pisurik gabekoa) da; k maila dituen "
-"faktore bakoitzerako, k - 1 parametroak Rouder et al.-ek (2012) "
-"proposatutako kodeketa ortonormalarekin kalkulatzen dira. Ondorioz, "
-"estimazioak ezin dira zuzenean faktore mailetara mapatu. Erabili batez "
-"besteko marjinal kalkulatuak faktore maila/diseinu gelaxka bakoitzerako edo "
-"haien desberdintasunetarako estimazioak lortzeko."
 
 msgid "Model fit is singular. Specified random effects parameters (random intercepts and random slopes) cannot be estimated from the available data. Carefully reduce the random effects structure, but this practice might inflate the reported p-value, and invalidates the analysis."
 msgstr ""
-"Ereduaren doikuntza singularra da. Zehaztutako ausazko efektuen parametroak ("
-"ausazko ebakidurak eta ausazko maldak) ezin dira eskuragarri dauden "
-"datuetatik kalkulatu. Kontu handiz murriztu ausazko efektuen egitura, baina "
-"praktika honek jakinarazitako p-balioa puztu dezake, eta analisia "
-"baliogabetu."
 
 msgid "Vovk-Sellke Maximum <em>p</em>-Ratio: Based on a two-sided <em>p</em>-value, the maximum possible odds in favor of H%1$s over H%2$s equals 1/(-e <em>p</em> log(<em>p</em>)) for <em>p</em> %3$s .37 (Sellke, Bayarri, & Berger, 2001)."
 msgstr ""
-"Vovk-Sellke Maximum <em>p</em>-Ratioa: Bi aldeetako <em>p</em>-balio batean "
-"oinarrituta, H%1$s-ren aldeko gehienezko probabilitatea H%2$s-ren gainetik 1/"
-"(-e <em>p</em> log(<em>p</em>)) <em>p</em> %3$s .37rako (Sellke, Bayarri, & "
-"Berger, 2001)."
 
 msgid "Numerical problems with the maximum-likelihood estimate (e.g., gradients too large). This may indicate that the specified random effects parameters (random intercepts and random slopes) cannot be estimated from the available data. Consider carefully reducing the random effects structure, but be aware this may induce unknown risks of anti-conservative results (i.e., p-values might be lower than nominal)."
 msgstr ""
-"Gehienezko probabilitatearen estimazioarekin arazo numerikoak (adibidez, "
-"malda handiegiak). Honek adieraz dezake zehaztutako ausazko efektuen "
-"parametroak (ausazko ebakidurak eta ausazko maldak) ezin direla kalkulatu "
-"eskuragarri dauden datuetatik. Kontu handiz kontuan hartu ausazko efektuen "
-"egitura murriztea, baina kontuan izan honek emaitza antikontserbadoreen "
-"arrisku ezezagunak sor ditzakeela (hau da, p-balioak nominalak baino "
-"txikiagoak izan daitezke)."
 
 msgid "Estimation of degrees of freedom disabled (i.e., asymptotic results shown), because the number of observations is large. To force estimation, check corresponding option."
 msgstr ""
-"Askatasun-graduen estimazioa desgaituta (hau da, emaitza asintotikoak "
-"erakusten dira), behaketa kopurua handia delako. Estimazioa behartzeko, "
-"markatu dagokion aukera."
 
 msgid "Results are on the response scale."
-msgstr "Emaitzak erantzun-eskalan daude."
+msgstr ""
 
 msgid "Results are not on the response scale and might be misleading."
-msgstr "Emaitzak ez daude erantzun-eskalan eta engainagarriak izan daitezke."
+msgstr ""
 
 msgid "Type %s Sum of Squares"
-msgstr "Mota %s Karratuen batura"
+msgstr ""
 
 msgid "This analysis requires at least one random effects grouping factor to run."
 msgstr ""
-"Analisia honek gutxienez ausazko efektuen taldekatze faktore bat behar du "
-"exekutatzeko."
 
 msgid "The 'Binomial (aggregated)' family requires the 'Number of trials' to be specified to run."
 msgstr ""
-"'Binomiala (agregatua)' familiak 'Saiakuntza kopurua' zehaztu behar du "
-"exekutatzeko."
 
 msgid "P-values correspond to test of null hypothesis against %s."
-msgstr "P-balioak hipotesi nuluaren probari dagozkio %s-ren aurka."
+msgstr ""
 
 msgid "Results are averaged over the levels of: %s."
-msgstr "Emaitzak batez bestekoa kalkulatzen dira honako mailen gainean: %s."
+msgstr ""
 
 msgid "binomial"
-msgstr "binomiala"
+msgstr ""
 
 msgid "gaussian"
-msgstr "gaussiarra"
+msgstr ""
 
 msgid "gamma"
-msgstr "gamma"
+msgstr ""
 
 msgid "inverseGaussian"
-msgstr "alderantzizkoGaussiarra"
+msgstr ""
 
 msgid "poisson"
-msgstr "poisson"
+msgstr ""
 
 msgid "negative binomial"
-msgstr "binomial negatiboa"
+msgstr ""
 
 msgid "beta"
-msgstr "beta"
+msgstr ""
 
 msgid "Generalized linear mixed model with %1$s family and %2$s link function."
 msgstr ""
-"Eredu misto lineal orokortua %1$s familiarekin eta %2$s lotura funtzioarekin."
 
 msgid "Satterthwaite"
-msgstr "Satterthwaite"
+msgstr ""
 
 msgid "Kenward-Roger"
-msgstr "Kenward-Roger"
+msgstr ""
 
-#, fuzzy
 msgid "likelihood ratio tests"
-msgstr "probabilitate   lihelihood?  -ratio probak"
+msgstr ""
 
 msgid "parametric bootstrap"
-msgstr "bootstrap parametrikoa"
+msgstr ""
 
 msgid "Model terms tested with %s testMethod."
-msgstr "Eredu terminoak %s testMethod-ekin probatu dira."
+msgstr ""
 
 msgid "P-values are not adjusted."
-msgstr "P-balioak ez daude doituta."
+msgstr ""
 
 msgid "Holm"
-msgstr "Holm"
+msgstr ""
 
 msgid "Homel"
-msgstr "Homel"
+msgstr ""
 
 msgid "Hochberg"
-msgstr "Hochberg"
+msgstr ""
 
 msgid "Multivariate-t"
-msgstr "Aldagai anitzeko t"
+msgstr ""
 
 msgid "Tukey"
-msgstr "Tukey"
+msgstr ""
 
 msgid "Benjamini-Hochberg"
-msgstr "Benjamini-Hochberg"
+msgstr ""
 
 msgid "Benjamini-Yekutieli"
-msgstr "Benjamini-Yekutieli"
+msgstr ""
 
 msgid "Scheffé"
-msgstr "Scheffé"
+msgstr ""
 
 msgid "Sidak"
-msgstr "Sidak"
+msgstr ""
 
 msgid "Dunnett"
-msgstr "Dunnett"
+msgstr ""
 
 msgid "Bonferroni"
-msgstr "Bonferroni"
+msgstr ""
 
 msgid "P-values are adjusted using %s adjustment."
-msgstr "P-balioak %s doikuntza erabiliz doitzen dira."
+msgstr ""
 
 msgid "Inference possibly unreliable -- MCMC chains might not have converged; R-hat cannot be computed for all parameters due too few distinct samples. Please re-scale the variables or increase 'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
-"Inferentzia fidagarria ez izatea gerta daiteke -- MCMC kateak agian ez dira "
-"konbergitu; R-hat ezin da parametro guztientzat kalkulatu lagin gutxiegi "
-"direlako. Mesedez, eskalatu aldagaiak berriro edo handitu 'Iterazioen' edo "
-"'Egokitu delta' Aukeren atalean."
 
 msgid "Inference possibly unreliable -- MCMC chains might not have converged; The largest R-hat is %.3f > 1.01. To lower R-hat please increase 'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
-"Inferentzia fidagarria ez izatea gerta daiteke -- MCMC kateak agian ez dira "
-"konbergitu; R-hat handiena %.3f > 1.01 da. R-hat jaisteko, handitu "
-"'Iterazioen' edo 'Egokitu delta' Aukeren atalean."
 
 msgid "Inference possibly unreliable -- MCMC chains might not have converged; Effective Sample Size (ESS) cannot be computed for all parameters due too few distinct samples. Please re-scale the variables or increase 'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
-"Inferentzia fidagarria ez izatea gerta daiteke -- MCMC kateak agian ez dira "
-"konbergitu; Laginaren Tamaina Eraginkorra (ESS) ezin da parametro "
-"guztientzat kalkulatu lagin gutxiegi direlako. Mesedez, eskalatu aldagaiak "
-"berriro edo handitu 'Iterazioa' edo 'Egokitu delta' Aukeren atalean."
 
 msgid "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is %1$.2f < %2$1.0f. To increase accuracy please increase 'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
-"Estimazio-zehaztasun txikia -- Lagin-tamaina eraginkor txikiena (ESS) %1$.2f "
-"< %2$1.0f da. Zehaztasuna handitzeko, handitu 'Iterazioen' edo 'Egokitu "
-"delta' Aukerak atalean."
 
-#, fuzzy
 msgid "The model was fitted using restricted maximum likelihood. Please note that models with different fixed effects cannot be compared when REML is used. To use ML, switch 'Test method' to 'Likelihood ratio tests'."
 msgstr ""
-"Eredua gehienezko probabilitate mugatua erabiliz egokitu da. Kontuan izan "
-"efektu finko desberdinak dituzten ereduak ezin direla alderatu REML "
-"erabiltzen denean. ML erabiltzeko, aldatu 'Proba metodoa' 'Probabilitate "
-"erlazio?'?? probak'-era."
 
-#, fuzzy
 msgid "The model was fitted using maximum likelihood."
-msgstr "Eredua gehienezko likelihood ??? probabilitatea erabiliz egokitu da."
+msgstr ""
 
 msgid "The optimizer failed to find a solution. Probably due to quasi-separation in the data. Try removing some of the predictors."
 msgstr ""
-"Optimizatzaileak ez du irtenbiderik aurkitu. Seguruenik datuen kuasi-"
-"bereizketaren ondorioz. Saiatu iragarle batzuk kentzen."
 
 msgid "The optimizer failed to find a solution. Probably due to quasi-separation in the data or an overly complex model structure. Try removing some of the predictors."
 msgstr ""
-"Optimizatzaileak ez du irtenbiderik aurkitu. Seguruenik datuen kuasi-"
-"bereizketaren ondorioz edo ereduaren egitura oso konplexua delako. Saiatu "
-"iragarle batzuk kentzen."
 
 msgid "The optimizer failed to find a solution due to invalid starting values. (JASP currently does not support specifying different starting values.)"
 msgstr ""
-"Optimizatzaileak ez du irtenbiderik aurkitu hasierako balio baliogabeak "
-"direla eta. (JASP-ek ez du hasierako balio desberdinak zehaztea onartzen.)"
 
 msgid "The optimizer failed to find a solution. Probably due to scaling issues quasi-separation in the data. Try rescaling or removing some of the predictors."
 msgstr ""
-"Optimizatzaileak ez du irtenbiderik aurkitu. Seguruenik, datuetan "
-"eskalatzeko arazoengatik eta ia bereizketagatik. Saiatu eskalatzen edo "
-"iragarle batzuk kentzen."
 
 msgid "The optimizer failed to find a solution in the specified number of iterations. (JASP currently does not support modifying the optimizer settings.)"
 msgstr ""
-"Optimizatzaileak ez du irtenbiderik aurkitu zehaztutako iterazio kopuruan. "
-"(JASP-ek ez du optimizatzailearen ezarpenak aldatzea onartzen une honetan.)"
 
 msgid "The model formula is probably too long. Try shortening variable names."
 msgstr ""
-"Modeloaren formula luzeegia da ziurrenik. Saiatu aldagaien izenak laburtzen."
 
 msgid "The following variable is used as a random effects grouping factor: %s."
 msgid_plural "The following variables are used as random effects grouping factors: %s."
 msgstr[0] ""
-"Hurrengo aldagaia ausazko efektuen taldekatze faktore gisa erabiltzen da: %s."
 msgstr[1] ""
-"Hurrengo aldagaiak ausazko efektuen taldekatze faktore gisa erabiltzen dira: "
-"%s."
 
 msgid "All random slopes involving ‘%1$s’ have been removed for the random effects grouping factor ‘%2$s’. -- Factor %3$s does not vary within the levels of random effects grouping factor '%4$s'."
 msgid_plural "All random slopes involving ‘%1$s’ have been removed for the random effects grouping factor ‘%2$s’. -- Factors %3$s do not vary within the levels of random effects grouping factor '%4$s'."
 msgstr[0] ""
-"'%1$s' inplikatutako ausazko malda guztiak kendu dira '%2$s' ausazko "
-"efektuen taldekatze faktorerako. -- %3$s faktorea ez da aldatzen '%4$s' "
-"ausazko efektuen taldekatze faktorearen mailetan."
 msgstr[1] ""
-"'%1$s' inplikatutako ausazko malda guztiak kendu dira '%2$s' ausazko "
-"efektuen taldekatze faktorerako. -- %3$s faktoreak ez dira aldatzen '%4$s' "
-"ausazko efektuen taldekatze faktorearen mailetan."
 
 msgid "Random slope of ‘%1$s’ for the random effects grouping factor ‘%2$s’ removed -- Too few observations to estimate random slope of '%3$s' for random effects grouping factor '%4$s'."
 msgid_plural "Random slopes of ‘%1$s’ for the random effects grouping factor ‘%2$s’ removed -- Too few observations to estimate random slopes of '%3$s' for random effects grouping factor '%4$s'."
 msgstr[0] ""
-"‘%2$s’ ausazko efektuen taldekatze faktorerako ‘%1$s’-ren malda ausazkoa "
-"kendu da -- Behaketa gutxiegi '%4$s' ausazko efektuen taldekatze faktorerako "
-"'%3$s'-ren malda ausazkoa kalkulatzeko."
 msgstr[1] ""
-"‘%2$s’ ausazko efektuen taldekatze faktorerako ‘%1$s’-ren malda ausazko "
-"kendu da -- Behaketa gutxiegi '%4$s' ausazko efektuen taldekatze faktorerako "
-"'%3$s'-ren malda ausazko kalkulatzeko."
 
 msgid "Lower order random effects terms need to be specified in presence of the higher order random effects terms. Therefore, the following random effects term was added to the '%1$s' random effects grouping factor: '%2$s.'"
 msgid_plural "Lower order random effects terms need to be specified in presence of the higher order random effects terms. Therefore, the following random effects terms were added to the '%1$s' random effects grouping factor: '%2$s.'"
 msgstr[0] ""
-"Orden baxuko ausazko efektuen terminoak zehaztu behar dira ordena altuagoko "
-"ausazko efektuen terminoen aurrean. Beraz, honako ausazko efektuen terminoa "
-"gehitu zaio '%1$s' ausazko efektuen taldekatze faktoreari: '%2$s'."
 msgstr[1] ""
-"Orden baxuko ausazko efektuen terminoak zehaztu behar dira ordena altuagoko "
-"ausazko efektuen terminoen aurrean. Beraz, honako ausazko efektuen terminoak "
-"gehitu zaizkio '%1$s' ausazko efektuen taldekatze faktoreari: '%2$s'."
 
 msgid "%i observation was removed due to missing values."
 msgid_plural "%i observations were removed due to missing values."
-msgstr[0] "%i behaketa kendu da balio falta zirelako."
-msgstr[1] "%i behaketa kendu dira balio faltagatik."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "The Hamiltonian Monte Carlo procedure might be invalid -- There was %i divergent transition after warmup. This can be solved by carefully increasing 'Adapt delta' until there are no divergent transitions."
 msgid_plural "The Hamiltonian Monte Carlo procedure might be invalid -- There were %i divergent transitions after warmup. This can be solved by carefully increasing 'Adapt delta' until there are no divergent transitions."
 msgstr[0] ""
-"Hamiltondarreko Monte Carlo prozedura baliogabea izan daiteke -- %i "
-"trantsizio dibergente egon da berotze ondoren. Hau konpondu daiteke 'Adapt "
-"delta' arretaz handituz trantsizio dibergenterik egon arte."
 msgstr[1] ""
-"Hamiltondarreko Monte Carlo prozedura baliogabea izan daiteke -- %i "
-"trantsizio dibergente egon dira berotze ondoren. Hau konpondu daiteke 'Adapt "
-"delta' arretaz handituz trantsizio dibergenterik egon arte."
 
 msgid "Bayesian Fraction of Missing Information (BFMI) that was too low in %i chain indicating that the posterior distribution was not explored efficiently. Try increasing number of 'Burnin' and 'Iterations'."
 msgid_plural "Bayesian Fraction of Missing Information (BFMI) that was too low in %i chains indicating that the posterior distribution was not explored efficiently. Try increasing number of 'Burnin' and 'Iterations'."
 msgstr[0] ""
-"Informazio Faltaren Bayesiar Zati bat (BFMI) %i katean baxuegia zena, atzeko "
-"banaketa ez dela eraginkortasunez aztertu adieraziz. Saiatu 'Burnin' eta "
-"'Iterazio' kopurua handitzen."
 msgstr[1] ""
-"Informazio Faltaren Bayesiar Zati bat (BFMI) %i katean baxuegia zena, atzeko "
-"banaketa ez dela eraginkortasunez aztertu adieraziz. Saiatu 'Burnin' eta "
-"'Iterazio' kopurua handitzen."
 
 msgid "The Hamiltonian Monte Carlo procedure might be inefficient -- %i transition exceeded the maximum tree depth. This can be solved by carefully increasing 'Maximum tree depth'."
 msgid_plural "The Hamiltonian Monte Carlo procedure might be inefficient -- %i transitions exceeded the maximum tree depth. This can be solved by carefully increasing 'Maximum tree depth'."
 msgstr[0] ""
-"Hamiltondarreko Monte Carlo prozedura eraginkorra ez izatea gerta daiteke -- "
-"%i trantsizioak zuhaitzaren sakonera maximoa gainditu du. Hau 'Zuhaitz "
-"sakonera maximoa' kontu handiz handituz konpondu daiteke."
 msgstr[1] ""
-"Hamiltondar Monte Carlo prozedura eraginkorra ez izan daiteke -- %i "
-"trantsiziok zuhaitz sakonera maximoa gainditu dute. Hau 'Zuhaitz sakonera "
-"maximoa' kontu handiz handituz konpondu daiteke."
 
 msgid "WAIC estimate unreliable -- There was %1.0f p_waic estimate larger than 0.4. We recommend using LOO instead."
 msgid_plural "WAIC estimate unreliable -- There were %1.0f p_waic estimates larger than 0.4. We recommend using LOO instead."
 msgstr[0] ""
-"WAIC estimazioa fidagarria ez dena -- %1.0f p_waic estimazioa 0.4 baino "
-"handiagoa zen. LOO erabiltzea gomendatzen dugu horren ordez."
 msgstr[1] ""
-"WAIC estimazioa fidagarria ez dena -- %1.0f p_waic estimazioak 0.4 baino "
-"handiagoak ziren. LOO erabiltzea gomendatzen dugu horren ordez."
 
 msgid "LOO estimate unreliable -- There was %1.0f observation with the shape parameter (k) of the generalized Pareto distribution higher than 0.5."
 msgid_plural "LOO estimate unreliable -- There were %1.0f observations with the shape parameter (k) of the generalized Pareto distribution higher than 0.5."
 msgstr[0] ""
-"LOO estimazioa fidagarria ez dena -- %1.0f behaketa zegoen Pareto banaketa "
-"orokortuaren forma-parametroa (k) 0.5 baino handiagoa zuena."
 msgstr[1] ""
-"LOO estimazioa fidagarria ez dena -- %1.0f behaketa zeuden Pareto banaketa "
-"orokortuaren forma-parametroa (k) 0.5 baino handiagoa zutena."
