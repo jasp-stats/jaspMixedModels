@@ -120,7 +120,7 @@
                    "likelihoodRatioTest" = gettext("likelihood ratio tests"),
                    "parametricBootstrap"  = gettext("parametric bootstrap")
   )
-  gettextf("Model terms tested with %s testMethod.",testMethod)
+  gettextf("Model terms tested with %s method.",testMethod)
 }
 
 .messagePvalAdjustment  <- function(adjustment) {

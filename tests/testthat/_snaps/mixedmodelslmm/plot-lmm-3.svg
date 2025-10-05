@@ -31,7 +31,7 @@
 <line x1='293.62' y1='282.00' x2='293.62' y2='286.92' style='stroke-width: 1.07; stroke: #0000FF; stroke-linecap: butt;' />
 <polygon points='160.37,246.05 160.37,282.00 426.86,282.00 426.86,246.05 160.37,246.05 ' style='stroke-width: 1.07; stroke: #0000FF; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF; fill-opacity: 0.70;' />
 <line x1='160.37' y1='263.57' x2='426.86' y2='263.57' style='stroke-width: 2.13; stroke: #0000FF; stroke-linecap: butt; stroke-linejoin: miter;' />
-<circle cx='560.11' cy='304.48' r='1.95' style='stroke-width: 0.71; stroke: #0000FF; stroke-opacity: 0.70; fill: #0000FF; fill-opacity: 0.70;' />
+<polygon points='560.11,301.44 562.74,306.00 557.47,306.00 ' style='stroke-width: 0.71; stroke: none; fill: #0000FF; fill-opacity: 0.70;' />
 <line x1='560.11' y1='192.41' x2='560.11' y2='168.50' style='stroke-width: 1.07; stroke: #0000FF; stroke-dasharray: 2.85,2.85; stroke-linecap: butt;' />
 <line x1='560.11' y1='225.40' x2='560.11' y2='249.08' style='stroke-width: 1.07; stroke: #0000FF; stroke-dasharray: 2.85,2.85; stroke-linecap: butt;' />
 <polygon points='426.86,192.41 426.86,225.40 693.35,225.40 693.35,192.41 426.86,192.41 ' style='stroke-width: 1.07; stroke: #0000FF; stroke-dasharray: 2.85,2.85; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF; fill-opacity: 0.70;' />
@@ -76,6 +76,8 @@
 <polyline points='19.65,53.98 19.65,49.73 ' style='stroke-width: 1.07; stroke: #0000FF; stroke-linecap: butt; stroke-linejoin: miter;' />
 <rect x='9.02' y='53.98' width='21.26' height='14.17' style='stroke-width: 1.07; stroke: #0000FF; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF; fill-opacity: 0.70;' />
 <polyline points='9.02,61.07 30.28,61.07 ' style='stroke-width: 1.07; stroke: #0000FF; stroke-linecap: butt; stroke-linejoin: miter;' />
+<polyline points='19.65,72.41 19.65,72.41 ' style='stroke-width: 1.07; stroke: #0000FF; stroke-linecap: butt; stroke-linejoin: miter;' />
+<polyline points='19.65,49.73 19.65,49.73 ' style='stroke-width: 1.07; stroke: #0000FF; stroke-linecap: butt; stroke-linejoin: miter;' />
 <circle cx='19.65' cy='61.07' r='1.95' style='stroke-width: 0.71; stroke: none; fill: #F8766D;' />
 <line x1='8.31' y1='61.07' x2='30.99' y2='61.07' style='stroke-width: 1.07; stroke: #F8766D; stroke-linecap: butt;' />
 <rect x='5.48' y='75.24' width='28.35' height='28.35' style='stroke-width: 10.67; stroke: none;' />
@@ -83,6 +85,8 @@
 <polyline points='19.65,82.33 19.65,78.08 ' style='stroke-width: 1.07; stroke: #0000FF; stroke-dasharray: 2.85,2.85; stroke-linecap: butt; stroke-linejoin: miter;' />
 <rect x='9.02' y='82.33' width='21.26' height='14.17' style='stroke-width: 1.07; stroke: #0000FF; stroke-dasharray: 2.85,2.85; stroke-linecap: butt; stroke-linejoin: miter; fill: #FFFFFF; fill-opacity: 0.70;' />
 <polyline points='9.02,89.42 30.28,89.42 ' style='stroke-width: 1.07; stroke: #0000FF; stroke-dasharray: 2.85,2.85; stroke-linecap: butt; stroke-linejoin: miter;' />
+<polyline points='19.65,100.75 19.65,100.75 ' style='stroke-width: 1.07; stroke: #0000FF; stroke-dasharray: 2.85,2.85; stroke-linecap: butt; stroke-linejoin: miter;' />
+<polyline points='19.65,78.08 19.65,78.08 ' style='stroke-width: 1.07; stroke: #0000FF; stroke-dasharray: 2.85,2.85; stroke-linecap: butt; stroke-linejoin: miter;' />
 <polygon points='19.65,86.38 22.29,90.94 17.02,90.94 ' style='stroke-width: 0.71; stroke: none; fill: #00BFC4;' />
 <line x1='8.31' y1='89.42' x2='30.99' y2='89.42' style='stroke-width: 1.07; stroke: #00BFC4; stroke-linecap: butt;' />
 <text x='39.31' y='66.92' style='font-size: 17.00px; font-family: sans;' textLength='4.72px' lengthAdjust='spacingAndGlyphs'>f</text>
