@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.20.0\n"
 "POT-Creation-Date: 2025-09-20 03:02\n"
-"PO-Revision-Date: 2025-09-15 00:02+0000\n"
-"Last-Translator: hakan dokumuş <dokumushakan@gmail.com>\n"
+"PO-Revision-Date: 2025-10-07 21:02+0000\n"
+"Last-Translator: Hamza Yalçin <h.yalcin08@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/tr/>\n"
 "Language: tr\n"
@@ -82,7 +82,7 @@ msgid "Effect"
 msgstr "Etki"
 
 msgid "df"
-msgstr "sd (serbestlik derecesi)"
+msgstr "sd"
 
 msgid "F"
 msgstr "F"
@@ -97,7 +97,7 @@ msgid "p (bootstrap)"
 msgstr ""
 
 msgid "VS-MPR"
-msgstr ""
+msgstr "VS-MPO"
 
 msgid "VS-MPR (bootstrap)"
 msgstr ""
@@ -175,7 +175,7 @@ msgid "Fixed Effects Estimates"
 msgstr "Sabit Etkilerin Kestirimleri"
 
 msgid "Estimate"
-msgstr "Kestirim (Tahmin)"
+msgstr "Kestirim"
 
 msgid "SE"
 msgstr "SH"
@@ -223,7 +223,7 @@ msgid "Cannot find function: %s"
 msgstr "Fonksiyon bulunamıyor: %s"
 
 msgid "Estimated Marginal Means"
-msgstr ""
+msgstr "Tahmini Marjinal Ortalamalar"
 
 msgid "Row"
 msgstr "Satır"
@@ -247,7 +247,7 @@ msgid "contrasts"
 msgstr "zıtlık (karşıtlık)"
 
 msgid "Odds Ratio"
-msgstr ""
+msgstr "Odds Oranı"
 
 msgid "Ratio"
 msgstr "Oran"
@@ -289,7 +289,7 @@ msgid "%s (marginal means)"
 msgstr ""
 
 msgid "Level"
-msgstr "Seviye"
+msgstr "Düzey"
 
 msgid "R-hat"
 msgstr ""
@@ -370,10 +370,10 @@ msgid ""
 msgstr ""
 
 msgid "Results are on the response scale."
-msgstr ""
+msgstr "Sonuçlar yanıt ölçeğindedir."
 
 msgid "Results are not on the response scale and might be misleading."
-msgstr ""
+msgstr "Sonuçlar yanıt ölçeğinde değildir ve yanıltıcı olabilir."
 
 msgid "Type %s Sum of Squares"
 msgstr ""
@@ -388,10 +388,10 @@ msgid ""
 msgstr ""
 
 msgid "P-values correspond to test of null hypothesis against %s."
-msgstr ""
+msgstr "P-değerleri, null hipotezin %s'e karşı test edilmesine karşılık gelir."
 
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "Sonuçlar şunun düzeyleri üzerinden ortalamalanmıştır: %s."
 
 msgid "binomial"
 msgstr ""
@@ -437,16 +437,16 @@ msgid "P-values are not adjusted."
 msgstr "P-değerleri düzeltilmemiştir."
 
 msgid "Holm"
-msgstr ""
+msgstr "Holm"
 
 msgid "Homel"
-msgstr ""
+msgstr "Homel"
 
 msgid "Hochberg"
 msgstr "Hochberg"
 
 msgid "Multivariate-t"
-msgstr ""
+msgstr "Çok Değişkenli-t"
 
 msgid "Tukey"
 msgstr "Tukey"
@@ -455,22 +455,22 @@ msgid "Benjamini-Hochberg"
 msgstr "Benjamini-Hochberg"
 
 msgid "Benjamini-Yekutieli"
-msgstr ""
+msgstr "Benjamini-Yekutieli"
 
 msgid "Scheffé"
 msgstr "Scheffé"
 
 msgid "Sidak"
-msgstr ""
+msgstr "Sidak"
 
 msgid "Dunnett"
-msgstr ""
+msgstr "Dunnett"
 
 msgid "Bonferroni"
 msgstr "Bonferroni"
 
 msgid "P-values are adjusted using %s adjustment."
-msgstr "P-değerleri %s düzeltmesi kullanılarak düzeltilmiştir."
+msgstr "P-değerleri %s düzeltmesi kullanılarak ayarlanmıştır."
 
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; R-hat "
