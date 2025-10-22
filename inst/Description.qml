@@ -3,17 +3,10 @@ import JASP.Module
 
 Description
 {
-	name		: "jaspMixedModels"
 	title		: qsTr("Mixed Models")
 	description	: qsTr("Evaluate the difference between multiple means with random effects")
 	icon		: "MixedModels_classical.svg"
-	version			: "0.95.0"
-	author		: "JASP Team"
-	maintainer	: "JASP Team <info@jasp-stats.org>"
-	website		: "jasp-stats.org"
-	license		: "GPL (>= 2)"
 	hasWrappers	: true
-	preloadData	: true
 		
 
 	GroupTitle
