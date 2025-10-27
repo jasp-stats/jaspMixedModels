@@ -44,7 +44,7 @@ Form {
 		{
 			name:				"dependent"
 			title:				qsTr("Dependent variable")
-			allowedColumns:		["nominal", "scale"]
+			allowedColumns: 	family.currentValue === "bernoulli" ? "nominal" : "scale"
 			allowTypeChange:	true
 			singleVariable:		true
 		}
@@ -90,8 +90,8 @@ Form {
 			indexDefaultValue:	0
 			values:
 			[
-				{ label: qsTr("Binomial"),				value: "bernoulli"},
-				{ label: qsTr("Binomial (aggregated)"),	value: "binomial"},
+				{ label: qsTr("Bernoulli"),				value: "bernoulli"},
+				{ label: qsTr("Binomial"),				value: "binomial"},
 				{ label: qsTr("Gaussian"),				value: "gaussian"},
 				{ label: qsTr("Gamma"),					value: "gamma"},
 				{ label: qsTr("Inverse Gaussian"),		value: "inverseGaussian"},

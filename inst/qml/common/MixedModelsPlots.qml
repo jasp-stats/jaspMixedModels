@@ -161,7 +161,7 @@ Section
 			//	{ label: qsTr("Beeswarm"),			value: "beeswarm"}, # enable once the package loading is changed
 				{ label: qsTr("Violin"),			value: "violin"},
 				{ label: qsTr("Boxplot"),			value: "boxplot"},
-				{ label: qsTr("Boxjitter"),			value: "boxjitter"},
+			//	{ label: qsTr("Boxjitter"),			value: "boxjitter"}, # enable once boxjitter is compatible with the new ggplot2
 				{ label: qsTr("Count"),				value: "count"}
 			]
 		}

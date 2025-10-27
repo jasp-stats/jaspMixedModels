@@ -159,17 +159,17 @@
 
     if (options$family %in% c("gamma", "inverseGaussian")) {
 
-      if (options$dependent.type != "scale" || any(dataset[, options$dependent] <= 0))
+      if (any(dataset[, options$dependent] <= 0))
         .quitAnalysis(gettextf("%s requires that the dependent variable is positive.",familyText))
 
     } else if (options$family %in% c("negativeBinomial", "poisson")) {
 
-      if (options$dependent.type != "scale" || any(dataset[, options$dependent] < 0 | any(!.is.wholenumber(dataset[, options$dependent]))))
+      if (any(dataset[, options$dependent] < 0 | any(!.is.wholenumber(dataset[, options$dependent]))))
         .quitAnalysis(gettextf("%s requires that the dependent variable is an integer.",familyText))
 
     } else if (options$family == "bernoulli") {
 
-      if (!options$dependent.type %in% c("scale", "nominal") || length(unique(dataset[, options$dependent])) != 2)
+      if (length(unique(dataset[, options$dependent])) != 2)
         .quitAnalysis(gettextf("%s requires that the dependent variable contains only two levels.",familyText))
 
       # transform to 0/1 outcome
@@ -178,12 +178,8 @@
 
     } else if (options$family == "binomial") {
 
-      if (options$dependentAggregation.type != "scale" || any(dataset[, options$dependentAggregation] < 0) || any(!.is.wholenumber(dataset[, options$dependentAggregation])))
+      if (any(dataset[, options$dependentAggregation] < 0) || any(!.is.wholenumber(dataset[, options$dependentAggregation])))
         .quitAnalysis(gettextf("%s requires that the number of trials variable is an integer.",familyText))
-
-      # if the user supplies the number of successes, transform them into the corresponding proportion
-      if (options$dependent.type != "scale")
-        .quitAnalysis(gettextf("%s requires that the number or proportion of successes is an integer.",familyText))
 
       if (all(.is.wholenumber(dataset[, options$dependent]))){
         if(any(dataset[, options$dependent] > dataset[, options$dependentAggregation]))
@@ -200,13 +196,8 @@
 
     } else if (options$family == "beta") {
 
-      if (options$dependent.type != "scale" || any(dataset[, options$dependent] <= 0 | dataset[, options$dependent] >= 1))
+      if (any(dataset[, options$dependent] <= 0 | dataset[, options$dependent] >= 1))
         .quitAnalysis(gettextf("%s requires that the dependent variable is higher than 0 and lower than 1.",familyText))
-
-    } else if (options$family == "gaussian") {
-
-      if (options$dependent.type != "scale")
-        .quitAnalysis(gettextf("%s requires that the dependent variable is continuous.",familyText))
 
     }
   }
@@ -726,11 +717,10 @@
   for (i in seq_along(addedRe))
     ANOVAsummary$addFootnote(.mmMessageAddedTerms(addedRe[[i]], names(addedRe)[i]), symbol = gettext("Note:"))
 
-
   ANOVAsummary$addFootnote(.mmMessageANOVAtype(ifelse(options$type == 3, gettext("III"), gettext("II"))))
   if (type == "GLMM")
     ANOVAsummary$addFootnote(.mmMessageGLMMtype(options$family, options$link))
-  if (options$family == "bernoulli")
+  if (type == "GLMM" && options$family == "bernoulli")
     ANOVAsummary$addFootnote(gettextf("'%1$s' level coded as success.", attr(dataset, "binomialSuccess")))
 
   ANOVAsummary$addFootnote(.mmMessageTermTest(options$testMethod))
@@ -1157,9 +1147,9 @@
     data_arg <- list(width = options$plotElementWidth)
   else if (options$plotBackgroundElement == "count")
     data_arg <- list()
-  else if (options$plotBackgroundElement == "beeswarm")
+  else if (options$plotBackgroundElement == "beeswarm") # disabled due to package loading
     data_arg <- list(dodge.width = options$plotDodge)
-  else if (options$plotBackgroundElement == "boxjitter")
+  else if (options$plotBackgroundElement == "boxjitter") # temporarily disabled due to incompatibility with new ggplot
     data_arg <- list(
       width             = options$plotElementWidth,
       jitter.width      = options$plotJitterWidth,
@@ -2803,7 +2793,6 @@
     "dependent.types",
     "fixedEffects",
     "fixedVariables",
-    "fixedVariables.types",
     "includeIntercept",
     "randomEffects",
     "randomVariables",
@@ -2824,7 +2813,6 @@
     "dependent",
     "dependent.types",
     "fixedEffects",
-    "fixedVariables.types",
     "includeIntercept",
     "randomEffects",
     "randomVariables",

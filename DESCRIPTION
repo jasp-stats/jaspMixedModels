@@ -13,7 +13,6 @@ Imports:
   afex (>= 0.28-0),
   emmeans (>= 1.4.7),
   ggplot2,
-  ggpol,
   jaspBase,
   jaspGraphs,
   lme4,
