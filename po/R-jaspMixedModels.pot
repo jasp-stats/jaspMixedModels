@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.95.0\n"
-"POT-Creation-Date: 2025-09-20 03:02\n"
+"POT-Creation-Date: 2025-11-01 03:08\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,9 +32,6 @@ msgstr ""
 msgid "%s requires that the number of trials variable is an integer."
 msgstr ""
 
-msgid "%s requires that the number or proportion of successes is an integer."
-msgstr ""
-
 msgid "%s requires that the number of successes is lower that the number of trials."
 msgstr ""
 
@@ -42,9 +39,6 @@ msgid "%s requires that the dependent variable is higher than 0 and lower than 1
 msgstr ""
 
 msgid "%s requires that the dependent variable is either the number or proportion of successes out of the number of trials."
-msgstr ""
-
-msgid "%s requires that the dependent variable is continuous."
 msgstr ""
 
 msgid "At least one random effect needs to be specified for the '%1$s' random effect grouping factors.%2$s"
@@ -359,7 +353,7 @@ msgstr ""
 msgid "parametric bootstrap"
 msgstr ""
 
-msgid "Model terms tested with %s testMethod."
+msgid "Model terms tested with %s method."
 msgstr ""
 
 msgid "P-values are not adjusted."

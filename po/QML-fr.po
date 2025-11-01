@@ -291,10 +291,6 @@ msgid "Boxplot"
 msgstr "Boîte à moustache"
 
 msgctxt "MixedModelsPlots|"
-msgid "Boxjitter"
-msgstr ""
-
-msgctxt "MixedModelsPlots|"
 msgid "Count"
 msgstr ""
 
@@ -413,10 +409,6 @@ msgstr "Famille"
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
 msgstr "Binomial"
-
-msgctxt "MixedModelsBGLMM|"
-msgid "Binomial (aggregated)"
-msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
@@ -583,10 +575,6 @@ msgstr "Famille"
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
 msgstr "Binomial"
-
-msgctxt "MixedModelsGLMM|"
-msgid "Binomial (aggregated)"
-msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
@@ -832,4 +820,12 @@ msgstr ""
 
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
+msgstr ""
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Bernoulli"
+msgstr ""
+
+msgctxt "MixedModelsGLMM|"
+msgid "Bernoulli"
 msgstr ""

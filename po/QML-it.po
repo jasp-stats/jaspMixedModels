@@ -327,10 +327,6 @@ msgid "Boxplot"
 msgstr ""
 
 msgctxt "MixedModelsPlots|"
-msgid "Boxjitter"
-msgstr ""
-
-msgctxt "MixedModelsPlots|"
 msgid "Count"
 msgstr ""
 
@@ -452,10 +448,6 @@ msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
-msgstr ""
-
-msgctxt "MixedModelsBGLMM|"
-msgid "Binomial (aggregated)"
 msgstr ""
 
 msgctxt "MixedModelsBGLMM|"
@@ -628,10 +620,6 @@ msgstr ""
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
-msgstr ""
-
-msgctxt "MixedModelsGLMM|"
-msgid "Binomial (aggregated)"
 msgstr ""
 
 msgctxt "MixedModelsGLMM|"
@@ -824,4 +812,12 @@ msgstr ""
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
+msgstr ""
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Bernoulli"
+msgstr ""
+
+msgctxt "MixedModelsGLMM|"
+msgid "Bernoulli"
 msgstr ""

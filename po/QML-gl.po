@@ -157,10 +157,6 @@ msgid "Response scale"
 msgstr "Escala de resposta"
 
 msgctxt "MixedModelsGLMM|"
-msgid "Binomial (aggregated)"
-msgstr "Binomial (agregada)"
-
-msgctxt "MixedModelsGLMM|"
 msgid "Number of trials"
 msgstr "Número de ensaios"
 
@@ -345,10 +341,6 @@ msgid "Horizontal axis"
 msgstr "Eixe horizontal"
 
 msgctxt "MixedModelsPlots|"
-msgid "Boxjitter"
-msgstr "Oscilación da caixa"
-
-msgctxt "MixedModelsPlots|"
 msgid "Confidence interval method"
 msgstr "Método do intervalo de confianza"
 
@@ -531,10 +523,6 @@ msgstr "Familia"
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
 msgstr "Binomial"
-
-msgctxt "MixedModelsBGLMM|"
-msgid "Binomial (aggregated)"
-msgstr "Binomial (agregada)"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
@@ -828,3 +816,11 @@ msgstr "Suma"
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
 msgstr "Tratamento"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Bernoulli"
+msgstr ""
+
+msgctxt "MixedModelsGLMM|"
+msgid "Bernoulli"
+msgstr ""

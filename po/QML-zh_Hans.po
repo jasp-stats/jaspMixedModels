@@ -288,10 +288,6 @@ msgid "Boxplot"
 msgstr "箱形图"
 
 msgctxt "MixedModelsPlots|"
-msgid "Boxjitter"
-msgstr "抖动点箱形图"
-
-msgctxt "MixedModelsPlots|"
 msgid "Count"
 msgstr "计数"
 
@@ -402,10 +398,6 @@ msgstr "分布族"
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
 msgstr "二项分布"
-
-msgctxt "MixedModelsBGLMM|"
-msgid "Binomial (aggregated)"
-msgstr "二项（聚合）"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
@@ -570,10 +562,6 @@ msgstr "分布族"
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
 msgstr "二项分布"
-
-msgctxt "MixedModelsGLMM|"
-msgid "Binomial (aggregated)"
-msgstr "二项式（聚合）"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
@@ -827,3 +815,11 @@ msgstr "总计"
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
 msgstr "对照"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Bernoulli"
+msgstr ""
+
+msgctxt "MixedModelsGLMM|"
+msgid "Bernoulli"
+msgstr ""

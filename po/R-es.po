@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2025-09-20 03:02\n"
+"POT-Creation-Date: 2025-11-01 03:08\n"
 "PO-Revision-Date: 2025-09-20 06:49+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/"
@@ -45,9 +45,6 @@ msgstr "%s requiere que la variable dependiente contenga solo dos niveles."
 msgid "%s requires that the number of trials variable is an integer."
 msgstr "%s requiere que el número de la variable de intentos sea un entero."
 
-msgid "%s requires that the number or proportion of successes is an integer."
-msgstr "%s requiere que el número o proporción de aciertos sea un entero."
-
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
 msgstr ""
@@ -63,9 +60,6 @@ msgid ""
 msgstr ""
 "%s requiere que la variable dependiente sea el número de aciertos o su "
 "proporción respecto al número de intentos."
-
-msgid "%s requires that the dependent variable is continuous."
-msgstr "%s requiere que la variable dependiente sea continua."
 
 msgid ""
 "At least one random effect needs to be specified for the '%1$s' random "
@@ -496,7 +490,8 @@ msgstr "Contrastes de proporción de verosimilitudes"
 msgid "parametric bootstrap"
 msgstr "Bootstrap paramétrico"
 
-msgid "Model terms tested with %s testMethod."
+#, fuzzy
+msgid "Model terms tested with %s method."
 msgstr "Elementos del modelo probados con el método %s."
 
 msgid "P-values are not adjusted."
@@ -794,6 +789,13 @@ msgstr[0] ""
 msgstr[1] ""
 "Estimación LOO poco fiable -- Había %1.0f observaciones con parámetro de "
 "forma (k) de la distribución generalizada de Pareto, mayores que 0.5."
+
+#~ msgid ""
+#~ "%s requires that the number or proportion of successes is an integer."
+#~ msgstr "%s requiere que el número o proporción de aciertos sea un entero."
+
+#~ msgid "%s requires that the dependent variable is continuous."
+#~ msgstr "%s requiere que la variable dependiente sea continua."
 
 #~ msgid "Intercept"
 #~ msgstr "Constante"

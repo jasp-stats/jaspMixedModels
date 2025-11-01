@@ -285,10 +285,6 @@ msgid "Boxplot"
 msgstr "Boxplot"
 
 msgctxt "MixedModelsPlots|"
-msgid "Boxjitter"
-msgstr "Boxjitter"
-
-msgctxt "MixedModelsPlots|"
 msgid "Count"
 msgstr "Aantal"
 
@@ -399,10 +395,6 @@ msgstr "Familie"
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
 msgstr "Binomiaal"
-
-msgctxt "MixedModelsBGLMM|"
-msgid "Binomial (aggregated)"
-msgstr "Binomiaal (geaggregeerd)"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
@@ -567,10 +559,6 @@ msgstr "Familie"
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
 msgstr "Binomiaal"
-
-msgctxt "MixedModelsGLMM|"
-msgid "Binomial (aggregated)"
-msgstr "Binomiaal (geaggregeerd)"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
@@ -829,3 +817,11 @@ msgstr "Som"
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
 msgstr "Behandeling"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Bernoulli"
+msgstr ""
+
+msgctxt "MixedModelsGLMM|"
+msgid "Bernoulli"
+msgstr ""

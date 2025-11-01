@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.19.2\n"
-"POT-Creation-Date: 2025-09-20 03:02\n"
+"POT-Creation-Date: 2025-11-01 03:08\n"
 "PO-Revision-Date: 2025-08-24 10:02+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
@@ -42,9 +42,6 @@ msgstr ""
 msgid "%s requires that the number of trials variable is an integer."
 msgstr ""
 
-msgid "%s requires that the number or proportion of successes is an integer."
-msgstr ""
-
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
 msgstr ""
@@ -56,9 +53,6 @@ msgstr ""
 msgid ""
 "%s requires that the dependent variable is either the number or proportion "
 "of successes out of the number of trials."
-msgstr ""
-
-msgid "%s requires that the dependent variable is continuous."
 msgstr ""
 
 msgid ""
@@ -425,7 +419,7 @@ msgstr ""
 msgid "parametric bootstrap"
 msgstr ""
 
-msgid "Model terms tested with %s testMethod."
+msgid "Model terms tested with %s method."
 msgstr ""
 
 msgid "P-values are not adjusted."

@@ -294,11 +294,6 @@ msgctxt "MixedModelsPlots|"
 msgid "Boxplot"
 msgstr "Kutu Grafiği"
 
-#, fuzzy
-msgctxt "MixedModelsPlots|"
-msgid "Boxjitter"
-msgstr "Kutu-Saçılım"
-
 msgctxt "MixedModelsPlots|"
 msgid "Count"
 msgstr "Sayı"
@@ -413,10 +408,6 @@ msgstr "Aile"
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
 msgstr "Binom/İki Terimli"
-
-msgctxt "MixedModelsBGLMM|"
-msgid "Binomial (aggregated)"
-msgstr "Binom/İki Terimli (birleştirilmiş)"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
@@ -584,10 +575,6 @@ msgstr "Aile"
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
 msgstr "Binom"
-
-msgctxt "MixedModelsGLMM|"
-msgid "Binomial (aggregated)"
-msgstr "Binom (birleştirilmiş)"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
@@ -848,3 +835,11 @@ msgstr "Toplam"
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
 msgstr "Yaklaşım"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Bernoulli"
+msgstr ""
+
+msgctxt "MixedModelsGLMM|"
+msgid "Bernoulli"
+msgstr ""

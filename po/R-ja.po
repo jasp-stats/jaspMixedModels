@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2025-09-20 03:02\n"
+"POT-Creation-Date: 2025-11-01 03:08\n"
 "PO-Revision-Date: 2024-07-02 17:09+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
@@ -45,10 +45,6 @@ msgstr "%s は、従属変数に含まれる数字が0と1だけである必要�
 msgid "%s requires that the number of trials variable is an integer."
 msgstr "%s は試行回数の変数が整数である必要があります。"
 
-#, fuzzy
-msgid "%s requires that the number or proportion of successes is an integer."
-msgstr "%s は試行回数の変数が整数である必要があります。"
-
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
 msgstr "%s は試行回数より成功回数が少ないことを要求します."
@@ -62,10 +58,6 @@ msgid ""
 "of successes out of the number of trials."
 msgstr ""
 "%s は、従属変数が試行回数のうち成功した回数か割合であることを必要とします."
-
-#, fuzzy
-msgid "%s requires that the dependent variable is continuous."
-msgstr "%s は、従属変数が正である必要があります。"
 
 msgid ""
 "At least one random effect needs to be specified for the '%1$s' random "
@@ -481,7 +473,8 @@ msgstr "尤度比検定"
 msgid "parametric bootstrap"
 msgstr "パラメトリックブートストラップ"
 
-msgid "Model terms tested with %s testMethod."
+#, fuzzy
+msgid "Model terms tested with %s method."
 msgstr "モデル項は %s 検定法で検証されます."
 
 msgid "P-values are not adjusted."
@@ -723,6 +716,15 @@ msgid_plural ""
 msgstr[0] ""
 "LOO 推定値の信頼性は低いです -- 一般化されたパレート分布の形状パラメータ (k) "
 "が 0.5 より大きい観測が %1.0f 個ありました。"
+
+#, fuzzy
+#~ msgid ""
+#~ "%s requires that the number or proportion of successes is an integer."
+#~ msgstr "%s は試行回数の変数が整数である必要があります。"
+
+#, fuzzy
+#~ msgid "%s requires that the dependent variable is continuous."
+#~ msgstr "%s は、従属変数が正である必要があります。"
 
 #~ msgid "Intercept"
 #~ msgstr "切片"

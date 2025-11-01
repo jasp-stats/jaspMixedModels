@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.2\n"
-"POT-Creation-Date: 2025-09-20 03:02\n"
+"POT-Creation-Date: 2025-11-01 03:08\n"
 "PO-Revision-Date: 2024-05-06 03:07+0000\n"
 "Last-Translator: Cochrane <cunyikang@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -40,10 +40,6 @@ msgstr "%s 因变量需要为正值"
 msgid "%s requires that the number of trials variable is an integer."
 msgstr ""
 
-#, fuzzy
-msgid "%s requires that the number or proportion of successes is an integer."
-msgstr "%s 因变量需要为整数"
-
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
 msgstr ""
@@ -56,10 +52,6 @@ msgid ""
 "%s requires that the dependent variable is either the number or proportion "
 "of successes out of the number of trials."
 msgstr ""
-
-#, fuzzy
-msgid "%s requires that the dependent variable is continuous."
-msgstr "%s 因变量需要为正值"
 
 msgid ""
 "At least one random effect needs to be specified for the '%1$s' random "
@@ -425,7 +417,7 @@ msgstr ""
 msgid "parametric bootstrap"
 msgstr ""
 
-msgid "Model terms tested with %s testMethod."
+msgid "Model terms tested with %s method."
 msgstr ""
 
 msgid "P-values are not adjusted."
@@ -627,6 +619,15 @@ msgid_plural ""
 "parameter (k) of the generalized Pareto distribution higher than 0.5."
 msgstr[0] ""
 msgstr[1] ""
+
+#, fuzzy
+#~ msgid ""
+#~ "%s requires that the number or proportion of successes is an integer."
+#~ msgstr "%s 因变量需要为整数"
+
+#, fuzzy
+#~ msgid "%s requires that the dependent variable is continuous."
+#~ msgstr "%s 因变量需要为正值"
 
 #~ msgid "Intercept"
 #~ msgstr "截距"

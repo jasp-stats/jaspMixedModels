@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.0\n"
-"POT-Creation-Date: 2025-09-20 03:02\n"
+"POT-Creation-Date: 2025-11-01 03:08\n"
 "PO-Revision-Date: 2025-08-07 23:01+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
@@ -47,9 +47,6 @@ msgstr "%s wymaga, żeby zmienna zależna zawierała wyłącznie wartości 0 i 1
 msgid "%s requires that the number of trials variable is an integer."
 msgstr "%s wymaga, aby zmienna liczby prób była liczbą całkowitą."
 
-msgid "%s requires that the number or proportion of successes is an integer."
-msgstr "%s wymaga, aby liczba lub proporcja sukcesów była liczbą całkowitą."
-
 msgid ""
 "%s requires that the number of successes is lower that the number of trials."
 msgstr "%s wymaga, żeby liczba sukcesów była mniejsza niż liczba prób."
@@ -64,9 +61,6 @@ msgid ""
 msgstr ""
 "%s wymaga, aby zmienna zależna była liczbą lub proporcją sukcesów z liczby "
 "powtórzeń."
-
-msgid "%s requires that the dependent variable is continuous."
-msgstr "%s wymaga, żeby zmienna zależna była ilościowa."
 
 msgid ""
 "At least one random effect needs to be specified for the '%1$s' random "
@@ -490,7 +484,8 @@ msgstr "testy wskaźnika wiarygodności"
 msgid "parametric bootstrap"
 msgstr "bootstrap parametryczny"
 
-msgid "Model terms tested with %s testMethod."
+#, fuzzy
+msgid "Model terms tested with %s method."
 msgstr "Składniki modelu testowane przez %s testMethod."
 
 msgid "P-values are not adjusted."
@@ -808,6 +803,13 @@ msgstr[1] ""
 msgstr[2] ""
 "Estymacja LOO jest niewiarygodna — %1.0f obserwacji miały parametr k "
 "rozkładu Pareto większy niż 0,5."
+
+#~ msgid ""
+#~ "%s requires that the number or proportion of successes is an integer."
+#~ msgstr "%s wymaga, aby liczba lub proporcja sukcesów była liczbą całkowitą."
+
+#~ msgid "%s requires that the dependent variable is continuous."
+#~ msgstr "%s wymaga, żeby zmienna zależna była ilościowa."
 
 #~ msgid "Intercept"
 #~ msgstr "Wyraz wolny"

@@ -284,10 +284,6 @@ msgid "Boxplot"
 msgstr "箱ひげ図"
 
 msgctxt "MixedModelsPlots|"
-msgid "Boxjitter"
-msgstr "ボックスジッター"
-
-msgctxt "MixedModelsPlots|"
 msgid "Count"
 msgstr "カウント"
 
@@ -398,10 +394,6 @@ msgstr "分布族"
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
 msgstr "二項"
-
-msgctxt "MixedModelsBGLMM|"
-msgid "Binomial (aggregated)"
-msgstr "二項 (集計)"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
@@ -566,10 +558,6 @@ msgstr "分布族"
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
 msgstr "二項"
-
-msgctxt "MixedModelsGLMM|"
-msgid "Binomial (aggregated)"
-msgstr "二項 (集計)"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
@@ -827,3 +815,11 @@ msgstr "総和"
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
 msgstr "処置"
+
+msgctxt "MixedModelsBGLMM|"
+msgid "Bernoulli"
+msgstr ""
+
+msgctxt "MixedModelsGLMM|"
+msgid "Bernoulli"
+msgstr ""
