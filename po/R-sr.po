@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.19.2\n"
 "POT-Creation-Date: 2025-11-01 03:08\n"
-"PO-Revision-Date: 2025-08-24 10:02+0000\n"
+"PO-Revision-Date: 2025-12-05 21:00+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/sr/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -74,6 +74,7 @@ msgstr "Ефекат"
 msgid "df"
 msgstr "df"
 
+#, fuzzy
 msgid "F"
 msgstr "F"
 
@@ -93,7 +94,7 @@ msgid "VS-MPR (bootstrap)"
 msgstr ""
 
 msgid "Warning:"
-msgstr ""
+msgstr "Упозорење:"
 
 msgid "Note:"
 msgstr ""
@@ -165,7 +166,7 @@ msgid "Fixed Effects Estimates"
 msgstr ""
 
 msgid "Estimate"
-msgstr "Проценити"
+msgstr "Процена"
 
 msgid "SE"
 msgstr ""
@@ -201,13 +202,13 @@ msgid "Mean"
 msgstr "Аритметичка средина"
 
 msgid "Lower"
-msgstr "Ниже"
+msgstr "Нижи"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% CI"
 
 msgid "Upper"
-msgstr "Горњи"
+msgstr "Виши"
 
 msgid "Cannot find function: %s"
 msgstr ""
@@ -219,7 +220,7 @@ msgid "Row"
 msgstr ""
 
 msgid "z"
-msgstr ""
+msgstr "z"
 
 msgid "Median"
 msgstr "Медијана"
