@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.19.2\n"
 "POT-Creation-Date: 2025-11-01 03:08\n"
-"PO-Revision-Date: 2025-09-20 03:00+0000\n"
+"PO-Revision-Date: 2025-12-31 12:01+0000\n"
 "Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/ta/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -38,9 +38,8 @@ msgstr "சார்பு மாறி நேர்மறையானது எ
 msgid "%s requires that the dependent variable is an integer."
 msgstr "%s சார்பு மாறி ஒரு முழு எண்."
 
-#, fuzzy
 msgid "%s requires that the dependent variable contains only two levels."
-msgstr "சார்பு மாறியில் 0 மற்றும் 1 மட்டுமே இருக்க வேண்டும் என்று %s தேவை."
+msgstr "%s க்கு சார்பு மாறி இரண்டு நிலைகளை மட்டுமே கொண்டிருக்க வேண்டும்."
 
 msgid "%s requires that the number of trials variable is an integer."
 msgstr "சோதனைகள் மாறியின் எண்ணிக்கை ஒரு முழு எண் என்று %s தேவை."
@@ -81,10 +80,10 @@ msgid "Effect"
 msgstr "விளைவு"
 
 msgid "df"
-msgstr "டி.எஃப்"
+msgstr "டிஎஃப்"
 
 msgid "F"
-msgstr "F"
+msgstr "எஃப்"
 
 msgid "ChiSq"
 msgstr "சிச்க்"
@@ -114,7 +113,7 @@ msgid "II"
 msgstr "Ii"
 
 msgid "'%1$s' level coded as success."
-msgstr ""
+msgstr "'%1$s' நிலை வெற்றியாகக் குறியிடப்பட்டது."
 
 msgid "Fit statistics"
 msgstr "பொருத்தமான புள்ளிவிவரங்கள்"
@@ -153,7 +152,7 @@ msgid "Term"
 msgstr "கால"
 
 msgid "Std. Deviation"
-msgstr "Std. விலகல்"
+msgstr "படிப்பு விலகல்"
 
 msgid "Variance"
 msgstr "மாறுபாட்டெண்"
@@ -234,7 +233,7 @@ msgid "Row"
 msgstr "நிரை"
 
 msgid "z"
-msgstr "சட்"
+msgstr "ஔ"
 
 msgid "Median"
 msgstr "இடைநடு"
@@ -476,9 +475,8 @@ msgstr "நிகழ்தகவு விகித சோதனைகள்"
 msgid "parametric bootstrap"
 msgstr "அளவுரு தொடக்கவார்"
 
-#, fuzzy
 msgid "Model terms tested with %s method."
-msgstr "மாதிரி விதிமுறைகள் %s டெச்ட்மெதோட் மூலம் சோதிக்கப்பட்டன."
+msgstr "மாதிரி விதிமுறைகள் %s முறை மூலம் சோதிக்கப்பட்டது."
 
 msgid "P-values are not adjusted."
 msgstr "பி-மதிப்புகள் சரிசெய்யப்படவில்லை."
