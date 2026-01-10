@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-27 03:12+0000\n"
+"PO-Revision-Date: 2026-01-06 14:01+0000\n"
 "Last-Translator: Zev Oster <zevelijah@gmail.com>\n"
 "Language-Team: Tibetan <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-qml/bo/>\n"
@@ -29,6 +29,7 @@ msgctxt "Description|"
 msgid "Generalized Linear Mixed Models"
 msgstr ""
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Bayesian"
 msgstr "བྷེ་ཡེ་སིའི།"
@@ -41,41 +42,50 @@ msgctxt "Description|"
 msgid "Bayesian Generalized Linear Mixed Models"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Options"
-msgstr ""
+msgstr "འདེམས་ཀ"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Burnin"
-msgstr ""
+msgstr "Burnin"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Chains"
-msgstr ""
+msgstr "Chains"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Adapt delta"
-msgstr ""
+msgstr "Adapt delta"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Maximum treedepth"
-msgstr ""
+msgstr "Maximum treedepth"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Show"
-msgstr ""
+msgstr "སྟོན་པ།"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Differences from intercept"
-msgstr ""
+msgstr "intercept ནས་ཁྱད་པར།"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Marginal means"
-msgstr ""
+msgstr "Marginal means"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Model summary"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་སྙིང་བསྡུས།"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Fixed effects estimates"
@@ -85,109 +95,135 @@ msgctxt "MixedModelsBOptions|"
 msgid "Variance/correlation estimates"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Credible interval"
-msgstr ""
+msgstr "དད་རུང་བར་མཚམས།"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "MCMC diagnostics"
-msgstr ""
+msgstr "MCMC diagnostics"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Model terms"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཀྱི་ཆ་རྐྱེན།"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "འཕྲེད་མདའ།"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plotted term"
-msgstr ""
+msgstr "དཔེ་རིས་སུ་བཀོད་པའི་ཆ་རྐྱེན།"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Vertical axis"
-msgstr ""
+msgstr "གཞུང་མདའ།"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Plot type"
-msgstr ""
+msgstr "དཔེ་རིས་ཀྱི་རིགས།"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Traceplot"
-msgstr ""
+msgstr "Traceplot"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Scatterplot"
-msgstr ""
+msgstr "Scatterplot"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Histogram"
-msgstr ""
+msgstr "Histogram"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Density"
-msgstr ""
+msgstr "སྟུག་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsMCMCDiagnostics|"
 msgid "Autocorrelations"
-msgstr ""
+msgstr "རང་ལྟོས་འབྲེལ།"
 
+#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Model"
-msgstr ""
+msgstr "དཔེ་དབྱིབས།"
 
+#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Model components"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཀྱི་ཆ་ཤས།"
 
+#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Fixed effects"
-msgstr ""
+msgstr "གཏན་འཁེལ་ཕན་ནུས།"
 
+#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Random effects"
-msgstr ""
+msgstr "རང་འགར་ཕན་ནུས།"
 
+#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Correlations"
-msgstr ""
+msgstr "ལྟོས་འབྲེལ།"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Options"
-msgstr ""
+msgstr "འདེམས་ཀ"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Type"
-msgstr ""
+msgstr "རིགས།"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "II"
-msgstr ""
+msgstr "II"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "III"
-msgstr ""
+msgstr "III"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Test intercept"
-msgstr ""
+msgstr "Test intercept"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Likelihood ratio tests"
-msgstr ""
+msgstr "སྲིད་ཕྱོད་བསྡུར་ཚད་ཀྱི་ཚོད་ལྟ།"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Parametric bootstrap"
-msgstr ""
+msgstr "Parametric bootstrap"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "No. samples"
-msgstr ""
+msgstr "མ་དཔེའི་གྲངས།"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Model summary"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་སྙིང་བསྡུས།"
 
 msgctxt "MixedModelsOptions|"
 msgid "Fixed effects estimates"
@@ -197,635 +233,783 @@ msgctxt "MixedModelsOptions|"
 msgid "Variance/correlation estimates"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Vovk-Sellke maximum p-ratio"
-msgstr ""
+msgstr "Vovk-Sellke maximum p-ratio"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Plots"
-msgstr ""
+msgstr "དཔེ་རིས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Model factors"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཀྱི་བགོད་གྲངས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Horizontal axis"
-msgstr ""
+msgstr "འཕྲེད་མདའ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Separate lines"
-msgstr ""
+msgstr "ཐིག་སོ་སོ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Separate plots"
-msgstr ""
+msgstr "དཔེ་རིས་སོ་སོ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "རང་འགར་ཕན་ནུས་ཚོགས་སྡེ་བཟོ་བའི་བགོད་གྲངས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Background data show"
-msgstr ""
+msgstr "རྒྱབ་ལྗོངས་གཞི་གྲངས་སྟོན་པ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval method"
-msgstr ""
+msgstr "ཡིད་རྟོན་བར་མཚམས་ཀྱི་ཐབས་ལམ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Model"
-msgstr ""
+msgstr "དཔེ་དབྱིབས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "None"
-msgstr ""
+msgstr "མེད།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Mean"
-msgstr ""
+msgstr "ཆ་སྙོམས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Within"
-msgstr ""
+msgstr "ནང་།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Between"
-msgstr ""
+msgstr "བར།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "ཡིད་རྟོན་བར་མཚམས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Distinguish factor levels"
-msgstr ""
+msgstr "བགོད་གྲངས་ཀྱི་རིམ་པ་དབྱེ་འབྱེད་བྱེད་པ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Color"
-msgstr ""
+msgstr "ཚོན་མདོག"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Shape"
-msgstr ""
+msgstr "དབྱིབས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Linetype"
-msgstr ""
+msgstr "ཐིག་གི་རིགས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Fill"
-msgstr ""
+msgstr "བཀང་རྒྱུ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Jitter"
-msgstr ""
+msgstr "Jitter"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Violin"
-msgstr ""
+msgstr "Violin"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Boxplot"
-msgstr ""
+msgstr "སྒམ་རིས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Count"
-msgstr ""
+msgstr "གྲངས་བཤེར།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Transparency"
-msgstr ""
+msgstr "དྭངས་གསལ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Jitter width"
-msgstr ""
+msgstr "Jitter ཞེང་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Jitter height"
-msgstr ""
+msgstr "Jitter མཐོ་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Dodge"
-msgstr ""
+msgstr "ཟུར་འབུད།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Theme"
-msgstr ""
+msgstr "བརྗོད་གཞི།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Light"
-msgstr ""
+msgstr "འོད་གསལ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Minimal"
-msgstr ""
+msgstr "ཉུང་མཐའ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Legend position"
-msgstr ""
+msgstr "རྟགས་འགྲེལ་གནས་ས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Bottom"
-msgstr ""
+msgstr "འོག"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Right"
-msgstr ""
+msgstr "གཡས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Top"
-msgstr ""
+msgstr "སྟེང་།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Left"
-msgstr ""
+msgstr "གཡོན།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Dark grey"
-msgstr ""
+msgstr "ཐལ་མདོག་ནག་པོ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Black"
-msgstr ""
+msgstr "ནག་པོ།"
 
 msgctxt "MixedModelsPlots|"
 msgid "Light grey"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Blue"
-msgstr ""
+msgstr "སྔོན་པོ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Red"
-msgstr ""
+msgstr "དམར་པོ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Violet"
-msgstr ""
+msgstr "Violet"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Relative size text"
-msgstr ""
+msgstr "ཡི་གེའི་ཆེ་ཆུང་ལྟོས་བཅས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Relative size foreground data"
-msgstr ""
+msgstr "མདུན་ངོས་གཞི་གྲངས་ཀྱི་ཆེ་ཆུང་ལྟོས་བཅས།"
 
 msgctxt "MixedModelsPlots|"
 msgid "Estimates table"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "ལྟོས་བཅས་འགྱུར་ཆོས།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Number of trials"
-msgstr ""
+msgstr "ཚོད་ལྟའི་གྲངས།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "གཏན་འཁེལ་ཕན་ནུས་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "རང་འགར་ཕན་ནུས་ཚོགས་སྡེ་བཟོ་བའི་བགོད་གྲངས།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Family"
-msgstr ""
+msgstr "Family"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
-msgstr ""
+msgstr "ཉིས་ཚན།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "Gaussian"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Gamma"
-msgstr ""
+msgstr "གྷ་མ།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse Gaussian"
-msgstr ""
+msgstr "Inverse Gaussian"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Poisson"
-msgstr ""
+msgstr "པོ་སུང་།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Negative Binomial"
-msgstr ""
+msgstr "Negative Binomial"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Beta"
-msgstr ""
+msgstr "Beta"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Logit"
-msgstr ""
+msgstr "Logit"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "Probit"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Cauchit"
-msgstr ""
+msgstr "Cauchit"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Complementary LogLog"
-msgstr ""
+msgstr "Complementary LogLog"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Identity"
-msgstr ""
+msgstr "ངོ་བོ།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Log"
-msgstr ""
+msgstr "Log"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Sqrt"
-msgstr ""
+msgstr "Sqrt"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse"
-msgstr ""
+msgstr "Inverse"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Estimated marginal means"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཀྱི་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "བདམས་པའི་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Response scale"
-msgstr ""
+msgstr "ལན་འདེབས་ཚད་གཞི།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Specify contrasts"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Estimated trends/conditional slopes"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "རྒྱུན་མཐུད་འགྱུར་ཚད།"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Trend variable"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "ལྟོས་བཅས་འགྱུར་ཆོས།"
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "གཏན་འཁེལ་ཕན་ནུས་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "རང་འགར་ཕན་ནུས་ཚོགས་སྡེ་བཟོ་བའི་བགོད་གྲངས།"
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Estimated marginal means"
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཀྱི་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "བདམས་པའི་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "ཡིད་རྟོན་བར་མཚམས།"
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SD factor covariates"
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Specify contrasts"
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Estimated trends/conditional slopes"
 
+#, fuzzy
 msgctxt "MixedModelsBLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "རྒྱུན་མཐུད་འགྱུར་ཚད།"
 
 msgctxt "MixedModelsBLMM|"
 msgid "Trend variable"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "ལྟོས་བཅས་འགྱུར་ཆོས།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Number of trials"
-msgstr ""
+msgstr "ཚོད་ལྟའི་གྲངས།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "གཏན་འཁེལ་ཕན་ནུས་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "རང་འགར་ཕན་ནུས་ཚོགས་སྡེ་བཟོ་བའི་བགོད་གྲངས།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Family"
-msgstr ""
+msgstr "Family"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
-msgstr ""
+msgstr "ཉིས་ཚན།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "Gaussian"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Gamma"
-msgstr ""
+msgstr "གྷ་མ།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse Gaussian"
-msgstr ""
+msgstr "Inverse Gaussian"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Poisson"
-msgstr ""
+msgstr "པོ་སུང་།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Logit"
-msgstr ""
+msgstr "Logit"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "Probit"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Cauchit"
-msgstr ""
+msgstr "Cauchit"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Complementary LogLog"
-msgstr ""
+msgstr "Complementary LogLog"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Identity"
-msgstr ""
+msgstr "ངོ་བོ།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Log"
-msgstr ""
+msgstr "Log"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Sqrt"
-msgstr ""
+msgstr "Sqrt"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse"
-msgstr ""
+msgstr "Inverse"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Estimated marginal means"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཀྱི་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "བདམས་པའི་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "ཡིད་རྟོན་བར་མཚམས།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SD factor covariates"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Compare marginal means to:"
-msgstr ""
+msgstr "Compare marginal means to:"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Response scale"
-msgstr ""
+msgstr "ལན་འདེབས་ཚད་གཞི།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Specify contrasts"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "P-value adjustment"
-msgstr ""
+msgstr "P-value adjustment"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Multivariate-t"
-msgstr ""
+msgstr "Multivariate-t"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "None"
-msgstr ""
+msgstr "མེད།"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Estimated trends/conditional slopes"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "རྒྱུན་མཐུད་འགྱུར་ཚད།"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Trend variable"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Compare trends to:"
-msgstr ""
+msgstr "Compare trends to:"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Dependent variable"
-msgstr ""
+msgstr "ལྟོས་བཅས་འགྱུར་ཆོས།"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Fixed effects variables"
-msgstr ""
+msgstr "གཏན་འཁེལ་ཕན་ནུས་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Random effects grouping factors"
-msgstr ""
+msgstr "རང་འགར་ཕན་ནུས་ཚོགས་སྡེ་བཟོ་བའི་བགོད་གྲངས།"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Estimated marginal means"
-msgstr ""
+msgstr "Estimated marginal means"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Model variables"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཀྱི་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Selected variables"
-msgstr ""
+msgstr "བདམས་པའི་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "ཡིད་རྟོན་བར་མཚམས།"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SD factor covariates"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Estimate df"
-msgstr ""
+msgstr "Estimate df"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Asymptotic"
-msgstr ""
+msgstr "Asymptotic"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Force df estimation"
-msgstr ""
+msgstr "Force df estimation"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Compare marginal means to:"
-msgstr ""
+msgstr "Compare marginal means to:"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Specify contrasts"
-msgstr ""
+msgstr "Specify contrasts"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "P-value adjustment"
-msgstr ""
+msgstr "P-value adjustment"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Multivariate-t"
-msgstr ""
+msgstr "Multivariate-t"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "None"
-msgstr ""
+msgstr "མེད།"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Estimated trends/conditional slopes"
-msgstr ""
+msgstr "Estimated trends/conditional slopes"
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Continous variables"
-msgstr ""
+msgstr "རྒྱུན་མཐུད་འགྱུར་ཚད།"
 
 msgctxt "MixedModelsLMM|"
 msgid "Trend variable"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsLMM|"
 msgid "Compare trends to:"
-msgstr ""
+msgstr "Compare trends to:"
 
 msgctxt "Description|"
 msgid "Evaluate the difference between multiple means with random effects"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "White background"
-msgstr ""
+msgstr "རྒྱབ་ལྗོངས་དཀར་པོ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Border color"
-msgstr ""
+msgstr "མཐའ་སྒྲོམ་གྱི་ཚོན་མདོག"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Random effects estimates"
 msgstr ""
 
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "MixedModelsModel|"
 msgid "Random components (%1)"
-msgstr ""
+msgstr "རང་འགར་ཆ་ཤས། (%1)"
 
 msgctxt "MixedModelsOptions|"
 msgid "Random effects estimates"
 msgstr ""
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Confidence interval"
-msgstr ""
+msgstr "ཡིད་རྟོན་བར་མཚམས།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "SD factor covariates"
-msgstr ""
+msgstr "SD factor covariates"
 
+#, fuzzy
 msgctxt "MixedModelsBOptions|"
 msgid "Samples"
-msgstr ""
+msgstr "མ་དཔེ།"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Test method"
-msgstr ""
+msgstr "ཚོད་ལྟའི་ཐབས་ལམ།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Background element"
-msgstr ""
+msgstr "རྒྱབ་ལྗོངས་ཆ་ཤས།"
 
+#, fuzzy
 msgctxt "MixedModelsPlots|"
 msgid "Element width"
-msgstr ""
+msgstr "ཆ་ཤས་ཀྱི་ཞེང་ཚད།"
 
+#, fuzzy
 msgctxt "MixedModelsModel|"
 msgid "Include intercept"
-msgstr ""
+msgstr "intercept ཚུད་པ།"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Factor contrast"
-msgstr ""
+msgstr "བགོད་གྲངས་ཀྱི་ contrast"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Sum"
-msgstr ""
+msgstr "བསྡོམས་འབོར།"
 
+#, fuzzy
 msgctxt "MixedModelsOptions|"
 msgid "Treatment"
-msgstr ""
+msgstr "བཅོས་ཐབས།"
 
+#, fuzzy
 msgctxt "MixedModelsBGLMM|"
 msgid "Bernoulli"
-msgstr ""
+msgstr "Bernoulli"
 
+#, fuzzy
 msgctxt "MixedModelsGLMM|"
 msgid "Bernoulli"
-msgstr ""
+msgstr "Bernoulli"
