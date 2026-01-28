@@ -357,7 +357,7 @@ Form {
 			{
 				id:		trendsVariables
 				name:	"trendsVariables"
-				title:	qsTr("Selected variables"); info: qsTr("Variables over which the the conditional slopes will be computed.")
+				title:	qsTr("Selected variables"); info: qsTr("Variables over which the conditional slopes will be computed.")
 			}
 		}
 
