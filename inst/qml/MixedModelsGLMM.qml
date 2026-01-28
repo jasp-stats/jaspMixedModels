@@ -22,6 +22,15 @@ import JASP.Controls
 import "./common"		as MM
 
 Form {
+	info: qsTr("Generalized Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a dependent variable in cases where the observations are not independent, but clustered within one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). They are generalizations of Linear Mixed Models and allow you to model response variables that are not continuous using different likelihoods and link functions.") + "\n" +
+	"## " + qsTr("Assumptions") + "\n" +
+	"- " + qsTr("Linearity and additivity: The response variable is related to all predictors according to the link function and the effects of the predictors are additive on the linear scale.") + "\n" +
+	"- " + qsTr("Independence of errors: The errors are uncorrelated with each other after taking the model (i.e., fixed effects and random effects structure) into account.") + "\n" +
+	"- " + qsTr("Homoscedasticity: The error variance of each predictor is constant across all values of that predictor.") + "\n" +
+	"- " + qsTr("Distribution of errors: The errors are distributed according to the distributional family.") + "\n\n" +
+	qsTr("The analysis uses sum contrast encoding for categorical (nominal and ordinal) predictors (R uses dummy encoding by default). This scheme is used for better interpretability of models with interactions. However, the fixed and random effects estimates will differ from those obtained from R with default settings. We advise using the 'Estimated marginal means' section for obtaining mean estimates at individual factor levels. For comparing the mean estimates, use the contrasts option. To change the contrast encoding for the analysis use Factor contrast dropdown in the Options section.") + "\n\n" +
+	qsTr("The analysis uses a long data format.")
+
 	id: form
 
 	Formula
@@ -43,7 +52,7 @@ Form {
 		AssignedVariablesList
 		{
 			name:				"dependent"
-			title:				qsTr("Dependent variable")
+			title:				qsTr("Dependent variable"); info: qsTr("Dependent (response) variable.")
 			allowedColumns: 	family.currentValue === "bernoulli" ? "nominal" : "scale"
 			allowTypeChange:	true
 			singleVariable:		true
@@ -53,7 +62,7 @@ Form {
 		{
 			visible:			active
 			name:				"dependentAggregation"
-			title:				qsTr("Number of trials")
+			title:				qsTr("Number of trials"); info: qsTr("Number of trials, only applicable if the Binomial (aggregated) family is selected.")
 			singleVariable:		true
 			allowedColumns:		["scale"]
 
@@ -66,7 +75,7 @@ Form {
 		AssignedVariablesList
 		{
 			name:				"fixedVariables"
-			title:				qsTr("Fixed effects variables")
+			title:				qsTr("Fixed effects variables"); info: qsTr("Variables used as the fixed effects predictors (the model terms can be specified under Model section). These are usually the variables of primary scientific interest.")
 			allowedColumns:		["nominal", "scale"]
 			allowTypeChange:	true
 		}
@@ -74,7 +83,7 @@ Form {
 		AssignedVariablesList
 		{
 			name:				"randomVariables"
-			title:				qsTr("Random effects grouping factors")
+			title:				qsTr("Random effects grouping factors"); info: qsTr("Categorical variable(s) specifying clusters of observations (i.e., several observations per level of a random effects grouping factor). These are typically variables, such as participants or items, one wants to generalize over. Factors with very few levels (i.e., fewer than five or six levels) should not be used as random effects grouping factors as the number of levels determines the power of the fixed effects tests (Westfall, Kenny, & Judd, 2014). The random effects structure (i.e., random intercepts, random slopes, and correlations among random effects parameters) can be specified under Model - Random effects. The default random effects structure is the automatically determined 'maximal random effects structure justified by the design' (Barr, Levy, Scheepers, & Tily, 2013).")
 			allowedColumns:		["nominal"]
 		}
 	}
@@ -85,7 +94,7 @@ Form {
 		DropDown
 		{
 			name:				"family"
-			label:				qsTr("Family")
+			label:				qsTr("Family"); info: qsTr("Distribution function whose likelihood will be used for the dependent variable. Several options are available.")
 			id:					family
 			indexDefaultValue:	0
 			values:
@@ -136,7 +145,7 @@ Form {
 		{
 			id:						link
 			name:					"link"
-			title:					qsTr("Link")
+			title:					qsTr("Link"); info: qsTr("Link function that will be used to model the mean parameter of the selected distribution function.")
 			radioButtonsOnSameRow:	true
 			
 			RadioButton
@@ -223,7 +232,7 @@ Form {
 			AvailableVariablesList
 			{
 				name:	"availableModelComponentsMeans"
-				title:	qsTr("Model variables")
+				title:	qsTr("Model variables"); info: qsTr("Fixed effects variables that can be used for computing estimated marginal means.")
 				source: [{ name: "fixedEffects", use: "noInteraction" }]
 			}
 
@@ -231,21 +240,21 @@ Form {
 			{
 				id:		marginalMeans
 				name:	"marginalMeansTerms"
-				title:	qsTr("Selected variables")
+				title:	qsTr("Selected variables"); info: qsTr("Variables for which the estimated marginal means will be computed.")
 			}
 		}
 
 		CIField
 		{
 			name:	"marginalMeansCiLevel"
-			label:	qsTr("Confidence interval")
+			label:	qsTr("Confidence interval"); info: qsTr("Width of the confidence interval. Set at 95% by default, which can be changed by the user.")
 		}
 
 		DoubleField
 		{
 			id:				marginalMeansSD
 			name:			"marginalMeansSd"
-			label:			qsTr("SD factor covariates")
+			label:			qsTr("SD factor covariates"); info: qsTr("Specifies the 'levels' of continuous variables (expressed in standard deviations) over which the estimated marginal means are computed.")
 			defaultValue: 	1
 			min:			0
 			enabled:		marginalMeans.columnsTypes.includes("scale")
@@ -259,7 +268,7 @@ Form {
 			{
 				name:	"marginalMeansComparison"
 				id:		marginalMeansCompare
-				label:	qsTr("Compare marginal means to:")
+				label:	qsTr("Compare marginal means to:"); info: qsTr("Value to which the estimated marginal means will be compared.")
 			}
 
 			DoubleField
@@ -272,7 +281,7 @@ Form {
 		CheckBox
 		{
 			name: "marginalMeansResponse"
-			label: qsTr("Response scale")
+			label: qsTr("Response scale"); info: qsTr("Whether the estimated marginal means should be computed on the response scale or untransformed linear scale. The response scale is selected by default.")
 			checked: true
 		}
 
@@ -280,22 +289,22 @@ Form {
 		{
 			name:	"marginalMeansContrast"
 			id:		marginalMeansContrast
-			label:	qsTr("Specify contrasts")
+			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated marginal means. The first column contains row indices corresponding to the estimated marginal means output table. Columns with variable names show the levels of each variable for the respective marginal mean. Columns labeled ‘Contrast x’ are used to define contrasts. To specify a contrast between two marginal means, enter -1 and 1 in the corresponding rows. Interactions can be tested by defining differences in marginal means of one variable across levels of another.")
 		}
 
 		DropDown
 		{
 			name:	"marginalMeansPAdjustment"
-			label:	qsTr("P-value adjustment")
+			label:	qsTr("P-value adjustment"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available.")
 			values:
 			[
-				{ label: "Holm",					value: "holm"},
-				{ label: qsTr("Multivariate-t"),	value: "mvt"},
-				{ label: "Scheffé",					value: "scheffe"},
-				{ label: "Tukey",					value: "tukey"},
-				{ label: qsTr("None"),				value: "none"},
-				{ label: "Bonferroni",				value: "bonferroni"},
-				{ label: "Hommel",					value: "hommel"}
+				{ label: "Holm", info: qsTr("This method is also called sequential Bonferroni, and is considered less conservative than the Bonferroni method.")	,				value: "holm"},
+				{ label: qsTr("Multivariate-t"), info: qsTr("Correction that takes into account that test results might be correlated. Best suited for multivariate models.")	,value: "mvt"},
+				{ label: "Scheffé",	info: qsTr("Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.")	,			value: "scheffe"},
+				{ label: "Tukey", info: qsTr("Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.")	,				value: "tukey"},
+				{ label: qsTr("None"), info: qsTr("No adjustment is conducted.") ,				value: "none"},
+				{ label: "Bonferroni", info: qsTr("This correction is considered conservative. The risk of Type I error is reduced, however, the statistical power decreases as well.")	,			value: "bonferroni"},
+				{ label: "Hommel",	info: qsTr("This correction is considered to be more powerful but less conservative than Bonferroni and Holm corrections. Recommended for a small number of tests.")	,			value: "hommel"}
 			]
 		}
 
@@ -321,7 +330,7 @@ Form {
 			AvailableVariablesList
 			{
 				name:	"availableModelComponentsTrends1"
-				title:	qsTr("Continous variables")
+				title:	qsTr("Continuous variables"); info: qsTr("Continuous fixed effects variables that can be used for estimating the conditional slopes.")
 				source: [ { name: "fixedEffects", use: "type=scale"} ]
 			}
 
@@ -329,7 +338,7 @@ Form {
 			{
 				singleVariable:	true
 				name:			"trendsTrendVariable"
-				title:			qsTr("Trend variable")
+				title:			qsTr("Trend variable"); info: qsTr("Variables for which the estimated conditional slopes will be computed.")
 			}
 		}
 
@@ -340,7 +349,7 @@ Form {
 			AvailableVariablesList
 			{
 				name:	"availableModelComponentsTrends2"
-				title:	qsTr("Model variables")
+				title:	qsTr("Model variables"); info: qsTr("Fixed effects variables over which the conditional slopes can be computed.")
 				source:	[{ name: "fixedEffects", use: "noInteraction" }]
 			}
 
@@ -348,21 +357,21 @@ Form {
 			{
 				id:		trendsVariables
 				name:	"trendsVariables"
-				title:	qsTr("Selected variables")
+				title:	qsTr("Selected variables"); info: qsTr("Variables over which the conditional slopes will be computed.")
 			}
 		}
 
 		CIField
 		{
 			name:	"trendsCiLevel"
-			label:	qsTr("Confidence interval")
+			label:	qsTr("Confidence interval"); info: qsTr("Width of the confidence interval. Set at 95% by default, which can be changed by the user.")
 		}
 
 		DoubleField
 		{ 
 			id:				trendsSD
 			name:			"trendsSd"
-			label:			qsTr("SD factor covariates")
+			label:			qsTr("SD factor covariates"); info: qsTr("Specifies the 'levels' of continuous variables (expressed in standard deviations) over which the conditional slopes are computed.")
 			defaultValue:	1
 			min:			0
 			enabled:		trendsVariables.columnsTypes.includes("scale")
@@ -376,7 +385,7 @@ Form {
 			{
 				name:	"trendsComparison"
 				id:		trendsCompare
-				label:	qsTr("Compare trends to:")
+				label:	qsTr("Compare trends to:"); info: qsTr("Value to which the estimated conditional slopes will be compared.")
 			}
 
 			DoubleField
@@ -390,22 +399,22 @@ Form {
 		{
 			name:	"trendsContrast"
 			id:		trendsContrast
-			label:	qsTr("Specify contrasts")
+			label:	qsTr("Specify contrasts"); info: qsTr("Creates a table for specifying contrasts based on the estimated conditional slopes. The first column contains row indices corresponding to the estimated conditional slopes output table. Columns with variable names show the levels of each variable for the respective conditional slope. Columns labeled ‘Contrast x’ are used to define contrasts. To specify a contrast between two conditional slopes, enter -1 and 1 in the corresponding rows. Interactions can be tested by defining differences in conditional slopes of one variable across levels of another.")
 		}
 
 		DropDown
 		{
 			name:	"trendsPAdjustment"
-			label:	qsTr("P-value adjustment")
+			label:	qsTr("P-value adjustment"); info: qsTr("To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available.")
 			values:
 			[
-				{ label: "Holm",					value: "holm"},
-				{ label: qsTr("Multivariate-t"),	value: "mvt"},
-				{ label: "Scheffé",					value: "scheffe"},
-				{ label: "Tukey",					value: "tukey"},
-				{ label: qsTr("None"),				value: "none"},
-				{ label: "Bonferroni",				value: "bonferroni"},
-				{ label: "Hommel",					value: "hommel"}
+				{ label: "Holm", info: qsTr("This method is also called sequential Bonferroni, and is considered less conservative than the Bonferroni method.")	,				value: "holm"},
+				{ label: qsTr("Multivariate-t"), info: qsTr("Correction that takes into account that test results might be correlated. Best suited for multivariate models.")	,value: "mvt"},
+				{ label: "Scheffé",	info: qsTr("Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.")	,			value: "scheffe"},
+				{ label: "Tukey", info: qsTr("Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.")	,				value: "tukey"},
+				{ label: qsTr("None"), info: qsTr("No adjustment is conducted.") ,				value: "none"},
+				{ label: "Bonferroni", info: qsTr("This correction is considered conservative. The risk of Type I error is reduced, however, the statistical power decreases as well.")	,			value: "bonferroni"},
+				{ label: "Hommel",	info: qsTr("This correction is considered to be more powerful but less conservative than Bonferroni and Holm corrections. Recommended for a small number of tests.")	,			value: "hommel"}
 			]
 		}
 
