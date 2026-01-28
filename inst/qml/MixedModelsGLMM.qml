@@ -94,7 +94,7 @@ Form {
 		DropDown
 		{
 			name:				"family"
-			label:				qsTr("Family"); info: qsTr("Distribution function which likelihood will be used for the dependent variable. Several options are available.")
+			label:				qsTr("Family"); info: qsTr("Distribution function whose likelihood will be used for the dependent variable. Several options are available.")
 			id:					family
 			indexDefaultValue:	0
 			values:
