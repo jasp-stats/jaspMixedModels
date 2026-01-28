@@ -22,7 +22,7 @@ import JASP.Controls
 import "./common"		as MM
 
 Form {
-	info: qsTr("Bayesian Generalized Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered within one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). They are generalizations of Bayesian Linear Mixed Models and allow you to model response variables that are not continuous using different likelihoods and link functions.") + "\n" +
+	info: qsTr("Bayesian Generalized Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a dependent variable in cases where the observations are not independent, but clustered within one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). They are generalizations of Bayesian Linear Mixed Models and allow you to model response variables that are not continuous using different likelihoods and link functions.") + "\n" +
 	"## " + qsTr("Assumptions") + "\n" +
 	"- " + qsTr("Linearity and additivity: The response variable is related to all predictors according to the link function and the effects of the predictors are additive on the linear scale.") + "\n" +
 	"- " + qsTr("Independence of errors: The errors are uncorrelated with each other after taking the model (i.e., fixed effects and random effects structure) into account.") + "\n" +
