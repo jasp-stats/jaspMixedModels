@@ -52,7 +52,7 @@ Form {
 		AssignedVariablesList
 		{
 			name:				"dependent"
-			title:				qsTr("Dependent variable")
+			title:				qsTr("Dependent variable"); info: qsTr("Dependent (response) variable.")
 			allowedColumns: 	family.currentValue === "bernoulli" ? "nominal" : "scale"
 			allowTypeChange:	true
 			singleVariable:		true
