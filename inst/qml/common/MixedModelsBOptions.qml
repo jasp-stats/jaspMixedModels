@@ -78,8 +78,8 @@ Section
 		{
 			name:		"estimateType"
 			title:		qsTr("Show"); info: qsTr("Specifies the content of the default output table.")
-			RadioButton { value: "deviation";		label: qsTr("Differences from intercept"); info: qsTr("A table for each fixed effects terms will be created in the default output and it will show the differences from the grand mean for each of the levels of the terms(or one standard deviation distance for continuous terms). This option is selected by default.") ;checked: true}
-			RadioButton { value: "marginalMeans";	label: qsTr("Marginal means"); info: qsTr("A table for each fixed effects term will be created in the default output and it will show the estimated marginal mean for each of the levels of the terms(or one standard deviation distance for continuous terms).") }
+			RadioButton { value: "deviation";		label: qsTr("Differences from intercept"); info: qsTr("A table for each fixed effects term will be created in the default output and it will show the differences from the grand mean for each of the levels of the terms (or one standard deviation distance for continuous terms). This option is selected by default.") ;checked: true}
+			RadioButton { value: "marginalMeans";	label: qsTr("Marginal means"); info: qsTr("A table for each fixed effects term will be created in the default output and it will show the estimated marginal mean for each of the levels of the terms (or one standard deviation distance for continuous terms).") }
 		}
 
 		Group
