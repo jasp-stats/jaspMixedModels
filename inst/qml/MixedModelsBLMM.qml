@@ -157,7 +157,7 @@ Form {
 			AvailableVariablesList
 			{
 				name:	"availableModelComponentsTrends1"
-				title:	qsTr("Continous variables"); info: qsTr("Continuous fixed effects variables that can be used for estimating the conditional slopes.")
+				title:	qsTr("Continuous variables"); info: qsTr("Continuous fixed effects variables that can be used for estimating the conditional slopes.")
 				source: [ { name: "fixedEffects", use: "type=scale"} ]
 			}
 
