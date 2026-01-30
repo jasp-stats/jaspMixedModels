@@ -2468,11 +2468,12 @@
     if (jaspResults[["nMissing"]]$object != 0)
       tempTable$addFootnote(.mmMessageMissingRows(jaspResults[["nMissing"]]$object))
 
-    if (type == "BGLMM")
+    if (type == "BGLMM") {
       tempTable$addFootnote(.mmMessageGLMMtype(options$family, options$link))
-
-    if (options$family == "bernoulli")
-      tempTable$addFootnote(gettextf("'%1$s' level coded as success.", attr(dataset, "binomialSuccess")))
+       
+      if (options$family == "bernoulli")
+        tempTable$addFootnote(gettextf("'%1$s' level coded as success.", attr(dataset, "binomialSuccess")))
+    }
   }
 
   return()
