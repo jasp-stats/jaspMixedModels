@@ -2005,7 +2005,7 @@
     if (options$family == "negativeBinomial") {
       glmmFamily <<- rstanarm::neg_binomial_2(link = glmmLink)
     } else if (options$family == "beta") {
-      glmmFamily <<- mgcv::betar(link = glmmLink)
+      glmmFamily <<- do.call(mgcv::betar, list(link = glmmLink))
     } else {
       glmmFamily <<- .mmGetRFamily(options[["family"]])
       glmmFamily <<- eval(call(glmmFamily, glmmLink))
@@ -2470,7 +2470,7 @@
 
     if (type == "BGLMM") {
       tempTable$addFootnote(.mmMessageGLMMtype(options$family, options$link))
-       
+
       if (options$family == "bernoulli")
         tempTable$addFootnote(gettextf("'%1$s' level coded as success.", attr(dataset, "binomialSuccess")))
     }
