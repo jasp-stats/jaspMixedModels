@@ -101,7 +101,7 @@
   family <- switch(family,
                    "bernoulli"         = gettext("Bernoulli"),
                    "binomial"          = gettext("binomial"),
-                   "gaussian"          = gettext("gaussian"),
+                   "gaussian"          = gettext("Gaussian"),
                    "gamma"             = gettext("gamma"),
                    "inverseGaussian"   = gettext("inverseGaussian"),
                    "poisson"           = gettext("poisson"),
