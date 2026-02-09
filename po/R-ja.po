@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2025-11-01 03:08\n"
+"POT-Creation-Date: 2026-02-09 12:23\n"
 "PO-Revision-Date: 2024-07-02 17:09+0000\n"
 "Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
@@ -437,10 +437,14 @@ msgstr "P値は、%sに対する帰無仮説の検定に対応しています。
 msgid "Results are averaged over the levels of: %s."
 msgstr "結果は次の水準で平均化されています: %s."
 
+msgid "Bernoulli"
+msgstr ""
+
 msgid "binomial"
 msgstr "二項"
 
-msgid "gaussian"
+#, fuzzy
+msgid "Gaussian"
 msgstr "正規"
 
 msgid "gamma"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.0\n"
-"POT-Creation-Date: 2025-11-01 03:08\n"
+"POT-Creation-Date: 2026-02-09 12:23\n"
 "PO-Revision-Date: 2025-08-07 23:01+0000\n"
 "Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/"
@@ -447,10 +447,14 @@ msgstr "Wartości p odpowiadają testowi hipotezy zerowej względem %s."
 msgid "Results are averaged over the levels of: %s."
 msgstr "Wyniki są uśrednione dla poziomów z: %s."
 
+msgid "Bernoulli"
+msgstr ""
+
 msgid "binomial"
 msgstr "dwumianowy"
 
-msgid "gaussian"
+#, fuzzy
+msgid "Gaussian"
 msgstr "Gaussa"
 
 msgid "gamma"

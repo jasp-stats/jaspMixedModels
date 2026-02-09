@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.95.5\n"
-"POT-Creation-Date: 2025-11-15 03:07\n"
+"POT-Creation-Date: 2026-02-09 12:23\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -317,10 +317,13 @@ msgstr ""
 msgid "Results are averaged over the levels of: %s."
 msgstr ""
 
+msgid "Bernoulli"
+msgstr ""
+
 msgid "binomial"
 msgstr ""
 
-msgid "gaussian"
+msgid "Gaussian"
 msgstr ""
 
 msgid "gamma"

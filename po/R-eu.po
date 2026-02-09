@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.95.0\n"
-"POT-Creation-Date: 2025-11-01 03:08\n"
+"POT-Creation-Date: 2026-02-09 12:23\n"
 "PO-Revision-Date: 2025-10-01 11:02+0000\n"
 "Last-Translator: Jose Ramon Rueda <joseramon.rueda@ehu.eus>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/jasp/"
@@ -445,10 +445,14 @@ msgstr "P-balioak hipotesi nuluaren probari dagozkio %s-ren aurka."
 msgid "Results are averaged over the levels of: %s."
 msgstr "Emaitzak batez bestekoa kalkulatzen dira honako mailen gainean: %s."
 
+msgid "Bernoulli"
+msgstr ""
+
 msgid "binomial"
 msgstr "binomiala"
 
-msgid "gaussian"
+#, fuzzy
+msgid "Gaussian"
 msgstr "gaussiarra"
 
 msgid "gamma"

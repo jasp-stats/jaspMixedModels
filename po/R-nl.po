@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
-"POT-Creation-Date: 2025-11-01 03:08\n"
+"POT-Creation-Date: 2026-02-09 12:23\n"
 "PO-Revision-Date: 2025-05-03 03:04+0000\n"
 "Last-Translator: Koen Derks <koen-derks@hotmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/jasp/"
@@ -444,10 +444,14 @@ msgstr "P-waarden komen overeen met de toetsing van de nulhypothese tegen %s."
 msgid "Results are averaged over the levels of: %s."
 msgstr "Resultaten zijn gemiddeld over de levels van: %s."
 
+msgid "Bernoulli"
+msgstr ""
+
 msgid "binomial"
 msgstr "binomiaal"
 
-msgid "gaussian"
+#, fuzzy
+msgid "Gaussian"
 msgstr "gaussische"
 
 msgid "gamma"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.19.2\n"
-"POT-Creation-Date: 2025-11-01 03:08\n"
+"POT-Creation-Date: 2026-02-09 12:23\n"
 "PO-Revision-Date: 2025-12-31 12:01+0000\n"
 "Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/jasp/"
@@ -438,10 +438,14 @@ msgstr "பி-மதிப்புகள் %s க்கு எதிரான
 msgid "Results are averaged over the levels of: %s."
 msgstr "முடிவுகள் சராசரியாக உள்ளன: %s."
 
+msgid "Bernoulli"
+msgstr ""
+
 msgid "binomial"
 msgstr "ஈருறுப்பு"
 
-msgid "gaussian"
+#, fuzzy
+msgid "Gaussian"
 msgstr "காசியன்"
 
 msgid "gamma"

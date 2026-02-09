@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
-"POT-Creation-Date: 2025-11-01 03:08\n"
+"POT-Creation-Date: 2026-02-09 12:23\n"
 "PO-Revision-Date: 2025-12-14 08:00+0000\n"
 "Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/jasp/"
@@ -456,10 +456,14 @@ msgstr "Os valores P correspóndense coa proba da hipótese nula contra %s."
 msgid "Results are averaged over the levels of: %s."
 msgstr "Os resultados son medias calculadas sobre os niveis de: %s."
 
+msgid "Bernoulli"
+msgstr ""
+
 msgid "binomial"
 msgstr "Binomial"
 
-msgid "gaussian"
+#, fuzzy
+msgid "Gaussian"
 msgstr "Normal"
 
 msgid "gamma"

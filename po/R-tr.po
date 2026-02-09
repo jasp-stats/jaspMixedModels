@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.20.0\n"
-"POT-Creation-Date: 2025-11-01 03:08\n"
+"POT-Creation-Date: 2026-02-09 12:23\n"
 "PO-Revision-Date: 2025-10-07 21:02+0000\n"
 "Last-Translator: Hamza Yalçin <h.yalcin08@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/jasp/"
@@ -387,10 +387,14 @@ msgstr "P-değerleri, null hipotezin %s'e karşı test edilmesine karşılık ge
 msgid "Results are averaged over the levels of: %s."
 msgstr "Sonuçlar şunun düzeyleri üzerinden ortalamalanmıştır: %s."
 
+msgid "Bernoulli"
+msgstr ""
+
 msgid "binomial"
 msgstr ""
 
-msgid "gaussian"
+#, fuzzy
+msgid "Gaussian"
 msgstr "gaussian"
 
 #, fuzzy

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.95.0\n"
-"POT-Creation-Date: 2025-11-01 03:08\n"
+"POT-Creation-Date: 2026-02-09 12:23\n"
 "PO-Revision-Date: 2025-10-20 06:17+0000\n"
 "Last-Translator: Gabija Vaitkevičiūtė <gabija.vaitkev@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/jasp/"
@@ -381,10 +381,13 @@ msgstr ""
 msgid "Results are averaged over the levels of: %s."
 msgstr ""
 
+msgid "Bernoulli"
+msgstr ""
+
 msgid "binomial"
 msgstr ""
 
-msgid "gaussian"
+msgid "Gaussian"
 msgstr ""
 
 msgid "gamma"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.2\n"
-"POT-Creation-Date: 2025-11-01 03:08\n"
+"POT-Creation-Date: 2026-02-09 12:23\n"
 "PO-Revision-Date: 2025-11-06 02:51+0000\n"
 "Last-Translator: \"Cheng R. Zhu\" <zcr@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -382,10 +382,13 @@ msgstr ""
 msgid "Results are averaged over the levels of: %s."
 msgstr ""
 
+msgid "Bernoulli"
+msgstr ""
+
 msgid "binomial"
 msgstr ""
 
-msgid "gaussian"
+msgid "Gaussian"
 msgstr ""
 
 msgid "gamma"
