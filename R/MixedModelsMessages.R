@@ -240,6 +240,8 @@
     return(gettext("The optimizer failed to find a solution in the specified number of iterations. (JASP currently does not support modifying the optimizer settings.)"))
   else if (grepl("unexpected symbol", error)) # triggered by right hand side formula larger than 500 characters -- the maximum length
     return(gettext("The model formula is probably too long. Try shortening variable names."))
+  else if (grepl("solve.default.*singular|Lapack routine.*singular", error))
+    return(gettext("The Kenward-Roger degrees of freedom approximation failed because the variance-covariance matrix is singular. This can happen with overly complex models or when the model structure does not support this method. Try using asymptotic degrees of freedom instead."))
   else
     return(error)
 }
