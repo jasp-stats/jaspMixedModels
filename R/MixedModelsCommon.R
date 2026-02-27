@@ -1602,7 +1602,7 @@
     )
   )
 
-  if (inherits(emm, "try-error")) {
+  if (jaspBase::isTryError(emm)) {
     trendsSummary$setError(.mmErrorOnFit(emm))
     return()
   }
