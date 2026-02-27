@@ -1555,15 +1555,24 @@
   else if (type == "GLMM" && options$family == "gaussian" && options$link == "identity")
     trendsDf <<- "asymptotic"
 
-  emm <- emmeans::emtrends(
-    object  = trendsModel,
-    data    = trendsDataset,
-    specs   = unlist(options$trendsVariables),
-    var     = unlist(options$trendsTrendVariable),
-    at      = trendsAt,
-    options = list(level = trendsCI),
-    lmer.df = if (trendsType == "LMM") trendsDf
-  )
+  # Catch singular matrix errors from Kenward-Roger df estimation
+  tryCatch({
+    emm <- emmeans::emtrends(
+      object  = trendsModel,
+      data    = trendsDataset,
+      specs   = unlist(options$trendsVariables),
+      var     = unlist(options$trendsTrendVariable),
+      at      = trendsAt,
+      options = list(level = trendsCI),
+      lmer.df = if (trendsType == "LMM") trendsDf
+    )
+  }, error = function(e) {
+    if (grepl("solve\\.default", e$message, ignore.case = TRUE) && grepl("singular", e$message, ignore.case = TRUE)) {
+      .quitAnalysis(.mmErrorKenwardRogerSingular())
+    } else {
+      stop(e)
+    }
+  })
   emmTable  <- as.data.frame(emm)
   if (type %in% c("LMM", "GLMM") && options$trendsComparison)
     emmTest <- as.data.frame(emmeans::test(emm, null = options$trendsComparisonWith))

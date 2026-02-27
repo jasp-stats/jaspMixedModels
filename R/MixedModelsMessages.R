@@ -243,3 +243,7 @@
   else
     return(error)
 }
+
+.mmErrorKenwardRogerSingular <- function() {
+  gettext("Kenward-Roger degrees of freedom estimation failed. The design matrix is singular, possibly due to a small sample size, multicollinearity, or issues with the specified contrasts. Consider using 'Asymptotic' degrees of freedom or reducing the complexity of your model.")
+}
