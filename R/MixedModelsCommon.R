@@ -473,6 +473,13 @@
   if (!is.null(jaspResults[["mmModel"]]))
     return()
 
+  # Validate parametricBootstrap + non-Gaussian family combination
+  # This combination does not work due to a limitation in the afex package
+  # See: https://github.com/singmann/afex/issues/134
+  if (type == "GLMM" && options[["testMethod"]] == "parametricBootstrap" && options[["family"]] != "gaussian") {
+    .quitAnalysis(gettextf("Parametric bootstrap is not supported for %s family. Please use a different test method (e.g., likelihood ratio test).", options[["family"]]))
+  }
+
   mmModel <- createJaspState()
   #maybe you should define some columns here
   jaspResults[["mmModel"]] <- mmModel
