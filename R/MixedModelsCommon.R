@@ -1902,7 +1902,7 @@
   }
 
   if (jaspBase::isTryError(emmContrast)) {
-    EMMCsummary$setError(emmContrast)
+    EMMCsummary$setError(.mmErrorOnFit(emmContrast))
     return()
   }
 
