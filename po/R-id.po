@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.95.5\n"
 "POT-Creation-Date: 2026-02-28 03:23\n"
-"PO-Revision-Date: 2026-03-20 12:47+0000\n"
+"PO-Revision-Date: 2026-03-21 03:28+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/id/>\n"
@@ -68,7 +68,7 @@ msgid "ChiSq"
 msgstr ""
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "p (bootstrap)"
 msgstr ""
@@ -107,10 +107,10 @@ msgid "log Lik."
 msgstr ""
 
 msgid "AIC"
-msgstr ""
+msgstr "AIC"
 
 msgid "BIC"
-msgstr ""
+msgstr "BIC"
 
 msgid "Sample sizes"
 msgstr ""
@@ -152,13 +152,13 @@ msgid "Fixed Effects Estimates"
 msgstr ""
 
 msgid "Estimate"
-msgstr ""
+msgstr "Estimasi"
 
 msgid "SE"
 msgstr ""
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Plot"
 msgstr ""
@@ -182,13 +182,13 @@ msgid "Mean"
 msgstr "Rerata"
 
 msgid "Lower"
-msgstr ""
+msgstr "Bawah"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% CI"
 
 msgid "Upper"
-msgstr ""
+msgstr "Atas"
 
 msgid "Cannot find function: %s"
 msgstr ""
@@ -257,7 +257,7 @@ msgid "%s (marginal means)"
 msgstr ""
 
 msgid "Level"
-msgstr ""
+msgstr "Tingkat"
 
 msgid "R-hat"
 msgstr ""
