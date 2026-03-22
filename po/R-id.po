@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.95.5\n"
 "POT-Creation-Date: 2026-02-28 03:23\n"
-"PO-Revision-Date: 2026-03-21 03:28+0000\n"
+"PO-Revision-Date: 2026-03-22 23:25+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/id/>\n"
@@ -155,7 +155,7 @@ msgid "Estimate"
 msgstr "Estimasi"
 
 msgid "SE"
-msgstr ""
+msgstr "SE"
 
 msgid "t"
 msgstr "t"
@@ -203,7 +203,7 @@ msgid "z"
 msgstr "z"
 
 msgid "Median"
-msgstr ""
+msgstr "Median"
 
 msgid "%s%% HPD"
 msgstr ""
@@ -260,13 +260,13 @@ msgid "Level"
 msgstr "Tingkat"
 
 msgid "R-hat"
-msgstr ""
+msgstr "R-hat"
 
 msgid "ESS (bulk)"
-msgstr ""
+msgstr "ESS (massal)"
 
 msgid "ESS (tail)"
-msgstr ""
+msgstr "ESS (ekor)"
 
 msgid "The model could not be estimated. Please, check the options and dataset for errors."
 msgstr ""
