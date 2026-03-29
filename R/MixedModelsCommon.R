@@ -19,6 +19,30 @@
 # TODO: Expose priors specification to users in Bxxx?
 # TODO: Add 3rd level random effects grouping factors ;) (not that difficult actually)
 
+# Workaround for afex::mixed with parametric bootstrap calling glmer with REML argument
+# glmer() does not accept REML (GLMMs are always fit with ML), but afex passes REML = FALSE
+# Patch lme4::glmer to accept but ignore REML argument
+# This runs via .onLoad to ensure namespace is properly unlocked
+.glmerPatchEnv <- new.env()
+assign(".glmer_patched", FALSE, envir = .glmerPatchEnv)
+
+.onLoad <- function(libname, pkgname) {
+  # Only patch once
+  if (!get(".glmer_patched", envir = .glmerPatchEnv)) {
+    ns <- asNamespace("lme4")
+    if (unlockBinding("glmer", ns)) {
+      .glmer_orig <<- get("glmer", envir = ns, inherits = FALSE)
+      ns$glmer <- function(...) {
+        args <- list(...)
+        args$REML <- NULL
+        do.call(.glmer_orig, args)
+      }
+      lockBinding("glmer", ns)
+      assign(".glmer_patched", TRUE, envir = .glmerPatchEnv)
+    }
+  }
+}
+
 .mmRunAnalysis   <- function(jaspResults, dataset, options, type) {
 
   .setOptions()
