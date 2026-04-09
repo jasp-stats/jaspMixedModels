@@ -19,9 +19,96 @@
 
 #' Bayesian Linear Mixed Models
 #'
+#' Bayesian Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered within one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). An introduction to this model class and the concepts introduced below is provided in Singmann and Kellen (2019).
+#' ## Assumptions
+#' - Continuous response variable.
+#' - Linearity and additivity: The response variable is linearly related to all predictors and the effects of the predictors are additive.
+#' - Independence of errors: The errors are uncorrelated with each other after taking the model (i.e., fixed effects and random effects structure) into account.
+#' - Homoscedasticity: The error variance of each predictor is constant across all values of that predictor.
+#' - Normality of errors: The errors are normally distributed with mean zero.
+#' 
+#' The analysis uses orthonormal contrasts such that the marginal prior on all fixed effects is identical for categorical (nominal and ordinal) predictors (R uses dummy encoding by default). This scheme is used for better interpretability of models with interactions. However, the fixed and random effects estimates will differ from those obtained from R with default settings. We advise using the 'Estimated marginal means' section for obtaining mean estimates at individual factor levels. For comparing the mean estimates, use the contrasts option.
+#' 
+#' The analysis uses a long data format.
+#' 
+#' The prior distributions are weakly informative and should be well-behaved in parameter estimation settings. The module uses the default prior distribution settings of the rstanarm R package which defines normal(location = 0, scale = 2.5) prior distributions on scaled and centered model coefficients.
+#'
+#' @param ciLevel, Width of the credible interval. Set at 95% by default, which can be changed by the user.
+#' @param dependent, Dependent (response) variable.
+#' @param estimateType, Specifies the content of the default output table.
+#' \itemize{
+#'   \item \code{"deviation"}: A table for each fixed effects term will be created in the default output and it will show the differences from the grand mean for each of the levels of the terms (or one standard deviation distance for continuous terms). This option is selected by default.
+#'   \item \code{"marginalMeans"}: A table for each fixed effects term will be created in the default output and it will show the estimated marginal mean for each of the levels of the terms (or one standard deviation distance for continuous terms).
+#' }
+#' @param fixedEffectEstimate, Shows the estimated fixed effect coefficients.
+#'    Defaults to \code{FALSE}.
+#' @param fixedEffects, The independent variables in the model. By default, all the main effects of the specified independent variables and their interactions are included in the model. To include more interactions, click multiple variables (e.g., by holding the ctrl/cmd button on your keyboard while clicking) and drag those into the Fixed effects box.
+#' @param fixedVariables, Variables used as the fixed effects predictors (the model terms can be specified under Model section). These are usually the variables of primary scientific interest.
+#' @param includeIntercept, Include the intercept in the model.
+#'    Defaults to \code{TRUE}.
+#' @param marginalMeansCiLevel, Width of the confidence interval. Set at 95% by default, which can be changed by the user.
+#' @param marginalMeansContrast, Creates a table for specifying contrasts based on the estimated marginal means. The first column contains row indices corresponding to the estimated marginal means output table. Columns with variable names show the levels of each variable for the respective marginal mean. Columns labeled ‘Contrast x’ are used to define contrasts. To specify a contrast between two marginal means, enter -1 and 1 in the corresponding rows. Interactions can be tested by defining differences in marginal means of one variable across levels of another.
+#'    Defaults to \code{FALSE}.
+#' @param marginalMeansSd, What should be the 'levels' of continuous variables (expressed in standard deviations) for which the estimated marginal means are computed.
+#' @param marginalMeansTerms, Variables for which the estimated marginal means will be computed.
+#' @param mcmcAdaptDelta, Average target proposal acceptance of each step. Increasing Adapt delta results in better-behaved chains, but also longer fitting times.
+#' @param mcmcBurnin, Number of iterations reserved for burnin.
+#' @param mcmcChains, Number of MCMC chains.
+#' @param mcmcDiagnosticsHorizontal, Fixed effects model term whose chain will be diagnosed.
+#' @param mcmcDiagnosticsType, Different types of MCMC diagnostic plots. The plotted values correspond to the fixed effect terms displayed in the default output. Those are the deviations from the estimated grand mean by default, but can be changed to estimated marginal means in the Options section.
+#' \itemize{
+#'   \item \code{"traceplot"} (default) : Traceplot of the individual chains.
+#'   \item \code{"scatterplot"}: Scatterplot of two model terms.
+#'   \item \code{"histogram"}: Histogram of the posterior samples.
+#'   \item \code{"density"}: Overlaid density plots of samples from each chain.
+#'   \item \code{"autocorrelation"}: Average autocorrelation plots across all chains.
+#' }
+#' @param mcmcDiagnosticsVertical, Fixed effects model term whose chain will be diagnosed. Only available if the Plot type is Scatterplot.
+#' @param mcmcMaxTreedepth, The cap for the number of trees evaluated during each iteration. Prevents excessively long execution times.
+#' @param mcmcSamples, Number of MCMC samples.
+#' @param modelSummary, Adds an output table including relevant fit statistics.
+#'    Defaults to \code{FALSE}.
+#' @param plotBackgroundColor, Color of the aggregated response variable. Several options are available.
+#' @param plotBackgroundData, The level of aggregation for the response variable. i.e., if participants are selected, the individual data points in the background are their averages across the combinations of levels of fixed effect factors selected in the Horizontal axis, Separate lines, and Separate plots.
+#' @param plotBackgroundElement, Type of background element to be used on the plots. Several options are available.
+#' @param plotCiLevel, Width of the confidence interval. Set at 95% by default, which can be changed by the user.
+#' @param plotCiType, Type of standard error on which the error bars will be based. Default is 'model', which plots model-based standard errors. Several options are available.
+#' @param plotDodge, Spacing between the plotted elements (geoms).
+#' @param plotElementWidth, Width of the element.
+#' @param plotEstimatesTable, Display numerical summary of the plotted objects.
+#'    Defaults to \code{FALSE}.
+#' @param plotHorizontalAxis, Variables that will be plotted on the horizontal axis.
+#' @param plotJitterHeight, Height of the jitter.
+#' @param plotJitterWidth, Width of the jitter.
+#' @param plotLegendPosition, Whether and where should the legend be plotted. Several options are available.
+#' \itemize{
+#'   \item \code{"none"} (default) : No legend is plotted.
+#'   \item \code{"bottom"}: The legend is plotted on the bottom.
+#'   \item \code{"right"}: The legend is plotted on the right.
+#'   \item \code{"top"}: The legend is plotted on the top.
+#'   \item \code{"left"}: The legend is plotted on the left.
+#' }
+#' @param plotRelativeSizeData, Relative size of the foreground data (confidence interval bars, etc.).
+#' @param plotRelativeSizeText, Relative size of the plotted text.
+#' @param plotSeparateLines, Variables that will be plotted inside the plot as different traces/lines.
+#' @param plotSeparatePlots, Variables whose levels will be split across different plots.
+#' @param plotTheme, Color palette to be used on the plot display. Several options are available.
+#' @param plotTransparency, Transparency level of the plotted elements (geoms).
+#' @param randomEffectEstimate, Shows the estimated random effects coefficients.
+#'    Defaults to \code{FALSE}.
+#' @param randomEffects, The random effects organized by random effects grouping factors. By default, all of the random effects corresponding to the fixed effects are included and JASP internally checks and removes non-estimable random effects. That is, the default corresponds to the maximal random effects structure justified by the design. Unticking the boxes on the left of the variable names removes the random effect from the corresponding random effects grouping factor.
+#' @param randomVariables, Categorical variable(s) specifying clusters of observations (i.e., several observations per level of a random effects grouping factor). These are typically variables, such as participants or items, one wants to generalize over. Factors with very few levels (i.e., fewer than five or six levels) should not be used as random effects grouping factors as the number of levels determines the power of the fixed effects tests (Westfall, Kenny, & Judd, 2014). The random effects structure (i.e., random intercepts, random slopes, and correlations among random effects parameters) can be specified under Model - Random effects. The default random effects structure is the automatically determined 'maximal random effects structure justified by the design' (Barr, Levy, Scheepers, & Tily, 2013).
+#' @param trendsCiLevel, Width of the confidence interval. Set at 95% by default, which can be changed by the user.
+#' @param trendsContrast, Creates a table for specifying contrasts based on the estimated conditional slopes. The first column contains row indices corresponding to the estimated conditional slopes output table. Columns with variable names show the levels of each variable for the respective conditional slope. Columns labeled ‘Contrast x’ are used to define contrasts. To specify a contrast between two conditional slopes, enter -1 and 1 in the corresponding rows. Interactions can be tested by defining differences in conditional slopes of one variable across levels of another.
+#'    Defaults to \code{FALSE}.
+#' @param trendsSd, What should be the 'levels' of continuous variables (expressed in standard deviations) over which the conditional slopes are computed.
+#' @param trendsTrendVariable, Variables for which the estimated conditional slopes will be computed.
+#' @param trendsVariables, Variables over which the conditional slopes will be computed.
+#' @param varianceCorrelationEstimate, Shows the estimated residual variances and variances/correlations of random effects coefficients.
+#'    Defaults to \code{FALSE}.
 MixedModelsBLMM <- function(
           data = NULL,
-          version = "0.95",
+          version = "0.96.1",
           formula = NULL,
           ciLevel = 0.95,
           contrasts = list(),
@@ -105,5 +192,5 @@ MixedModelsBLMM <- function(
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspMixedModels", "MixedModelsBLMM", "MixedModelsBLMM.qml", options, version, FALSE))
+   return(jaspBase::runWrappedAnalysis("jaspMixedModels", "MixedModelsBLMM", "MixedModelsBLMM.qml", options, version, TRUE))
 }

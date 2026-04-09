@@ -19,9 +19,119 @@
 
 #' Linear Mixed Models
 #'
+#' Linear Mixed Models allow you to model a linear relationship between one or more explanatory variable(s) and a continuous dependent variable in cases where the observations are not independent, but clustered within one or several random effects grouping factors (e.g., repeated measures across participants or items, children within schools). An introduction to this model class and the concepts introduced below is provided in Singmann and Kellen (2019).
+#' ## Assumptions
+#' - Continuous response variable.
+#' - Linearity and additivity: The response variable is linearly related to all predictors and the effects of the predictors are additive.
+#' - Independence of errors: The errors are uncorrelated with each other after taking the model (i.e., fixed effects and random effects structure) into account.
+#' - Homoscedasticity: The error variance of each predictor is constant across all values of that predictor.
+#' - Normality of errors: The errors are normally distributed with mean zero.
+#' 
+#' The analysis uses sum contrast encoding for categorical (nominal and ordinal) predictors (R uses dummy encoding by default). This scheme is used for better interpretability of models with interactions. However, the fixed and random effects estimates will differ from those obtained from R with default settings. We advise using the 'Estimated marginal means' section for obtaining mean estimates at individual factor levels. For comparing the mean estimates, use the contrasts option. To change the contrast encoding for the analysis use Factor contrast dropdown in the Options section.
+#' 
+#' The analysis uses a long data format.
+#'
+#' @param bootstrapSamples, Number of samples to be used for the parametric bootstrap.
+#' @param dependent, Dependent (response) variable.
+#' @param factorContrast, Specifies factor encoding for categorical variables.
+#' \itemize{
+#'   \item \code{"sum"} (default) : Compares each category to the overall mean.
+#'   \item \code{"treatment"}: Compares each category to a baseline category, also known as 'Dummy' coding.
+#' }
+#' @param fixedEffectEstimate, Shows the estimated fixed effect coefficients.
+#'    Defaults to \code{FALSE}.
+#' @param fixedEffects, The independent variables in the model. By default, all the main effects of the specified independent variables and their interactions are included in the model. To include more interactions, click multiple variables (e.g., by holding the ctrl/cmd button on your keyboard while clicking) and drag those into the Fixed effects box.
+#' @param fixedVariables, Variables used as the fixed effects predictors (the model terms can be specified under Model section). These are usually the variables of primary scientific interest.
+#' @param includeIntercept, Include the intercept in the model.
+#'    Defaults to \code{TRUE}.
+#' @param interceptTest, Specifies whether the model intercept should be tested. Available only if the likelihood ratio test or parametric bootstrap is selected in the Model Terms test.
+#'    Defaults to \code{FALSE}.
+#' @param marginalMeansCiLevel, Width of the confidence interval. Set at 95% by default, which can be changed by the user.
+#' @param marginalMeansComparison, Value to which the estimated marginal means will be compared.
+#'    Defaults to \code{FALSE}.
+#' @param marginalMeansContrast, Creates a table for specifying contrasts based on the estimated marginal means. The first column contains row indices corresponding to the estimated marginal means output table. Columns with variable names show the levels of each variable for the respective marginal mean. Columns labeled ‘Contrast x’ are used to define contrasts. To specify a contrast between two marginal means, enter -1 and 1 in the corresponding rows. Interactions can be tested by defining differences in marginal means of one variable across levels of another.
+#'    Defaults to \code{FALSE}.
+#' @param marginalMeansDf, Method of estimating degrees of freedom. Note that Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets. There are 3 available options.
+#' @param marginalMeansDfEstimated, JASP automatically uses Asymptotic degrees of freedom in cases with a large dataset. This can be disabled by ticking this checkbox.
+#'    Defaults to \code{FALSE}.
+#' @param marginalMeansPAdjustment, To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available.
+#' \itemize{
+#'   \item \code{"holm"} (default) : This method is also called sequential Bonferroni, and is considered less conservative than the Bonferroni method.
+#'   \item \code{"mvt"}: Correction that takes into account that test results might be correlated. Best suited for multivariate models.
+#'   \item \code{"scheffe"}: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.
+#'   \item \code{"tukey"}: Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.
+#'   \item \code{"none"}: No adjustment is conducted.
+#'   \item \code{"bonferroni"}: This correction is considered conservative. The risk of Type I error is reduced, however, the statistical power decreases as well.
+#'   \item \code{"hommel"}: This correction is considered to be more powerful but less conservative than Bonferroni and Holm corrections. Recommended for a small number of tests.
+#' }
+#' @param marginalMeansSd, Specifies the 'levels' of continuous variables (expressed in standard deviations) over which the estimated marginal means are computed.
+#' @param marginalMeansTerms, Variables for which the estimated marginal means will be computed.
+#' @param modelSummary, Output table containing relevant statistics for the model.
+#'    Defaults to \code{FALSE}.
+#' @param plotBackgroundColor, Color of the aggregated response variable. Several options are available.
+#' @param plotBackgroundData, The level of aggregation for the response variable. i.e., if participants are selected, the individual data points in the background are their averages across the combinations of levels of fixed effect factors selected in the Horizontal axis, Separate lines, and Separate plots.
+#' @param plotBackgroundElement, Type of background element to be used on the plots. Several options are available.
+#' @param plotCiLevel, Width of the confidence interval. Set at 95% by default, which can be changed by the user.
+#' @param plotCiType, Type of standard error on which the error bars will be based. Default is 'model', which plots model-based standard errors. Several options are available.
+#' @param plotDodge, Spacing between the plotted elements (geoms).
+#' @param plotElementWidth, Width of the element.
+#' @param plotEstimatesTable, Display numerical summary of the plotted objects.
+#'    Defaults to \code{FALSE}.
+#' @param plotHorizontalAxis, Variables that will be plotted on the horizontal axis.
+#' @param plotJitterHeight, Height of the jitter.
+#' @param plotJitterWidth, Width of the jitter.
+#' @param plotLegendPosition, Whether and where should the legend be plotted. Several options are available.
+#' \itemize{
+#'   \item \code{"none"} (default) : No legend is plotted.
+#'   \item \code{"bottom"}: The legend is plotted on the bottom.
+#'   \item \code{"right"}: The legend is plotted on the right.
+#'   \item \code{"top"}: The legend is plotted on the top.
+#'   \item \code{"left"}: The legend is plotted on the left.
+#' }
+#' @param plotRelativeSizeData, Relative size of the foreground data (confidence interval bars, etc.).
+#' @param plotRelativeSizeText, Relative size of the plotted text.
+#' @param plotSeparateLines, Variables that will be plotted inside the plot as different traces/lines.
+#' @param plotSeparatePlots, Variables whose levels will be split across different plots.
+#' @param plotTheme, Color palette to be used on the plot display. Several options are available.
+#' @param plotTransparency, Transparency level of the plotted elements (geoms).
+#' @param randomEffectEstimate, Shows the estimated random effects coefficients.
+#'    Defaults to \code{FALSE}.
+#' @param randomEffects, The random effects organized by random effects grouping factors. By default, all of the random effects corresponding to the fixed effects are included and JASP internally checks and removes non-estimable random effects. That is, the default corresponds to the maximal random effects structure justified by the design. Unticking the boxes on the left of the variable names removes the random effect from the corresponding random effects grouping factor.
+#' @param randomVariables, Categorical variable(s) specifying clusters of observations (i.e., several observations per level of a random effects grouping factor). These are typically variables, such as participants or items, one wants to generalize over. Factors with very few levels (i.e., fewer than five or six levels) should not be used as random effects grouping factors as the number of levels determines the power of the fixed effects tests (Westfall, Kenny, & Judd, 2014). The random effects structure (i.e., random intercepts, random slopes, and correlations among random effects parameters) can be specified under Model - Random effects. The default random effects structure is the automatically determined 'maximal random effects structure justified by the design' (Barr, Levy, Scheepers, & Tily, 2013).
+#' @param testMethod, Methods for obtaining p-values for the ANOVA summary. Note that the Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets and complicated random effects structures. Several methods are available.
+#' @param trendsCiLevel, Width of the confidence interval. Set at 95% by default, which can be changed by the user.
+#' @param trendsComparison, Value to which the estimated conditional slopes will be compared.
+#'    Defaults to \code{FALSE}.
+#' @param trendsContrast, Creates a table for specifying contrasts based on the estimated conditional slopes. The first column contains row indices corresponding to the estimated conditional slopes output table. Columns with variable names show the levels of each variable for the respective conditional slope. Columns labeled ‘Contrast x’ are used to define contrasts. To specify a contrast between two conditional slopes, enter -1 and 1 in the corresponding rows. Interactions can be tested by defining differences in conditional slopes of one variable across levels of another.
+#'    Defaults to \code{FALSE}.
+#' @param trendsDf, Method of estimating degrees of freedom. Note that Kenward-Roger approximation for degrees of freedom can be very RAM and time consuming with larger datasets. There are 3 available options.
+#' @param trendsDfEstimated, JASP automatically uses Asymptotic degrees of freedom in cases with a large dataset. This can be disabled by ticking this checkbox.
+#'    Defaults to \code{FALSE}.
+#' @param trendsPAdjustment, To correct for multiple comparison testing and avoid Type I errors, different methods for correcting the p-value are available:
+#' \itemize{
+#'   \item \code{"holm"} (default) : This method is also called sequential Bonferroni, and is considered less conservative than the Bonferroni method.
+#'   \item \code{"mvt"}: Correction that takes into account that test results might be correlated. Best suited for multivariate models.
+#'   \item \code{"scheffe"}: Adjusting significance levels in a linear regression, to account for multiple comparisons. This method is considered to be quite conservative.
+#'   \item \code{"tukey"}: Compare all possible pairs of group means. This correction can be used when the groups of the independent variable have an equal sample size and variance.
+#'   \item \code{"none"}: No adjustment is conducted.
+#'   \item \code{"bonferroni"}: This correction is considered conservative. The risk of Type I error is reduced, however, the statistical power decreases as well.
+#'   \item \code{"hommel"}: This correction is considered to be more powerful but less conservative than Bonferroni and Holm corrections. Recommended for a small number of tests.
+#' }
+#' @param trendsSd, Specifies the 'levels' of continuous variables (expressed in standard deviations) over which the conditional slopes are computed.
+#' @param trendsTrendVariable, Variables for which the estimated conditional slopes will be computed.
+#' @param trendsVariables, Variables over which the conditional slopes will be computed.
+#' @param type, There are different types of sum of squares. The choice of the type is important when there are multiple factors and when the data are unbalanced. In an unbalanced design, the different levels of the independent variable do not have an equal number of observations (e.g., one group contains more observations than another group). In such cases, the sum of squares type can influence the results.
+#' \itemize{
+#'   \item \code{"2"}: Hierarchical/partially sequential sum of squares. It is the reduction of error when each factor is added to a model that includes all the other factors, except those in which the added factor is involved, such as interactions containing it. Langsrud (2003) advises to apply this type for an ANOVA with unbalanced data.
+#'   \item \code{"3"}: Partial sum of squares. It is the reduction of error when each factor is added to a model that includes all the other factors, including interactions with this factor. This type is often selected, because it takes interactions into account (Langsrud, 2003). This type is selected by default and recommended for designs in which the imbalance is not a consequence of imbalance in the population, but due to random variation.
+#' }
+#' @param varianceCorrelationEstimate, Shows the estimated residual variances and variances/correlations of random effects coefficients.
+#'    Defaults to \code{FALSE}.
+#' @param vovkSellke, Shows the maximum ratio of the likelihood of the obtained p-value under H1 vs the likelihood of the obtained p value under H0. For example, if the two-sided p-value equals .05, the Vovk-Sellke MPR equals 2.46, indicating that this p-value is at most 2.46 times more likely to occur under H1 than under H0.
+#'    Defaults to \code{FALSE}.
 MixedModelsLMM <- function(
           data = NULL,
-          version = "0.95",
+          version = "0.96.1",
           formula = NULL,
           bootstrapSamples = 500,
           contrasts = list(),
@@ -111,5 +221,5 @@ MixedModelsLMM <- function(
    for (name in optionsWithFormula) {
       if ((name %in% optionsWithFormula) && inherits(options[[name]], "formula")) options[[name]] = jaspBase::jaspFormula(options[[name]], data)   }
 
-   return(jaspBase::runWrappedAnalysis("jaspMixedModels", "MixedModelsLMM", "MixedModelsLMM.qml", options, version, FALSE))
+   return(jaspBase::runWrappedAnalysis("jaspMixedModels", "MixedModelsLMM", "MixedModelsLMM.qml", options, version, TRUE))
 }

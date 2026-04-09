@@ -26,3 +26,4 @@ Remotes:
   jasp-stats/jaspBase,
   jasp-stats/jaspGraphs,
   bayesstuff/stanova
+RoxygenNote: 7.3.2
