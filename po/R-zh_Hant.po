@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.18.0\n"
 "POT-Creation-Date: 2026-02-28 03:23\n"
-"PO-Revision-Date: 2026-05-24 16:11+0000\n"
+"PO-Revision-Date: 2026-05-27 12:19+0000\n"
 "Last-Translator: 陳正昌 <chencc99@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspmixedmodels-r/zh_Hant/>\n"
@@ -282,7 +282,6 @@ msgstr "%s (趨勢)"
 msgid "%s (marginal means)"
 msgstr "%s (邊際平均數)"
 
-#, fuzzy
 msgid "Level"
 msgstr "水準"
 
