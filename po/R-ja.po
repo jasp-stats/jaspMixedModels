@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.15.0\n"
 "POT-Creation-Date: 2026-02-28 03:23\n"
-"PO-Revision-Date: 2024-07-02 17:09+0000\n"
-"Last-Translator: Daiki Hojo <dhojo.bayes@gmail.com>\n"
+"PO-Revision-Date: 2026-07-28 05:01+0000\n"
+"Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/ja/>\n"
 "Language: ja\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 2026.8.dev0\n"
 
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
@@ -38,7 +38,6 @@ msgstr "%s は、従属変数が正である必要があります。"
 msgid "%s requires that the dependent variable is an integer."
 msgstr "%s は、従属変数が整数である必要があります。"
 
-#, fuzzy
 msgid "%s requires that the dependent variable contains only two levels."
 msgstr "%s は、従属変数に含まれる数字が0と1だけである必要があります。"
 
@@ -70,6 +69,8 @@ msgid ""
 "Parametric bootstrap is not supported for %s family. Please use a different "
 "test method (e.g., likelihood ratio test)."
 msgstr ""
+"パラメトリックブートストラップは %s の分布族では利用できません。別の検定方法"
+"(尤度比検定など)を使ってください。"
 
 msgid ""
 "Mixed-effects models with a fixed intercept only are not supported for "
@@ -109,7 +110,7 @@ msgid "Warning:"
 msgstr "警告:"
 
 msgid "Note:"
-msgstr "注意:"
+msgstr "注:"
 
 msgid "III"
 msgstr "III"
@@ -118,19 +119,19 @@ msgid "II"
 msgstr "II"
 
 msgid "'%1$s' level coded as success."
-msgstr ""
+msgstr "'%1$s' の水準を成功としてコードしています。"
 
 msgid "Fit statistics"
 msgstr "適合統計量"
 
 msgid "Deviance"
-msgstr "デビアンス"
+msgstr "逸脱度"
 
 msgid "Deviance (REML)"
 msgstr "逸脱度(REML)"
 
 msgid "log Lik."
-msgstr "log Lik."
+msgstr "対数尤度"
 
 msgid "AIC"
 msgstr "AIC"
@@ -142,7 +143,7 @@ msgid "Sample sizes"
 msgstr "サンプルサイズ"
 
 msgid "Observations"
-msgstr "観測値"
+msgstr "観測数"
 
 msgid "Levels of RE grouping factors"
 msgstr "グループ化要因のRE水準"
@@ -178,10 +179,10 @@ msgid "Fixed Effects Estimates"
 msgstr "固定効果の推定値"
 
 msgid "Estimate"
-msgstr "推定"
+msgstr "推定値"
 
 msgid "SE"
-msgstr "標準誤差"
+msgstr "SE"
 
 msgid "t"
 msgstr "t"
@@ -217,13 +218,13 @@ msgid "Estimated Means and Confidence Intervals"
 msgstr "平均値と信頼区間の推定値"
 
 msgid "Mean"
-msgstr "平均値"
+msgstr "平均"
 
 msgid "Lower"
 msgstr "下限"
 
 msgid "%s%% CI"
-msgstr "%s%% CI"
+msgstr "%s%% 信頼区間"
 
 msgid "Upper"
 msgstr "上限"
@@ -269,11 +270,8 @@ msgstr ""
 "指定された要因の組み合わせでは、推定可能なモデルが得られません。要因またはそ"
 "の組み合わせにより、有効なサンプルサイズよりも多くの水準が得られました。"
 
-#, fuzzy
 msgid "Please, report the following error message at JASP GitHub %s"
-msgstr ""
-"JASP GitHub https://github.com/jasp-stats/jasp-issues で次のエラー メッセージ"
-"を報告してください。"
+msgstr "次のエラーメッセージを JASP の GitHub %s に報告してください。"
 
 msgid "Fit Statistics"
 msgstr "適合度統計量"
@@ -291,7 +289,7 @@ msgid "SE (LOO)"
 msgstr "SE (LOO)"
 
 msgid "Model summary"
-msgstr "モデルの概要"
+msgstr "モデルの要約"
 
 msgid "%s (differences from intercept)"
 msgstr "%s (切片からの差分)"
@@ -309,10 +307,10 @@ msgid "R-hat"
 msgstr "R-hat"
 
 msgid "ESS (bulk)"
-msgstr "ESS (バルク)"
+msgstr "ESS (bulk)"
 
 msgid "ESS (tail)"
-msgstr "ESS (テール)"
+msgstr "ESS (tail)"
 
 msgid ""
 "The model could not be estimated. Please, check the options and dataset for "
@@ -322,7 +320,7 @@ msgstr ""
 "てください。"
 
 msgid "Sampling diagnostics"
-msgstr "サンプリング診断"
+msgstr "サンプリングの診断"
 
 msgid "Avg. autocorrelation"
 msgstr "平均自己相関"
@@ -417,10 +415,10 @@ msgstr ""
 "される）。強制的に推定するには、対応するオプションをチェックしてください。"
 
 msgid "Results are on the response scale."
-msgstr "結果は応答スケールです。"
+msgstr "結果は反応のスケールで示されています。"
 
 msgid "Results are not on the response scale and might be misleading."
-msgstr "結果は回答尺度ではないため、誤解を招く恐れがあります。"
+msgstr "結果は反応のスケールではないため、誤解を招く可能性があります。"
 
 msgid "Type %s Sum of Squares"
 msgstr "タイプ %s 平方和"
@@ -437,20 +435,19 @@ msgstr ""
 "「二項(集約)」族では、実行するために「試行回数」を指定する必要があります。"
 
 msgid "P-values correspond to test of null hypothesis against %s."
-msgstr "P値は、%sに対する帰無仮説の検定に対応しています。"
+msgstr "p値は %s に対する帰無仮説の検定に対応します。"
 
 msgid "Results are averaged over the levels of: %s."
 msgstr "結果は次の水準で平均化されています: %s."
 
 msgid "Bernoulli"
-msgstr ""
+msgstr "ベルヌーイ"
 
 msgid "binomial"
 msgstr "二項"
 
-#, fuzzy
 msgid "Gaussian"
-msgstr "正規"
+msgstr "ガウス"
 
 msgid "gamma"
 msgstr "ガンマ"
@@ -482,7 +479,6 @@ msgstr "尤度比検定"
 msgid "parametric bootstrap"
 msgstr "パラメトリックブートストラップ"
 
-#, fuzzy
 msgid "Model terms tested with %s method."
 msgstr "モデル項は %s 検定法で検証されます."
 
@@ -496,7 +492,7 @@ msgid "Homel"
 msgstr "Homel"
 
 msgid "Hochberg"
-msgstr "Hochberg"
+msgstr "ホッホベルグ(Hochberg)"
 
 msgid "Multivariate-t"
 msgstr "多変量-t"
@@ -511,10 +507,10 @@ msgid "Benjamini-Yekutieli"
 msgstr "Benjamini-Yekutieli"
 
 msgid "Scheffé"
-msgstr "シェフェ(Scheffe)"
+msgstr "シェフェ(Scheffé)"
 
 msgid "Sidak"
-msgstr "Sidak"
+msgstr "シダック(Sidak)"
 
 msgid "Dunnett"
 msgstr "ダネット(Dunnett)"
@@ -523,18 +519,18 @@ msgid "Bonferroni"
 msgstr "ボンフェローニ(Bonferroni)"
 
 msgid "P-values are adjusted using %s adjustment."
-msgstr "P値は%s調整を使用して調整されます。"
+msgstr "p値は %s による調整を行っています。"
 
-#, fuzzy
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; R-hat "
 "cannot be computed for all parameters due too few distinct samples. Please "
 "re-scale the variables or increase 'Iterations', or 'Adapt delta' in the "
 "Options section."
 msgstr ""
-"推論の信頼性が低い可能性があります -- MCMC チェーンが収束していない可能性があ"
-"ります。最大のR-hatが %.3f > 1.01でした。R-hatを下げるためには、オプションで"
-"「Iterations」や「Adapt delta」を増やしてください。"
+"推論の信頼性が低い可能性があります -- MCMCチェーンが収束していない可能性があ"
+"ります。異なるサンプルが少なすぎるため、R-hatをすべてのパラメータについて計算"
+"できません。変数を再スケールするか、オプションで「Iterations」または「Adapt "
+"delta」を増やしてください。"
 
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; The "
@@ -545,26 +541,25 @@ msgstr ""
 "ります。最大のR-hatが %.3f > 1.01でした。R-hatを下げるためには、オプションで"
 "「Iterations」や「Adapt delta」を増やしてください。"
 
-#, fuzzy
 msgid ""
 "Inference possibly unreliable -- MCMC chains might not have converged; "
 "Effective Sample Size (ESS) cannot be computed for all parameters due too "
 "few distinct samples. Please re-scale the variables or increase "
 "'Iterations', or 'Adapt delta' in the Options section."
 msgstr ""
-"推論の信頼性が低い可能性があります -- MCMC チェーンが収束していない可能性があ"
-"ります。最大のR-hatが %.3f > 1.01でした。R-hatを下げるためには、オプションで"
-"「Iterations」や「Adapt delta」を増やしてください。"
+"推論の信頼性が低い可能性があります -- MCMCチェーンが収束していない可能性があ"
+"ります。異なるサンプルが少なすぎるため、有効サンプルサイズ(ESS)をすべての"
+"パラメータについて計算できません。変数を再スケールするか、オプションで「"
+"Iterations」または「Adapt delta」を増やしてください。"
 
-#, fuzzy
 msgid ""
 "Low estimation accuracy -- The smallest Effective Sample Size (ESS) is "
 "%1$.2f < %2$1.0f. To increase accuracy please increase 'Iterations', or "
 "'Adapt delta' in the Options section."
 msgstr ""
-"推定精度が低いです -- Effective Sample Size (ESS) の最小値は %.2f < %1.0f で"
-"す。推定精度を上げるには、オプションで「反復回数」や「デルタを適応」を増やし"
-"てください。"
+"推定精度が低いです -- 有効サンプルサイズ(ESS)の最小値は %1$.2f < %2$1.0f です"
+"。精度を上げるには、オプションで「Iterations」または「Adapt delta」を増やして"
+"ください。"
 
 msgid ""
 "The model was fitted using restricted maximum likelihood. Please note that "
@@ -626,6 +621,9 @@ msgid ""
 "models or when the model structure does not support this method. Try using "
 "asymptotic degrees of freedom instead."
 msgstr ""
+"分散共分散行列が特異なため、自由度のKenward-Roger近似に失敗しました。モデルが"
+"複雑すぎる場合や、モデルの構造がこの方法に適さない場合に起こりえます。代わり"
+"に漸近的な自由度を使ってみてください。"
 
 msgid "The following variable is used as a random effects grouping factor: %s."
 msgid_plural ""
@@ -683,9 +681,9 @@ msgid_plural ""
 "divergent transitions after warmup. This can be solved by carefully "
 "increasing 'Adapt delta' until there are no divergent transitions."
 msgstr[0] ""
-"ハミルトニアンモンテカルロ法が不正です -- ウォームアップのあとで %i 点の拡散"
-"的移動がありました。これは、拡散的移動がなくなるまで「Adapt delta」を注意深く"
-"増やすことで解決できます。"
+"ハミルトニアン・モンテカルロの手続きが妥当でない可能性があります。"
+"ウォームアップ後に %i 回の発散遷移がありました。「adapt delta」を慎重に大きく"
+"して、発散遷移がなくなるようにすれば解決できます。"
 
 msgid ""
 "Bayesian Fraction of Missing Information (BFMI) that was too low in %i chain "
@@ -709,9 +707,9 @@ msgid_plural ""
 "exceeded the maximum tree depth. This can be solved by carefully increasing "
 "'Maximum tree depth'."
 msgstr[0] ""
-"ハミルトニアンモンテカルロ法は効率が悪いかもしれません -- %i 点の推移がが最大"
-"ツリーの深さ(treedepth)を超えました。これは、「最大treedepth」を注意深く増や"
-"すことで解決できます。"
+"ハミルトニアン・モンテカルロの手続きが非効率な可能性があります。%i 回の遷移が"
+"最大ツリー深度を超えました。「最大ツリー深度」を慎重に大きくすれば解決できま"
+"す。"
 
 msgid ""
 "WAIC estimate unreliable -- There was %1.0f p_waic estimate larger than 0.4. "
