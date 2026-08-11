@@ -77,10 +77,10 @@ msgid "df"
 msgstr "自由度"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "ChiSq"
-msgstr ""
+msgstr "卡方"
 
 msgid "p"
 msgstr "p"
@@ -89,7 +89,7 @@ msgid "p (bootstrap)"
 msgstr "p（拔靴法）"
 
 msgid "VS-MPR"
-msgstr ""
+msgstr "VS-MPR"
 
 msgid "VS-MPR (bootstrap)"
 msgstr "VS-MPR (拔靴法)"
@@ -101,10 +101,10 @@ msgid "Note:"
 msgstr "附註："
 
 msgid "III"
-msgstr ""
+msgstr "III"
 
 msgid "II"
-msgstr ""
+msgstr "II"
 
 msgid "'%1$s' level coded as success."
 msgstr "'%1$s' 層級編碼為成功。"
@@ -221,13 +221,13 @@ msgid "Row"
 msgstr "列"
 
 msgid "z"
-msgstr ""
+msgstr "z"
 
 msgid "Median"
 msgstr "中位數"
 
 msgid "%s%% HPD"
-msgstr ""
+msgstr "%s%% 最高後驗密度區間"
 
 msgid "Estimated Trends"
 msgstr "估計趨勢"
@@ -259,16 +259,16 @@ msgid "Fit Statistics"
 msgstr "配適統計量"
 
 msgid "WAIC"
-msgstr ""
+msgstr "WAIC"
 
 msgid "SE (WAIC)"
 msgstr "標準誤 (WAIC)"
 
 msgid "LOO"
-msgstr ""
+msgstr "LOO"
 
 msgid "SE (LOO)"
-msgstr ""
+msgstr "SE（LOO）"
 
 msgid "Model summary"
 msgstr "模型摘要"
@@ -286,13 +286,13 @@ msgid "Level"
 msgstr "水準"
 
 msgid "R-hat"
-msgstr ""
+msgstr "R-hat"
 
 msgid "ESS (bulk)"
-msgstr ""
+msgstr "ESS（主體）"
 
 msgid "ESS (tail)"
-msgstr ""
+msgstr "ESS（尾部）"
 
 msgid ""
 "The model could not be estimated. Please, check the options and dataset for "
@@ -407,37 +407,37 @@ msgid "Results are averaged over the levels of: %s."
 msgstr "結果已對以下層級取平均：%s"
 
 msgid "Bernoulli"
-msgstr ""
+msgstr "伯努利"
 
 msgid "binomial"
-msgstr ""
+msgstr "二項"
 
 msgid "Gaussian"
-msgstr ""
+msgstr "高斯"
 
 msgid "gamma"
-msgstr ""
+msgstr "伽瑪"
 
 msgid "inverseGaussian"
-msgstr ""
+msgstr "逆高斯"
 
 msgid "poisson"
-msgstr ""
+msgstr "卜瓦松"
 
 msgid "negative binomial"
-msgstr ""
+msgstr "負二項"
 
 msgid "beta"
-msgstr ""
+msgstr "貝他"
 
 msgid "Generalized linear mixed model with %1$s family and %2$s link function."
 msgstr "廣義線性混合模型，使用 %1$s 族別與 %2$s 連結函數。"
 
 msgid "Satterthwaite"
-msgstr ""
+msgstr "Satterthwaite"
 
 msgid "Kenward-Roger"
-msgstr ""
+msgstr "Kenward-Roger"
 
 msgid "likelihood ratio tests"
 msgstr "似然比檢定"
@@ -455,10 +455,10 @@ msgid "Holm"
 msgstr "Holm 檢定"
 
 msgid "Homel"
-msgstr ""
+msgstr "Homel"
 
 msgid "Hochberg"
-msgstr ""
+msgstr "Hochberg"
 
 msgid "Multivariate-t"
 msgstr "多變量 t"
@@ -467,16 +467,16 @@ msgid "Tukey"
 msgstr "Tukey"
 
 msgid "Benjamini-Hochberg"
-msgstr ""
+msgstr "Benjamini-Hochberg"
 
 msgid "Benjamini-Yekutieli"
-msgstr ""
+msgstr "Benjamini-Yekutieli"
 
 msgid "Scheffé"
 msgstr "Scheffé 檢定"
 
 msgid "Sidak"
-msgstr ""
+msgstr "Sidak"
 
 msgid "Dunnett"
 msgstr "Dunnett檢定"

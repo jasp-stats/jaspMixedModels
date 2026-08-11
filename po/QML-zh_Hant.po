@@ -170,11 +170,11 @@ msgstr "類型"
 
 msgctxt "MixedModelsOptions|"
 msgid "II"
-msgstr ""
+msgstr "II"
 
 msgctxt "MixedModelsOptions|"
 msgid "III"
-msgstr ""
+msgstr "III"
 
 msgctxt "MixedModelsOptions|"
 msgid "Test intercept"
@@ -418,31 +418,31 @@ msgstr "家族"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Binomial"
-msgstr ""
+msgstr "二項"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "高斯"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gamma"
-msgstr ""
+msgstr "伽瑪"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse Gaussian"
-msgstr ""
+msgstr "逆高斯"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Poisson"
-msgstr ""
+msgstr "卜瓦松"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Negative Binomial"
-msgstr ""
+msgstr "負二項"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Beta"
-msgstr ""
+msgstr "貝他"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Link"
@@ -450,19 +450,19 @@ msgstr "連結函數"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Logit"
-msgstr ""
+msgstr "Logit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "Probit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Cauchit"
-msgstr ""
+msgstr "Cauchit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Complementary LogLog"
-msgstr ""
+msgstr "互補 LogLog"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Identity"
@@ -470,11 +470,11 @@ msgstr "恆等"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Log"
-msgstr ""
+msgstr "日誌"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Sqrt"
-msgstr ""
+msgstr "平方根"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse"
@@ -582,23 +582,23 @@ msgstr "家族"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Binomial"
-msgstr ""
+msgstr "二項"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gaussian"
-msgstr ""
+msgstr "高斯"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gamma"
-msgstr ""
+msgstr "伽瑪"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse Gaussian"
-msgstr ""
+msgstr "逆高斯"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Poisson"
-msgstr ""
+msgstr "卜瓦松"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Link"
@@ -606,19 +606,19 @@ msgstr "連結函數"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Logit"
-msgstr ""
+msgstr "Logit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Probit"
-msgstr ""
+msgstr "Probit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Cauchit"
-msgstr ""
+msgstr "Cauchit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Complementary LogLog"
-msgstr ""
+msgstr "互補 LogLog"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Identity"
@@ -626,11 +626,11 @@ msgstr "恆等"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Log"
-msgstr ""
+msgstr "日誌"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Sqrt"
-msgstr ""
+msgstr "平方根"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse"
@@ -802,11 +802,11 @@ msgstr "處理"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Bernoulli"
-msgstr ""
+msgstr "伯努利"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Bernoulli"
-msgstr ""
+msgstr "伯努利"
 
 msgctxt "MixedModelsBOptions|"
 msgid "Number of iterations reserved for burnin."
