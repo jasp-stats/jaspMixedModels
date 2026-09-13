@@ -2,14 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.96.4\n"
 "POT-Creation-Date: 2026-04-25 03:45\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-09-14 02:27+0000\n"
+"Last-Translator: Sohrab Delshad <sdel4030@gmail.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/jasp/"
+"jaspmixedmodels-r/fa/>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid "The categorical fixed effect '%s' must have fewer levels than the overall number of observations."
 msgstr ""
@@ -57,22 +59,22 @@ msgid "Effect"
 msgstr ""
 
 msgid "df"
-msgstr ""
+msgstr "درجه آزادی"
 
 msgid "F"
-msgstr ""
+msgstr "F"
 
 msgid "ChiSq"
 msgstr ""
 
 msgid "p"
-msgstr ""
+msgstr "p"
 
 msgid "p (bootstrap)"
 msgstr ""
 
 msgid "VS-MPR"
-msgstr ""
+msgstr "VS-MPR"
 
 msgid "VS-MPR (bootstrap)"
 msgstr ""
@@ -129,7 +131,7 @@ msgid "Term"
 msgstr ""
 
 msgid "Std. Deviation"
-msgstr ""
+msgstr "انحراف معیار"
 
 msgid "Variance"
 msgstr ""
@@ -150,13 +152,13 @@ msgid "Fixed Effects Estimates"
 msgstr ""
 
 msgid "Estimate"
-msgstr ""
+msgstr "برآورد"
 
 msgid "SE"
-msgstr ""
+msgstr "خطای استاندارد (SE)"
 
 msgid "t"
-msgstr ""
+msgstr "t"
 
 msgid "Plot"
 msgstr ""
@@ -177,16 +179,16 @@ msgid "Estimated Means and Confidence Intervals"
 msgstr ""
 
 msgid "Mean"
-msgstr ""
+msgstr "میانگین"
 
 msgid "Lower"
-msgstr ""
+msgstr "پایین"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "فاصله اطمینان %s%%"
 
 msgid "Upper"
-msgstr ""
+msgstr "بالا"
 
 msgid "Cannot find function: %s"
 msgstr ""
@@ -255,10 +257,11 @@ msgid "%s (marginal means)"
 msgstr ""
 
 msgid "Level"
-msgstr ""
+msgstr "سطح"
 
+#, fuzzy
 msgid "R-hat"
-msgstr ""
+msgstr "R-hat"
 
 msgid "ESS (bulk)"
 msgstr ""
@@ -318,10 +321,10 @@ msgid "P-values correspond to test of null hypothesis against %s."
 msgstr ""
 
 msgid "Results are averaged over the levels of: %s."
-msgstr ""
+msgstr "نتایج روی سطوح زیر میانگین‌گیری شده‌اند: %s."
 
 msgid "Bernoulli"
-msgstr ""
+msgstr "برنولی"
 
 msgid "binomial"
 msgstr ""
@@ -366,7 +369,7 @@ msgid "P-values are not adjusted."
 msgstr ""
 
 msgid "Holm"
-msgstr ""
+msgstr "هولم"
 
 msgid "Homel"
 msgstr ""
@@ -378,7 +381,7 @@ msgid "Multivariate-t"
 msgstr ""
 
 msgid "Tukey"
-msgstr ""
+msgstr "توکی"
 
 msgid "Benjamini-Hochberg"
 msgstr ""
@@ -387,16 +390,16 @@ msgid "Benjamini-Yekutieli"
 msgstr ""
 
 msgid "Scheffé"
-msgstr ""
+msgstr "شفه"
 
 msgid "Sidak"
 msgstr ""
 
 msgid "Dunnett"
-msgstr ""
+msgstr "دانت"
 
 msgid "Bonferroni"
-msgstr ""
+msgstr "بونفرونی"
 
 msgid "P-values are adjusted using %s adjustment."
 msgstr ""
