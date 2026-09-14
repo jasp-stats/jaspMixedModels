@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.96.4\n"
 "POT-Creation-Date: 2026-04-25 03:45\n"
-"PO-Revision-Date: 2026-09-14 02:27+0000\n"
+"PO-Revision-Date: 2026-09-15 03:58+0000\n"
 "Last-Translator: Sohrab Delshad <sdel4030@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/jasp/"
 "jaspmixedmodels-r/fa/>\n"
@@ -134,7 +134,7 @@ msgid "Std. Deviation"
 msgstr "انحراف معیار"
 
 msgid "Variance"
-msgstr ""
+msgstr "واریانس"
 
 msgid "%s: Correlation Estimates"
 msgstr ""
@@ -155,7 +155,7 @@ msgid "Estimate"
 msgstr "برآورد"
 
 msgid "SE"
-msgstr "خطای استاندارد (SE)"
+msgstr "خطای معیار"
 
 msgid "t"
 msgstr "t"
@@ -197,13 +197,13 @@ msgid "Estimated Marginal Means"
 msgstr ""
 
 msgid "Row"
-msgstr ""
+msgstr "ردیف"
 
 msgid "z"
-msgstr ""
+msgstr "z"
 
 msgid "Median"
-msgstr ""
+msgstr "میانه"
 
 msgid "%s%% HPD"
 msgstr ""
@@ -333,7 +333,7 @@ msgid "Gaussian"
 msgstr ""
 
 msgid "gamma"
-msgstr ""
+msgstr "گاما"
 
 msgid "inverseGaussian"
 msgstr ""
@@ -345,7 +345,7 @@ msgid "negative binomial"
 msgstr ""
 
 msgid "beta"
-msgstr ""
+msgstr "بتا"
 
 msgid "Generalized linear mixed model with %1$s family and %2$s link function."
 msgstr ""
