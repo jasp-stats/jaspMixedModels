@@ -612,114 +612,101 @@ context("Linear Mixed Models")
   test_that("ANOVA Summary table results match", {
     table <- results[["results"]][["ANOVAsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list("1, 21.86", "contGamma", 0.582171780033264, 0.31193525663984,
-                                        1, "1, 31.03", "contBinom", 0.986544852893351, 0.000289026282986652,
-                                        1, "1, 25.80", "facExperim", 0.780943389083148, 0.0789670785510523,
-                                        1, "1, 35.71", "facGender", 0.261512376217912, 1.30161608876553,
-                                        1.04880771259372, "1, 66.46", "contGamma<unicode><unicode><unicode>contBinom",
-                                        0.825255324361962, 0.0491348548955305, 1, "1, 57.44", "contGamma<unicode><unicode><unicode>facExperim",
-                                        0.891374917956014, 0.0188160284374158, 1, "1, 64.26", "contBinom<unicode><unicode><unicode>facExperim",
-                                        0.290416618051626, 1.13633532506296, 1.02449876437337, "1, 77.18",
-                                        "contGamma<unicode><unicode><unicode>facGender", 0.6966527576059,
-                                        0.153116712189459, 1, "1, 74.52", "contBinom<unicode><unicode><unicode>facGender",
-                                        0.582020400478242, 0.305643708294029, 1, "1, 71.27", "facExperim<unicode><unicode><unicode>facGender",
-                                        0.0556124822673931, 3.78646994504997, 2.28946202966146, "1, 62.62",
+                                   list("1, 24.95", "contGamma", 0.527100931518472, 0.411415824934018,
+                                        1, "1, 36.43", "contBinom", 0.98574532323958, 0.000323625178438065,
+                                        1, "1, 26.72", "facExperim", 0.768251434771851, 0.088612177384302,
+                                        1, "1, 36.32", "facGender", 0.244857802038136, 1.39729601794193,
+                                        1.06775966369609, "1, 78.38", "contGamma<unicode><unicode><unicode>contBinom",
+                                        0.825179979100828, 0.0491189142055198, 1, "1, 62.85", "contGamma<unicode><unicode><unicode>facExperim",
+                                        0.880307340230056, 0.022859477986458, 1, "1, 71.72", "contBinom<unicode><unicode><unicode>facExperim",
+                                        0.275965622554177, 1.20515503855123, 1.03540530812882, "1, 77.35",
+                                        "contGamma<unicode><unicode><unicode>facGender", 0.679735447841695,
+                                        0.171719093504935, 1, "1, 75.46", "contBinom<unicode><unicode><unicode>facGender",
+                                        0.554057735675456, 0.353248607213513, 1, "1, 72.10", "facExperim<unicode><unicode><unicode>facGender",
+                                        0.0460674924644154, 4.12010221968345, 2.59472918029558, "1, 70.07",
                                         "contGamma<unicode><unicode><unicode>contBinom<unicode><unicode><unicode>facExperim",
-                                        0.298379587407784, 1.09962159693895, 1.01946063212796, "1, 75.18",
+                                        0.279276477118563, 1.18895146215363, 1.03269634921325, "1, 76.77",
                                         "contGamma<unicode><unicode><unicode>contBinom<unicode><unicode><unicode>facGender",
-                                        0.537963831281211, 0.382827864192125, 1, "1, 59.02", "contGamma<unicode><unicode><unicode>facExperim<unicode><unicode><unicode>facGender",
-                                        0.0935207779706305, 2.90579897728263, 1.66007444141911, "1, 75.97",
+                                        0.515347262135336, 0.427142663941378, 1, "1, 62.07", "contGamma<unicode><unicode><unicode>facExperim<unicode><unicode><unicode>facGender",
+                                        0.0747753451225162, 3.28447876885882, 1.89714204225366, "1, 76.56",
                                         "contBinom<unicode><unicode><unicode>facExperim<unicode><unicode><unicode>facGender",
-                                        0.265822237899568, 1.25662381324755, 1.0445328502512, "1, 73.23",
+                                        0.244685652316902, 1.37443886762277, 1.0679770781693, "1, 77.58",
                                         "contGamma<unicode><unicode><unicode>contBinom<unicode><unicode><unicode>facExperim<unicode><unicode><unicode>facGender",
-                                        0.148931563758695, 2.1277223523188, 1.29715123043457))
+                                        0.123483158086117, 2.42500747623673, 1.4243236006837))
   })
 
   test_that("Estimated Marginal Means table results match", {
     table <- results[["results"]][["EMMsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0, -2.8707548076634, 53.3504900361426, 0.161271944866672, -0.779737764116134,
-                                        1, 0.0795438647442738, 0.469228917393325, -1.78746028653276,
-                                        1.10228165384948, 1.82696425671216, 0, 2.03296079621, 3.39473091587362,
-                                        -0.0686383229161619, -0.512102405691351, 2, 0.00362793390019775,
-                                        0.1486633693947, -7.18830958337109, 0.374825759859028, 18.0459609063436,
-                                        0, 6.9366764000834, 54.8820487013315, -0.298548590698996, -1.22276669028592,
-                                        3, 0.00674469955513991, 0.461154092411721, -2.81586699991734,
-                                        0.625669508887925, 10.9108834699388, 1, -2.8707548076634, 74.2044879593499,
-                                        0.327057898927487, -1.5548369614597, 4, 0.478404386707991, 0.944511893818821,
-                                        -0.712476047656419, 2.20895275931467, 1, 1, 2.03296079621, 17.6156942283673,
-                                        -0.170011464578027, -0.553648259283189, 5, 5.37621916510818e-06,
-                                        0.182318490451247, -6.41740429992698, 0.213625330127135, 5639.51241879488,
-                                        1, 6.9366764000834, 75.0721491326038, -0.66708082808354, -2.59441773596485,
-                                        6, 0.0889921442497099, 0.967504233989541, -1.72307341871701,
-                                        1.26025607979777, 1.70875887872865))
+                                   list(0, -2.8707548076634, 74.9163062930063, 0.198742520673073, -0.728981056250254,
+                                        1, 0.0894564762859935, 0.465692277531644, -1.72057282885152,
+                                        1.1264660975964, 1.70355403200964, 0, 2.03296079621, 8.90941853925042,
+                                        -0.0639880354026389, -0.380975227755268, 2, 3.5002445972971e-05,
+                                        0.139908938134265, -7.60486105885221, 0.25299915694999, 1024.36762255107,
+                                        0, 6.9366764000834, 75.7839575146335, -0.326718591478351, -1.23807100986211,
+                                        3, 0.00488664541806936, 0.457560343313052, -2.89954890293156,
+                                        0.584633826905407, 14.1475452433024, 1, -2.8707548076634, 77.9471084477214,
+                                        0.336008134316729, -1.55005927682203, 4, 0.485460533009269,
+                                        0.947359183157623, -0.700887137094226, 2.22207554545549, 1,
+                                        1, 2.03296079621, 17.6878778908743, -0.177006850780954, -0.557374560441862,
+                                        5, 4.4019622754309e-06, 0.180819005745989, -6.50930938329784,
+                                        0.203360858879953, 6776.013568979, 1, 6.9366764000834, 77.9167726113751,
+                                        -0.690021835878638, -2.62147398870453, 6, 0.0854507341922167,
+                                        0.970149685130538, -1.74202173312177, 1.24143031694725, 1.75019816865655
+                                        ))
   })
 
   test_that("Fixed Effects Estimates table results match", {
     table <- results[["results"]][["FEsummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(43.2849442842532, 0.0313691115175071, 0.898865457969666, 0.245372448003178,
-                                        0.127842843696537, "Intercept", 1, 78.4907272023169, -0.0741253867489902,
-                                        0.490881369736284, 0.10709332635926, -0.692156918352934, "contGamma",
-                                        1, 75.87810154047, -0.00469224921382239, 0.984243679008777,
-                                        0.236813614810774, -0.0198141024010453, "contBinom (1)", 1,
-                                        26.2326488187137, 0.0854089489158654, 0.745225230227994, 0.260085409592967,
-                                        0.328388082397741, "facExperim (1)", 1, 45.8623051860287, -0.294953022822834,
-                                        0.22321343589118, 0.238877203490829, -1.23474747071944, "facGender (1)",
-                                        1.09901084201583, 76.9120956383881, 0.027240476131166, 0.794734508926211,
-                                        0.104340717206231, 0.261072348940489, "contGamma<unicode><unicode><unicode>contBinom (1)",
-                                        1, 78.8128225592629, -0.0182562341165608, 0.864044324764509,
-                                        0.106271715562111, -0.171788269531519, "contGamma<unicode><unicode><unicode>facExperim (1)",
-                                        1, 78.8325354937522, 0.296461701351092, 0.216962882353814, 0.238196583613831,
-                                        1.24460937622733, "contBinom (1)<unicode><unicode><unicode>facExperim (1)",
-                                        1.10965629876451, 79.0828813063371, 0.0451249451935157, 0.668932091293796,
-                                        0.105133076344882, 0.429217395346506, "contGamma<unicode><unicode><unicode>facGender (1)",
-                                        1, 78.0608401268388, -0.141898757677572, 0.547547982772011,
-                                        0.234904067573921, -0.604071096525045, "contBinom (1)<unicode><unicode><unicode>facGender (1)",
-                                        1, 78.5587013790743, -0.528818555157972, 0.0276131223196169,
-                                        0.235605435168916, -2.2445091505586, "facExperim (1)<unicode><unicode><unicode>facGender (1)",
-                                        3.71159326898742, 79.9801584513936, -0.131006304676436, 0.217497042610497,
-                                        0.10539469618696, -1.24300661623469, "contGamma<unicode><unicode><unicode>contBinom (1)<unicode><unicode><unicode>facExperim (1)",
-                                        1.10871523403592, 79.5774663338517, 0.0715293555067943, 0.496242054787227,
-                                        0.104643232612373, 0.683554528287159, "contGamma<unicode><unicode><unicode>contBinom (1)<unicode><unicode><unicode>facGender (1)",
-                                        1, 77.716707582409, 0.217885861493866, 0.0401754692380616, 0.104406332072754,
-                                        2.08690274974928, "contGamma<unicode><unicode><unicode>facExperim (1)<unicode><unicode><unicode>facGender (1)",
-                                        2.84859893388209, 76.9755838296766, 0.282631968530419, 0.232390689819394,
-                                        0.234800875267003, 1.20370917786838, "contBinom (1)<unicode><unicode><unicode>facExperim (1)<unicode><unicode><unicode>facGender (1)",
-                                        1.08475509964487, 77.3207322095584, -0.172274430063051, 0.102107363596884,
-                                        0.104133197369099, -1.65436608512485, "contGamma<unicode><unicode><unicode>contBinom (1)<unicode><unicode><unicode>facExperim (1)<unicode><unicode><unicode>facGender (1)",
-                                        1.57900723484226))
+                                   list(38.9223595181119, 0.0403051401365741, 0.869070694356613, 0.24290397667326,
+                                        0.165930342881089, "Intercept", 1, 79.9966325914574, -0.0790977295421294,
+                                        0.462739032235846, 0.107194146507331, -0.737892246165886, "contGamma",
+                                        1, 77.9677962011386, 0.00462850010740863, 0.984474061709385,
+                                        0.237083886121755, 0.0195226262869323, "contBinom (1)", 1, 27.0775042268394,
+                                        0.0848885328957462, 0.746622920404962, 0.260066323368414, 0.32641109312524,
+                                        "facExperim (1)", 1, 34.557471184256, -0.297536577731769, 0.221399566023406,
+                                        0.238927600825048, -1.24530015244926, "facGender (1)", 1.10201874878708,
+                                        77.8763131628069, 0.0255198760735914, 0.80813729068343, 0.104736938990672,
+                                        0.243656882848794, "contGamma<unicode><unicode><unicode>contBinom (1)",
+                                        1, 77.3499162293428, -0.0186048353264092, 0.861520894072381,
+                                        0.106300920095798, -0.175020454288096, "contGamma<unicode><unicode><unicode>facExperim (1)",
+                                        1, 79.9584740758974, 0.289671059825999, 0.228885126864409, 0.238900699812722,
+                                        1.21251658137911, "contBinom (1)<unicode><unicode><unicode>facExperim (1)",
+                                        1.09001594440455, 79.002848351316, 0.0465234405064209, 0.660159064415979,
+                                        0.10540963276791, 0.441358529432084, "contGamma<unicode><unicode><unicode>facGender (1)",
+                                        1, 77.9386004230273, -0.148937150726194, 0.529563485386421,
+                                        0.235847777701331, -0.631496943400512, "contBinom (1)<unicode><unicode><unicode>facGender (1)",
+                                        1, 77.3357065419251, -0.528653922275206, 0.0282536417943189,
+                                        0.236457450896696, -2.23572537160678, "facExperim (1)<unicode><unicode><unicode>facGender (1)",
+                                        3.65077314072331, 81.6768629914167, -0.128432134147293, 0.228138958002737,
+                                        0.105767891000392, -1.2142828313256, "contGamma<unicode><unicode><unicode>contBinom (1)<unicode><unicode><unicode>facExperim (1)",
+                                        1.0911646635785, 79.6854732974108, 0.0733689561028212, 0.487049752003855,
+                                        0.105074559693381, 0.6982561365655, "contGamma<unicode><unicode><unicode>contBinom (1)<unicode><unicode><unicode>facGender (1)",
+                                        1, 75.2343060985007, 0.218094935511541, 0.0407022008486458,
+                                        0.104730647062131, 2.08243662795436, "contGamma<unicode><unicode><unicode>facExperim (1)<unicode><unicode><unicode>facGender (1)",
+                                        2.82317478326911, 77.1190706539896, 0.289063273169157, 0.22391200670058,
+                                        0.235768684339337, 1.22604608826299, "contBinom (1)<unicode><unicode><unicode>facExperim (1)<unicode><unicode><unicode>facGender (1)",
+                                        1.09786969247111, 78.2924248822159, -0.176137077236353, 0.0959135824488616,
+                                        0.104514025226244, -1.68529608208147, "contGamma<unicode><unicode><unicode>contBinom (1)<unicode><unicode><unicode>facExperim (1)<unicode><unicode><unicode>facGender (1)",
+                                        1.63610358413428))
   })
 
-  test_that("facFive.2: Correlation Estimates table results match", {
-    table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE3"]][["data"]]
-    jaspTools::expect_equal_tables(table,
-                                   list(1, "contBinom (0)", 0.999999935295903, 1, "contBinom (1)"))
-  })
-
-  test_that("facFive.3: Correlation Estimates table results match", {
-    table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE4"]][["data"]]
-    jaspTools::expect_equal_tables(table,
-                                   list(1, "facExperim (control)", -1, 1, "facExperim (experimental)"
-                                   ))
-  })
-
-  test_that("facFive.4: Correlation Estimates table results match", {
-    table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_CE5"]][["data"]]
-    jaspTools::expect_equal_tables(table,
-                                   list(1, "facGender (f)", "NaN", 1, "facGender (m)"))
+  test_that("No correlations between random effects are estimated", {
+    collection <- results[["results"]][["REsummary"]][["collection"]]
+    expect_false(any(startsWith(names(collection), "REsummary_CE")))
   })
 
   test_that("Residual Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_RES5"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1.00184306726037, 1.00368953141768))
+                                   list(1.00616413589567, 1.01236626836269))
   })
 
   test_that("facFive: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE1"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(1.72503677196725e-05, 2.97575186463919e-10, "Intercept"))
+                                   list(0.0677549614622954, 0.00459073480275714, "Intercept"))
   })
 
   test_that("facFive.1: Variance Estimates table results match", {
@@ -731,41 +718,37 @@ context("Linear Mixed Models")
   test_that("facFive.2: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE3"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.106389657188666, 0.0113187591567219, "contBinom (0)", 0.0434587898672653,
-                                        0.00188866641672712, "contBinom (1)"))
+                                   list(0, 0, "contBinom (1)"))
   })
 
   test_that("facFive.3: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE4"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0.219098314523001, 0.0480040714268197, "facExperim (control)",
-                                        0.239259357573019, 0.0572450401862539, "facExperim (experimental)"
-                                   ))
+                                   list(0.228131769511605, 0.0520441042604962, "facExperim (1)"))
   })
 
   test_that("facFive.4: Variance Estimates table results match", {
     table <- results[["results"]][["REsummary"]][["collection"]][["REsummary_VE5"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(0, 0, "facGender (f)", 0.153830749254555, 0.0236638994162176,
-                                        "facGender (m)"))
+                                   list(0.0647185533564699, 0.00418849114855424, "facGender (1)"))
   })
 
   test_that("contrasts table results match", {
     table <- results[["results"]][["contrastsMeans"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list("Contrast 1", 76.5733854462045, -0.229910267782834, -1.1077648758173,
-                                        0.60348464880067, 0.440815879402399, -0.521556229087112, 0.647944340251632,
-                                        1, "Contrast 2", 78.340097037507, -0.625606489626483, -2.73832700490179,
-                                        0.557237089331172, 1.06128944612703, -0.589477726278642, 1.48711402564883,
+                                   list("Contrast 1", 83.0044113444804, -0.262730556075712, -1.13773852048114,
+                                        0.551995437117692, 0.439932803497109, -0.597206105085179, 0.612277408329713,
+                                        1, "Contrast 2", 79.6061111142129, -0.66272672579508, -2.77623194351085,
+                                        0.534368068444667, 1.06194840608835, -0.624066783278306, 1.45077849192069,
                                         1))
   })
 
   test_that("contrasts table results match", {
     table <- results[["results"]][["contrastsTrends"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list("Contrast 1", 60.6540434762595, -0.526021613374765, -1.12956167789185,
-                                        0.0864023758112375, 0.301792021302328, -1.74299377135557, 0.0775184511423223,
-                                        1.73874998565184))
+                                   list("Contrast 1", 65.411617255302, -0.529236752035926, -1.10132600580273,
+                                        0.069223625868534, 0.286488729096432, -1.84732137178697, 0.0428525017308735,
+                                        1.99009006329072))
   })
 
   test_that("Plot matches", {
@@ -777,16 +760,17 @@ context("Linear Mixed Models")
   test_that("Estimated Trends table results match", {
     table <- results[["results"]][["trendsSummary"]][["data"]]
     jaspTools::expect_equal_tables(table,
-                                   list(56.753199647102, "control", "f", -0.229658082540996, 1, 1.20140202429229e-45,
-                                        0.199878375509929, 0.170629185821831, -44.173717099975, 0.570916454184659,
-                                        2.96045667292707e+42, 65.5032342521118, "experimental", "f",
-                                        -0.965739613506464, 2, 3.24191668609387e-35, 0.369136701491045,
-                                        -0.22863006893278, -25.0005757532529, 0.508479475640903, 1.42891002183272e+32,
-                                        16.5955003203805, "control", "m", -0.868479457489792, 3, 1.12594782120149e-17,
-                                        0.242738981733067, -0.355392427552934, -38.5409560539426, 0.157694602383924,
-                                        837222256255927, 25.2176592425265, "experimental", "m", -0.206784699294447,
-                                        4, 4.43549662560343e-28, 0.157228483621893, 0.116891763667921,
-                                        -56.4980850269751, 0.440568226630289, 1.3168663306668e+25))
+                                   list(62.1928798155519, "control", "f", -0.222000465198283, 1, 2.1437505300174e-49,
+                                        0.194570190660621, 0.166915811149424, -45.39793150667, 0.555832087497131,
+                                        1.53131563439988e+46, 80.92772067515, "experimental", "f", -0.921817994156582,
+                                        2, 8.42527800446761e-42, 0.346659801612683, -0.232064389220841,
+                                        -26.6314823532255, 0.457689215714899, 4.6167270042172e+38, 20.585632189079,
+                                        "control", "m", -0.826199265089896, 3, 1.94976677214278e-21,
+                                        0.222786462026486, -0.362320940886502, -42.023742626576, 0.101557383316892,
+                                        3956641502107865088, 25.6852740568734, "experimental", "m",
+                                        -0.194526696448178, 4, 4.15978473832453e-29, 0.148586075263185,
+                                        0.111078600789401, -59.8233810501152, 0.416683898026979, 1.35329464330767e+26
+                                        ))
   })
 }
 ### type II, LRT + intercept
