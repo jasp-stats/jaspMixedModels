@@ -131,7 +131,7 @@
 #'    Defaults to \code{FALSE}.
 MixedModelsLMM <- function(
           data = NULL,
-          version = "0.96.1",
+          version = "1",
           formula = NULL,
           bootstrapSamples = 500,
           contrasts = list(),

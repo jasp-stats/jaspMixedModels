@@ -6,7 +6,7 @@
 \usage{
 MixedModelsBGLMM(
   data = NULL,
-  version = "0.96.1",
+  version = "1",
   formula = NULL,
   ciLevel = 0.95,
   contrasts = list(),
@@ -81,8 +81,8 @@ MixedModelsBGLMM(
 
 \item{estimateType, }{Specifies the content of the default output table.
 \itemize{
-  \item \code{"marginalMeans"}: A table for each fixed effects term will be created in the default output and it will show the estimated marginal mean for each of the levels of the terms (or one standard deviation distance for continuous terms).
   \item \code{"deviation"}: A table for each fixed effects term will be created in the default output and it will show the differences from the grand mean for each of the levels of the terms (or one standard deviation distance for continuous terms). This option is selected by default.
+  \item \code{"marginalMeans"}: A table for each fixed effects term will be created in the default output and it will show the estimated marginal mean for each of the levels of the terms (or one standard deviation distance for continuous terms).
 }}
 
 \item{family, }{Distribution function whose likelihood will be used for the dependent variable. Several options are available.}
@@ -100,13 +100,13 @@ Defaults to \code{TRUE}.}
 \item{link, }{Link function that will be used to model the mean parameter of the selected distribution function.
 \itemize{
   \item \code{"logit"}
-  \item \code{"cloglog"}
-  \item \code{"sqrt"}
-  \item \code{"identity"}
-  \item \code{"inverse"}
-  \item \code{"log"}
   \item \code{"probit"}
   \item \code{"cauchit"}
+  \item \code{"cloglog"}
+  \item \code{"identity"}
+  \item \code{"log"}
+  \item \code{"sqrt"}
+  \item \code{"inverse"}
 }}
 
 \item{marginalMeansCiLevel, }{Width of the confidence interval. Set at 95% by default, which can be changed by the user.}

@@ -108,7 +108,7 @@
 #'    Defaults to \code{FALSE}.
 MixedModelsBLMM <- function(
           data = NULL,
-          version = "0.96.1",
+          version = "1",
           formula = NULL,
           ciLevel = 0.95,
           contrasts = list(),

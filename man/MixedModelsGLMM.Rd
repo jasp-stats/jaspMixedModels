@@ -6,7 +6,7 @@
 \usage{
 MixedModelsGLMM(
   data = NULL,
-  version = "0.96.1",
+  version = "1",
   formula = NULL,
   bootstrapSamples = 500,
   contrasts = list(),
@@ -103,14 +103,14 @@ Defaults to \code{FALSE}.}
 
 \item{link, }{Link function that will be used to model the mean parameter of the selected distribution function.
 \itemize{
-  \item \code{"log"}
-  \item \code{"identity"}
-  \item \code{"probit"}
   \item \code{"logit"}
+  \item \code{"probit"}
   \item \code{"cauchit"}
+  \item \code{"cloglog"}
+  \item \code{"identity"}
+  \item \code{"log"}
   \item \code{"sqrt"}
   \item \code{"inverse"}
-  \item \code{"cloglog"}
 }}
 
 \item{marginalMeansCiLevel, }{Width of the confidence interval. Set at 95% by default, which can be changed by the user.}
@@ -222,8 +222,8 @@ Defaults to \code{FALSE}.}
 
 \item{type, }{There are different types of sum of squares. The choice of the type is important when there are multiple factors and when the data are unbalanced. In an unbalanced design, the different levels of the independent variable do not have an equal number of observations (e.g., one group contains more observations than another group). In such cases, the sum of squares type can influence the results.
 \itemize{
-  \item \code{"3"}: Partial sum of squares. It is the reduction of error when each factor is added to a model that includes all the other factors, including interactions with this factor. This type is often selected, because it takes interactions into account (Langsrud, 2003). This type is selected by default and recommended for designs in which the imbalance is not a consequence of imbalance in the population, but due to random variation.
   \item \code{"2"}: Hierarchical/partially sequential sum of squares. It is the reduction of error when each factor is added to a model that includes all the other factors, except those in which the added factor is involved, such as interactions containing it. Langsrud (2003) advises to apply this type for an ANOVA with unbalanced data.
+  \item \code{"3"}: Partial sum of squares. It is the reduction of error when each factor is added to a model that includes all the other factors, including interactions with this factor. This type is often selected, because it takes interactions into account (Langsrud, 2003). This type is selected by default and recommended for designs in which the imbalance is not a consequence of imbalance in the population, but due to random variation.
 }}
 
 \item{varianceCorrelationEstimate, }{Shows the estimated residual variances and variances/correlations of random effects coefficients.
