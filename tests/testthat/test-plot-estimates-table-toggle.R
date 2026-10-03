@@ -13,11 +13,27 @@ context("Linear Mixed Models -- plot estimates table cache")
   Group = rep(c("A", "B"), each = 24),
   Subject = rep(c(paste0("A", 1:6), paste0("B", 1:6)), each = 4)
 )
+class(.plotEstimatesFixture) <- c("plotEstimatesFixture", "data.frame")
+
+as.matrix.plotEstimatesFixture <- function(x, ...) {
+  # The module's collinearity callback applies as.numeric to the complete data
+  # matrix. Encode categorical columns there without changing their model labels.
+  data.matrix(as.data.frame(x), ...)
+}
+registerS3method(
+  "as.matrix",
+  "plotEstimatesFixture",
+  as.matrix.plotEstimatesFixture,
+  envir = asNamespace("base")
+)
 
 .plotEstimatesOptions <- jaspTools::analysisOptions("MixedModelsLMM")
 .plotEstimatesOptions$dependent <- "y"
+.plotEstimatesOptions$dependent.types <- "scale"
 .plotEstimatesOptions$fixedVariables <- c("Time", "Group")
+.plotEstimatesOptions$fixedVariables.types <- c("nominal", "nominal")
 .plotEstimatesOptions$randomVariables <- "Subject"
+.plotEstimatesOptions$randomVariables.types <- "nominal"
 .plotEstimatesOptions$fixedEffects <- list(
   list(components = "Time"),
   list(components = "Group"),
@@ -39,6 +55,7 @@ context("Linear Mixed Models -- plot estimates table cache")
 .plotEstimatesOptions$plotSeparateLines <- list(list(variable = "Group"))
 .plotEstimatesOptions$plotSeparatePlots <- list()
 .plotEstimatesOptions$plotBackgroundData <- "Subject"
+.plotEstimatesOptions$plotBackgroundData.types <- "nominal"
 .plotEstimatesOptions$plotEstimatesTable <- FALSE
 .plotEstimatesOptions$plotTransparency <- 0.7
 .plotEstimatesOptions$plotDodge <- 0.3
@@ -76,10 +93,44 @@ context("Linear Mixed Models -- plot estimates table cache")
 .plotEstimatesOptions$trendsVariables <- list()
 .plotEstimatesOptions$trendsContrast <- FALSE
 
+.plotEstimatesDvWarning <- "Additional arguments ignored: dv"
+.plotEstimatesDeprecationWarnings <- c(
+  "the ‘findbars’ function has moved to the reformulas package. Please update your imports, or ask an upstream package maintainer to do so.\nThis warning is displayed once per session.",
+  "Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\nℹ The deprecated feature was likely used in the afex package.\n  Please report the issue at <https://github.com/singmann/afex/issues>.",
+  "`themeJasp()` was deprecated in jaspGraphs 0.5.2.6.\nℹ Please use `themeJaspRaw()` instead.\nℹ The deprecated feature was likely used in the jaspMixedModels package.\n  Please report the issue to the authors."
+)
+
+.plotEstimatesDeprecationsSeen <- character()
+
+.expectPlotEstimatesWarnings <- function(code, expectedDvWarnings) {
+  warnings <- character()
+  value <- withCallingHandlers(
+    force(code),
+    warning = function(warning) {
+      warningMessage <- conditionMessage(warning)
+      if (identical(warningMessage, .plotEstimatesDvWarning) ||
+          warningMessage %in% .plotEstimatesDeprecationWarnings) {
+        warnings <<- c(warnings, warningMessage)
+        if (warningMessage %in% .plotEstimatesDeprecationWarnings)
+          .plotEstimatesDeprecationsSeen <<- c(.plotEstimatesDeprecationsSeen, warningMessage)
+        invokeRestart("muffleWarning")
+      }
+    }
+  )
+
+  expect_identical(sum(warnings == .plotEstimatesDvWarning), expectedDvWarnings)
+  value
+}
+
 .runCachedPlotEstimatesAnalysis <- function(options) {
   args <- jaspTools:::fetchRunArgs("MixedModelsLMM", options)
   args$name <- "MixedModelsLMMPlotEstimatesToggle"
-  resultObject <- suppressMessages(suppressWarnings(do.call(jaspBase::runJaspResults, args)))
+  resultObject <- suppressMessages(
+    .expectPlotEstimatesWarnings(
+      do.call(jaspBase::runJaspResults, args),
+      expectedDvWarnings = 1L
+    )
+  )
   jsonResults <- jaspTools:::getJsonResultsFromJaspResults(resultObject)
 
   list(
@@ -90,9 +141,13 @@ context("Linear Mixed Models -- plot estimates table cache")
 
 .rerunCachedPlotEstimatesAnalysis <- function(resultObject, options) {
   resultObject$.__enclos_env__$private$changeOptions(jsonlite::toJSON(options))
-  suppressMessages(suppressWarnings(
-    jaspMixedModels:::MixedModelsLMMInternal(resultObject, .plotEstimatesFixture, options)
-  ))
+  expectedDvWarnings <- if (options$plotEstimatesTable) 2L else 1L
+  suppressMessages(
+    .expectPlotEstimatesWarnings(
+      jaspMixedModels:::MixedModelsLMMInternal(resultObject, .plotEstimatesFixture, options),
+      expectedDvWarnings = expectedDvWarnings
+    )
+  )
   resultObject$.__enclos_env__$private$complete()
 
   jsonResults <- jaspTools:::getJsonResultsFromJaspResults(resultObject)
@@ -139,15 +194,20 @@ context("Linear Mixed Models -- plot estimates table cache")
 test_that("plot estimates table follows checkbox changes after the plot completes", {
   oldLanguage <- Sys.getenv("LANGUAGE")
   oldLang <- Sys.getenv("LANG")
+  oldLegacyRngKind <- getOption("jaspLegacyRngKind")
+  options(jaspLegacyRngKind = FALSE)
+  .plotEstimatesDeprecationsSeen <<- character()
   on.exit({
     jaspTools:::.resetRunTimeInternals()
     Sys.setenv(LANGUAGE = oldLanguage, LANG = oldLang)
+    options(jaspLegacyRngKind = oldLegacyRngKind)
   }, add = TRUE)
 
   jaspTools:::initAnalysisRuntime(
     dataset = .plotEstimatesFixture,
     options = .plotEstimatesOptions,
-    makeTests = FALSE
+    makeTests = FALSE,
+    encodedDataset = TRUE
   )
 
   initial <- .runCachedPlotEstimatesAnalysis(.plotEstimatesOptions)
@@ -175,4 +235,10 @@ test_that("plot estimates table follows checkbox changes after the plot complete
   expect_equal(reenabled$results$results$EstimatesTable$data, enabled$results$results$EstimatesTable$data, tolerance = 1e-12)
   expect_equal(.plotEstimatesModelSignature(reenabled$object), initialModel, tolerance = 1e-12)
   expect_equal(reenabled$results$results$ANOVAsummary$data, initialAnova, tolerance = 1e-12)
+
+  deprecationCounts <- table(factor(
+    .plotEstimatesDeprecationsSeen,
+    levels = .plotEstimatesDeprecationWarnings
+  ))
+  expect_true(all(deprecationCounts <= 1L), info = "Plot deprecations must be emitted at most once per session")
 })
