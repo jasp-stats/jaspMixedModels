@@ -1114,6 +1114,7 @@
       "plotLevelsByShape",
       "plotLevelsByLinetype",
       "plotLevelsByFill",
+      "plotEstimatesTable",
       "seed",
       "setSeed"
     )
