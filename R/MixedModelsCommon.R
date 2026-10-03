@@ -235,7 +235,7 @@
 
   return(TRUE)
 }
-.mmModelFormula  <- function(options, dataset) {
+.mmModelFormula  <- function(options, dataset, expandUncorrelated = FALSE) {
 
   # fixed effects
   feTerms  <-  sapply(options[["fixedEffects"]], function(x) paste(unlist(x), collapse = "*"))
@@ -254,6 +254,7 @@
   removedMe     <- list()
   removedTe     <- list()
   addedRe       <- list()
+  reLabels      <- character()
 
   for (tempRe in options[["randomEffects"]]) {
 
@@ -334,6 +335,16 @@
         " Note that the following random effects were removed because they could not be estimated from the data: %1$s.",
         paste0("'", c(meToRemove, teToRemove), "'", collapse = ", ")) else ""))
 
+    # lme4's || only removes correlations between numeric terms, a factor slope would still be estimated as
+    # correlated random effects for each factor level; replacing the terms by their numeric contrast
+    # columns (as in afex::mixed(expand_re = TRUE)) makes || remove all correlations
+    if (expandUncorrelated && !tempRe[["correlations"]] && length(reTerms) > 0) {
+      expandedRe <- .mmExpandRETerms(reTerms, tempHasIntercept, dataset, prefix = paste0(".mmRE", length(randomEffects) + 1, "_"))
+      dataset    <- cbind(dataset, expandedRe$columns)
+      reTerms    <- colnames(expandedRe$columns)
+      reLabels   <- c(reLabels, expandedRe$labels)
+    }
+
     newRe <-
       paste0(
         "(",
@@ -364,9 +375,30 @@
       modelFormula = modelFormula,
       removedMe    = removedMe,
       removedTe    = removedTe,
-      addedRe      = addedRe
+      addedRe      = addedRe,
+      dataset      = dataset,
+      reLabels     = reLabels
     )
   )
+}
+.mmExpandRETerms <- function(terms, intercept, dataset, prefix) {
+
+  # the factors need to have their contrasts set already (.mmSetContrasts)
+  reFormula   <- as.formula(paste0("~", if (intercept) "1" else "0", "+", paste0(terms, collapse = "+")))
+  modelMatrix <- model.matrix(reFormula, data = dataset)
+  modelMatrix <- modelMatrix[, colnames(modelMatrix) != "(Intercept)", drop = FALSE]
+
+  # keep the original column names to label the output
+  labels <- setNames(colnames(modelMatrix), paste0(prefix, seq_len(ncol(modelMatrix))))
+  colnames(modelMatrix) <- names(labels)
+
+  return(list(
+    columns = as.data.frame(modelMatrix),
+    labels  = labels
+  ))
+}
+.mmRELabel       <- function(names, reLabels) {
+  return(ifelse(names %in% names(reLabels), reLabels[names], names))
 }
 .mmSimplifyTerms <- function(terms) {
 
@@ -494,11 +526,12 @@
   dependencies <- c(.mmSwichDependencies(type), seedDependencies)
   mmModel$dependOn(dependencies)
 
-  # specify model formula
-  modelFormula <- .mmModelFormula(options, dataset)
-
   # specify contrasts
   dataset <- .mmSetContrasts(dataset, options)
+
+  # specify model formula (uses the contrasts to expand uncorrelated random slopes)
+  modelFormula <- .mmModelFormula(options, dataset, expandUncorrelated = TRUE)
+  dataset      <- modelFormula$dataset
 
   if (type == "LMM") {
     if (.isInterceptML(options))
@@ -574,7 +607,8 @@
     model            = model,
     removedMe        = modelFormula$removedMe,
     removedTe        = modelFormula$removedTe,
-    addedRe          = modelFormula$addedRe
+    addedRe          = modelFormula$addedRe,
+    reLabels         = modelFormula$reLabels
   )
 
   mmModel$object <- object
@@ -814,7 +848,8 @@
   if (!is.null(jaspResults[["REsummary"]]))
     return()
 
-  model <- jaspResults[["mmModel"]]$object$model
+  model    <- jaspResults[["mmModel"]]$object$model
+  reLabels <- jaspResults[["mmModel"]]$object$reLabels
 
   REsummary <- createJaspContainer(title = gettext("Variance/Correlation Estimates"))
 
@@ -851,7 +886,7 @@
     for (i in 1:length(tempStdDev)) {
 
       tempRow <- list(
-        variable = .mmVariableNames(names(tempStdDev)[i], options$fixedVariables),
+        variable = .mmVariableNames(.mmRELabel(names(tempStdDev)[i], reLabels), options$fixedVariables),
         std      = tempStdDev[i],
         var      = tempStdDev[i]^2
       )
@@ -923,7 +958,8 @@
   if (!is.null(jaspResults[["REEstimatesSummary"]]))
     return()
 
-  model <- jaspResults[["mmModel"]]$object$model
+  model    <- jaspResults[["mmModel"]]$object$model
+  reLabels <- jaspResults[["mmModel"]]$object$reLabels
 
   REEstimatesSummary <- createJaspContainer(title = gettext("Random Effect Estimates"))
   REEstimatesSummary$position <- 5
@@ -958,7 +994,7 @@
 
     tempTable$addColumnInfo(name = "level", title = names(estimates)[gi], type = "string")
     for(j in 1:ncol(tempEstimates)){
-      tempTable$addColumnInfo(name = paste0("col", j), title = colnames(tempEstimates)[j], type = "number")
+      tempTable$addColumnInfo(name = paste0("col", j), title = .mmRELabel(colnames(tempEstimates)[j], reLabels), type = "number")
     }
 
     tempEstimates <- cbind.data.frame("level" = rownames(tempEstimates), tempEstimates)

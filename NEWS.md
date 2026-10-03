@@ -16,6 +16,8 @@
 
 # jaspMixedModels (development version)
 
+## Fixed
+* Linear and Generalized Linear Mixed Models: unticking *Correlations* now also removes the correlations for factor random slopes. Previously, lme4's `||` syntax still estimated a correlated random effect for every level of the factor. The random slopes are now entered as their numeric contrast columns, as in `afex::mixed(expand_re = TRUE)`.
 
 
 ---
