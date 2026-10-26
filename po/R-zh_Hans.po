@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspMixedModels 0.17.2\n"
 "POT-Creation-Date: 2026-02-28 03:23\n"
-"PO-Revision-Date: 2026-07-23 12:01+0000\n"
-"Last-Translator: 陳正昌 <chencc99@gmail.com>\n"
+"PO-Revision-Date: 2026-10-25 12:51+0000\n"
+"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/jasp/jaspmixedmodels-r/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -11,13 +11,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2026.8.dev0\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
-#, fuzzy
 msgid ""
 "The categorical fixed effect '%s' must have fewer levels than the overall "
 "number of observations."
-msgstr "分类固定效应“%s”的级别数必须少于观测值的数量。"
+msgstr "分类固定效应“%s”的水平数必须少于观测总数。"
 
 msgid ""
 "The random effects grouping factor '%s' must have fewer levels than the "
@@ -34,9 +33,8 @@ msgstr "%s 因变量需要为正值"
 msgid "%s requires that the dependent variable is an integer."
 msgstr "%s 因变量需要为整数"
 
-#, fuzzy
 msgid "%s requires that the dependent variable contains only two levels."
-msgstr "%s 因变量需要为正值"
+msgstr "%s 要求因变量仅包含两个水平。"
 
 msgid "%s requires that the number of trials variable is an integer."
 msgstr "%s要求试验次数变量为整数。"
@@ -76,7 +74,7 @@ msgid "Effect"
 msgstr "效应"
 
 msgid "df"
-msgstr "自由度"
+msgstr "df"
 
 msgid "F"
 msgstr "F"
@@ -205,13 +203,13 @@ msgid "Mean"
 msgstr "均值"
 
 msgid "Lower"
-msgstr "下界"
+msgstr "下限"
 
 msgid "%s%% CI"
 msgstr "%s%% 置信区间"
 
 msgid "Upper"
-msgstr "上界"
+msgstr "上限"
 
 msgid "Cannot find function: %s"
 msgstr "找不到函数：%s"
@@ -241,7 +239,7 @@ msgid "contrasts"
 msgstr "对比"
 
 msgid "Odds Ratio"
-msgstr "几率比"
+msgstr "优势比"
 
 msgid "Ratio"
 msgstr "比率"
@@ -283,7 +281,7 @@ msgid "%s (marginal means)"
 msgstr "%s （边际均值）"
 
 msgid "Level"
-msgstr "级别"
+msgstr "水平"
 
 msgid "R-hat"
 msgstr "R-hat"
@@ -386,7 +384,7 @@ msgid "P-values correspond to test of null hypothesis against %s."
 msgstr "p值对应于零假设相对于%s的检验。"
 
 msgid "Results are averaged over the levels of: %s."
-msgstr "结果在以下各因子的级别上取平均：%s。"
+msgstr "结果在以下变量的水平上取平均：%s。"
 
 msgid "Bernoulli"
 msgstr "Bernoulli"
@@ -443,7 +441,7 @@ msgid "Hochberg"
 msgstr "Hochberg"
 
 msgid "Multivariate-t"
-msgstr "多元t"
+msgstr "多元 t"
 
 msgid "Tukey"
 msgstr "Tukey"
