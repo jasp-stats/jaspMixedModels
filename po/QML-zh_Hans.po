@@ -6,6 +6,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Language: zh_Hans\n"
 "X-Qt-Contexts: true\n"
+"PO-Revision-Date: 2026-10-25 12:51+0000\n"
+"Last-Translator: Shun Wang <shuonwang@gmail.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/jasp/jaspmixedmodels-qml/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 msgctxt "Description|"
 msgid "Mixed Models"
@@ -405,7 +411,7 @@ msgstr "高斯分布"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Gamma"
-msgstr "伽马分布"
+msgstr "Gamma 分布"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Inverse Gaussian"
@@ -433,7 +439,7 @@ msgstr "Logit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Probit"
-msgstr "概率"
+msgstr "Probit"
 
 msgctxt "MixedModelsBGLMM|"
 msgid "Cauchit"
@@ -561,7 +567,7 @@ msgstr "高斯分布"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Gamma"
-msgstr "伽玛分布"
+msgstr "Gamma 分布"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Inverse Gaussian"
@@ -581,7 +587,7 @@ msgstr "Logit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Probit"
-msgstr "概率"
+msgstr "Probit"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Cauchit"
@@ -645,7 +651,7 @@ msgstr "P 值调整"
 
 msgctxt "MixedModelsGLMM|"
 msgid "Multivariate-t"
-msgstr "多元-t"
+msgstr "多元 t"
 
 msgctxt "MixedModelsGLMM|"
 msgid "None"
@@ -709,7 +715,7 @@ msgstr "强制 df 估计"
 
 msgctxt "MixedModelsLMM|"
 msgid "Compare marginal means to:"
-msgstr "比较边际均值与:"
+msgstr "比较边际均值与："
 
 msgctxt "MixedModelsLMM|"
 msgid "Specify contrasts"
@@ -721,7 +727,7 @@ msgstr "P 值调整"
 
 msgctxt "MixedModelsLMM|"
 msgid "Multivariate-t"
-msgstr "多元-t"
+msgstr "多元 t"
 
 msgctxt "MixedModelsLMM|"
 msgid "None"
@@ -786,7 +792,7 @@ msgstr "元素宽度"
 
 msgctxt "MixedModelsModel|"
 msgid "Include intercept"
-msgstr "添加截距"
+msgstr "包括截距"
 
 msgctxt "MixedModelsOptions|"
 msgid "Factor contrast"
