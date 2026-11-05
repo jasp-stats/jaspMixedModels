@@ -2538,35 +2538,54 @@
 
     plots  <- createJaspPlot(title = varName, width = 400, height = 300)
 
-    p <- switch(
-      options$mcmcDiagnosticsType,
-      "traceplot"        = .rstanPlotTrace(plotData[[i]]),
-      "scatterplot"      = .rstanPlotScat (plotData[[i]]),
-      "histogram"        = .rstanPlotHist (plotData[[i]]),
-      "density"          = .rstanPlotDens (plotData[[i]]),
-      "autocorrelation"  = .rstanPlotAcor (plotData[[i]])
-    )
+    autocorrelation <- if (options$mcmcDiagnosticsType == "autocorrelation")
+      rstan:::.ac_plot_data(dat = plotData[[i]]$samp, lags = 30, partial = FALSE)
+    else
+      NULL
 
-    if (options$mcmcDiagnosticsType %in% c("histogram", "density")) {
-      p <- jaspGraphs::themeJasp(p, sides = "b")
-      p <- p + ggplot2::theme(
-        axis.title.y = ggplot2::element_blank(),
-        axis.text.y  = ggplot2::element_blank(),
-        axis.ticks.y = ggplot2::element_blank()
+    plots$plotObject <- jaspGraphs::createJaspPlotRecipe(
+      fun = "jaspMixedModels:::.mmDrawDiagnosticPlot",
+      args = list(
+        plotData = plotData[[i]],
+        diagnosticType = options$mcmcDiagnosticsType,
+        traceMargin = 10 * (nchar(options$mcmcSamples - options$mcmcBurnin) - 2),
+        autocorrelation = autocorrelation
       )
-    } else {
-      p <- jaspGraphs::themeJasp(p)
-    }
-
-    if (options$mcmcDiagnosticsType == "traceplot")
-      p <- p + ggplot2::theme(plot.margin = ggplot2::margin(r = 10 * (nchar(options$mcmcSamples - options$mcmcBurnin) - 2)))
-
-    plots$plotObject <- p
+    )
 
     diagnosticPlots[[names(plotData)[i]]] <- plots
   }
 
   return()
+}
+
+# Sampling and autocorrelation calculations stay in the analysis. Only plain
+# samples, realized autocorrelations and drawing settings enter the recipe.
+.mmDrawDiagnosticPlot <- function(plotData, diagnosticType, traceMargin, autocorrelation = NULL) {
+  p <- switch(
+    diagnosticType,
+    "traceplot"        = .rstanPlotTrace(plotData),
+    "scatterplot"      = .rstanPlotScat (plotData),
+    "histogram"        = .rstanPlotHist (plotData),
+    "density"          = .rstanPlotDens (plotData),
+    "autocorrelation"  = .rstanPlotAcor (plotData, acData = autocorrelation)
+  )
+
+  if (diagnosticType %in% c("histogram", "density")) {
+    p <- jaspGraphs::themeJasp(p, sides = "b")
+    p <- p + ggplot2::theme(
+      axis.title.y = ggplot2::element_blank(),
+      axis.text.y  = ggplot2::element_blank(),
+      axis.ticks.y = ggplot2::element_blank()
+    )
+  } else {
+    p <- jaspGraphs::themeJasp(p)
+  }
+
+  if (diagnosticType == "traceplot")
+    p <- p + ggplot2::theme(plot.margin = ggplot2::margin(r = traceMargin))
+
+  p
 }
 
 # helper functions
@@ -2762,12 +2781,15 @@
 
   return(graph)
 }
-.rstanPlotAcor  <- function(plotData, lags = 30) {
+.rstanPlotAcor  <- function(plotData, lags = 30, acData = NULL) {
 
   clrs     <- rep_len(rstan:::rstanvis_aes_ops("chain_colors"), plotData$nchains)
   thm      <- rstan:::rstanvis_theme()
   dots     <- rstan:::.add_aesthetics(list(), c("size", "color", "fill"))
-  acDat    <- rstan:::.ac_plot_data(dat = plotData$samp, lags = lags, partial = FALSE)
+  acDat    <- if (is.null(acData))
+    rstan:::.ac_plot_data(dat = plotData$samp, lags = lags, partial = FALSE)
+  else
+    acData
 
   dots$position <- "dodge"
   dots$stat     <- "summary"
