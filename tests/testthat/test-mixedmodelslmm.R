@@ -912,7 +912,7 @@ context("Linear Mixed Models")
   options$plotCiType <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- FALSE
-  options$plotBackgroundElement <- "boxjitter"
+  options$plotBackgroundElement <- "boxplot"
   options$plotLevelsByColor <- TRUE
   options$plotLevelsByFill <- FALSE
   options$plotLevelsByLinetype <- FALSE
@@ -984,7 +984,6 @@ context("Linear Mixed Models")
   })
 
   test_that("Plot matches", {
-    skip("temporarily disabled due to incompatibility with new ggplot2")
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
     jaspTools::expect_equal_plots(testPlot, "plot-lmm-4")
@@ -1019,7 +1018,7 @@ context("Linear Mixed Models")
   options$plotCiType <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- FALSE
-  options$plotBackgroundElement <- "boxjitter"
+  options$plotBackgroundElement <- "boxplot"
   options$plotLevelsByColor <- TRUE
   options$plotLevelsByFill <- FALSE
   options$plotLevelsByLinetype <- FALSE
@@ -1029,7 +1028,10 @@ context("Linear Mixed Models")
   options$plotSeparateLines <- list()
   options$plotHorizontalAxis <- list(list(variable = "facGender"))
   options$vovkSellke <- FALSE
-  options$randomEffects <- list(list(correlations = TRUE, value = "facFive"))
+  options$randomEffects <- list(list(correlations = TRUE, randomComponents = list(
+    list(randomSlopes = FALSE, value = "facGender"),
+    list(randomSlopes = FALSE, value = "debMiss30"),
+    list(randomSlopes = FALSE, value = c("facGender", "debMiss30"))), value = "facFive"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
   options$randomEffectEstimate <- FALSE
   options$randomVariables <- c("facFive")
@@ -1068,7 +1070,6 @@ context("Linear Mixed Models")
   })
 
   test_that("Plot matches", {
-    skip("temporarily disabled due to incompatibility with new ggplot2")
     plotName <- results[["results"]][["plots"]][["data"]]
     testPlot <- results[["state"]][["figures"]][[plotName]][["obj"]]
     jaspTools::expect_equal_plots(testPlot, "plot-lmm-5")

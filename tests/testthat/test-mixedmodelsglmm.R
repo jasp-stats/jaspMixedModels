@@ -52,7 +52,9 @@ context("Generalized Linear Mixed Models")
   options$vovkSellke <- FALSE
   options$randomEffects <- list(
     list(correlations = TRUE,
-         randomComponents = list(list(randomSlopes = TRUE, value = "Variable1")),
+         randomComponents = list(list(randomSlopes = TRUE, value = "Variable1"),
+                                 list(randomSlopes = FALSE, value = "Variable7"),
+                                 list(randomSlopes = FALSE, value = c("Variable1", "Variable7"))),
          value = "Variable0"))
   options$randomEffects[[1]]$randomComponents[[length(options$randomEffects[[1]]$randomComponents) + 1]] <- list(randomSlopes = TRUE, value = "Intercept")
   options$randomEffectEstimate <- FALSE
@@ -604,7 +606,7 @@ context("Generalized Linear Mixed Models")
   options$plotCiType <- "model"
   options$plotCiLevel <- 0.95
   options$plotEstimatesTable <- TRUE
-  options$plotBackgroundElement <- "boxjitter"
+  options$plotBackgroundElement <- "boxplot"
   options$plotLevelsByColor <- FALSE
   options$plotLevelsByFill <- TRUE
   options$plotLevelsByLinetype <- TRUE

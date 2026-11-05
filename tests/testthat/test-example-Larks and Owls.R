@@ -10,16 +10,15 @@ test_that("MixedModelsGLMM results match", {
   opts <- jaspTools::analysisOptions(jaspFile)
   dataset <- jaspTools::extractDatasetFromJASPFile(jaspFile)
 
-  # Encode and run analysis
-  encoded <- jaspTools:::encodeOptionsAndDataset(opts, dataset)
+  # Run analysis
   set.seed(1)
-  results <- jaspTools::runAnalysis("MixedModelsGLMM", encoded$dataset, encoded$options, encodedDataset = TRUE)
+  results <- jaspTools::runAnalysis("MixedModelsGLMM", dataset, opts)
 
   table <- results[["results"]][["ANOVAsummary"]][["data"]]
   jaspTools::expect_equal_tables(table,
-    list(1, "jaspColumn4", 0.000238027593144753, 13.5042197684816, 2, "jaspColumn2",
-     0.028758135405257, 7.09766916229955, 1, "jaspColumn3", 0.101821747651444,
-     2.67677493125939, 2, "jaspColumn2<unicode><unicode><unicode>jaspColumn3",
+    list(1, "Sleep", 0.000238027593144753, 13.5042197684816, 2, "Chronotype",
+     0.028758135405257, 7.09766916229955, 1, "TimeOfDay", 0.101821747651444,
+     2.67677493125939, 2, "Chronotype<unicode><unicode><unicode>TimeOfDay",
      8.15169092676881e-08, 32.6449107250851))
 
   table <- results[["results"]][["EMMsummary"]][["data"]]
