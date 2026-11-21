@@ -406,14 +406,92 @@
 
   return(dataset)
 }
-.mixedInterceptML   <- function(formula, dataset, type, family = NULL) {
+.mmCreateOptimizerControl <- function(type, options) {
+  # Create optimizer control objects based on user settings
+
+  # Build control arguments from user options
+  control_args <- list()
+
+  # Set optimizer method
+  if (options$optimizerMethod != "default") {
+    control_args$optimizer <- options$optimizerMethod
+  }
+
+  # Build optimizer-specific control list
+  optCtrl <- list()
+
+  if (options$optimizerMethod == "Nelder_Mead") {
+    # Nelder-Mead specific options
+    if (!is.null(options$nelderMeadMaxfun) && options$nelderMeadMaxfun > 0) {
+      optCtrl$maxfun <- options$nelderMeadMaxfun
+    }
+    if (!is.null(options$nelderMeadFtolAbs) && options$nelderMeadFtolAbs > 0) {
+      optCtrl$FtolAbs <- options$nelderMeadFtolAbs
+    }
+    if (!is.null(options$nelderMeadFtolRel) && options$nelderMeadFtolRel > 0) {
+      optCtrl$FtolRel <- options$nelderMeadFtolRel
+    }
+    if (!is.null(options$nelderMeadXtolRel) && options$nelderMeadXtolRel > 0) {
+      optCtrl$XtolRel <- options$nelderMeadXtolRel
+    }
+  } else if (options$optimizerMethod == "bobyqa") {
+    # bobyqa specific options
+    if (!is.null(options$bobyqaNpt) && options$bobyqaNpt > 0) {
+      optCtrl$npt <- options$bobyqaNpt
+    }
+    if (!is.null(options$bobyqaRhobeg) && options$bobyqaRhobeg > 0) {
+      optCtrl$rhobeg <- options$bobyqaRhobeg
+    }
+    if (!is.null(options$bobyqaRhoend) && options$bobyqaRhoend > 0) {
+      optCtrl$rhoend <- options$bobyqaRhoend
+    }
+    if (!is.null(options$bobyqaMaxfun) && options$bobyqaMaxfun > 0) {
+      optCtrl$maxfun <- options$bobyqaMaxfun
+    }
+  } else if (options$optimizerMethod == "nlminb") {
+    # nlminb specific options
+    if (!is.null(options$nlminbTol) && options$nlminbTol > 0) {
+      optCtrl$tol <- options$nlminbTol
+    }
+    if (!is.null(options$nlminbRelTol) && options$nlminbRelTol > 0) {
+      optCtrl$relTol <- options$nlminbRelTol
+    }
+    if (!is.null(options$nlminbMaxit) && options$nlminbMaxit > 0) {
+      optCtrl$maxit <- options$nlminbMaxit
+    }
+  } else {
+    # Default and BFGS: use generic options
+    if (!is.null(options$optimizerMaxIter) && options$optimizerMaxIter > 0) {
+      optCtrl$maxit <- options$optimizerMaxIter
+    }
+    if (!is.null(options$optimizerTolerance) && options$optimizerTolerance > 0) {
+      optCtrl$reltol <- options$optimizerTolerance
+    }
+  }
+
+  if (length(optCtrl) > 0) {
+    control_args$optCtrl <- optCtrl
+  }
+
+  # Create appropriate control object
+  if (type == "LMM") {
+    return(do.call(lme4::lmerControl, control_args))
+  } else if (type == "GLMM") {
+    return(do.call(lme4::glmerControl, control_args))
+  }
+}
+
+.mixedInterceptML   <- function(formula, dataset, type, family = NULL, options = NULL) {
   # this is a simple function to fit a mixed-effects model with a fixed intercept only
   # because afex does not allow those models for GLMMs (or LMMs with LRT/PB)
+  lmControl <<- .mmCreateOptimizerControl(type, options)
+
   if (type == "LMM") {
     fit <- lmerTest::lmer(
       formula         = formula,
       data            = dataset,
-      REML            = FALSE
+      REML            = FALSE,
+      control         = lmControl
     )
   } else if (type == "GLMM") {
     fit <- lme4::glmer(
@@ -469,7 +547,6 @@
   return(added)
 }
 .mmFitModel      <- function(jaspResults, dataset, options, type = "LMM") {
-
   if (!is.null(jaspResults[["mmModel"]]))
     return()
 
@@ -500,13 +577,19 @@
   # specify contrasts
   dataset <- .mmSetContrasts(dataset, options)
 
+  # the control arguments needs to be assigned outside of the call because
+  # forwarding the call crashes afex
+  lmControl <<- .mmCreateOptimizerControl(type, options)
+
   if (type == "LMM") {
     if (.isInterceptML(options))
       model <- try(
         .mixedInterceptML(
           formula         = as.formula(modelFormula$modelFormula),
           data            = dataset,
-          type            = "LMM"
+          type            = "LMM",
+          options         = options,
+          control         = lmControl
         ))
     else
       model <- try(
@@ -517,7 +600,8 @@
           method          = .mmGetTestMethod(options),
           test_intercept  = .mmGetTestIntercept(options),
           args_test       = list(nsim = options$bootstrapSamples),
-          check_contrasts = FALSE
+          check_contrasts = FALSE,
+          control         = lmControl
         ))
   } else if (type == "GLMM") {
     # needs to be evaluated in the global environment
@@ -542,7 +626,8 @@
           args_test       = list(nsim = options$bootstrapSamples),
           check_contrasts = FALSE,
           family          = glmmFamily,
-          weights         = glmmWeight
+          weights         = glmmWeight,
+          control         = lmControl
         ))
     } else {
       if (.isInterceptML(options))
@@ -551,7 +636,9 @@
             formula         = as.formula(modelFormula$modelFormula),
             data            = dataset,
             family          = glmmFamily,
-            type            = "GLMM"
+            type            = "GLMM",
+            options         = options,
+            control         = lmControl
           ))
       else
         model <- try(
@@ -564,7 +651,8 @@
             args_test       = list(nsim = options$bootstrapSamples),
             check_contrasts = FALSE,
             #start           = start,
-            family          = glmmFamily
+            family          = glmmFamily,
+            control         = lmControl
         ))
     }
   }
