@@ -121,10 +121,14 @@
   )
 
   # the aggregation variable for bernoulli can have zero variance and can be without factor levels
+  # only a numeric variable has a variance: stats::var() fails on a factor, and then the whole check is skipped
+  checkDataset     <- dataset[, checkVariables, drop = FALSE]
+  numericVariables <- colnames(checkDataset)[vapply(checkDataset, is.numeric, logical(1))]
   .hasErrors(
-    dataset[, checkVariables],
+    checkDataset,
     type = c('variance', 'factorLevels'),
     factorLevels.amount  = "< 2",
+    variance.target      = numericVariables,
     exitAnalysisIfErrors = TRUE,
     custom = .mmCustomChecks
   )
@@ -2784,10 +2788,17 @@
 
 .mmCustomChecks <- list(
   collinCheck = function(dataset) {
-    corMat       <- cor(apply(dataset,2,as.numeric))
+    # the numeric variables only: a factor has no numeric values (as.numeric() gave NA, so cor() gave NA)
+    numericData <- dataset[, vapply(dataset, is.numeric, logical(1)), drop = FALSE]
+    if (ncol(numericData) < 2)
+      return()
+
+    corMat       <- suppressWarnings(cor(numericData))
     diag(corMat) <- 0
     corMat[lower.tri(corMat)] <- 0
     nearOne <- 1 - abs(corMat) < sqrt(.Machine$double.eps)
+    # a variable without variance has no correlation: the variance check reports it
+    nearOne[is.na(nearOne)] <- FALSE
 
     if (any(nearOne)) {
       varInd   <- which(nearOne, arr.ind = TRUE)
